@@ -55,7 +55,6 @@ def build_blueprint(blog_title, tags_id, tag_name):
             "current_page": page_param,
             "total_pages": int(total_pages),
             "articles": articles,
-            "categories": categories,
             "used_categories": category_cache,
         }
 
