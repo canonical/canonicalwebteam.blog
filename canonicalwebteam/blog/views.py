@@ -88,7 +88,7 @@ def build_blueprint(blog_title, tags_id, tag_name):
     @blog.route("/<slug>")
     def article(slug):
         try:
-            articles = api.get_article(slug)
+            articles = api.get_article(tags_id, slug)
         except Exception:
             return flask.abort(502)
 
