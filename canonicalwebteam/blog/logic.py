@@ -11,9 +11,9 @@ def strip_excerpt(raw_html):
 
     :returns: The stripped string
     """
-    cleanr = re.compile("<.*?>")
-    cleantext = re.sub(cleanr, "", raw_html)
-    return html.unescape(cleantext).replace("\n", "")
+    clean_regex = re.compile("<.*?>")
+    clean_text = re.sub(clean_regex, "", raw_html)
+    return html.unescape(clean_text).replace("\n", "")
 
 
 def replace_images_with_cloudinary(content):
@@ -27,23 +27,23 @@ def replace_images_with_cloudinary(content):
     cloudinary = "https://res.cloudinary.com/"
 
     urls = [
-        cloudinary + "canonical/image/fetch/q_auto,f_auto,w_350/\g<url>",
-        cloudinary + "canonical/image/fetch/q_auto,f_auto,w_650/\g<url>",
-        cloudinary + "canonical/image/fetch/q_auto,f_auto,w_1300/\g<url>",
-        cloudinary + "canonical/image/fetch/q_auto,f_auto,w_1950/\g<url>",
+        cloudinary + r"canonical/image/fetch/q_auto,f_auto,w_350/\g<url>",
+        cloudinary + r"canonical/image/fetch/q_auto,f_auto,w_650/\g<url>",
+        cloudinary + r"canonical/image/fetch/q_auto,f_auto,w_1300/\g<url>",
+        cloudinary + r"canonical/image/fetch/q_auto,f_auto,w_1950/\g<url>",
     ]
 
     image_match = (
         r'<img(?P<prefix>[^>]*) src="(?P<url>[^"]+)"(?P<suffix>[^>]*)>'
     )
     replacement = (
-        "<img\g<prefix>"
+        r"<img\g<prefix>"
         f' decoding="async"'
         f' src="{urls[1]}"'
         f' srcset="{urls[0]} 350w, {urls[1]} 650w, {urls[2]} 1300w,'
         f' {urls[3]} 1950w"'
         f' sizes="(max-width: 400px) 350w, 650px"'
-        "\g<suffix>>"
+        r"\g<suffix>>"
     )
 
     return re.sub(image_match, replacement, content)
@@ -101,14 +101,14 @@ def transform_article(
 
 
 def change_url(feed, host):
-    """Change insights urls to snapcraft.io/blog
+    """Change insights urls to <host>/blog
 
     :param feed: String with urls
 
     :returns: A string with converted urls
     """
     url_regex = re.compile(
-        "https:\/\/admin.insights.ubuntu.com(\/\d{4}\/\d{2}\/\d{2})?"
+        r"https://admin.insights.ubuntu.com(\/\d{4}\/\d{2}\/\d{2})?"
     )
     updated_feed = re.sub(url_regex, host, feed)
 
@@ -141,16 +141,3 @@ def is_in_series(tags):
             return True
 
     return False
-
-
-def whitelist_categories(categories):
-    whitelist = [
-        "Articles",
-        "Canonical News",
-        "Case studies",
-        "Design",
-        "Desktop",
-        "Development",
-    ]
-
-    return [item for item in categories if item["name"] in whitelist]

@@ -1,7 +1,7 @@
 import flask
 
-from webapp.blog_ext import api
-from webapp.blog_ext import logic
+from canonicalwebteam.blog import wordpress_api as api
+from canonicalwebteam.blog import logic
 
 
 def build_blueprint(blog_title, tags_id, tag_name):
@@ -12,33 +12,12 @@ def build_blueprint(blog_title, tags_id, tag_name):
     @blog.route("/")
     def homepage():
         page_param = flask.request.args.get("page", default=1, type=int)
-        filter = flask.request.args.get("filter", default=None, type=str)
-
-        if filter == "all":
-            filter = None
-
-        try:
-            categories_list = api.get_categories()
-        except Exception:
-            categories_list = []
-
-        categories = logic.whitelist_categories(categories_list)
-
-        filter_category = next(
-            (
-                item["id"]
-                for item in categories
-                if item["name"].lower() == filter
-            ),
-            None,
-        )
 
         try:
             articles, total_pages = api.get_articles(
-                tags=tags_id, page=page_param, category=filter_category
+                tags=tags_id, page=page_param
             )
-        except Exception as e:
-            print(e)
+        except Exception:
             return flask.abort(502)
 
         category_cache = {}
@@ -78,7 +57,6 @@ def build_blueprint(blog_title, tags_id, tag_name):
             "articles": articles,
             "categories": categories,
             "used_categories": category_cache,
-            "filter": filter,
         }
 
         return flask.render_template("blog/index.html", **context)

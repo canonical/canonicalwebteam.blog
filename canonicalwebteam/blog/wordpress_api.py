@@ -112,7 +112,6 @@ def get_user(user_id):
 
 
 def get_feed(tag):
-    """"""
     response = api_session.get(
         "https://admin.insights.ubuntu.com/?tag={}&feed=rss".format(tag)
     )

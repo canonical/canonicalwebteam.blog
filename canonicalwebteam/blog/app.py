@@ -1,4 +1,4 @@
-from webapp.blog_ext.views import build_blueprint
+from canonicalwebteam.blog.views import build_blueprint
 
 
 class BlogExtension(object):
