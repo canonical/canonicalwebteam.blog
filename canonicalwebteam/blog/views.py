@@ -21,6 +21,7 @@ def build_blueprint(blog_title, tags_id, tag_name):
             return flask.abort(502)
 
         category_cache = {}
+        group_cache = {}
 
         for article in articles:
             try:
@@ -39,6 +40,10 @@ def build_blueprint(blog_title, tags_id, tag_name):
                 if category_id not in category_cache:
                     category_cache[category_id] = {}
 
+            group_id = article["group"][0]
+            if group_id not in group_cache:
+                group_cache[group_id] = {}
+
             article = logic.transform_article(
                 article, featured_image=featured_image, author=author
             )
@@ -51,11 +56,20 @@ def build_blueprint(blog_title, tags_id, tag_name):
 
             category_cache[key] = resolved_category
 
+        for key, group in group_cache.items():
+            try:
+                resolved_group = api.get_group_by_id(key)
+            except Exception:
+                resolved_group = None
+
+            group_cache[key] = resolved_group
+
         context = {
             "current_page": page_param,
             "total_pages": int(total_pages),
             "articles": articles,
             "used_categories": category_cache,
+            "groups": group_cache,
         }
 
         return flask.render_template("blog/index.html", **context)
