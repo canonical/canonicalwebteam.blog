@@ -52,7 +52,7 @@ def replace_images_with_cloudinary(content):
 def transform_article(
     article, featured_image=None, author=None, optimise_images=False
 ):
-    """Transform article to include featured image, human readable
+    """Transform article to include featured image, a group, human readable
     date and a stipped version of the excerpt
 
     :param article: The raw article object
@@ -87,6 +87,8 @@ def transform_article(
         article["excerpt"]["raw"] = "".join(
             [raw_article_start, raw_article_end, " […]"]
         )
+    if "group" in article and len(article["group"]) > 0:
+        article["group"] = article["group"][0]
 
     if (
         optimise_images

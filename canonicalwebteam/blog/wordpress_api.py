@@ -83,6 +83,14 @@ def get_categories():
     return process_response(response)
 
 
+def get_group_by_id(id):
+    url = "".join([API_URL, "/group/", str(id)])
+
+    response = api_session.get(url)
+
+    return process_response(response)
+
+
 def get_category_by_id(id):
     url = "".join([API_URL, "/categories/", str(id)])
 
