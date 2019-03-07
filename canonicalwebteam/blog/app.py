@@ -1,4 +1,4 @@
-from canonicalwebteam.blog.views import build_blueprint
+from canonicalwebteam.blog.flask.views import build_blueprint
 
 
 class BlogExtension(object):
