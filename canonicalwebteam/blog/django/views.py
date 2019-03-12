@@ -1,149 +1,60 @@
-from django.http import JsonResponse
-from django.shortcuts import render
-from django.template.loader import get_template
+from django.conf import settings
+from django.http import HttpResponseNotFound, HttpResponse
+from django.shortcuts import render, redirect
 from canonicalwebteam.blog import wordpress_api as api
+from canonicalwebteam.blog import logic
+from canonicalwebteam.blog.common_view_logic import (
+    get_index_context,
+    get_article_context,
+)
 
-
-def test(request):
-    data = {"route": "test"}
-    return render(request, "test.html", data)
+tags_id = settings.TAGS_ID
+blog_title = settings.BLOG_TITLE
+tag_name = settings.TAG_NAME
 
 
 def index(request):
-    data = {"route": "index"}
-    return JsonResponse(data)
 
-    def homepage():
-        page_param = flask.request.args.get("page", default=1, type=int)
+    page_param = request.GET.get("page", default=1)
 
-        try:
-            articles, total_pages = api.get_articles(
-                tags=tags_id, page=page_param
-            )
-        except Exception:
-            return flask.abort(502)
+    try:
+        articles, total_pages = api.get_articles(tags=tags_id, page=page_param)
+    except Exception:
+        return HttpResponse(status=502)
 
-        category_cache = {}
-        group_cache = {}
+    context = get_index_context(page_param, articles, total_pages)
 
-        for article in articles:
-            try:
-                featured_image = api.get_media(article["featured_media"])
-            except Exception:
-                featured_image = None
+    return render(request, "blog/index.html", context)
 
-            try:
-                author = api.get_user(article["author"])
-            except Exception:
-                author = None
 
-            category_ids = article["categories"]
+def feed(request):
+    try:
+        feed = api.get_feed(tag_name)
+    except Exception as e:
+        print(e)
+        return HttpResponse(status=502)
 
-            for category_id in category_ids:
-                if category_id not in category_cache:
-                    category_cache[category_id] = {}
+    right_urls = logic.change_url(
+        feed, request.build_absolute_uri().replace("/feed", "")
+    )
 
-            group_id = article["group"][0]
-            if group_id not in group_cache:
-                group_cache[group_id] = {}
+    right_title = right_urls.replace("Ubuntu Blog", blog_title)
 
-            article = logic.transform_article(
-                article, featured_image=featured_image, author=author
-            )
+    return HttpResponse(right_title, status=200, content_type="txt/xml")
 
-        for key, category in category_cache.items():
-            try:
-                resolved_category = api.get_category_by_id(key)
-            except Exception:
-                resolved_category = None
 
-            category_cache[key] = resolved_category
+def article_redirect(request, slug, year=None, month=None, day=None):
+    return redirect("article", slug=slug)
 
-        for key, group in group_cache.items():
-            try:
-                resolved_group = api.get_group_by_id(key)
-            except Exception:
-                resolved_group = None
 
-            group_cache[key] = resolved_group
+def article(request, slug):
+    try:
+        articles = api.get_article(tags_id, slug)
+    except Exception:
+        return HttpResponse(status=502)
 
-        context = {
-            "current_page": page_param,
-            "total_pages": int(total_pages),
-            "articles": articles,
-            "used_categories": category_cache,
-            "groups": group_cache,
-        }
+    if not articles:
+        return HttpResponseNotFound("Article not found")
+    context = get_article_context(articles)
 
-        return flask.render_template("blog/index.html", **context)
-
-    def feed():
-        try:
-            feed = api.get_feed(tag_name)
-        except Exception as e:
-            print(e)
-            return flask.abort(502)
-
-        right_urls = logic.change_url(
-            feed, flask.request.base_url.replace("/feed", "")
-        )
-
-        right_title = right_urls.replace("Ubuntu Blog", blog_title)
-
-        return flask.Response(right_title, mimetype="text/xml")
-
-    def article_redirect(slug, year, month=None, day=None):
-        return flask.redirect(flask.url_for(".article", slug=slug))
-
-    def article(slug):
-        try:
-            articles = api.get_article(tags_id, slug)
-        except Exception:
-            return flask.abort(502)
-
-        if not articles:
-            flask.abort(404, "Article not found")
-
-        article = articles[0]
-
-        try:
-            author = api.get_user(article["author"])
-        except Exception:
-            author = None
-
-        transformed_article = logic.transform_article(
-            article, author=author, optimise_images=True
-        )
-
-        tags = article["tags"]
-        tag_names = []
-        try:
-            tag_names_response = api.get_tags_by_ids(tags)
-        except Exception:
-            tag_names_response = None
-
-        if tag_names_response:
-            for tag in tag_names_response:
-                tag_names.append({"id": tag["id"], "name": tag["name"]})
-
-        is_in_series = logic.is_in_series(tag_names)
-
-        try:
-            related_articles, total_pages = api.get_articles(
-                tags=tags, per_page=3, exclude=article["id"]
-            )
-        except Exception:
-            related_articles = None
-
-        if related_articles:
-            for related_article in related_articles:
-                related_article = logic.transform_article(related_article)
-
-        context = {
-            "article": transformed_article,
-            "related_articles": related_articles,
-            "tags": tag_names,
-            "is_in_series": is_in_series,
-        }
-
-        return flask.render_template("blog/article.html", **context)
+    return render(request, "blog/article.html", context)
