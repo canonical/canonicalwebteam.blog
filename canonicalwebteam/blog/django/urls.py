@@ -1,19 +1,47 @@
-from django.conf.urls import url
+from django.urls import path, register_converter
 from .views import index, article_redirect, article, feed
 
 
+class FourDigitYearConverter:
+    regex = "[0-9]{4}"
+
+    def to_python(self, value):
+        return int(value)
+
+    def to_url(self, value):
+        return "%04d" % value
+
+
+class TwoDigitMonthConverter:
+    regex = "[0-9]{2}"
+
+    def to_python(self, value):
+        return int(value)
+
+    def to_url(self, value):
+        return "%02d" % value
+
+
+class TwoDigitDayConverter:
+    regex = "[0-9]{2}"
+
+    def to_python(self, value):
+        return int(value)
+
+    def to_url(self, value):
+        return "%02d" % value
+
+
+register_converter(FourDigitYearConverter, "yyyy")
+register_converter(TwoDigitMonthConverter, "mm")
+register_converter(TwoDigitDayConverter, "dd")
+
+
 urlpatterns = [
-    url(
-        r"(?P<year>[0-9]{4})/(?P<month>[0-9]{2})"
-        + "/(?P<day>[0-9]{2})/(?P<slug>\w+)",
-        article_redirect,
-    ),
-    url(
-        r"(?P<year>[0-9]{4})/(?P<month>[0-9]{2})/(?P<slug>\w+)",
-        article_redirect,
-    ),
-    url(r"(?P<year>[0-9]{4})/(?P<slug>\w+)", article_redirect),
-    url(r"feed", feed),
-    url(r"(?P<slug>\w+)", article, name="article"),
-    url(r"", index),
+    path(r"<yyyy:year>/<mm:month>/<dd:day>/<slug>)", article_redirect),
+    path(r"<yyyy:year>/<mm:month>/(<slug>)", article_redirect),
+    path(r"<yyyy:year>/<slug>)", article_redirect),
+    path(r"feed", feed),
+    path(r"<slug>", article, name="article"),
+    path(r"", index),
 ]
