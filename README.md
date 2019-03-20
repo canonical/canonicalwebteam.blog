@@ -36,16 +36,14 @@ urlpatterns = [path(r"blog/", include("canonicalwebteam.blog.django.urls"))]
 ```
 - In your Django project settings (`settings.py`) you have to specify the following parameters:
 ```python
-# the ids for tags that should be fetched for this blog
-TAGS_ID = [ID]
-
-# the title of the blog
-BLOG_TITLE = "TITLE OF THE BLOG"
-
-# the tag name for generating a feed
-TAG_NAME = "TAG NAME FOR GENERATING A FEED"
-
-# TAG_NAME
+BLOG_CONFIG = {
+    # the id for tags that should be fetched for this blog
+    "TAGS_ID": [3184],
+    # the title of the blog
+    "BLOG_TITLE": "TITLE OF THE BLOG",
+    # the tag name for generating a feed
+    "TAG_NAME": "TAG NAME FOR GENERATING A FEED",
+}
 ```
 - You can now use the data from the blog. To display it the module expects templates at `blog/index.html`, `blog/article.html` and `blog/blog-card.html`. Inspiration can be found at https://github.com/canonical-websites/jp.ubuntu.com/tree/master/templates/blog.
 

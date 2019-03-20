@@ -8,9 +8,9 @@ from canonicalwebteam.blog.common_view_logic import (
     get_article_context,
 )
 
-tags_id = settings.TAGS_ID
-blog_title = settings.BLOG_TITLE
-tag_name = settings.TAG_NAME
+tags_id = settings.BLOG_CONFIG.TAGS_ID
+blog_title = settings.BLOG_CONFIG.BLOG_TITLE
+tag_name = settings.BLOG_CONFIG.TAG_NAME
 
 
 def index(request):
@@ -30,8 +30,7 @@ def index(request):
 def feed(request):
     try:
         feed = api.get_feed(tag_name)
-    except Exception as e:
-        print(e)
+    except Exception:
         return HttpResponse(status=502)
 
     right_urls = logic.change_url(
