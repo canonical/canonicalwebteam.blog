@@ -7,14 +7,13 @@ setup(
     version="0.1.4",
     author="Canonical webteam",
     author_email="webteam@canonical.com",
-    url="https://github.com/canonical-webteam/blog-flask-extension",
+    url="https://github.com/canonical-webteam/blog-extension",
     description=(
-        "Flask extension to add a nice blog to your website"
+        "Flask extension and Django App to add a nice blog to your website"
     ),
     packages=find_packages(),
     long_description=open("README.md").read(),
-    install_requires=[
-        "canonicalwebteam.http==1.0.1",
-        "Flask==1.0.2",
-    ],
+    install_requires=["canonicalwebteam.http==1.0.1"],
+    extra_require={"flask": ["Flask>=1.0.2"], "django": ["django>=2.0.11"]},
+    test_suite="tests",
 )
