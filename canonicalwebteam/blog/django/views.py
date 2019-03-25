@@ -8,9 +8,9 @@ from canonicalwebteam.blog.common_view_logic import (
     get_article_context,
 )
 
-tags_id = settings.BLOG_CONFIG.TAGS_ID
-blog_title = settings.BLOG_CONFIG.BLOG_TITLE
-tag_name = settings.BLOG_CONFIG.TAG_NAME
+tags_id = settings.BLOG_CONFIG["TAGS_ID"]
+blog_title = settings.BLOG_CONFIG["BLOG_TITLE"]
+tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 
 
 def index(request):
