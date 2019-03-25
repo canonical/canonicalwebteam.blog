@@ -1,5 +1,10 @@
 from django.urls import path, register_converter
-from .views import index, article_redirect, article, feed
+from canonicalwebteam.blog.django.views import (
+    index,
+    article_redirect,
+    article,
+    feed,
+)
 
 
 class FourDigitYearConverter:

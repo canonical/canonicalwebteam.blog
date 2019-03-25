@@ -21,13 +21,15 @@ def process_response(response):
 def get_articles(tags, per_page=12, page=1, exclude=None, category=None):
     url_parts = [
         API_URL,
-        "/posts?tags=",
-        "".join(str(tag) for tag in tags),
+        "/posts?",
         "&per_page=",
         str(per_page),
         "&page=",
         str(page),
     ]
+
+    if tags:
+        url_parts = url_parts + ["&tags=", str(tags)]
 
     if exclude:
         url_parts = url_parts + ["&exclude=", str(exclude)]
@@ -43,16 +45,16 @@ def get_articles(tags, per_page=12, page=1, exclude=None, category=None):
     return process_response(response), total_pages
 
 
-def get_article(tags, slug):
-    url = "".join(
-        [
-            API_URL,
-            "/posts?slug=",
-            slug,
-            "&tags=",
-            "".join(str(tag) for tag in tags),
-        ]
-    )
+def get_article(slug, tags=None, excluded_tags=None):
+    url = "".join([API_URL, "/posts?slug=", slug])
+    if tags:
+        url = url + "&tags=" + ",".join(str(tag) for tag in tags)
+    if excluded_tags:
+        url = (
+            url
+            + "&tags_exclude="
+            + ",".join((str(tag) for tag in excluded_tags))
+        )
 
     response = api_session.get(url)
 
