@@ -5,7 +5,6 @@ from canonicalwebteam.blog.common_view_logic import (
     get_index_context,
     get_article_context,
 )
-from canonicalwebteam.blog import wordpress_api as api
 
 
 class TestCommonViewLogic(unittest.TestCase):
