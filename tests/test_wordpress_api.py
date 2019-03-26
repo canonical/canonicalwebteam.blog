@@ -2,7 +2,6 @@ import unittest
 
 from unittest.mock import patch
 from canonicalwebteam.blog import wordpress_api as api
-from canonicalwebteam.http import CachedSession
 
 
 class MockResponse:
@@ -20,7 +19,8 @@ class TestWordPressApi(unittest.TestCase):
 
         article = api.get_article(slug="test")
         get.assert_called_once_with(
-            "https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=test"
+            "https://admin.insights.ubuntu.com/wp-json/wp/v2/"
+            + "posts?slug=test&tags=&tags_exclude="
         )
         self.assertEqual(article, "hello_test")
 
@@ -29,10 +29,10 @@ class TestWordPressApi(unittest.TestCase):
 
         get.return_value = MockResponse()
 
-        article = api.get_article(slug="test", excluded_tags=[1234, 5678])
+        article = api.get_article(slug="test", tags_exclude=[1234, 5678])
         get.assert_called_once_with(
             "https://admin.insights.ubuntu.com/"
-            + "wp-json/wp/v2/posts?slug=test&tags_exclude=1234,5678"
+            + "wp-json/wp/v2/posts?slug=test&tags=&tags_exclude=1234,5678"
         )
         self.assertEqual(article, "hello_test")
 
@@ -45,6 +45,7 @@ class TestWordPressApi(unittest.TestCase):
         get.assert_called_once_with(
             "https://admin.insights.ubuntu.com/"
             + "wp-json/wp/v2/posts?slug=test&tags=1234,5678"
+            + "&tags_exclude="
         )
         self.assertEqual(article, "hello_test")
 
@@ -54,7 +55,7 @@ class TestWordPressApi(unittest.TestCase):
         get.return_value = MockResponse()
 
         article = api.get_article(
-            slug="test", tags=[1234, 5678], excluded_tags=[9876]
+            slug="test", tags=[1234, 5678], tags_exclude=[9876]
         )
         get.assert_called_once_with(
             "https://admin.insights.ubuntu.com/"

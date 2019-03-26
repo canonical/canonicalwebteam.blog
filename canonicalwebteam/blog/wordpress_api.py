@@ -18,26 +18,30 @@ def process_response(response):
     return response.json()
 
 
-def get_articles(tags, per_page=12, page=1, exclude=None, category=None):
-    url_parts = [
-        API_URL,
-        "/posts?",
-        "&per_page=",
-        str(per_page),
-        "&page=",
-        str(page),
-    ]
-
-    if tags:
-        url_parts = url_parts + ["&tags=", str(tags)]
-
-    if exclude:
-        url_parts = url_parts + ["&exclude=", str(exclude)]
-
-    if category:
-        url_parts = url_parts + ["&categories=", str(category)]
-
-    url = "".join(url_parts)
+def get_articles(
+    tags=None,
+    per_page=12,
+    page=1,
+    tags_exclude=[],
+    exclude=None,
+    categories=None,
+):
+    """
+    Get articles from Wordpress api
+    :param tags: Comma separated string of tags to fetch articles for
+    :param per_page: Articles to get per page
+    :param page: Page number to get
+    :param tags_exclude: Array of IDs of tags that will be excluded
+    :param exclude: Comma separated string of article IDs to be excluded
+    :param category: Comma separated list of categories, which articles
+        should be fetched
+    """
+    url = (
+        f"{API_URL}/posts?per_page={per_page}&tags={tags}",
+        f"&page={page}",
+        f"&tags_exclude={','.join(str(id) for id in tags_exclude)}",
+        f"&categories={categories}&exclude={exclude}",
+    )
 
     response = api_session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
@@ -45,16 +49,19 @@ def get_articles(tags, per_page=12, page=1, exclude=None, category=None):
     return process_response(response), total_pages
 
 
-def get_article(slug, tags=None, excluded_tags=None):
-    url = "".join([API_URL, "/posts?slug=", slug])
-    if tags:
-        url = url + "&tags=" + ",".join(str(tag) for tag in tags)
-    if excluded_tags:
-        url = (
-            url
-            + "&tags_exclude="
-            + ",".join((str(tag) for tag in excluded_tags))
-        )
+def get_article(slug, tags=[], tags_exclude=[]):
+    """
+    Get an article from Wordpress api
+    :param slug: Article slug to fetch
+    :param tags: Array tags to fetch articles for
+    :param tags_exclude: Array of IDs of tags that will be excluded
+        should be fetched
+    """
+    url = (
+        f"{API_URL}/posts?slug={slug}"
+        f"&tags={','.join(str(id) for id in tags)}"
+        f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
+    )
 
     response = api_session.get(url)
 
