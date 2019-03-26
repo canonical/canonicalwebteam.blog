@@ -24,9 +24,9 @@ def get_index_context(page_param, articles, total_pages):
             if category_id not in category_cache:
                 category_cache[category_id] = {}
 
-        group_id = article["group"][0]
-        if group_id not in group_cache:
-            group_cache[group_id] = {}
+        for group_id in article["group"]:
+            if group_id not in group_cache:
+                group_cache[group_id] = {}
 
         article = logic.transform_article(
             article, featured_image=featured_image, author=author

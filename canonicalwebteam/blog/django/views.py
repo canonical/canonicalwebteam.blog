@@ -8,21 +8,24 @@ from canonicalwebteam.blog.common_view_logic import (
     get_article_context,
 )
 
-tags_id = settings.BLOG_CONFIG.TAGS_ID
-blog_title = settings.BLOG_CONFIG.BLOG_TITLE
-tag_name = settings.BLOG_CONFIG.TAG_NAME
+tags_id = settings.BLOG_CONFIG["TAGS_ID"]
+excluded_tags = settings.BLOG_CONFIG["EXCLUDED_TAGS"]
+blog_title = settings.BLOG_CONFIG["BLOG_TITLE"]
+tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 
 
 def index(request):
-
     page_param = request.GET.get("page", default=1)
 
     try:
-        articles, total_pages = api.get_articles(tags=tags_id, page=page_param)
+        articles, total_pages = api.get_articles(
+            tags=tags_id, exclude=excluded_tags, page=page_param
+        )
     except Exception:
         return HttpResponse(status=502)
 
     context = get_index_context(page_param, articles, total_pages)
+    context["title"] = blog_title
 
     return render(request, "blog/index.html", context)
 
