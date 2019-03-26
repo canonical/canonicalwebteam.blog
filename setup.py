@@ -14,6 +14,7 @@ setup(
     packages=find_packages(),
     long_description=open("README.md").read(),
     install_requires=["canonicalwebteam.http==1.0.1"],
+    tests_require=["Flask>=1.0.2", "django>=2.0.11"],
     extra_require={"flask": ["Flask>=1.0.2"], "django": ["django>=2.0.11"]},
     test_suite="tests",
 )
