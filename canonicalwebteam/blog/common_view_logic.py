@@ -1,11 +1,11 @@
 from canonicalwebteam.blog import wordpress_api as api
 from canonicalwebteam.blog import logic
 
+category_cache = {}
+group_cache = {}
+
 
 def get_index_context(page_param, articles, total_pages):
-
-    category_cache = {}
-    group_cache = {}
 
     for article in articles:
         try:
@@ -20,33 +20,33 @@ def get_index_context(page_param, articles, total_pages):
 
         category_ids = article["categories"]
 
+        # Can these calls be bundled?
+        first_item = True
         for category_id in category_ids:
             if category_id not in category_cache:
-                category_cache[category_id] = {}
-
+                try:
+                    resolved_category = api.get_category_by_id(category_id)
+                except Exception:
+                    resolved_category = None
+                category_cache[category_id] = resolved_category
+            if first_item:
+                article["display_category"] = category_cache[category_id]
+                first_item = False
+        first_item = True
         for group_id in article["group"]:
             if group_id not in group_cache:
-                group_cache[group_id] = {}
+                try:
+                    resolved_group = api.get_group_by_id(group_id)
+                except Exception:
+                    resolved_group = None
+                group_cache[group_id] = resolved_group
+            if first_item:
+                article["group"] = group_cache[group_id]
+                first_item = False
 
         article = logic.transform_article(
             article, featured_image=featured_image, author=author
         )
-
-    for key, category in category_cache.items():
-        try:
-            resolved_category = api.get_category_by_id(key)
-        except Exception:
-            resolved_category = None
-
-        category_cache[key] = resolved_category
-
-    for key, group in group_cache.items():
-        try:
-            resolved_group = api.get_group_by_id(key)
-        except Exception:
-            resolved_group = None
-
-        group_cache[key] = resolved_group
 
     return {
         "current_page": int(page_param),
@@ -93,6 +93,16 @@ def get_article_context(articles):
     if related_articles:
         for related_article in related_articles:
             related_article = logic.transform_article(related_article)
+
+    for group_id in article["group"]:
+        if group_id not in group_cache:
+            try:
+                resolved_group = api.get_group_by_id(group_id)
+            except Exception:
+                resolved_group = None
+            group_cache[group_id] = resolved_group
+            article["group"] = resolved_group
+            break
 
     return {
         "article": transformed_article,
