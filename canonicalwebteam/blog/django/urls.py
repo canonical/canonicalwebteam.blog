@@ -43,10 +43,10 @@ register_converter(TwoDigitDayConverter, "dd")
 
 
 urlpatterns = [
-    path(r"<yyyy:year>/<mm:month>/<dd:day>/<slug>", article_redirect),
-    path(r"<yyyy:year>/<mm:month>/<slug>", article_redirect),
-    path(r"<yyyy:year>/<slug>", article_redirect),
-    path(r"feed", feed),
-    path(r"<slug>", article, name="article"),
+    path(r"/<yyyy:year>/<mm:month>/<dd:day>/<slug:slug>", article_redirect),
+    path(r"/<yyyy:year>/<mm:month>/<slug:slug>", article_redirect),
+    path(r"/<yyyy:year>/<slug:slug>", article_redirect),
+    path(r"/feed", feed),
+    path(r"/<slug:slug>", article, name="article"),
     path(r"", index),
 ]
