@@ -110,6 +110,50 @@ class TestCommonViewLogic(unittest.TestCase):
         }
         self.assertEqual(context, expected_context)
 
+    def test_building_index_context_with_params_as_strings(self):
+        articles = [
+            {
+                "featured_media": "test",
+                "author": "test",
+                "categories": [1, 2],
+                "group": [1],
+                "tags": ["test"],
+            },
+            {
+                "featured_media": "test2",
+                "author": "test2",
+                "categories": [2, 3],
+                "group": [1],
+                "tags": ["test2"],
+            },
+        ]
+        context = get_index_context("1", articles, "2")
+        expected_context = {
+            "current_page": 1,
+            "total_pages": 2,
+            "articles": [
+                {
+                    "author": None,
+                    "categories": [1, 2],
+                    "featured_media": "test",
+                    "group": 1,
+                    "image": None,
+                    "tags": ["test"],
+                },
+                {
+                    "author": None,
+                    "categories": [2, 3],
+                    "featured_media": "test2",
+                    "group": 1,
+                    "image": None,
+                    "tags": ["test2"],
+                },
+            ],
+            "groups": {1: None},
+            "used_categories": {1: None, 2: None, 3: None},
+        }
+        self.assertEqual(context, expected_context)
+
     @patch("canonicalwebteam.blog.wordpress_api.get_tags_by_ids")
     @patch("canonicalwebteam.blog.wordpress_api.get_articles")
     @patch("canonicalwebteam.blog.wordpress_api.get_user")

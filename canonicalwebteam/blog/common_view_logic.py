@@ -49,7 +49,7 @@ def get_index_context(page_param, articles, total_pages):
         group_cache[key] = resolved_group
 
     return {
-        "current_page": page_param,
+        "current_page": int(page_param),
         "total_pages": int(total_pages),
         "articles": articles,
         "used_categories": category_cache,
