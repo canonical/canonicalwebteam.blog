@@ -6,6 +6,12 @@ group_cache = {}
 
 
 def get_index_context(page_param, articles, total_pages):
+    """
+    Build the content for the index page
+    :param page_param: String or int for index of the page to get
+    :param articles: Array of articles
+    :param articles: String of int of total amount of pages
+    """
 
     for article in articles:
         try:
@@ -57,9 +63,11 @@ def get_index_context(page_param, articles, total_pages):
     }
 
 
-def get_article_context(articles):
-
-    article = articles[0]
+def get_article_context(article):
+    """
+    Build the content for the an article page
+    :param article: Article to create context for
+    """
 
     try:
         author = api.get_user(article["author"])

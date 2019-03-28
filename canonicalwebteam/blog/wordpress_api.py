@@ -62,7 +62,11 @@ def get_article(slug="", tags=[], tags_exclude=[]):
 
     response = api_session.get(url)
 
-    return process_response(response)
+    data = process_response(response)
+    if len(data) > 0:
+        return data[0]
+    else:
+        return None
 
 
 def get_tag_by_name(name):

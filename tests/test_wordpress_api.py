@@ -8,7 +8,7 @@ class MockResponse:
     ok = True
 
     def json(self):
-        return "hello_test"
+        return ["hello_test"]
 
     headers = {"X-WP-TotalPages": 12}
 
@@ -81,7 +81,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, ("hello_test", 12))
+        self.assertEqual(article, (["hello_test"], 12))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_getting_all_articles(self, get):
@@ -99,7 +99,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, ("hello_test", 12))
+        self.assertEqual(article, (["hello_test"], 12))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_excluding_articles(self, get):
@@ -117,7 +117,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, ("hello_test", 12))
+        self.assertEqual(article, (["hello_test"], 12))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_including_articles(self, get):
@@ -135,7 +135,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, ("hello_test", 12))
+        self.assertEqual(article, (["hello_test"], 12))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_including_and_excluding_articles(self, get):
@@ -153,7 +153,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, ("hello_test", 12))
+        self.assertEqual(article, (["hello_test"], 12))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_get_articles_for_category(self, get):
@@ -171,4 +171,4 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories=5678"
             + "&exclude="
         )
-        self.assertEqual(article, ("hello_test", 12))
+        self.assertEqual(article, (["hello_test"], 12))

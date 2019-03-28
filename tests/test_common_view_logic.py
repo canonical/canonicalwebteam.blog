@@ -161,17 +161,16 @@ class TestCommonViewLogic(unittest.TestCase):
             {"id": 1, "name": "test_tag_1"},
             {"id": 2, "name": "test_tag_2"},
         ]
-        articles = [
-            {
-                "id": 1,
-                "featured_media": "test",
-                "author": "test",
-                "categories": [1, 2],
-                "group": [1],
-                "tags": ["test"],
-            }
-        ]
-        context = get_article_context(articles)
+        article = {
+            "id": 1,
+            "featured_media": "test",
+            "author": "test",
+            "categories": [1, 2],
+            "group": [1],
+            "tags": ["test"],
+        }
+
+        context = get_article_context(article)
         expected_context = {
             "article": {
                 "id": 1,
