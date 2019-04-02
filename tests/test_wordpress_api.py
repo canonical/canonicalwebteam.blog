@@ -10,6 +10,9 @@ class MockResponse:
     def json(self):
         return ["hello_test"]
 
+    def raise_for_status(*args):
+        pass
+
     headers = {"X-WP-TotalPages": 12}
 
 

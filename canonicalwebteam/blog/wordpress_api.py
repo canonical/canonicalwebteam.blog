@@ -12,8 +12,7 @@ api_session = CachedSession(fallback_cache_duration=3600)
 
 
 def process_response(response):
-    if not response.ok:
-        raise Exception("Error from api: " + response.status_code)
+    response.raise_for_status()
 
     return response.json()
 
