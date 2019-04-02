@@ -74,7 +74,7 @@ def get_article_context(article):
     is_in_series = logic.is_in_series(tag_names)
 
     related_articles, total_pages = api.get_articles(
-        tags=tags, per_page=3, exclude=article["id"]
+        tags=tags, per_page=3, exclude=[article["id"]]
     )
 
     if related_articles:
