@@ -21,8 +21,8 @@ def index(request):
         articles, total_pages = api.get_articles(
             tags=tags_id, exclude=excluded_tags, page=page_param
         )
-    except Exception:
-        return HttpResponse(status=502)
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
 
     context = get_index_context(page_param, articles, total_pages)
     context["title"] = blog_title
@@ -33,8 +33,8 @@ def index(request):
 def feed(request):
     try:
         feed = api.get_feed(tag_name)
-    except Exception:
-        return HttpResponse(status=502)
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
 
     right_urls = logic.change_url(
         feed, request.build_absolute_uri().replace("/feed", "")
@@ -51,12 +51,12 @@ def article_redirect(request, slug, year=None, month=None, day=None):
 
 def article(request, slug):
     try:
-        articles = api.get_article(tags_id, slug)
-    except Exception:
-        return HttpResponse(status=502)
+        article = api.get_article(slug, tags_id)
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
 
-    if not articles:
+    if not article:
         return HttpResponseNotFound("Article not found")
-    context = get_article_context(articles)
+    context = get_article_context(article)
 
     return render(request, "blog/article.html", context)

@@ -87,9 +87,6 @@ def transform_article(
         article["excerpt"]["raw"] = "".join(
             [raw_article_start, raw_article_end, " […]"]
         )
-    if "group" in article and len(article["group"]) > 0:
-        article["group"] = article["group"][0]
-
     if (
         optimise_images
         and "content" in article
