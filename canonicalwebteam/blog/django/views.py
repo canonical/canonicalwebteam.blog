@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.http import HttpResponseNotFound, HttpResponse
+from django.http import HttpResponseNotFound, HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from canonicalwebteam.blog import wordpress_api as api
 from canonicalwebteam.blog import logic
@@ -60,3 +60,29 @@ def article(request, slug):
     context = get_article_context(article)
 
     return render(request, "blog/article.html", context)
+
+
+def latest_news(request):
+    try:
+        latest_articles = api.get_articles(
+            tags=tags_id,
+            exclude=excluded_tags,
+            page=2,
+            per_page=3,
+            sticky=False,
+        )
+        latest_pinned_articles = api.get_articles(
+            tags=tags_id,
+            exclude=excluded_tags,
+            page=1,
+            per_page=1,
+            sticky=True,
+        )
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
+    return JsonResponse(
+        {
+            "latest_articles": latest_articles,
+            "latest_pinned_articles": latest_pinned_articles,
+        }
+    )

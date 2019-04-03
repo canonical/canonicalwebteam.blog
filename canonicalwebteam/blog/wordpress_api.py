@@ -18,7 +18,13 @@ def process_response(response):
 
 
 def get_articles(
-    tags=[], per_page=12, page=1, tags_exclude=[], exclude=[], categories=[]
+    tags=[],
+    per_page=12,
+    page=1,
+    tags_exclude=[],
+    exclude=[],
+    categories=[],
+    sticky="",
 ):
     """
     Get articles from Wordpress api
@@ -37,6 +43,7 @@ def get_articles(
         f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
         f"&categories={','.join(str(id) for id in categories)}"
         f"&exclude={','.join(str(id) for id in exclude)}"
+        f"&sticky={sticky}"
     )
 
     response = api_session.get(url)

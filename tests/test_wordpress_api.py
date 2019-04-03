@@ -83,6 +83,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude="
             + "&categories="
             + "&exclude="
+            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -101,6 +102,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude="
             + "&categories="
             + "&exclude="
+            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -119,6 +121,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude=1234,5678"
             + "&categories="
             + "&exclude="
+            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -137,6 +140,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude="
             + "&categories="
             + "&exclude="
+            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -155,6 +159,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude=9876"
             + "&categories="
             + "&exclude="
+            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -173,5 +178,25 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude="
             + "&categories=5678"
             + "&exclude="
+            + "&sticky="
+        )
+        self.assertEqual(article, (["hello_test"], 12))
+
+    @patch("canonicalwebteam.http.CachedSession.get")
+    def test_getting_sticky_only(self, get):
+
+        get.return_value = MockResponse()
+
+        article = api.get_articles(sticky=True)
+        get.assert_called_once_with(
+            "https://admin.insights.ubuntu.com/"
+            + "wp-json/wp/v2/posts?"
+            + "per_page=12"
+            + "&tags="
+            + "&page=1"
+            + "&tags_exclude="
+            + "&categories="
+            + "&exclude="
+            + "&sticky=True"
         )
         self.assertEqual(article, (["hello_test"], 12))
