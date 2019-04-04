@@ -8,7 +8,7 @@ from canonicalwebteam.blog.common_view_logic import (
 )
 
 
-def build_blueprint(blog_title, tags_id, tag_name):
+def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
     blog = flask.Blueprint(
         "blog", __name__, template_folder="/templates", static_folder="/static"
     )
@@ -66,5 +66,32 @@ def build_blueprint(blog_title, tags_id, tag_name):
         context = get_article_context(articles)
 
         return flask.render_template("blog/article.html", **context)
+
+    @blog.route("/latest-news")
+    def latest_news():
+        try:
+            latest_articles = api.get_articles(
+                tags=tags_id,
+                exclude=excluded_tags,
+                page=1,
+                per_page=3,
+                sticky=False,
+            )
+            latest_pinned_articles = api.get_articles(
+                tags=tags_id,
+                exclude=excluded_tags,
+                page=1,
+                per_page=1,
+                sticky=True,
+            )
+        except Exception:
+            return flask.jsonify({"Error": "An error ocurred"}), 502
+
+        return flask.jsonify(
+            {
+                "latest_articles": latest_articles,
+                "latest_pinned_articles": latest_pinned_articles,
+            }
+        )
 
     return blog
