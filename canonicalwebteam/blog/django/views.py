@@ -63,11 +63,12 @@ def article(request, slug):
 
 
 def latest_news(request):
+
     try:
         latest_articles = api.get_articles(
             tags=tags_id,
             exclude=excluded_tags,
-            page=2,
+            page=1,
             per_page=3,
             sticky=False,
         )
@@ -78,8 +79,8 @@ def latest_news(request):
             per_page=1,
             sticky=True,
         )
-    except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+    except Exception:
+        return JsonResponse({"Error": "An error ocurred"}, status=502)
     return JsonResponse(
         {
             "latest_articles": latest_articles,

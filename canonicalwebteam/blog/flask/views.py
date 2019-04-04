@@ -73,7 +73,7 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
             latest_articles = api.get_articles(
                 tags=tags_id,
                 exclude=excluded_tags,
-                page=2,
+                page=1,
                 per_page=3,
                 sticky=False,
             )
@@ -84,9 +84,8 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
                 per_page=1,
                 sticky=True,
             )
-        except Exception as e:
-            print(e)
-            return flask.abort(502)
+        except Exception:
+            return flask.jsonify({"Error": "An error ocurred"}), 502
 
         return flask.jsonify(
             {

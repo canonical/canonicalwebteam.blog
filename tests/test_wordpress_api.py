@@ -83,7 +83,6 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude="
             + "&categories="
             + "&exclude="
-            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -102,7 +101,6 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude="
             + "&categories="
             + "&exclude="
-            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -121,7 +119,6 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude=1234,5678"
             + "&categories="
             + "&exclude="
-            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -140,7 +137,6 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude="
             + "&categories="
             + "&exclude="
-            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -159,7 +155,6 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude=9876"
             + "&categories="
             + "&exclude="
-            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 
@@ -178,7 +173,6 @@ class TestWordPressApi(unittest.TestCase):
             + "&tags_exclude="
             + "&categories=5678"
             + "&exclude="
-            + "&sticky="
         )
         self.assertEqual(article, (["hello_test"], 12))
 

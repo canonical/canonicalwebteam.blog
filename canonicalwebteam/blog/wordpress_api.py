@@ -43,8 +43,9 @@ def get_articles(
         f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
         f"&categories={','.join(str(id) for id in categories)}"
         f"&exclude={','.join(str(id) for id in exclude)}"
-        f"&sticky={sticky}"
     )
+    if sticky != "":
+        url = url + f"&sticky={sticky}"
 
     response = api_session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
