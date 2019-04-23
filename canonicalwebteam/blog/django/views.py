@@ -65,13 +65,6 @@ def article(request, slug):
 def latest_news(request):
 
     try:
-        latest_articles = api.get_articles(
-            tags=tags_id,
-            exclude=excluded_tags,
-            page=1,
-            per_page=3,
-            sticky=False,
-        )
         latest_pinned_articles = api.get_articles(
             tags=tags_id,
             exclude=excluded_tags,
@@ -79,6 +72,24 @@ def latest_news(request):
             per_page=1,
             sticky=True,
         )
+        # check if the number of returned articles is 0
+        if len(latest_pinned_articles[0]) == 0:
+            latest_articles = api.get_articles(
+                tags=tags_id,
+                exclude=excluded_tags,
+                page=1,
+                per_page=4,
+                sticky=False,
+            )
+        else:
+            latest_articles = api.get_articles(
+                tags=tags_id,
+                exclude=excluded_tags,
+                page=1,
+                per_page=3,
+                sticky=False,
+            )
+
     except Exception:
         return JsonResponse({"Error": "An error ocurred"}, status=502)
     return JsonResponse(

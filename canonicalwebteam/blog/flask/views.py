@@ -70,13 +70,6 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
     @blog.route("/latest-news")
     def latest_news():
         try:
-            latest_articles = api.get_articles(
-                tags=tags_id,
-                exclude=excluded_tags,
-                page=1,
-                per_page=3,
-                sticky=False,
-            )
             latest_pinned_articles = api.get_articles(
                 tags=tags_id,
                 exclude=excluded_tags,
@@ -84,6 +77,23 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
                 per_page=1,
                 sticky=True,
             )
+            # check if the number of returned articles is 0
+            if len(latest_pinned_articles[0]) == 0:
+                latest_articles = api.get_articles(
+                    tags=tags_id,
+                    exclude=excluded_tags,
+                    page=1,
+                    per_page=4,
+                    sticky=False,
+                )
+            else:
+                latest_articles = api.get_articles(
+                    tags=tags_id,
+                    exclude=excluded_tags,
+                    page=1,
+                    per_page=3,
+                    sticky=False,
+                )
         except Exception:
             return flask.jsonify({"Error": "An error ocurred"}), 502
 
