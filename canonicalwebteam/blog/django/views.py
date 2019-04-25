@@ -51,7 +51,7 @@ def article_redirect(request, slug, year=None, month=None, day=None):
 
 def article(request, slug):
     try:
-        article = api.get_article(slug, tags_id)
+        article = api.get_article(slug)
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
 

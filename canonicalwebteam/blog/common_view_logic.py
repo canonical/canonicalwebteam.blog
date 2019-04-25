@@ -53,7 +53,7 @@ def get_index_context(page_param, articles, total_pages):
 
 def get_article_context(article):
     """
-    Build the content for the an article page
+    Build the content for the article page
     :param article: Article to create context for
     """
 
