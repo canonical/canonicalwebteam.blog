@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="canonicalwebteam.blog",
-    version="1.3.4",
+    version="1.3.5",
     author="Canonical webteam",
     author_email="webteam@canonical.com",
     url="https://github.com/canonical-webteam/blog-extension",
