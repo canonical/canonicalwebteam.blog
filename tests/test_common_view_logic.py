@@ -201,3 +201,85 @@ class TestCommonViewLogic(unittest.TestCase):
 
         self.maxDiff = None
         self.assertEqual(context, expected_context)
+
+    @patch("canonicalwebteam.blog.wordpress_api.get_tags_by_ids")
+    @patch("canonicalwebteam.blog.wordpress_api.get_articles")
+    @patch("canonicalwebteam.blog.wordpress_api.get_user")
+    @patch("canonicalwebteam.blog.wordpress_api.get_media")
+    @patch("canonicalwebteam.blog.wordpress_api.get_group_by_id")
+    def test_building_article_context_with_only_certain_related_posts(
+        self,
+        get_group_by_id,
+        get_media,
+        get_user,
+        get_articles,
+        get_tags_by_id,
+    ):
+        get_media.return_value = "test_image"
+        get_group_by_id.return_value = "test_group"
+        get_articles.return_value = (
+            [
+                {
+                    "id": 2,
+                    "featured_media": "test_related_article_image",
+                    "author": "test_related_article_author",
+                    "categories": [4, 5],
+                    "group": [4],
+                    "tags": ["test_related_article"],
+                },
+                {
+                    "id": 2,
+                    "featured_media": "test_related_article_image",
+                    "author": "test_related_article_author",
+                    "categories": [4, 5],
+                    "group": [4],
+                    "tags": ["test_related_article2"],
+                },
+            ],
+            2,
+        )
+        get_user.return_value = "test_author"
+        get_tags_by_id.return_value = [
+            {"id": 1, "name": "test_tag_1"},
+            {"id": 2, "name": "test_tag_2"},
+        ]
+        article = {
+            "id": 1,
+            "featured_media": "test",
+            "author": "test",
+            "categories": [1, 2],
+            "group": [1],
+            "tags": ["test"],
+        }
+
+        context = get_article_context(article, ["test_related_article2"])
+        expected_context = {
+            "article": {
+                "id": 1,
+                "author": "test_author",
+                "categories": [1, 2],
+                "featured_media": "test",
+                "group": "test_group",
+                "image": None,
+                "tags": ["test"],
+            },
+            "is_in_series": False,
+            "related_articles": [
+                {
+                    "id": 2,
+                    "featured_media": "test_related_article_image",
+                    "author": None,
+                    "categories": [4, 5],
+                    "group": [4],
+                    "image": None,
+                    "tags": ["test_related_article2"],
+                }
+            ],
+            "tags": [
+                {"id": 1, "name": "test_tag_1"},
+                {"id": 2, "name": "test_tag_2"},
+            ],
+        }
+
+        self.maxDiff = None
+        self.assertEqual(context, expected_context)
