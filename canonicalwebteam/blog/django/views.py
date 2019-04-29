@@ -19,7 +19,7 @@ def index(request):
 
     try:
         articles, total_pages = api.get_articles(
-            tags=tags_id, exclude=excluded_tags, page=page_param
+            tags=tags_id, tags_exclude=excluded_tags, page=page_param
         )
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
