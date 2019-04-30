@@ -1,3 +1,4 @@
+1.5.0: Adds featured posts to the index page, fixes parameter name on blueprint signature
 1.4.1: Correctly exclude articles based on tags set in settings
 1.4.0: Only display related articles who have the desired tags, change setting variable name for TAG_IDS
 1.3.5: Dont exclude article pages based on tag_ids

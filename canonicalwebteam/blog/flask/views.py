@@ -8,7 +8,7 @@ from canonicalwebteam.blog.common_view_logic import (
 )
 
 
-def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
+def build_blueprint(blog_title, tag_ids, tag_name, excluded_tags=[]):
     blog = flask.Blueprint(
         "blog", __name__, template_folder="/templates", static_folder="/static"
     )
@@ -18,9 +18,28 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
         page_param = flask.request.args.get("page", default=1, type=int)
 
         try:
-            articles, total_pages = api.get_articles(
-                tags=tags_id, page=page_param, tags_exclude=excluded_tags
-            )
+            if page_param == "1":
+                featured_articles, total_pages = api.get_articles(
+                    tags=tag_ids,
+                    tags_exclude=excluded_tags,
+                    page=page_param,
+                    sticky="true",
+                    per_page=3,
+                )
+                featured_article_ids = [
+                    article["id"] for article in featured_articles
+                ]
+                articles, total_pages = api.get_articles(
+                    tags=tag_ids,
+                    tags_exclude=excluded_tags,
+                    exclude=featured_article_ids,
+                    page=page_param,
+                )
+            else:
+                articles, total_pages = api.get_articles(
+                    tags=tag_ids, page=page_param
+                )
+                featured_articles = []
         except Exception:
             return flask.abort(502)
 
@@ -56,14 +75,14 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
     @blog.route("/<slug>")
     def article(slug):
         try:
-            articles = api.get_article(slug, tags_id)
+            articles = api.get_article(slug, tag_ids)
         except Exception:
             return flask.abort(502)
 
         if not articles:
             flask.abort(404, "Article not found")
 
-        context = get_article_context(articles, tags_id)
+        context = get_article_context(articles, tag_ids)
 
         return flask.render_template("blog/article.html", **context)
 
@@ -71,7 +90,7 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
     def latest_news():
         try:
             latest_pinned_articles = api.get_articles(
-                tags=tags_id,
+                tags=tag_ids,
                 exclude=excluded_tags,
                 page=1,
                 per_page=1,
@@ -80,7 +99,7 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
             # check if the number of returned articles is 0
             if len(latest_pinned_articles[0]) == 0:
                 latest_articles = api.get_articles(
-                    tags=tags_id,
+                    tags=tag_ids,
                     exclude=excluded_tags,
                     page=1,
                     per_page=4,
@@ -88,7 +107,7 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
                 )
             else:
                 latest_articles = api.get_articles(
-                    tags=tags_id,
+                    tags=tag_ids,
                     exclude=excluded_tags,
                     page=1,
                     per_page=3,
