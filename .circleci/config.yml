@@ -18,11 +18,17 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install dependencies
+          command: |
+            apt install -yy python3-venv
+            pip3 install poetry
+            poetry install
+      - run:
           name: Print env
           command: env
       - run:
           name: Run Python tests
-          command: ./setup.py test
+          command: poetry run pytest
 
 workflows:
   version: 2

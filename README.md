@@ -48,3 +48,10 @@ BLOG_CONFIG = {
 - You can now use the data from the blog. To display it the module expects templates at `blog/index.html`, `blog/article.html` and `blog/blog-card.html`. Inspiration can be found at https://github.com/canonical-websites/jp.ubuntu.com/tree/master/templates/blog.
 
 - Run your project and verify that the blog is displaying at the path you specified (f.e. '/blog')
+
+
+## Development
+The blog extension leverages [poetry](https://poetry.eustace.io/) for dependency management.
+
+## Testing
+All tests can be run with `poetry run pytest`.
