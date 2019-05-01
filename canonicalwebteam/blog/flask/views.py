@@ -19,7 +19,7 @@ def build_blueprint(blog_title, tags_id, tag_name, excluded_tags=[]):
 
         try:
             articles, total_pages = api.get_articles(
-                tags=tags_id, page=page_param
+                tags=tags_id, page=page_param, tags_exclude=excluded_tags
             )
         except Exception:
             return flask.abort(502)
