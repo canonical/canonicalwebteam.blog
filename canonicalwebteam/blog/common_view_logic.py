@@ -48,8 +48,6 @@ def get_index_context(page_param, articles, total_pages, featured_articles=[]):
     :param articles: Array of articles
     :param articles: String of int of total amount of pages
     """
-    print("HELLO")
-    print(featured_articles)
 
     transformed_articles = []
     transformed_featured_articles = []

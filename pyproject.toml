@@ -19,6 +19,8 @@ Flask = {version = "^1.0", optional = true}
 [tool.poetry.dev-dependencies]
 flask_testing = "^0.7.1"
 pytest = "^4.4"
+django = "^2.2"
+Flask = "^1.0.1"
 
 
 [tool.poetry.extras]
