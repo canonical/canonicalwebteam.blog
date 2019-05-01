@@ -21,7 +21,7 @@ jobs:
           name: Install dependencies
           command: |
             apt install -yy python3-venv
-            pip3 install poetry
+            pip3 install poetry==0.12.11 # https://github.com/sdispater/poetry/issues/1060 can probably be unpinned when you read this.
             poetry install
       - run:
           name: Print env

@@ -51,7 +51,7 @@ def get_index_context(page_param, articles, total_pages):
     }
 
 
-def get_article_context(article):
+def get_article_context(article, related_tag_ids=[]):
     """
     Build the content for the article page
     :param article: Article to create context for
@@ -73,13 +73,17 @@ def get_article_context(article):
 
     is_in_series = logic.is_in_series(tag_names)
 
-    related_articles, total_pages = api.get_articles(
+    all_related_articles, total_pages = api.get_articles(
         tags=tags, per_page=3, exclude=[article["id"]]
     )
 
-    if related_articles:
-        for related_article in related_articles:
-            related_article = logic.transform_article(related_article)
+    related_articles = []
+    if all_related_articles:
+        for related_article in all_related_articles:
+            if set(related_tag_ids).issubset(related_article["tags"]):
+                related_articles.append(
+                    logic.transform_article(related_article)
+                )
 
     for group_id in article["group"]:
         if group_id not in group_cache:
@@ -87,6 +91,8 @@ def get_article_context(article):
             group_cache[group_id] = resolved_group
             article["group"] = resolved_group
             break
+        else:
+            article["group"] = group_cache[group_id]
 
     return {
         "article": transformed_article,

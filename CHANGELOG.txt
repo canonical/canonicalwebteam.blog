@@ -1,3 +1,4 @@
+1.4.0: Only display related articles who have the desired tags, change setting variable name for TAG_IDS
 1.3.5: Dont exclude article pages based on tag_ids
 1.3.4: Dynamically loads 3/4 articles for latest news
 1.3.2: Adds flask __init__.py to flask submodule

@@ -8,7 +8,7 @@ from canonicalwebteam.blog.common_view_logic import (
     get_article_context,
 )
 
-tags_id = settings.BLOG_CONFIG["TAGS_ID"]
+tag_ids = settings.BLOG_CONFIG["TAG_IDS"]
 excluded_tags = settings.BLOG_CONFIG["EXCLUDED_TAGS"]
 blog_title = settings.BLOG_CONFIG["BLOG_TITLE"]
 tag_name = settings.BLOG_CONFIG["TAG_NAME"]
@@ -19,7 +19,7 @@ def index(request):
 
     try:
         articles, total_pages = api.get_articles(
-            tags=tags_id, exclude=excluded_tags, page=page_param
+            tags=tag_ids, exclude=excluded_tags, page=page_param
         )
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
@@ -51,13 +51,13 @@ def article_redirect(request, slug, year=None, month=None, day=None):
 
 def article(request, slug):
     try:
-        article = api.get_article(slug)
+        article = api.get_article(slug, tag_ids)
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
 
     if not article:
         return HttpResponseNotFound("Article not found")
-    context = get_article_context(article)
+    context = get_article_context(article, tag_ids)
 
     return render(request, "blog/article.html", context)
 
@@ -66,7 +66,7 @@ def latest_news(request):
 
     try:
         latest_pinned_articles = api.get_articles(
-            tags=tags_id,
+            tags=tag_ids,
             exclude=excluded_tags,
             page=1,
             per_page=1,
@@ -75,7 +75,7 @@ def latest_news(request):
         # check if the number of returned articles is 0
         if len(latest_pinned_articles[0]) == 0:
             latest_articles = api.get_articles(
-                tags=tags_id,
+                tags=tag_ids,
                 exclude=excluded_tags,
                 page=1,
                 per_page=4,
@@ -83,7 +83,7 @@ def latest_news(request):
             )
         else:
             latest_articles = api.get_articles(
-                tags=tags_id,
+                tags=tag_ids,
                 exclude=excluded_tags,
                 page=1,
                 per_page=3,
