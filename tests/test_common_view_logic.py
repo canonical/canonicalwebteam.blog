@@ -39,6 +39,7 @@ class TestCommonViewLogic(unittest.TestCase):
         expected_context = {
             "current_page": 1,
             "total_pages": 2,
+            "featured_articles": [],
             "articles": [
                 {
                     "author": "test_author",
@@ -66,6 +67,104 @@ class TestCommonViewLogic(unittest.TestCase):
                 3: "test_category",
             },
         }
+        self.maxDiff = None
+        self.assertEqual(context, expected_context)
+
+    @patch("canonicalwebteam.blog.wordpress_api.get_group_by_id")
+    @patch("canonicalwebteam.blog.wordpress_api.get_category_by_id")
+    @patch("canonicalwebteam.blog.wordpress_api.get_user")
+    @patch("canonicalwebteam.blog.wordpress_api.get_media")
+    def test_building_index_context_with_featured_articles(
+        self, get_media, get_user, get_category_by_id, get_group_by_id
+    ):
+        get_media.return_value = "test_image"
+        get_user.return_value = "test_author"
+        get_category_by_id.return_value = "test_category"
+        get_group_by_id.return_value = "test_group"
+        articles = [
+            {
+                "featured_media": "test",
+                "author": "test",
+                "categories": [1, 2],
+                "group": [1],
+                "tags": ["test"],
+            },
+            {
+                "featured_media": "test2",
+                "author": "test2",
+                "categories": [2, 3],
+                "group": [1],
+                "tags": ["test2"],
+            },
+        ]
+        featured_articles = [
+            {
+                "featured_media": "test",
+                "author": "test",
+                "categories": [1, 2],
+                "group": [1],
+                "tags": ["test"],
+            },
+            {
+                "featured_media": "test2",
+                "author": "test2",
+                "categories": [2, 3],
+                "group": [1],
+                "tags": ["test2"],
+            },
+        ]
+        context = get_index_context(1, articles, 2, featured_articles)
+        expected_context = {
+            "current_page": 1,
+            "total_pages": 2,
+            "featured_articles": [
+                {
+                    "author": "test_author",
+                    "categories": [1, 2],
+                    "display_category": "test_category",
+                    "featured_media": "test",
+                    "group": "test_group",
+                    "image": "test_image",
+                    "tags": ["test"],
+                },
+                {
+                    "author": "test_author",
+                    "categories": [2, 3],
+                    "display_category": "test_category",
+                    "featured_media": "test2",
+                    "group": "test_group",
+                    "image": "test_image",
+                    "tags": ["test2"],
+                },
+            ],
+            "articles": [
+                {
+                    "author": "test_author",
+                    "categories": [1, 2],
+                    "display_category": "test_category",
+                    "featured_media": "test",
+                    "group": "test_group",
+                    "image": "test_image",
+                    "tags": ["test"],
+                },
+                {
+                    "author": "test_author",
+                    "categories": [2, 3],
+                    "display_category": "test_category",
+                    "featured_media": "test2",
+                    "group": "test_group",
+                    "image": "test_image",
+                    "tags": ["test2"],
+                },
+            ],
+            "groups": {1: "test_group"},
+            "used_categories": {
+                1: "test_category",
+                2: "test_category",
+                3: "test_category",
+            },
+        }
+        self.maxDiff = None
         self.assertEqual(context, expected_context)
 
     @patch("canonicalwebteam.blog.wordpress_api.get_group_by_id")
@@ -99,6 +198,7 @@ class TestCommonViewLogic(unittest.TestCase):
         expected_context = {
             "current_page": 1,
             "total_pages": 2,
+            "featured_articles": [],
             "articles": [
                 {
                     "author": "test_author",
@@ -126,6 +226,7 @@ class TestCommonViewLogic(unittest.TestCase):
                 3: "test_category",
             },
         }
+        self.maxDiff = None
         self.assertEqual(context, expected_context)
 
     @patch("canonicalwebteam.blog.wordpress_api.get_tags_by_ids")
