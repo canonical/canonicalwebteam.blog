@@ -35,6 +35,7 @@ def get_articles(
     :param exclude: Array of article IDs to be excluded
     :param category: Array of categories, which articles
         should be fetched for
+    :param sticky: string 'true' or 'false' to only get featured articles
     """
     url = (
         f"{API_URL}/posts?per_page={per_page}"

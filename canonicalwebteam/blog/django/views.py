@@ -15,16 +15,38 @@ tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 
 
 def index(request):
-    page_param = request.GET.get("page", default=1)
+    page_param = request.GET.get("page", default="1")
 
     try:
-        articles, total_pages = api.get_articles(
-            tags=tag_ids, tags_exclude=excluded_tags, page=page_param
-        )
+        if page_param == "1":
+            featured_articles, total_pages = api.get_articles(
+                tags=tag_ids,
+                tags_exclude=excluded_tags,
+                page=page_param,
+                sticky="true",
+                per_page=3,
+            )
+            featured_article_ids = [
+                article["id"] for article in featured_articles
+            ]
+            articles, total_pages = api.get_articles(
+                tags=tag_ids,
+                tags_exclude=excluded_tags,
+                exclude=featured_article_ids,
+                page=page_param,
+            )
+        else:
+            articles, total_pages = api.get_articles(
+                tags=tag_ids, page=page_param
+            )
+            featured_articles = []
+
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
 
-    context = get_index_context(page_param, articles, total_pages)
+    context = get_index_context(
+        page_param, articles, total_pages, featured_articles=featured_articles
+    )
     context["title"] = blog_title
 
     return render(request, "blog/index.html", context)
