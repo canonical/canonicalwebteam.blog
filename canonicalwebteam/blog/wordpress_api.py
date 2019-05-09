@@ -25,6 +25,7 @@ def get_articles(
     exclude=[],
     categories=[],
     sticky="",
+    groups=[],
 ):
     """
     Get articles from Wordpress api
@@ -41,6 +42,7 @@ def get_articles(
         f"{API_URL}/posts?per_page={per_page}"
         f"&tags={','.join(str(id) for id in tags)}"
         f"&page={page}"
+        f"&group={','.join(str(id) for id in groups)}"
         f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
         f"&categories={','.join(str(id) for id in categories)}"
         f"&exclude={','.join(str(id) for id in exclude)}"
@@ -101,12 +103,38 @@ def get_categories():
     return process_response(response)
 
 
+def get_group_by_slug(slug):
+    url = "".join([API_URL, "/group?", f"slug={slug}"])
+
+    response = api_session.get(url)
+
+    if not response.ok:
+        return None
+    try:
+        return process_response(response)[0]
+    except Exception:
+        return None
+
+
 def get_group_by_id(id):
     url = "".join([API_URL, "/group/", str(id)])
 
     response = api_session.get(url)
 
     return process_response(response)
+
+
+def get_category_by_slug(slug):
+    url = "".join([API_URL, "/categories?", f"slug={slug}"])
+
+    response = api_session.get(url)
+
+    if not response.ok:
+        return None
+    try:
+        return process_response(response)[0]
+    except Exception:
+        return None
 
 
 def get_category_by_id(id):
@@ -130,9 +158,6 @@ def get_media(media_id):
 def get_user(user_id):
     url = "".join([API_URL, "/users/", str(user_id)])
     response = api_session.get(url)
-
-    if not response.ok:
-        return None
 
     return process_response(response)
 
