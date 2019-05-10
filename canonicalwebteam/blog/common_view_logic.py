@@ -5,10 +5,10 @@ category_cache = {}
 group_cache = {}
 
 
-def transform_index_article(article):
+def get_complete_article(article, group=None):
     """
-    This transforms any given article from the wordpress API
-    into an object that includes all information for the templates,
+    This returns any given article from the wordpress API
+    as an object that includes all information for the templates,
     some of which will be fetched from the Wordpress API
     """
     featured_image = api.get_media(article["featured_media"])
@@ -27,14 +27,17 @@ def transform_index_article(article):
             article["display_category"] = category_cache[category_id]
             first_item = False
 
-    first_item = True
-    for group_id in article["group"]:
-        if group_id not in group_cache:
-            resolved_group = api.get_group_by_id(group_id)
-            group_cache[group_id] = resolved_group
-        if first_item:
-            article["group"] = group_cache[group_id]
-            first_item = False
+    if group:
+        article["group"] = group
+    else:
+        first_item = True
+        for group_id in article["group"]:
+            if group_id not in group_cache:
+                resolved_group = api.get_group_by_id(group_id)
+                group_cache[group_id] = resolved_group
+            if first_item:
+                article["group"] = group_cache[group_id]
+                first_item = False
 
     return logic.transform_article(
         article, featured_image=featured_image, author=author
@@ -47,15 +50,47 @@ def get_index_context(page_param, articles, total_pages, featured_articles=[]):
     :param page_param: String or int for index of the page to get
     :param articles: Array of articles
     :param articles: String of int of total amount of pages
+    :param featured_articles: List of featured articles
     """
 
     transformed_articles = []
     transformed_featured_articles = []
     for article in articles:
-        transformed_articles.append(transform_index_article(article))
+        transformed_articles.append(get_complete_article(article))
 
     for article in featured_articles:
-        transformed_featured_articles.append(transform_index_article(article))
+        transformed_featured_articles.append(get_complete_article(article))
+
+    return {
+        "current_page": int(page_param),
+        "total_pages": int(total_pages),
+        "articles": transformed_articles,
+        "used_categories": category_cache,
+        "groups": group_cache,
+        "featured_articles": transformed_featured_articles,
+    }
+
+
+def get_group_page_context(
+    page_param, articles, total_pages, group, featured_articles=[]
+):
+    """
+    Build the content for a group page
+    :param page_param: String or int for index of the page to get
+    :param articles: Array of articles
+    :param articles: String of int of total amount of pages
+    :param group: Article group
+    """
+
+    transformed_articles = []
+    transformed_featured_articles = []
+    for article in articles:
+        transformed_articles.append(get_complete_article(article, group))
+
+    for article in featured_articles:
+        transformed_featured_articles.append(
+            get_complete_article(article, group)
+        )
 
     return {
         "current_page": int(page_param),

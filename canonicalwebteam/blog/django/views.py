@@ -6,6 +6,7 @@ from canonicalwebteam.blog import logic
 from canonicalwebteam.blog.common_view_logic import (
     get_index_context,
     get_article_context,
+    get_group_page_context,
 )
 
 tag_ids = settings.BLOG_CONFIG["TAG_IDS"]
@@ -76,7 +77,7 @@ def group(request, slug, template_path):
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
 
-    context = get_index_context(page_param, articles, total_pages)
+    context = get_group_page_context(page_param, articles, total_pages, group)
     context["title"] = blog_title
 
     return render(request, template_path, context)
