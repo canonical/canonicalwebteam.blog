@@ -5,6 +5,7 @@ from canonicalwebteam.blog.django.views import (
     article,
     feed,
     latest_news,
+    archives,
 )
 
 
@@ -49,6 +50,7 @@ urlpatterns = [
     path(r"/<yyyy:year>/<str:slug>", article_redirect),
     path(r"/feed", feed),
     path(r"/latest-news", latest_news),
+    path(r"/archives", archives),
     path(r"/<str:slug>", article, name="article"),
     path(r"", index),
 ]
