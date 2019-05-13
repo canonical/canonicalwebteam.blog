@@ -1,11 +1,12 @@
 from django.urls import path, register_converter
 from canonicalwebteam.blog.django.views import (
-    index,
+    archives,
     article_redirect,
     article,
     feed,
+    index,
     latest_news,
-    archives,
+    upcoming,
 )
 
 
@@ -51,6 +52,7 @@ urlpatterns = [
     path(r"/<str:slug>", article, name="article"),
     path(r"/archives", archives),
     path(r"/feed", feed),
+    path(r"/upcoming", upcoming),
     path(r"/latest-news", latest_news),
     path(r"", index),
 ]

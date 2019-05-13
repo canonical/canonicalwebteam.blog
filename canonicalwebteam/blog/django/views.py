@@ -105,11 +105,33 @@ def topic(request, slug, template_path):
 
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
-
     context = get_topic_page_context(page_param, articles, total_pages)
     context["title"] = blog_title
 
     return render(request, template_path, context)
+
+
+def upcoming(request):
+    try:
+        page_param = request.GET.get("page", default="1")
+
+        events = api.get_category_by_slug("events")
+        webinars = api.get_category_by_slug("webinars")
+
+        articles, total_pages = api.get_articles(
+            tags=tag_ids,
+            tags_exclude=excluded_tags,
+            page=page_param,
+            categories=[events["id"], webinars["id"]],
+        )
+
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
+
+    context = get_index_context(page_param, articles, total_pages)
+    context["title"] = blog_title
+
+    return render(request, "blog/upcoming.html", context)
 
 
 def archives(request, template_path="blog/archives.html"):

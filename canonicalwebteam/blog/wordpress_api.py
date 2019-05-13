@@ -121,7 +121,8 @@ def get_group_by_slug(slug):
     if not response.ok:
         return None
     try:
-        return process_response(response)[0]
+        groups_response = process_response(response)
+        return groups_response[0]
     except Exception:
         return None
 
@@ -130,8 +131,8 @@ def get_group_by_id(id):
     url = "".join([API_URL, "/group/", str(id)])
 
     response = api_session.get(url)
-
-    return process_response(response)
+    group = process_response(response)
+    return group
 
 
 def get_category_by_slug(slug):
@@ -142,7 +143,8 @@ def get_category_by_slug(slug):
     if not response.ok:
         return None
     try:
-        return process_response(response)[0]
+        category = process_response(response)
+        return category[0]
     except Exception:
         return None
 
@@ -151,22 +153,18 @@ def get_category_by_id(id):
     url = "".join([API_URL, "/categories/", str(id)])
 
     response = api_session.get(url)
-
-    return process_response(response)
+    category = process_response(response)
+    return category
 
 
 def get_tag_by_slug(slug):
-    if slug in tags:
-        return tags[slug]
-
     url = "".join([API_URL, "/tags/", f"?slug={slug}"])
 
     response = api_session.get(url)
 
     try:
-        tag = process_response(response)[0]
-        tags[slug] = tag
-        return tag
+        tag = process_response(response)
+        return tag[0]
     except Exception:
         return None
 
