@@ -1,3 +1,4 @@
+1.5.3: Adds current category object to the page context for filtering
 1.5.2: Get correct article group on group page
 1.5.1: Ability to load articles for specific groups only, filtering them by category
 1.5.0: Adds featured posts to the index page, fixes parameter name on blueprint signature
