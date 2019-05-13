@@ -17,6 +17,7 @@ tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 
 def index(request):
     page_param = request.GET.get("page", default="1")
+    category_param = request.GET.get("category", default="")
 
     try:
         if page_param == "1":
@@ -49,6 +50,7 @@ def index(request):
         page_param, articles, total_pages, featured_articles=featured_articles
     )
     context["title"] = blog_title
+    context["category"] = {"slug": category_param}
 
     return render(request, "blog/index.html", context)
 
@@ -79,6 +81,7 @@ def group(request, slug, template_path):
 
     context = get_group_page_context(page_param, articles, total_pages, group)
     context["title"] = blog_title
+    context["category"] = {"slug": category_param}
 
     return render(request, template_path, context)
 
