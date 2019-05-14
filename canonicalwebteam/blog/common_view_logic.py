@@ -102,6 +102,27 @@ def get_group_page_context(
     }
 
 
+def get_topic_page_context(page_param, articles, total_pages):
+    """
+    Build the content for a group page
+    :param page_param: String or int for index of the page to get
+    :param articles: Array of articles
+    :param articles: String of int of total amount of pages
+    """
+
+    transformed_articles = []
+    for article in articles:
+        transformed_articles.append(get_complete_article(article))
+
+    return {
+        "current_page": int(page_param),
+        "total_pages": int(total_pages),
+        "articles": transformed_articles,
+        "used_categories": category_cache,
+        "groups": group_cache,
+    }
+
+
 def get_article_context(article, related_tag_ids=[]):
     """
     Build the content for the article page
