@@ -10,6 +10,8 @@ API_URL = os.getenv(
 
 api_session = CachedSession(fallback_cache_duration=3600)
 
+tags = {}
+
 
 def process_response(response):
     response.raise_for_status()
@@ -151,6 +153,22 @@ def get_category_by_id(id):
     response = api_session.get(url)
 
     return process_response(response)
+
+
+def get_tag_by_slug(slug):
+    if slug in tags:
+        return tags[slug]
+
+    url = "".join([API_URL, "/tags/", f"?slug={slug}"])
+
+    response = api_session.get(url)
+
+    try:
+        tag = process_response(response)[0]
+        tags[slug] = tag
+        return tag
+    except Exception:
+        return None
 
 
 def get_media(media_id):

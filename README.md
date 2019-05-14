@@ -63,6 +63,19 @@ urlpatterns = [
     )
 ```
 
+#### Topic pages
+- Topic pages are optional as well and can be enabled by using the view `canonicalwebteam.blog.django.views.topic`. The view takes the topic slug to fetch data for and a template path to load the correct template from.
+
+**urls.py**
+```python
+path(
+		r"blog/topic/kubernetes",
+		topic,
+		{"slug": "kubernetes", "template_path": "blog/kubernetes.html"},
+		name="topic",
+),
+```
+
 ## Templates
 
 - You can now use the data from the blog. To display it the module expects templates at `blog/index.html`, `blog/article.html`, `blog/blog-card.html` . Inspiration can be found at https://github.com/canonical-websites/jp.ubuntu.com/tree/master/templates/blog.

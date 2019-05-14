@@ -7,6 +7,7 @@ from canonicalwebteam.blog.common_view_logic import (
     get_index_context,
     get_article_context,
     get_group_page_context,
+    get_topic_page_context,
 )
 from dateutil.relativedelta import relativedelta
 from django.conf import settings
@@ -86,6 +87,27 @@ def group(request, slug, template_path):
     context = get_group_page_context(page_param, articles, total_pages, group)
     context["title"] = blog_title
     context["category"] = {"slug": category_param}
+
+    return render(request, template_path, context)
+
+
+def topic(request, slug, template_path):
+    try:
+        page_param = request.GET.get("page", default="1")
+
+        tag = api.get_tag_by_slug(slug)
+
+        articles, total_pages = api.get_articles(
+            tags=tag_ids + [tag["id"]],
+            tags_exclude=excluded_tags,
+            page=page_param,
+        )
+
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
+
+    context = get_topic_page_context(page_param, articles, total_pages)
+    context["title"] = blog_title
 
     return render(request, template_path, context)
 
