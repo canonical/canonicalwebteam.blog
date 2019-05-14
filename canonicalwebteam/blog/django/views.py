@@ -1,6 +1,6 @@
-from django.conf import settings
-from django.http import HttpResponseNotFound, HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from datetime import datetime
+
+
 from canonicalwebteam.blog import wordpress_api as api
 from canonicalwebteam.blog import logic
 from canonicalwebteam.blog.common_view_logic import (
@@ -8,6 +8,10 @@ from canonicalwebteam.blog.common_view_logic import (
     get_article_context,
     get_group_page_context,
 )
+from dateutil.relativedelta import relativedelta
+from django.conf import settings
+from django.http import HttpResponseNotFound, HttpResponse, JsonResponse
+from django.shortcuts import render, redirect
 
 tag_ids = settings.BLOG_CONFIG["TAG_IDS"]
 excluded_tags = settings.BLOG_CONFIG["EXCLUDED_TAGS"]
@@ -84,6 +88,62 @@ def group(request, slug, template_path):
     context["category"] = {"slug": category_param}
 
     return render(request, template_path, context)
+
+
+def archives(request, template_path="blog/archives.html"):
+    try:
+        page = request.GET.get("page", default="1")
+        category = request.GET.get("category", default="")
+        group = request.GET.get("group", default="")
+        month = request.GET.get("month", default="")
+        year = request.GET.get("year", default="")
+
+        groups = []
+        categories = []
+
+        if group:
+            group = api.get_group_by_slug(group)
+            groups.append(group["id"])
+
+        if category:
+            category = api.get_category_by_slug(category)
+            categories.append(category["id"])
+
+        after = ""
+        before = ""
+        if year:
+            year = int(year)
+            if month:
+                month = int(month)
+                after = datetime(year=year, month=month, day=1)
+                before = after + relativedelta(months=1)
+            else:
+                after = datetime(year=year, month=1, day=1)
+                before = datetime(year=year, month=12, day=31)
+
+        articles, total_pages = api.get_articles(
+            tags=tag_ids,
+            tags_exclude=excluded_tags,
+            page=page,
+            groups=groups,
+            categories=categories,
+            after=after,
+            before=before,
+        )
+
+        if group:
+            context = get_group_page_context(
+                page, articles, total_pages, group
+            )
+        else:
+            context = get_index_context(page, articles, total_pages)
+
+        context["title"] = blog_title
+
+        return render(request, template_path, context)
+
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
 
 
 def feed(request):

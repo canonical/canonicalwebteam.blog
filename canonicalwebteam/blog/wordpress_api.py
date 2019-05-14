@@ -26,6 +26,8 @@ def get_articles(
     categories=[],
     sticky="",
     groups=[],
+    after="",
+    before="",
 ):
     """
     Get articles from Wordpress api
@@ -37,6 +39,8 @@ def get_articles(
     :param category: Array of categories, which articles
         should be fetched for
     :param sticky: string 'true' or 'false' to only get featured articles
+    :param before: ISO8601 compliant date string to limit by date
+    :param after: ISO8601 compliant date string to limit by date
     """
     url = (
         f"{API_URL}/posts?per_page={per_page}"
@@ -49,6 +53,10 @@ def get_articles(
     )
     if sticky != "":
         url = url + f"&sticky={sticky}"
+    if before != "":
+        url = url + f"&before={before}"
+    if after != "":
+        url = url + f"&after={after}"
 
     response = api_session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
