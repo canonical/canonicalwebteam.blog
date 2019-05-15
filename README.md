@@ -69,7 +69,7 @@ urlpatterns = [
 **urls.py**
 ```python
 path(
-		r"blog/topic/kubernetes",
+		r"blog/topics/kubernetes",
 		topic,
 		{"slug": "kubernetes", "template_path": "blog/kubernetes.html"},
 		name="topic",
