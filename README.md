@@ -78,7 +78,7 @@ path(
 
 ## Templates
 
-- You can now use the data from the blog. To display it the module expects templates at `blog/index.html`, `blog/article.html`, `blog/blog-card.html` . Inspiration can be found at https://github.com/canonical-websites/jp.ubuntu.com/tree/master/templates/blog.
+- You can now use the data from the blog. To display it the module expects templates at `blog/index.html`, `blog/article.html`, `blog/blog-card.html`, `blog/archives.html`, `blog/upcoming.html` and `blog/author.html`. Inspiration can be found at https://github.com/canonical-websites/jp.ubuntu.com/tree/master/templates/blog.
 
 ## Development
 The blog extension leverages [poetry](https://poetry.eustace.io/) for dependency management.

@@ -30,6 +30,7 @@ def get_articles(
     groups=[],
     after="",
     before="",
+    author="",
 ):
     """
     Get articles from Wordpress api
@@ -52,6 +53,7 @@ def get_articles(
         f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
         f"&categories={','.join(str(id) for id in categories)}"
         f"&exclude={','.join(str(id) for id in exclude)}"
+        f"&author={author}"
     )
     if sticky != "":
         url = url + f"&sticky={sticky}"
@@ -178,6 +180,20 @@ def get_media(media_id):
         return None
 
     return process_response(response)
+
+
+def get_user_by_username(username):
+    url = "".join([API_URL, "/users?search=", username])
+    response = api_session.get(url)
+
+    if not response.ok:
+        return None
+
+    processed_response = process_response(response)
+    if not processed_response:
+        return None
+    else:
+        return processed_response[0]
 
 
 def get_user(user_id):
