@@ -17,6 +17,15 @@ class MockResponse:
     headers = {"X-WP-TotalPages": 12}
 
 
+class FailingMockResponse:
+    ok = False
+
+    def raise_for_status(*args):
+        raise Exception()
+
+    headers = {"X-WP-TotalPages": 12}
+
+
 class TestWordPressApi(unittest.TestCase):
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_getting(self, get):
@@ -253,3 +262,11 @@ class TestWordPressApi(unittest.TestCase):
             + "&author=1"
         )
         self.assertEqual(article, (["hello_test"], 12, None))
+
+    @patch("canonicalwebteam.http.CachedSession.get")
+    def test_getting_articles_fail(self, get):
+
+        get.return_value = FailingMockResponse()
+
+        with self.assertRaises(Exception):
+            api.get_articles()
