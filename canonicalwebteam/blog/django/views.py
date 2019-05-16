@@ -143,7 +143,7 @@ def archives(request, template_path="blog/archives.html"):
                 after = datetime(year=year, month=1, day=1)
                 before = datetime(year=year, month=12, day=31)
 
-        articles, total_pages = api.get_articles(
+        articles, total_pages, total_posts = api.get_articles(
             tags=tag_ids,
             tags_exclude=excluded_tags,
             page=page,
@@ -161,6 +161,7 @@ def archives(request, template_path="blog/archives.html"):
             context = get_index_context(page, articles, total_pages)
 
         context["title"] = blog_title
+        context["total_posts"] = total_posts
 
         return render(request, template_path, context)
 
