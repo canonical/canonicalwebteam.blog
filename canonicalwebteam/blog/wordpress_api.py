@@ -62,8 +62,9 @@ def get_articles(
 
     response = api_session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
+    total_posts = response.headers.get("X-WP-Total")
 
-    return process_response(response), total_pages
+    return process_response(response), total_pages, total_posts
 
 
 def get_article(slug="", tags=[], tags_exclude=[]):
