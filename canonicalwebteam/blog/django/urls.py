@@ -48,9 +48,9 @@ urlpatterns = [
     path(r"/<yyyy:year>/<mm:month>/<dd:day>/<str:slug>", article_redirect),
     path(r"/<yyyy:year>/<mm:month>/<str:slug>", article_redirect),
     path(r"/<yyyy:year>/<str:slug>", article_redirect),
-    path(r"/<str:slug>", article, name="article"),
     path(r"/archives", archives),
     path(r"/feed", feed),
     path(r"/latest-news", latest_news),
+    path(r"/<str:slug>", article, name="article"),
     path(r"", index),
 ]
