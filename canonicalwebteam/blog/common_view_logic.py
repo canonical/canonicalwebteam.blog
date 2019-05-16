@@ -97,6 +97,7 @@ def get_group_page_context(
         "total_pages": int(total_pages),
         "articles": transformed_articles,
         "used_categories": category_cache,
+        "group": group,
         "groups": group_cache,
         "featured_articles": transformed_featured_articles,
     }

@@ -86,7 +86,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, (["hello_test"], 12))
+        self.assertEqual(article, (["hello_test"], 12, None))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_getting_all_articles(self, get):
@@ -105,7 +105,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, (["hello_test"], 12))
+        self.assertEqual(article, (["hello_test"], 12, None))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_excluding_articles(self, get):
@@ -124,7 +124,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, (["hello_test"], 12))
+        self.assertEqual(article, (["hello_test"], 12, None))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_including_articles(self, get):
@@ -143,7 +143,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, (["hello_test"], 12))
+        self.assertEqual(article, (["hello_test"], 12, None))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_including_and_excluding_articles(self, get):
@@ -162,7 +162,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories="
             + "&exclude="
         )
-        self.assertEqual(article, (["hello_test"], 12))
+        self.assertEqual(article, (["hello_test"], 12, None))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_get_articles_for_category(self, get):
@@ -181,7 +181,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&categories=5678"
             + "&exclude="
         )
-        self.assertEqual(article, (["hello_test"], 12))
+        self.assertEqual(article, (["hello_test"], 12, None))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_getting_sticky_only(self, get):
@@ -201,7 +201,7 @@ class TestWordPressApi(unittest.TestCase):
             + "&exclude="
             + "&sticky=True"
         )
-        self.assertEqual(article, (["hello_test"], 12))
+        self.assertEqual(article, (["hello_test"], 12, None))
 
     @patch("canonicalwebteam.http.CachedSession.get")
     def test_getting_articles_from_last_year(self, get):
@@ -224,4 +224,4 @@ class TestWordPressApi(unittest.TestCase):
             + "&before=2007-12-05"
             + "&after=2006-12-05"
         )
-        self.assertEqual(article, (["hello_test"], 12))
+        self.assertEqual(article, (["hello_test"], 12, None))
