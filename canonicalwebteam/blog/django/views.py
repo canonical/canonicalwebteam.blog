@@ -189,7 +189,7 @@ def archives(request, template_path="blog/archives.html"):
                 after = datetime(year=year, month=1, day=1)
                 before = datetime(year=year, month=12, day=31)
 
-        articles, total_pages, total_posts = api.get_articles(
+        articles, metadata = api.get_articles_with_metadata(
             tags=tag_ids,
             tags_exclude=excluded_tags,
             page=page,
@@ -198,6 +198,9 @@ def archives(request, template_path="blog/archives.html"):
             after=after,
             before=before,
         )
+
+        total_pages = metadata["total_pages"]
+        total_posts = metadata["total_posts"]
 
         if group:
             context = get_group_page_context(

@@ -1,3 +1,4 @@
+1.5.9: Fix internal API function bug
 1.5.8: Adds author view
 1.5.7: Adds upcoming endpoint and view to Django
 1.5.6: Updates the information passed through to group pages and the archive template
