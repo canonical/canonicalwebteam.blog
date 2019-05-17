@@ -146,10 +146,7 @@ def author(request, username):
 
         context = {
             "title": blog_title,
-            "author": {
-                "image": author["avatar_urls"]["96"],
-                "name": author["name"],
-            },
+            "author": author,
             "latest_articles": articles,
         }
 
