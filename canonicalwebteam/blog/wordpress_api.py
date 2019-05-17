@@ -238,7 +238,7 @@ def get_media(media_id):
 
 
 def get_user_by_username(username):
-    url = "".join([API_URL, "/users?search=", username])
+    url = "".join([API_URL, "/users?slug=", username])
     response = api_session.get(url)
 
     if not response.ok:
