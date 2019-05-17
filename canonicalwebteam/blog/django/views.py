@@ -134,6 +134,30 @@ def upcoming(request):
     return render(request, "blog/upcoming.html", context)
 
 
+def author(request, username):
+    try:
+        author = api.get_user_by_username(username)
+        articles, total_pages = api.get_articles(
+            tags=tag_ids,
+            tags_exclude=excluded_tags,
+            per_page=5,
+            author=author["id"],
+        )
+
+        context = {
+            "title": blog_title,
+            "author": {
+                "image": author["avatar_urls"]["96"],
+                "name": author["name"],
+            },
+            "latest_articles": articles,
+        }
+
+        return render(request, "blog/author.html", context)
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
+
+
 def archives(request, template_path="blog/archives.html"):
     try:
         page = request.GET.get("page", default="1")
