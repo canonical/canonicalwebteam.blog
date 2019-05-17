@@ -1,3 +1,4 @@
+1.5.12: Add next 3 upcoming webinars and events to index
 1.5.11 Adds filtering by category to blog index
 1.5.10: Fix author search and pass more data to author template
 1.5.9: Fix internal API function bug

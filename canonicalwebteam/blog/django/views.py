@@ -20,9 +20,10 @@ blog_title = settings.BLOG_CONFIG["BLOG_TITLE"]
 tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 
 
-def index(request):
+def index(request, enable_upcoming=True):
     page_param = request.GET.get("page", default="1")
     category_param = request.GET.get("category", default="")
+    upcoming = []
 
     try:
         category_id = ""
@@ -47,6 +48,17 @@ def index(request):
                 page=page_param,
                 categories=[category_id],
             )
+            if enable_upcoming:
+                events = api.get_category_by_slug("events")
+                webinars = api.get_category_by_slug("webinars")
+                upcoming, _ = api.get_articles(
+                    tags=tag_ids,
+                    tags_exclude=excluded_tags,
+                    page=page_param,
+                    per_page=3,
+                    categories=[events["id"], webinars["id"]],
+                )
+
         else:
             articles, total_pages = api.get_articles(
                 tags=tag_ids,
@@ -64,6 +76,7 @@ def index(request):
     )
     context["title"] = blog_title
     context["category"] = {"slug": category_param}
+    context["upcoming"] = upcoming
 
     return render(request, "blog/index.html", context)
 
