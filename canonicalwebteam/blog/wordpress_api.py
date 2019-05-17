@@ -19,7 +19,7 @@ def process_response(response):
     return response.json()
 
 
-def get_articles(
+def build_get_article_url(
     tags=[],
     per_page=12,
     page=1,
@@ -33,7 +33,7 @@ def get_articles(
     author="",
 ):
     """
-    Get articles from Wordpress api
+    Build url to fetch articles from Wordpress api
     :param tags: Array of tag ids to fetch articles for
     :param per_page: Articles to get per page
     :param page: Page number to get
@@ -44,6 +44,8 @@ def get_articles(
     :param sticky: string 'true' or 'false' to only get featured articles
     :param before: ISO8601 compliant date string to limit by date
     :param after: ISO8601 compliant date string to limit by date
+
+    :returns: URL to Wordpress api
     """
     url = (
         f"{API_URL}/posts?per_page={per_page}"
@@ -62,11 +64,64 @@ def get_articles(
     if after != "":
         url = url + f"&after={after}"
 
+    return url
+
+
+def get_articles_with_metadata(**kwargs):
+    """
+    Get articles from Wordpress api
+    :param tags: Array of tag ids to fetch articles for
+    :param per_page: Articles to get per page
+    :param page: Page number to get
+    :param tags_exclude: Array of IDs of tags that will be excluded
+    :param exclude: Array of article IDs to be excluded
+    :param category: Array of categories, which articles
+        should be fetched for
+    :param sticky: string 'true' or 'false' to only get featured articles
+    :param before: ISO8601 compliant date string to limit by date
+    :param after: ISO8601 compliant date string to limit by date
+
+    :returns: response, metadata dictionary
+    """
+    url = build_get_article_url(**kwargs)
+
     response = api_session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
     total_posts = response.headers.get("X-WP-Total")
 
-    return process_response(response), total_pages, total_posts
+    return (
+        process_response(response),
+        {"total_pages": total_pages, "total_posts": total_posts},
+    )
+
+
+def get_articles(**kwargs):
+    """
+    Get articles from Wordpress api
+    :param tags: Array of tag ids to fetch articles for
+    :param per_page: Articles to get per page
+    :param page: Page number to get
+    :param tags_exclude: Array of IDs of tags that will be excluded
+    :param exclude: Array of article IDs to be excluded
+    :param category: Array of categories, which articles
+        should be fetched for
+    :param sticky: string 'true' or 'false' to only get featured articles
+    :param before: ISO8601 compliant date string to limit by date
+    :param after: ISO8601 compliant date string to limit by date
+
+    :returns: array of articles, total amount of pages
+    """
+
+    url = build_get_article_url(**kwargs)
+
+    response = api_session.get(url)
+    # TODO: Remove this.
+    # Functions that need this data should use get_articles_with_metadata.
+    # Needs more testing to refactor safely
+
+    total_pages = response.headers.get("X-WP-TotalPages")
+
+    return process_response(response), total_pages
 
 
 def get_article(slug="", tags=[], tags_exclude=[]):
