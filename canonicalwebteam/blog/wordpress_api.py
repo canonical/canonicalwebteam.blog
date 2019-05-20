@@ -19,7 +19,7 @@ def process_response(response):
     return response.json()
 
 
-def build_get_article_url(
+def build_get_articles_url(
     tags=[],
     per_page=12,
     page=1,
@@ -83,7 +83,7 @@ def get_articles_with_metadata(**kwargs):
 
     :returns: response, metadata dictionary
     """
-    url = build_get_article_url(**kwargs)
+    url = build_get_articles_url(**kwargs)
 
     response = api_session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
@@ -112,7 +112,7 @@ def get_articles(**kwargs):
     :returns: array of articles, total amount of pages
     """
 
-    url = build_get_article_url(**kwargs)
+    url = build_get_articles_url(**kwargs)
 
     response = api_session.get(url)
     # TODO: Remove this.
