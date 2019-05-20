@@ -152,7 +152,11 @@ def get_tag_by_name(name):
 
     response = api_session.get(url)
 
-    return process_response(response)
+    try:
+        tag_response = process_response(response)
+        return tag_response[0]
+    except Exception:
+        return None
 
 
 def get_tags_by_ids(ids):

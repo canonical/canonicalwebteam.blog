@@ -1,0 +1,1223 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&tags=&page=1&group=&tags_exclude=&categories=&exclude=&author=
+  response:
+    body:
+      string: '[{"id":89226,"date":"2019-05-19T13:31:37","date_gmt":"2019-05-19T13:31:37","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89226"},"modified":"2019-05-19T13:33:01","modified_gmt":"2019-05-19T13:33:01","slug":"design-and-web-team-summary-10-may-2019","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/19\/design-and-web-team-summary-10-may-2019\/","title":{"rendered":"Design
+        and Web team summary \u2013 10 May 2019"},"content":{"rendered":"\n<p>It was
+        another busy iteration for the web and design team, trying to get a lot of
+        work wrapped up before we head off to Lyon, France for our 19.10 Roadmap cycle
+        kick-off.<\/p>\n\n\n\n<h2>JAAS<\/h2>\n\n\n\n<p>The team rolled out a new version
+        of the website with a new url, too: <a href=\"https:\/\/jujucharms.com\">https:\/\/jujucharms.com<\/a>
+        now redirects to <a href=\"https:\/\/jaas.ai\/\">https:\/\/jaas.ai\/<\/a>
+        as part of a bigger renovation planned for JAAS and Juju. This move also updates
+        the technology used for the site and we\u2019ve migrated the Juju GUI as a
+        Flaskapp that allows us to update and deploy both the website and GUI within
+        minutes. With faster rollout we are now able to iterate and respond to your
+        feedback and bug reports much more efficiently, inline with the infrastructure
+        we use in our other Web Team sites.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/lh3.googleusercontent.com\/xvaRZriEtLYYBQfCEBJPn3rNay05jeTtbLCGfrNV-vNETX0t6FyRJOxSwRDutqBnD8gG3X7ydGI3u_JeKADMtGf-UYFCT85YZvp_L99iaSNKHZNcE55c2lY_ty9ALLKGSSzFMtQs\"
+        alt=\"\"\/><\/figure>\n\n\n\n<p><\/p>\n\n\n\n<p>JAAS.ai comes with some new
+        and better UI, with more patterns and elements from our open source <a href=\"https:\/\/docs.vanillaframework.io\/en\/\">Vanilla
+        framework <\/a>. We can\u2019t wait to show you the great things this move
+        will let us do going forward.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/lh5.googleusercontent.com\/wim5ZDTp9GUKC5AIHTwbNLZg0jrwH4sdcQFPFShBPINXn7r6AiEkq29M1gTqounJYx98norHDrwwLAF8FQRi7RnQZJzqQT1H9ct311s9qzRt6tyX591d8jxpl0A3d28OLTH42s3r\"
+        alt=\"\"\/><\/figure>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh6.googleusercontent.com\/HLWkMxzzE_poE9qyaC16tmJDyMaYn3CKf3g4UNXxxQ3NaU6cyMr1dN8Q4IdEhVZI-EeL2xIjmC9jyeMsKcVQEjP8nrPBgpIrRTUJJC2MmslnK1N__7Mb9Kd8yE_PjFOvLrtbROzy\"
+        alt=\"\"\/><\/figure>\n\n\n\n<p><\/p>\n\n\n\n<h2>Snapcraft<\/h2>\n\n\n\n<h3>Snap
+        categories<\/h3>\n\n\n\n<p>This time category pages received the same treatment
+        as the <a href=\"https:\/\/snapcraft.io\/store\">store page<\/a>, with fancy
+        banners and more prominent featured snaps.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/lh5.googleusercontent.com\/eag-CpwKKuR25b8mA7gvLgkGsehepkArv3SxrZHauphG5KO2uSZxAN-jBAaCL_7E9cxCtc5CklpqEuZjrX53woAzwUA-8nx38RK1BXb7i_vhSq4vRbZ8h766Yg5HRyukY-yA-cLR\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3>Publishing your first snap<\/h3>\n\n\n\n<p>Following
+        on from last week, the package step of <a href=\"https:\/\/snapcraft.io\/first-snap\">your
+        first snap<\/a> has had its 3rd section updated. \u201cUpdate your snapcraft.yaml\u201d
+        has become \u201cDownload your snapcraft.yaml\u201d. We now auto-generate
+        a snapcraft.yaml based on the demo project and the name you picked &#8211;
+        all you have to do is replace the snapcraft.yaml in the demo project and away
+        you go.<br><\/p>\n\n\n\n<p>We\u2019ve also created an interactive YAML viewer
+        to explain the different parts of the file giving new users a tl;dr; version
+        of the full explanation <a href=\"https:\/\/docs.snapcraft.io\/python-apps\">available
+        in the docs<\/a>.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh5.googleusercontent.com\/mjgK5bQieVkkTJSosOjwXdsax4-TwKgRDEB4u6sT_OTF8MmXqR96FyTzHWlZQhzVDYul_LMeJCeTVQx0VcFbQ7fR9xJ7aAGHgY8RhffIrJHuEFtHOPeTzLLvKasMHk3NT3uDpdIV\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h2>Vanilla<\/h2>\n\n\n\n<h4>Replace floats based
+        grid with the css grid layout<\/h4>\n\n\n\n<p>The 2.0-alpha-1 release removes
+        the floats-based shelves grid (<a href=\"http:\/\/shelvesgrid.org\/\">http:\/\/shelvesgrid.org\/<\/a>)
+        and replaces its functionality (responsive grid, nesting, prefixing \/ suffixing)
+        using the native css grid layout.<br><\/p>\n\n\n\n<h4>Secondary navigation<\/h4>\n\n\n\n<p>We
+        have an updated primary navigation coming in Vanilla 2.0.0 but unfortunately,
+        we don&#8217;t have a secondary or tertiary (if needed) design solution. Looking
+        at our suite of brochure sites and applications, we only use a secondary navigation
+        on <a href=\"https:\/\/www.ubuntu.com\/\">Ubuntu<\/a>, <a href=\"https:\/\/linuxcontainers.org\/\">LXD<\/a>,
+        <a href=\"https:\/\/blog.ubuntu.com\/\">Ubuntu Blog<\/a> and the newly revamped
+        canonical.com (coming soon).<br><\/p>\n\n\n\n<p>Taking initial concepts for
+        canonical.com and applying to recently updated Vanilla navigation, we were
+        able to explore different styles and find a consistent design.<br><\/p>\n\n\n\n<p>Our
+        latest solution below will be prototyped and tested before proposing up to
+        Vanilla as a new component.<br><br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/lh3.googleusercontent.com\/0WqyBn90Dj7ghsQjirXNM5PdfFaq_96XlfAZut1GFnZV4fvtS9NTrAKHABEXcDOT_nAlL24H7oni7zBiFF6j8BQYaepZJboAgxBpI9wDQGjeRtOdu7GeceahImGfHtTLWqUvHT-M\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h4>2.0.0-alpha release<\/h4>\n\n\n\n<p>We have
+        now made all of the changes that we wish to include in Vanilla Framework 2.0.0
+        (including the CSS grid changes above). Before we officially release this
+        version of the framework we are testing a selection of our sites using the
+        <a href=\"https:\/\/www.npmjs.com\/package\/vanilla-framework\/v\/2.0.0-alpha\">2.0.0-alpha
+        pre-release<\/a>. This release includes all proposed v2.0.0 features but is
+        not recommended for use on production sites &#8211; for full details <a href=\"https:\/\/github.com\/canonical-web-and-design\/vanilla-framework\/releases\/tag\/2.0.0-alpha\">read
+        the release notes<\/a>.<br><\/p>\n\n\n\n<h2>Brand<\/h2>\n\n\n\n<h3>Marketing
+        documents<\/h3>\n\n\n\n<p>Supported Marketing with the creation of a number
+        of whitepapers, a datasheet and branding for the upcoming Kubecon event in
+        China.<br><\/p>\n\n\n\n<h3>Planning<\/h3>\n\n\n\n<p>A large portion of the
+        iteration was spent planning for the upcoming Design Sprint, where we are
+        going to look at all areas of branding across the company, plan guideline
+        updates, expanding the illustration style, look at the Suru language across
+        all touchpoints from web to exhibitions and work out a brand strategy to move
+        forward with.<br><\/p>\n\n\n\n<h3>Icons<\/h3>\n\n\n\n<p>We created an icon
+        for the security podcast team, they had made a pretty good stab at it, so
+        we just helped it along, simplified it and brought it inline with brand.<\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/tNyrW--ucGacxWYc_HGUjoTrN_IZ6weqRK3LKwN7dMr7rrpkG0ec2iYkXqh_vCqbB_4hTBAliy5z4D-jkdLGZWZZ8jBzF--NBcTgOrO-6hGeKJnR_vT_UNmDGfDkVFOmnwTGQNjm\"
+        alt=\"\"\/><\/figure>\n\n\n\n<p>MAAS icons were also created for the \u2018Real-world
+        MAAS\u2019 section of the website.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/lh4.googleusercontent.com\/a7er7zoQtH5AKRQlmTvKq2UEj6M5J4N1QYpP-hyp8LJG_bq-f9blbzr0MPi23dk3MJiUvnwhLxxnyqhdugfTqzdyPMO1oWN0_kd-PyJvrVuIJC1M8u8Kyg1KUf7KQ9ABDcWih9fE\"
+        alt=\"\"\/><\/figure>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh3.googleusercontent.com\/P4qBnSh-6nxWhO5wzh57hTzvLY5Puf89K8DquNDIUlYX3unxDMmZCvG5Xlc3_w_ZljsMJ6z_hYSn6KTuzsira9Gzu6brXH9CWrMP351DYh4DP80_8VV92ecCLeSKDpDNK-E7t4y6\"
+        alt=\"\"\/><\/figure>\n\n\n\n<p><\/p>\n\n\n\n<h2>Web<\/h2>\n\n\n\n<h3>Takeovers
+        &amp; landing pages<\/h3>\n\n\n\n<p>We built and launched a few new homepage
+        takeovers with landing pages, including:<\/p>\n\n\n\n<h4>Cloud-init<\/h4>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/TF1VPUcCVr5BU2IUJrhmOltMR8pPju_sZSS_ifKimeVavTePFZcuiJ6z1VI9lkGr_NSP7qLOQWXgZQmfUjLG9PVCE-X2Me1ZtRNwODBBuXSHy_5cc9sUsW4ax6b3Ws9Hm3OwBjL5\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h4>The transformation of the DevOps journey
+        in IoT<\/h4>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh3.googleusercontent.com\/brM1I17xIXG8pFDT77S__ayRwoMyKfSHjACeM4N94u6wJ6tpdcT_8c5M9j3EGQdxCVv6as0KxL-62lK2xBM11e8yyqj2-N-alqHCK60AEs2R4Qk1uMgmXXP9_sv-zYz8EPShsYXq\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3>New AI Consulting webpage<\/h3>\n\n\n\n<p>We
+        published a new page about <a href=\"https:\/\/www.ubuntu.com\/ai\/consulting\">Canonical\u2019s
+        AI consulting programme<\/a>.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/lh5.googleusercontent.com\/dVUieQtMwSbH_lsRvtc-FRg2OgSSAO0nZqn_UkkgG0YE1E2Y1qyMC-GfLL6PQPnVCUriUn9NrkQvIH0gcc3FSZIUN_1_0N7icfQ50mEpbkPFVURYbraaoFHigjlI6ZMMnSO0x6Rl\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3>Adding Google re-captcha to all our forms<\/h3>\n\n\n\n<p><a
+        href=\"https:\/\/blog.ubuntu.com\/topics\/robotics\">We love robots at Canonical<\/a>,
+        but we get a few too many spam form submissions these days, so we added Google\u2019s
+        recaptcha to most of our forms.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/lh3.googleusercontent.com\/mbLHJoaBB0RLWvWxaUUqH7-1Xj7ja1OAPsPXkfnu_ZenM5f0G_4NjBmaKtRRmyc9pX8DP-_fP8euspzQXUks97OgD95xyBKEga5Nko70XBEnB19W3ubPieK5CUuo_P4aIlXKcmbw\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3>UA for I launch<\/h3>\n\n\n\n<p>Canonical
+        has completely updated it\u2019s Ubuntu Advantage product to really help enterprises.
+        &nbsp;We<a href=\"https:\/\/www.ubuntu.com\/pricing\"> updated the website
+        to reflect<\/a> these updates.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/lh6.googleusercontent.com\/e7lSr0FcSsUEisR8jkgFLIllD6l9x6UBGWsEW8TqeymRJERJIXUJB3HGnj0SXGCO1ffIdmIIxLTQABGWWqApRAoyBotTkNwKJ3XLUbkTTZpNIulBePcmaB-2XcBG4tEj2O75Cz-I\"
+        alt=\"\"\/><\/figure>\n\n\n\n<p><\/p>\n","protected":false},"excerpt":{"rendered":"<p>It
+        was another busy iteration for the web and design team, trying to get a lot
+        of work wrapped up before we head off to Lyon, France for our 19.10 Roadmap
+        cycle kick-off.<\/p>\n","protected":false},"author":270,"featured_media":85858,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[],"tags":[2732,1239,2461,1941,2968],"topic":[],"group":[],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"10","_start_month":"05","_start_year":"2019","_end_day":"19","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89226"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/270"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89226"}],"version-history":[{"count":1,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89226\/revisions"}],"predecessor-version":[{"id":89227,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89226\/revisions\/89227"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/85858"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89226"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89226"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89226"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89226"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89226"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89189,"date":"2019-05-16T11:56:07","date_gmt":"2019-05-16T11:56:07","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89189"},"modified":"2019-05-16T11:56:09","modified_gmt":"2019-05-16T11:56:09","slug":"introduction-to-snapcraft","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/16\/introduction-to-snapcraft\/","title":{"rendered":"Introduction
+        to snapcraft"},"content":{"rendered":"\n<p>First steps are always hard, especially
+        in technology. Most of the time, you need a primer, just the right dose of
+        knowledge, to get started with a platform. This tutorial and upcoming sequels
+        are designed to provide developers with simple, clear and effective tips and
+        tricks on how to build and publish their applications as snaps. In today\u2019s
+        guide, we will learn more about snapcraft, the innovative, flexible command-line
+        tool for developing snap packages.<\/p>\n\n\n\n<h1>What are we going to learn
+        today?<\/h1>\n\n\n\n<p>Our agenda for today will include:<\/p>\n\n\n\n<ul><li>Before
+        you get started&#8230;notes &amp; prerequisites.<\/li><li>Overview of the
+        snap system &#8211; basic concepts and components.<\/li><li>Build environment
+        setup &#8211; snapd and snapcraft installation.<\/li><li>Overview of snapcraft.yaml
+        &#8211; what it is and what it does.<\/li><li>Overview of the snap application
+        build.<\/li><li>Overview of the snap file format.<\/li><li>Overview of the
+        snap publication process.<\/li><li>Some simple examples.<\/li><\/ul>\n\n\n\n<h1>Notes
+        &amp; prerequisites<\/h1>\n\n\n\n<p>Before we begin, there are a few small
+        things you should know:<\/p>\n\n\n\n<ul><li>This tutorial is a part of a gradually
+        progressive series. Some terms may look vague at this point. They will be
+        explained in detail in later guides.<\/li><li>You should treat each part in
+        the series as a building block for the next installment. It is advisable to
+        follow the tutorials in sequential order to get the best understanding of
+        the tools and concepts presented here.<\/li><\/ul>\n\n\n\n<h1>Basic concepts<\/h1>\n\n\n\n<p>To
+        make this tutorial easier to follow and understand, let us first define several
+        concepts.<\/p>\n\n\n\n<ul><li>Snaps are confined, standalone Linux applications
+        bundled with all the necessary dependencies to run independently. They differ
+        from the traditional Linux applications in that they do not rely on the system
+        libraries.<\/li><li>Snaps are isolated from the system.<\/li><li>Snaps are
+        updated automatically and safely. The updates are transactional.<\/li><li>Snaps
+        come with multiple release channels that allow flexibility in software testing.<\/li><li>Snaps
+        are available in the Snap Store, allowing out of the box discovery by millions
+        of users.<\/li><li>Snaps are built using the snapcraft command line tool.<\/li><\/ul>\n\n\n\n<h1>Major
+        components<\/h1>\n\n\n\n<p>The Snap system consists of several major components:<\/p>\n\n\n\n<ul><li><strong>Snapd<\/strong>
+        is a background service that allows users to install and run snaps.<\/li><li><strong>Snap<\/strong>
+        is the userspace component of the snapd service. For instance, <em>snap install
+        &lt;foo><\/em> will install the application named &lt;foo> from an online
+        store called the Snap store.<\/li><li>The <strong>Snap Store<\/strong> is
+        a <a href=\"https:\/\/snapcraft.io\/store\">central repository<\/a> of snap
+        applications. If offers security and cryptographic signatures. The store contents
+        are available to any system running snapd. The store features <a href=\"https:\/\/docs.snapcraft.io\/channels\">release
+        channels<\/a>, which allow multiple versions of the application to be available
+        at the same time. Developers who want to publish their applications as snaps
+        need to register for a free account in the store.<\/li><li><strong>Snapcraft<\/strong>
+        is the command line tool that allows developers to build and publish their
+        applications as snaps.<\/li><\/ul>\n\n\n\n<h1>Build environment setup<\/h1>\n\n\n\n<p>You
+        may want to practice while reading this tutorial. To that end, please make
+        sure you have the following.<\/p>\n\n\n\n<ul><li>A Linux system with <strong>snapd<\/strong>
+        service installed. While snaps are available on many Linux distributions,
+        it is easiest to practice and run snaps on the Ubuntu family. A standard Ubuntu
+        18.04 instance is the most convenient way to do so. Once you have <a href=\"https:\/\/docs.snapcraft.io\/installing-snapd\">snapd
+        installed<\/a>, you can install the <strong>snapcraft<\/strong> tool.<\/li><\/ul>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">snap install snapcraft --classic<\/pre>\n\n\n\n<ul><li>We
+        also need to install <a href=\"https:\/\/snapcraft.io\/multipass\">multipass<\/a>,
+        which is used by snapcraft in the background to create isolated build environment
+        instances inside (Ubuntu) virtual machines. The build process is transparent
+        to the end user.<\/li><\/ul>\n\n\n\n<pre class=\"wp-block-preformatted\">snap
+        install multipass --classic<br><\/pre>\n\n\n\n<ul><li>Some knowledge of the
+        Linux command line.<\/li><li>Some basic familiarity with the YAML language
+        syntax.<\/li><\/ul>\n\n\n\n<h1>Snapcraft capabilities<\/h1>\n\n\n\n<p>Let\u2019s
+        start with an overview of snapcraft and its capabilities.<\/p>\n\n\n\n<p>Snapcraft
+        is the command line tool that allows developers to build and publish their
+        applications as snaps, in the snap file format. Snaps are created as the final
+        artifact of the build process, with packages bearing a .snap extension. The
+        snap file format is a single compressed SquashFS filesystem. It includes the
+        application code and declarative metadata, which is interpreted by the snapd
+        service to set up a secure sandbox for that application.<\/p>\n\n\n\n<h1>Snapcraft
+        commands<\/h1>\n\n\n\n<p>Snapcraft supports a wide range of commands, designed
+        to help developers start their project, build their applications, upload these
+        applications to the online snap store, and publish them to the end user. Just
+        to give you more context, some of these commands include:<\/p>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">build \u00a0\u00a0\u00a0\u00a0\u00a0 Builds
+        artifacts based on the snapcraft.yaml file.<br>clean \u00a0\u00a0\u00a0\u00a0\u00a0
+        Remove content - cleans downloads, builds or\u2026<br>init \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0
+        Initializes a snapcraft project.<br>push \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0
+        Pushes a snap to the online snap store.<br>register \u00a0\u00a0 Registers
+        a snap with the online snap store.<br>snap \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0
+        Create a snaps.<\/pre>\n\n\n\n<p>And many more.<\/p>\n\n\n\n<h1>Where does
+        it all start?<\/h1>\n\n\n\n<p>Snapcraft builds applications based on declarations
+        written in a file called <strong>snapcraft.yaml<\/strong>.<\/p>\n\n\n\n<p>Snapcraft.yaml
+        is a configuration file written in the YAML language, with stanzas defining
+        the application structure and behavior. When snapcraft runs and parses this
+        file, it will use the declared information to build the snap.<\/p>\n\n\n\n<p>Developers
+        coming from the traditional Linux world will find it easier to relate to snapcraft.yaml
+        as being somewhat similar to a Makefile or an RPM spec file. Some familiarity
+        with the YAML language syntax is helpful in understanding the declarations
+        and logic in the snapcraft.yaml files.<\/p>\n\n\n\n<h1>Snapcraft.yaml<\/h1>\n\n\n\n<p>You
+        can create the snapcraft.yaml file manually in your project directory, or
+        you can run the <strong>snapcraft init<\/strong> command, which will create
+        a template file you can then populate with the required information.<\/p>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">snapcraft init<\/pre>\n\n\n\n<p>A minimal
+        valid snapcraft.yaml file that can be built into a working snap requires three
+        stanzas: <strong>metadata<\/strong>, <strong>confinement level<\/strong>,
+        and <strong>build definition<\/strong>.<\/p>\n\n\n\n<p>Let&#8217;s illustrate
+        this with an example. Below, you can see a complete snapcraft.yaml file contents
+        for an application called <em>wethr<\/em>, a command line weather tool. We
+        will now look at each section of the code separately and learn what it does.<\/p>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">name: wethr<br>version: \"1.4.0\"<br>summary:
+        Command line weather tool.<br>Description: |<br> &nbsp;Get current weather.<br><br>confinement:
+        strict<br>\nbase: core18<br><br>apps:<br>\n  wethr:<br>\n    command: wethr<br>\n    plugs:<br>\n      -
+        network<br><br>parts:<br>\n  wethr:<br>\n    plugin: nodejs<br>\n    source-tag:
+        \"v1.4.0\"<br>\n    source: https:\/\/github.com\/twobucks\/wethr.git<\/pre>\n\n\n\n<h2>Metadata<\/h2>\n\n\n\n<p>Several
+        mandatory fields define and describe the application &#8211; name, version,
+        summary and description. These fields allow end users to find snaps and install
+        them.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">name: wethr<br>version:
+        \"1.4.0\"<br>summary: Command line weather tool.<br>Description: |<br> \u00a0Get
+        current weather.<\/pre>\n\n\n\n<p>Let\u2019s examine these fields in more
+        detail:<\/p>\n\n\n\n<ul><li><strong>Name<\/strong> &#8211; A string that defines
+        the name of the snap. It must start with an ASCII character and can only use
+        ASCII lowercase letters, numbers and hyphens. It must be between 1 and 40
+        characters in length. The name must be unique in the Snap Store.<\/li><li><strong>Version<\/strong>
+        &#8211; A string that defines the version of the application to the user.
+        Max. length is 32 characters. You can also use \u2018git\u2019 for the version
+        qualifier. By specifying \u2018git\u2019, the current git tag or commit will
+        be used as the version string. Please note that versions carry no semantic
+        meaning in snaps.<\/li><li><strong>Summary<\/strong> &#8211; A string that
+        briefly describes the application. The summary can not exceed 79 characters.
+        You can use a chevron \u2018>\u2019 character or a pipe &#8216;|&#8217; character
+        in this key to declare a multi-line summary.<\/li><li><strong>Description<\/strong>
+        &#8211; A string that describes the application. You can use multiple lines.
+        There is no practical limitation on the length of this key.<\/li><\/ul>\n\n\n\n<table
+        class=\"wp-block-table\"><tbody><tr><td><strong>Field<\/strong><\/td><td><strong>Definition<\/strong><\/td><td><strong>Type<\/strong><\/td><td><strong>Length<\/strong><\/td><td><strong>Note<\/strong><\/td><\/tr><tr><td><strong>Name<\/strong><\/td><td>Name<\/td><td>String<\/td><td>1-40<\/td><td>Unique<\/td><\/tr><tr><td><strong>Version<\/strong><\/td><td>App
+        version<\/td><td>String<\/td><td>1-32<\/td><td>No semantic meaning<\/td><\/tr><tr><td><strong>Summary<\/strong><\/td><td>Brief<\/td><td>String<\/td><td>1-79<\/td><td>&#8211;<\/td><\/tr><tr><td><strong>Description<\/strong><\/td><td>Full<\/td><td>String<\/td><td>High<\/td><td>&#8211;<\/td><\/tr><\/tbody><\/table>\n\n\n\n<p>When
+        the application is built with snapcraft, this metadata will be made available
+        to users. Information about additional directives and their syntax is available
+        in the snapcraft <a href=\"https:\/\/docs.snapcraft.io\/snapcraft-yaml-reference\">YAML
+        reference<\/a> documentation.<\/p>\n\n\n\n<h2>Confinement level<\/h2>\n\n\n\n<p>By
+        design, snaps are confined and limited in what they can do. This is an important
+        feature that distinguishes snaps from software distributed using the traditional
+        repository methods. The confinement allows for a high level of isolation and
+        security, and prevents snaps from being affected by underlying system changes,
+        affecting one another or affecting the system.<\/p>\n\n\n\n<p>Different confinement
+        levels describe what type of access the application will have once installed
+        on the user\u2019s system. Confinement levels can be treated as filters that
+        define what type of system resources the application can access outside the
+        snap.<\/p>\n\n\n\n<p>Confinement is defined by general levels and fine-tuned
+        using interfaces. We will discuss interfaces later in the series.<\/p>\n\n\n\n<p>There
+        are three levels of confinement:<\/p>\n\n\n\n<ul><li><strong>Strict<\/strong>
+        &#8211; This confinement level uses Linux kernel security features to lock
+        down the applications inside the snap. By default, a strictly confined application
+        cannot access the network, the users\u2019 home directory, any audio subsystems
+        or webcams, and it cannot display any graphical output via X or Wayland.<\/li><li><strong>Devmode<\/strong>
+        &#8211; This is a debug mode level used by developers as they iterate on the
+        creation of their snap. This allows developers to troubleshoot applications,
+        because they may behave differently when confined.<\/li><li><strong>Classic<\/strong>
+        &#8211; This is a permissive level equivalent to the full system access that
+        traditionally packaged applications have. Classic confinement is often used
+        as a stop-gap measure to enable developers to publish applications that need
+        more access than the current set of permissions allow. The classic level should
+        be used only when required for functionality, as it lowers the security of
+        the application.<\/li><\/ul>\n\n\n\n<table class=\"wp-block-table\"><tbody><tr><td><strong>Access
+        type<\/strong><\/td><td><strong>Strict<\/strong><\/td><td><strong>Devmode<\/strong><\/td><td><strong>Classic<\/strong><\/td><\/tr><tr><td>Access
+        to network<\/td><td>N<\/td><td>Y<\/td><td>System<\/td><\/tr><tr><td>Access
+        to home dir<\/td><td>N<\/td><td>Y<\/td><td>System<\/td><\/tr><tr><td>Access
+        to audio<\/td><td>N<\/td><td>Y<\/td><td>System<\/td><\/tr><tr><td>Access to
+        webcam<\/td><td>N<\/td><td>Y<\/td><td>System<\/td><\/tr><tr><td>Access to
+        display<\/td><td>N<\/td><td>Y<\/td><td>System<\/td><\/tr><tr><td>Used for<\/td><td>Preferred<\/td><td>Troubleshooting<\/td><td>Stopgap
+        measure<\/td><\/tr><tr><td>Other<\/td><td>Interfaces override<\/td><td>&#8211;<\/td><td>Requires
+        review<\/td><\/tr><\/tbody><\/table>\n\n\n\n<p>Classically confined snaps
+        are reviewed by the Snap Store reviewers team before they can be published.
+        Snaps that use classic confinement may be rejected if they don\u2019t meet
+        the necessary requirements.<\/p>\n\n\n\n<p>If we look at the wethr example,
+        we define the confinement level as strict:<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">confinement:
+        strict<\/pre>\n\n\n\n<h2>Bases<\/h2>\n\n\n\n<p>In general, snaps cannot see
+        the root filesystem on end user systems. This prevents conflict with other
+        applications and increases security. However, applications still need some
+        location to act as the root filesystem. They would also benefit from common
+        libraries (e.g. libc) being in this root filesystem rather than bundled into
+        each application.<\/p>\n\n\n\n<p>The base keyword specifies a special kind
+        of snap that provides a minimal set of libraries common to most applications.
+        It will be mounted as the root filesystem for your application.<\/p>\n\n\n\n<p>The
+        core18 base is recommended.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">base:
+        core18<\/pre>\n\n\n\n<h1>Build definition<\/h1>\n\n\n\n<p>The build definition
+        stanza consists of several declarations on how the application is going to
+        be built. If we look at the wethr application example, the build definition
+        consists of the following:<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">apps:<br>
+        &nbsp;wethr:<br> &nbsp;&nbsp;&nbsp;command: wethr<br> &nbsp;&nbsp;&nbsp;plugs:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- network<\/pre>\n\n\n\n<pre class=\"wp-block-preformatted\">parts:<br>
+        &nbsp;wethr:<br> &nbsp;&nbsp;&nbsp;plugin: nodejs<br> &nbsp;&nbsp;&nbsp;source-tag:
+        \"v1.4.0\"<br> &nbsp;&nbsp;&nbsp;source: https:\/\/github.com\/twobucks\/wethr.git<\/pre>\n\n\n\n<h3>Build
+        definition &#8211; apps<\/h3>\n\n\n\n<p>Let\u2019s look at the first part
+        of the YAML code:<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">apps:<br>
+        &nbsp;wethr:<br> &nbsp;&nbsp;&nbsp;command: wethr<br> &nbsp;&nbsp;&nbsp;plugs:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- network<\/pre>\n\n\n\n<p><strong>apps:<\/strong>
+        defines the application(s) that are going to be part of the snap. The wethr
+        example has a single application &#8211; wethr. Other snaps may have multiple
+        sub-applications or executables.<\/p>\n\n\n\n<p><strong>wethr:<\/strong> defines
+        a block for the wethr application.<\/p>\n\n\n\n<p><strong>command:<\/strong>
+        defines the path to the executable (relative to snap) and arguments to use
+        when this application runs.<\/p>\n\n\n\n<p><strong>plugs:<\/strong> is a <a
+        href=\"https:\/\/forum.snapcraft.io\/t\/interface-management\/6154\">new concept<\/a>
+        that we have not yet discussed. It will be explained in more detail later
+        in the series. For the time being, we will go with a simplified description.
+        In this example, the declaration specifies that the wethr application will
+        be allowed access to the network interface, which is not available by default
+        under strict confinement. This allows the wethr snap to override the strict
+        confinement and provide network access.<\/p>\n\n\n\n<h3>Build definition &#8211;
+        parts<\/h3>\n\n\n\n<p>Let\u2019s take a closer look at the second part of
+        the YAML code, aptly named parts.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">parts:<br>
+        &nbsp;wethr:<br> &nbsp;&nbsp;&nbsp;plugin: nodejs<br> &nbsp;&nbsp;&nbsp;source-tag:
+        \"v1.4.0\"<br> &nbsp;&nbsp;&nbsp;source: https:\/\/github.com\/twobucks\/wethr.git<\/pre>\n\n\n\n<p><strong>parts:<\/strong>
+        defines what sources are needed to assemble your app. Parts can be anything
+        &#8211; programs, libraries, or other needed assets. We then further define
+        how the wethr application should be built.<\/p>\n\n\n\n<p><strong>plugin:<\/strong>
+        defines the use of an <a href=\"https:\/\/docs.snapcraft.io\/snapcraft-plugins\">existing
+        tool<\/a> that will perform various language-specific commands in the background.
+        For example, the nodejs plugin create parts that use Node.js and\/or the JavaScript
+        package manager npm.<\/p>\n\n\n\n<p><strong>source-tag:<\/strong> defines
+        a specific tag for source repositories under version control. This plugin
+        will then look for the source with the specific tag and try to obtain the
+        necessary data for the application build.<\/p>\n\n\n\n<p><strong>source:<\/strong>
+        defines the URL or a path of the application code that needs to be downloaded
+        for the build. It can be a local or remote path, and can refer to a directory
+        tree, a compressed archive or a revision control repository.<\/p>\n\n\n\n<h1>Application
+        build process<\/h1>\n\n\n\n<p>Once you have a complete snapcraft.yaml file,
+        you can build it.<\/p>\n\n\n\n<p>The best way to start a new build is with
+        a clean build environment. This ensures there are no library or dependency
+        conflicts in your build setup, and that all snaps are built against the same
+        common baseline.<\/p>\n\n\n\n<p>This will guarantee that your snaps can run
+        on all available snap platforms without any errors. To build your snap in
+        a clean build environment, run:<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">snapcraft<\/pre>\n\n\n\n<p>This
+        command will start an Ubuntu 18.04 minimal install virtual machine instance
+        via multipass, download the necessary packages, build the snap, save the final
+        artifact in your work directory, and then stop the virtual machine. The virtual
+        machine will not be deleted, and it will be reused for re-builds of the snap,
+        in case you require it.<\/p>\n\n\n\n<h1>Snap created<\/h1>\n\n\n\n<p>You may
+        encounter errors during the build process, such as invalid syntax, missing
+        libraries, or your snap may not work correctly. We will learn more about the
+        steps to understand and <a href=\"https:\/\/snapcraft.io\/blog\/snap-up-your-development-tools-for-making-the-snap-trek-easier\">troubleshoot<\/a>
+        these later in the series. For the time being, let\u2019s assume that our
+        snap builds correctly and without any errors.<\/p>\n\n\n\n<p>If the build
+        is successful, you will have a file with the .snap extension in your work
+        directory.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/lh4.googleusercontent.com\/NEMyMVEyCRno8fT6tmVARKbp0LjyxnwxO1KPlvVXgHPJ6E3qQ3pzHEQGwBAXvPMveXCWLpWdQ-9B0NYoW9JOwcYsmVLWzkKtSRUHiAdnXJ5jvdv5CHTmuspwK9sk5i1TYca4xo2D\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h1>Snap file format<\/h1>\n\n\n\n<p>To better
+        understand snaps, let\u2019s take a closer look at the snap file format. Each
+        snap is a single SquashFS filesystem containing the application code and metadata.
+        You can unpack the snaps using the unsquashfs command or by mounting a snap
+        as a loopback device.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">unsquashfs
+        &lt;file&gt;.snap<\/pre>\n\n\n\n<pre class=\"wp-block-preformatted\">mount
+        &lt;file&gt;.snap &lt;mount point&gt; -t squashfs -o loop<\/pre>\n\n\n\n<p>The
+        contents of the extracted or mounted snap will resemble a typical Linux filesystem.
+        There will be directories like bin, lib, usr and others. There will also be
+        a <em>command-&lt;snap name>.wrapper<\/em> file, which defines the snap environment
+        under which the snap will run.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">drwxr-xr-x
+        8 igor igor 4096 Dec &nbsp;5 12:48 .\/<br>drwxrwxr-x 4 igor igor 4096 Dec
+        &nbsp;5 12:48 ..\/<br>drwxr-xr-x 2 igor igor 4096 Dec &nbsp;5 12:48 bin\/<br>-rwxr-xr-x
+        1 igor igor &nbsp;&nbsp;61 Dec  5 12:48 command-foo.wrapper*<br>drwxr-xr-x
+        3 igor igor 4096 Dec &nbsp;5 12:48 etc\/<br>drwxr-xr-x 4 igor igor 4096 Dec
+        &nbsp;5 12:48 lib\/<br>drwxr-xr-x 3 igor igor 4096 Dec &nbsp;5 12:48 meta\/<br>drwxr-xr-x
+        3 igor igor 4096 Dec &nbsp;5 12:48 snap\/<br>drwxr-xr-x 6 igor igor 4096 Apr
+        16 &nbsp;2018 usr\/<\/pre>\n\n\n\n<p>Again, to make this easier to understand
+        for developers coming from the traditional world, this is somewhat similar
+        to extracting a package (like an RPM), and running an application from a relative
+        path by loading the necessary libraries using the $LD_LIBRARY_PATH environment
+        variable. Snaps use the $SNAP* variables to define and determine their \u201cvirtual\u201d
+        environment:<\/p>\n\n\n\n<ul><li>$SNAP (install path, RO)<\/li><li>$SNAP_DATA
+        (path in \/var, RW)<\/li><li>$SNAP_USER_DATA (path in \/home, RW)<\/li><\/ul>\n\n\n\n<p>And
+        others.<\/p>\n\n\n\n<p>A snap that has been published in the snap store will
+        have several additional files, like the <em>assert<\/em> file, <em>desktop
+        launcher<\/em> and others. We will discuss these in more detail later in the
+        series, once we learn how to use plugs and interfaces.<\/p>\n\n\n\n<h1>Publishing
+        a snap<\/h1>\n\n\n\n<p>Now we are ready to <a href=\"https:\/\/docs.snapcraft.io\/releasing-to-the-snap-store\">publish
+        our snap<\/a>. The process consists of the following:<\/p>\n\n\n\n<ul><li>Create
+        your developer account at <a href=\"https:\/\/snapcraft.io\/\">snapcraft.io<\/a>.<\/li><li>Register
+        your app\u2019s name (above or the command line).<\/li><li>Release your app.<\/li><\/ul>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">snapcraft login<\/pre>\n\n\n\n<pre class=\"wp-block-preformatted\">snapcraft
+        register<\/pre>\n\n\n\n<p>Once you have completed the first two steps, you
+        can upload the snap to the store.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">snapcraft
+        push --release=&lt;channel&gt; &lt;file&gt;.snap<\/pre>\n\n\n\n<p>The second
+        command will upload the snap file into the store. However, <em>before<\/em>
+        you run this command, we need to talk a little bit about the different release
+        channels.<\/p>\n\n\n\n<h2>Snap Store channels<\/h2>\n\n\n\n<p>The Snap Store
+        comes with a very high level of release management flexibility by using multiple
+        <a href=\"https:\/\/docs.snapcraft.io\/channels\">channels<\/a>, which allow
+        developers to publish their applications in a staged, controlled manner. The
+        channels can be treated as a multi-dimensional version control. Each channel
+        consists of three components:<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">&lt;track&gt;\/&lt;risk&gt;\/&lt;branch&gt;<\/pre>\n\n\n\n<ul><li><strong>Track<\/strong>
+        &#8211; represents a progressive potential trade-off between stability and
+        new features.<\/li><li><strong>Risk<\/strong> &#8211; enables snap developers
+        to publish multiple supported releases of their application under the same
+        snap name.<\/li><li><strong>Branch<\/strong> &#8211; are optional and hold
+        temporary releases intended to help with bug-fixing.<\/li><\/ul>\n\n\n\n<p>A
+        typical channel will look something like:<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">--channel=latest\/edge<\/pre>\n\n\n\n<h3>Track<\/h3>\n\n\n\n<p>All
+        snaps must have a default track called latest. This is the implied track unless
+        specified otherwise. A track contains releases based on the developer\u2019s
+        versioning convention. A track could be used to track minor updates (2.0.1,
+        2.0.2), major updates (2.1, 2.2), or releases held for long-term support (3.2,
+        4.1).<\/p>\n\n\n\n<h3>Risk<\/h3>\n\n\n\n<p>This is the most important aspect
+        of the channels. It defines the readiness of your application, much in the
+        same way you would version any application &#8211; alpha, beta, RC, GA, etc.
+        The risk levels used in the snap store are: stable, candidate, beta, and edge.<\/p>\n\n\n\n<p>Snaps
+        are installed using the stable risk-level by default. Installing from a less
+        stable risk-level will typically mean more frequent updates.<\/p>\n\n\n\n<p>You
+        can also use &#8211;stable, &#8211;candidate, &#8211;beta, &#8211;edge options
+        instead of writing the full channel declaration. For instance, &#8211;stable
+        is equivalent to &#8211;channel=stable or even &#8211;channel=latest\/stable.<\/p>\n\n\n\n<p>End
+        users of snap have the option to switch between different channels for their
+        own convenience.<\/p>\n\n\n\n<h3>Branch<\/h3>\n\n\n\n<p>Branches are optional.
+        They allow the creation of a short-lived sequences of snaps that can be published
+        on demand by snap developers to help with fixes or temporary experimentation.<\/p>\n\n\n\n<p>Branch
+        names convey their purpose, such as <em>fix-for-bug123<\/em>, but the name
+        isn\u2019t exposed in the normal way, such as with snap info. Instead, they
+        can be tracked by anyone simply knowing the name. After 30 days with no further
+        updates, a branch will be closed automatically.<\/p>\n\n\n\n<h2>Upload your
+        snap<\/h2>\n\n\n\n<p>Now that we understand the concept of channels, we can
+        upload our snap.<\/p>\n\n\n\n<p>Please note you should <strong>NOT<\/strong>
+        upload your snap to the stable channel right away. You should do the publication
+        in a staged manner, and allow for sufficient testing, to make sure the snap
+        application is stable and works correctly before it is promoted into the stable
+        channel.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">snapcraft push --release=beta
+        &lt;file&gt;.snap<\/pre>\n\n\n\n<p>The Snap Store will run several automated
+        checks against your snap. There may also be a manual review, depending on
+        how you have built your snap (like classic confinement). If the checks pass
+        without errors, your snap will be available in the store.<\/p>\n\n\n\n<p>You
+        are encouraged to create a <a href=\"https:\/\/snapcraft.io\/blog\/make-your-snap-store-page-pop\">compelling
+        page<\/a> for your application, to attract users. The use of an accurate description,
+        high-quality logo and screenshots can all help make your application more
+        visible and appealing.<\/p>\n\n\n\n<p>And that\u2019s it. Congratulations,
+        you\u2019ve just successfully published your first snap!<\/p>\n\n\n\n<h1>Conclusion<\/h1>\n\n\n\n<p>Today,
+        we learned about snaps as a concept and technology. We learned about the basic
+        architecture of snaps and its components. We delved a little deeper into the
+        snapcraft internals, focusing on the commands, the snapcraft.yaml syntax and
+        how to build and publish your snaps.<\/p>\n\n\n\n<p>We touched on the important
+        concepts of confinement levels, clean build environment, and channels. We
+        used a simple example of a command-line weather application in the build process.
+        The next step is to expand on the build definitions, and make more complex
+        snaps.<\/p>\n\n\n\n<p>Indeed, snapcraft has many useful components, and through
+        the series, we will discuss them, including interfaces, plugins, hooks and
+        health checks, and how to develop snaps with different languages, like Python,
+        Electron, Go, and others.<\/p>\n\n\n\n<p>Meanwhile, if you&#8217;re interested,
+        please take a look at the following blog posts, as they provide additional
+        details and insight into the snap build process:<\/p>\n\n\n\n<p><a href=\"https:\/\/snapcraft.io\/blog\/bootstrap-your-snap\">Bootstrap
+        Your Snaps<\/a><\/p>\n\n\n\n<p><a href=\"https:\/\/snapcraft.io\/blog\/publish-your-unity-games-in-the-snap-store\">Zero
+        to Snap &#8211; Rev up your packaging<\/a><\/p>\n\n\n\n<p><a href=\"https:\/\/snapcraft.io\/blog\/zero-to-hero-snap-me-up-before-you-go\">Zero
+        to Hero &#8211; Snap me up before you GO<\/a><\/p>\n\n\n\n<p><a href=\"https:\/\/snapcraft.io\/blog\/publish-your-unity-games-in-the-snap-store\">Publish
+        Your Unity Games in the Snap Store<\/a><\/p>\n\n\n\n<p>And of course, we welcome
+        feedback and ideas, so if you like, please join the <a href=\"https:\/\/forum.snapcraft.io\/\">discussion
+        forum<\/a>.<\/p>\n\n\n\n<p>Photo by <a href=\"https:\/\/unsplash.com\/photos\/t5YUoHW6zRo?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Barn
+        Images<\/a> on <a href=\"https:\/\/unsplash.com\/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Unsplash<\/a>.<\/p>\n","protected":false},"excerpt":{"rendered":"<p>First
+        steps are always hard, especially in technology. Most of the time, you need
+        a primer, just the right dose of knowledge, to get started with a platform.
+        This tutorial and upcoming sequels are designed to provide developers with
+        simple, clear and effective tips and tricks on how to build and publish their
+        applications as [&hellip;]<\/p>\n","protected":false},"author":597,"featured_media":89203,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[],"tags":[3365,2598,3364,3363,2996,3362,2076],"topic":[1921],"group":[1479],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"16","_start_month":"05","_start_year":"2019","_end_day":"16","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89189"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/597"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89189"}],"version-history":[{"count":9,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89189\/revisions"}],"predecessor-version":[{"id":89209,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89189\/revisions\/89209"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89203"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89189"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89189"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89189"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89189"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89189"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89177,"date":"2019-05-16T06:59:00","date_gmt":"2019-05-16T06:59:00","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89177"},"modified":"2019-05-16T06:59:02","modified_gmt":"2019-05-16T06:59:02","slug":"ubuntu-core-18-webinar-chinese","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/16\/ubuntu-core-18-webinar-chinese\/","title":{"rendered":"Ubuntu
+        Core 18\u4e13\u9898\u7814\u8ba8\u4f1a\u56fe\u6587\u7248"},"content":{"rendered":"\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/c6a1\/Snipaste_2019-04-18_13-02-08.jpg\"
+        alt=\"\" class=\"wp-image-89183\"\/><\/figure>\n\n\n\n<p>Ubuntu\u5728\u516c\u6709\u4e91\u3001\u6df7\u5408\u4e91\u3001\u5bb9\u5668\u3001AI\u673a\u5668\u5b66\u4e60\u3001IoT\u8fb9\u7f18\u8ba1\u7b97\u9886\u57df\u6709\u7740\u5e7f\u6cdb\u7684\u4f7f\u7528\u548c\u5e9e\u5927\u7684\u751f\u6001\u5708\u3002\u4eca\u5929\u6211\u4eec\u7740\u91cd\u4ecb\u7ecdUbuntu
+        Core\u5728\u7269\u8054\u7f51\u7684\u5e94\u7528\uff0cUbuntu Core\u6b63\u5728\u9a71\u52a8\u7740\u6574\u4e2a\u7269\u8054\u7f51\u8bbe\u5907\u3002Ubuntu
+        Core\u5728\u65e0\u4eba\u673a\u3001\u8fb9\u7f18\u7f51\u5173\u3001\u673a\u5668\u4eba\u3001\u5de5\u4e1a\u7b49\u884c\u4e1a\u9886\u57df\u90fd\u975e\u5e38\u6d41\u884c\uff0c\u662f\u8fd9\u4e9b\u884c\u4e1a\u9886\u57df\u7684\u9996\u9009OS\uff08\u64cd\u4f5c\u7cfb\u7edf\uff09\u3002<br><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/d0a7\/Snipaste_2019-04-18_13-03-55.jpg\"
+        alt=\"\" class=\"wp-image-89178\"\/><\/figure>\n\n\n\n<p>\u4ece\u4e8bIoT\uff08\u7269\u8054\u7f51\uff09\u4e1a\u52a1\u7684\u4f01\u4e1a\u6b63\u9762\u4e34\u4ea7\u54c1\u8f6f\u4ef6\u5b89\u5168\u66f4\u65b0\u7ef4\u62a4\u548c\u6210\u672c\u6548\u5e94\u4e43\u81f3\u8425\u6536\u7684\u96be\u9898\u3002\u968f\u7740\u65f6\u95f4\u7684\u8fc1\u79fb\uff0c\u6210\u672c\u652f\u51fa\u5c06\u53d8\u5f97\u66f4\u9ad8\u3002\u4f20\u7edf\u89e3\u51b3\u65b9\u6848\u5982\u4eca\u4f1a\u4f7f\u5f97\u4ea7\u54c1\u751f\u547d\u671f\u8fc7\u534a\u540e\u5c06\u9762\u4e34\u76c8\u5229\u56f0\u96be\u7684\u95ee\u9898\uff0c\u5f71\u54cd\u4f01\u4e1a\u65b0\u4ea7\u54c1\u7684\u7814\u53d1\u548c\u8fed\u4ee3\u5347\u7ea7\u3002\u56e0\u6b64\uff0c\u4e00\u4e2a\u80fd\u5728\u4ea7\u54c1\u6574\u4e2a\u751f\u547d\u5468\u671f\u4e2d\u4e3a\u4f01\u4e1a\u6301\u7eed\u76c8\u5229\u7684\u5e73\u53f0\u5bf9\u4e8e\u4f01\u4e1a\u6765\u8bf4\u81f3\u5173\u91cd\u8981\u3002<br><\/p>\n\n\n\n<p>\u5355\u4e00\u7684\u4ea7\u54c1+\u8f6f\u4ef6\u670d\u52a1\u7684\u4f20\u7edf\u5546\u4e1a\u6a21\u5f0f\u5728\u73b0\u4eca\u5e02\u573a\u4e0a\u5df2\u7f3a\u4e4f\u7ade\u4e89\u529b\uff0c\u56fa\u5b9a\u7684\u786c\u4ef6\u6210\u672c+\u65e0\u76c8\u5229\u7684\u8f6f\u4ef6\u5e73\u53f0+\u9ad8\u6602\u7684\u5b89\u5168\u7ef4\u62a4\u6210\u672c\u4f7f\u5f97\u5176\u5728\u53d1\u5c55\u4e0a\u53d7\u9650\u3002\u5e73\u53f0\u7684\u7ecf\u6d4e\u6027\u5df2\u88ab\u8bc1\u660e\u662f\u53e6\u4e00\u4e2a\u51fa\u8def\uff0c\u5728\u540c\u4e1a\u5185\u4e5f\u5177\u5907\u66f4\u5927\u7684\u7ade\u4e89\u4f18\u52bf\u3002\u8f6f\u4ef6\u5e73\u53f0\u7684\u6301\u7eed\u6027\u589e\u957f\u5c06\u4f1a\u7ed9\u4f01\u4e1a\u5e26\u6765\u66f4\u591a\u8425\u6536\uff0c\u4f7f\u5f97\u4ea7\u54c1\u7ebf\u5347\u7ea7\u3001\u8fed\u4ee3\u7684\u8fc7\u7a0b\u66f4\u52a0\u5e73\u6ed1\u3002<br><\/p>\n\n\n\n<p>\u8f6f\u4ef6\u5b89\u5168\u95ee\u9898\u6b63\u5448\u73b0\u5168\u7403\u6027\uff0c\u5927\u8303\u56f4\u7206\u53d1\u7684\u8d8b\u52bf\uff0c\u4f01\u4e1a\u9700\u8981\u505a\u597d\u8db3\u591f\u7684\u5b89\u5168\u51c6\u5907\uff0c\u5c24\u5176\u5728\u4ea7\u54c1\u91cf\u4ea7\u548c\u6b63\u5f0f\u4e0a\u7ebf\u9636\u6bb5\u3002\u91cf\u4ea7\u524d\u9700\u8981\u505a\u597d\u540e\u671f\u5b89\u5168\u7ef4\u62a4\u66f4\u65b0\u7684\u673a\u5236\uff0c\u4e0a\u7ebf\u65f6\u9700\u8981\u6709\u53ef\u884c\uff0c\u7a33\u5b9a\uff0c\u9ad8\u6548\u7684\u5b89\u5168\u65b9\u6848\u3002\u7269\u8054\u7f51\u7684\u7279\u70b9\u662f\u5206\u6563\uff0c\u5e76\u53d1\uff0c\u96c6\u4e2d\u7ba1\u7406\uff0c\u5982\u8ddd\u79bb\u5f88\u8fdc\u7528\u4e8e\u98ce\u529b\u53d1\u7535\u7684\u7535\u673a\u7f51\u5173\uff0c\u7ef4\u62a4\u6210\u672c\u5de8\u5927\u548c\u4e0d\u4fbf\u3002<br><\/p>\n\n\n\n<p><strong>\u4e3a\u4f01\u4e1a\u751f\u4ea7\u529b\u800c\u8bbe\u8ba1<\/strong><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/fccb\/Snipaste_2019-04-18_13-07-44.jpg\"
+        alt=\"\" class=\"wp-image-89181\"\/><\/figure>\n\n\n\n<p>Ubuntu Core\u662f\u4e00\u4e2a\u4e3a\u4f01\u4e1a\u751f\u4ea7\u529b\u800c\u8bbe\u8ba1\u7684Ubuntu\u7248\u672c\uff0c\u62e5\u6709\u548cUbuntu\u4e00\u6837\u7684\u5185\u6838\u3002\u62e5\u6709\u4e0a\u5343\u7684\u5e94\u7528\u7684\u8f6f\u4ef6\u5546\u5e97\uff0c\u66f4\u53ef\u9760\u3001\u5b89\u5168\u3001\u7a33\u5b9a\uff0c\u5bf9\u4f01\u4e1a\u8425\u6536\u66f4\u53cb\u597d\u3002<br><\/p>\n\n\n\n<p><strong>\u91cd\u65b0\u5b9a\u4e49\u5546\u4e1a\u6a21\u5f0f<\/strong><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4a90\/Snipaste_2019-04-18_13-04-08.jpg\"
+        alt=\"\" class=\"wp-image-89179\"\/><\/figure>\n\n\n\n<p>Snap store\uff0c\u81ea\u7531\u5b9a\u5236\u5316\uff0c\u7075\u6d3b\u7684\u8f6f\u4ef6\u751f\u6001\uff0c\u8425\u6536\u94fe\u3002\u4f01\u4e1a\u53ef\u9009\u62e9\u54c1\u724c\u5b9a\u5236\u5e94\u7528\u5546\u5e97\uff0c\u63a5\u5165\u5e94\u7528\u5546\u5e97\u6216\u5b9a\u5236\uff0c\u62e5\u6709\u53ef\u63a7\u7684\u7075\u6d3b\u5b89\u5168\u66f4\u65b0\u7ef4\u62a4\u673a\u5236\uff0c\u89e3\u51b3\u7ef4\u62a4\u96be\u3001\u6210\u672c\u9ad8\u7684\u96be\u9898\u3002
+        <\/p>\n\n\n\n<p> <strong>\u5b89\u5168\u548c\u6210\u672c\u6548\u76ca\u517c\u5907
+        <\/strong><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8f56\/Snipaste_2019-04-18_13-05-56.jpg\"
+        alt=\"\" class=\"wp-image-89180\"\/><\/figure>\n\n\n\n<p>Ubuntu Core 18\u62e5\u6709\u4e3b\u52a8\u5b89\u5168\u673a\u5236\uff0c\u4e8b\u52a1\u6027\u7684\u7cfb\u7edf\u5230\u8f6f\u4ef6\u5c42\u7684\u66f4\u65b0\uff0c\u9ed8\u8ba4\u5e94\u7528\u90fd\u53d7\u9650\uff0cCanonical10\u5e74\u7684\u53ef\u9760\u5b89\u5168\u652f\u6301\u3002\u8fd9\u4e9b\u90fd\u5c06\u5b89\u5168\u63d0\u5347\u5230\u4e86\u65b0\u9ad8\u5ea6\uff0c\u540c\u65f6\u964d\u4f4e\u7ef4\u62a4\u6210\u672c\u3002<br><\/p>\n\n\n\n<p>\u5f3a\u5927\u7684\u5f00\u53d1\u8005\u793e\u533a\uff0c\u73b0\u5728\u5f00\u53d1\u8005\u5728Ubuntu\u5e73\u53f0\u4e0a\u5f00\u53d1\u5d4c\u5165\u5f0f\u7684Linux\u5e94\u7528\u5c06\u53d8\u5f97\u66f4\u7b80\u5355\uff0c\u4e00\u4e2a\u5e73\u53f0\u5373\u53ef\u6db5\u76d6\u8bbe\u5907\u5230\u4e91\u7aef\u7684\u8fde\u63a5\u3002\u540c\u65f6\uff0c\u5728\u591a\u7248\u672c\u591a\u67b6\u6784\u7684\u8f6f\u4ef6\u6d4b\u8bd5\u3001\u5206\u53d1\u4e0a\u4f53\u9a8c\u66f4\u53cb\u597d\u3002<br><\/p>\n\n\n\n<p>\u4e86\u89e3\u66f4\u591a\u5173\u4e8e<a
+        href=\"https:\/\/cn.ubuntu.com\/internet-of-things\">Ubuntu Core 18<\/a>\u7684\u5185\u5bb9\u6216<a
+        href=\"http:\/\/cn.ubuntu.com\/contact\">\u8054\u7cfb\u6211\u4eec<\/a>\u3002<br><\/p>\n","protected":false},"excerpt":{"rendered":"<p>Ubuntu\u5728\u516c\u6709\u4e91\u3001\u6df7\u5408\u4e91\u3001\u5bb9\u5668\u3001AI\u673a\u5668\u5b66\u4e60\u3001IoT\u8fb9\u7f18\u8ba1\u7b97\u9886\u57df\u6709\u7740\u5e7f\u6cdb\u7684\u4f7f\u7528\u548c\u5e9e\u5927\u7684\u751f\u6001\u5708\u3002\u4eca\u5929\u6211\u4eec\u7740\u91cd\u4ecb\u7ecdUbuntu
+        Core\u5728\u7269\u8054\u7f51\u7684\u5e94\u7528\uff0cUbuntu Core\u6b63\u5728\u9a71\u52a8\u7740\u6574\u4e2a\u7269\u8054\u7f51\u8bbe\u5907\u3002Ubuntu
+        Core\u5728\u65e0\u4eba\u673a\u3001\u8fb9\u7f18\u7f51\u5173\u3001\u673a\u5668\u4eba\u3001\u5de5\u4e1a\u7b49\u884c\u4e1a\u9886\u57df\u90fd\u975e\u5e38\u6d41\u884c\uff0c\u662f\u8fd9\u4e9b\u884c\u4e1a\u9886\u57df\u7684\u9996\u9009OS\uff08\u64cd\u4f5c\u7cfb\u7edf\uff09\u3002
+        \u4ece\u4e8bIoT\uff08\u7269\u8054\u7f51\uff09\u4e1a\u52a1\u7684\u4f01\u4e1a\u6b63\u9762\u4e34\u4ea7\u54c1\u8f6f\u4ef6\u5b89\u5168\u66f4\u65b0\u7ef4\u62a4\u548c\u6210\u672c\u6548\u5e94\u4e43\u81f3\u8425\u6536\u7684\u96be\u9898\u3002\u968f\u7740\u65f6\u95f4\u7684\u8fc1\u79fb\uff0c\u6210\u672c\u652f\u51fa\u5c06\u53d8\u5f97\u66f4\u9ad8\u3002\u4f20\u7edf\u89e3\u51b3\u65b9\u6848\u5982\u4eca\u4f1a\u4f7f\u5f97\u4ea7\u54c1\u751f\u547d\u671f\u8fc7\u534a\u540e\u5c06\u9762\u4e34\u76c8\u5229\u56f0\u96be\u7684\u95ee\u9898\uff0c\u5f71\u54cd\u4f01\u4e1a\u65b0\u4ea7\u54c1\u7684\u7814\u53d1\u548c\u8fed\u4ee3\u5347\u7ea7\u3002\u56e0\u6b64\uff0c\u4e00\u4e2a\u80fd\u5728\u4ea7\u54c1\u6574\u4e2a\u751f\u547d\u5468\u671f\u4e2d\u4e3a\u4f01\u4e1a\u6301\u7eed\u76c8\u5229\u7684\u5e73\u53f0\u5bf9\u4e8e\u4f01\u4e1a\u6765\u8bf4\u81f3\u5173\u91cd\u8981\u3002
+        \u5355\u4e00\u7684\u4ea7\u54c1+\u8f6f\u4ef6\u670d\u52a1\u7684\u4f20\u7edf\u5546\u4e1a\u6a21\u5f0f\u5728\u73b0\u4eca\u5e02\u573a\u4e0a\u5df2\u7f3a\u4e4f\u7ade\u4e89\u529b\uff0c\u56fa\u5b9a\u7684\u786c\u4ef6\u6210\u672c+\u65e0\u76c8\u5229\u7684\u8f6f\u4ef6\u5e73\u53f0+\u9ad8\u6602\u7684\u5b89\u5168\u7ef4\u62a4\u6210\u672c\u4f7f\u5f97\u5176\u5728\u53d1\u5c55\u4e0a\u53d7\u9650\u3002\u5e73\u53f0\u7684\u7ecf\u6d4e\u6027\u5df2\u88ab\u8bc1\u660e\u662f\u53e6\u4e00\u4e2a\u51fa\u8def\uff0c\u5728\u540c\u4e1a\u5185\u4e5f\u5177\u5907\u66f4\u5927\u7684\u7ade\u4e89\u4f18\u52bf\u3002\u8f6f\u4ef6\u5e73\u53f0\u7684\u6301\u7eed\u6027\u589e\u957f\u5c06\u4f1a\u7ed9\u4f01\u4e1a\u5e26\u6765\u66f4\u591a\u8425\u6536\uff0c\u4f7f\u5f97\u4ea7\u54c1\u7ebf\u5347\u7ea7\u3001\u8fed\u4ee3\u7684\u8fc7\u7a0b\u66f4\u52a0\u5e73\u6ed1\u3002
+        \u8f6f\u4ef6\u5b89\u5168\u95ee\u9898\u6b63\u5448\u73b0\u5168\u7403\u6027\uff0c\u5927\u8303\u56f4\u7206\u53d1\u7684\u8d8b\u52bf\uff0c\u4f01\u4e1a\u9700\u8981\u505a\u597d\u8db3\u591f\u7684\u5b89\u5168\u51c6\u5907\uff0c\u5c24\u5176\u5728\u4ea7\u54c1\u91cf\u4ea7\u548c\u6b63\u5f0f\u4e0a\u7ebf\u9636\u6bb5\u3002\u91cf\u4ea7\u524d\u9700\u8981\u505a\u597d\u540e\u671f\u5b89\u5168\u7ef4\u62a4\u66f4\u65b0\u7684\u673a\u5236\uff0c\u4e0a\u7ebf\u65f6\u9700\u8981\u6709\u53ef\u884c\uff0c\u7a33\u5b9a\uff0c\u9ad8\u6548\u7684\u5b89\u5168\u65b9\u6848\u3002\u7269\u8054\u7f51\u7684\u7279\u70b9\u662f\u5206\u6563\uff0c\u5e76\u53d1\uff0c\u96c6\u4e2d\u7ba1\u7406\uff0c\u5982\u8ddd\u79bb\u5f88\u8fdc\u7528\u4e8e\u98ce\u529b\u53d1\u7535\u7684\u7535\u673a\u7f51\u5173\uff0c\u7ef4\u62a4\u6210\u672c\u5de8\u5927\u548c\u4e0d\u4fbf\u3002
+        \u4e3a\u4f01\u4e1a\u751f\u4ea7\u529b\u800c\u8bbe\u8ba1 Ubuntu Core\u662f\u4e00\u4e2a\u4e3a\u4f01\u4e1a\u751f\u4ea7\u529b\u800c\u8bbe\u8ba1\u7684Ubuntu\u7248\u672c\uff0c\u62e5\u6709\u548cUbuntu\u4e00\u6837\u7684\u5185\u6838\u3002\u62e5\u6709\u4e0a\u5343\u7684\u5e94\u7528\u7684\u8f6f\u4ef6\u5546\u5e97\uff0c\u66f4\u53ef\u9760\u3001\u5b89\u5168\u3001\u7a33\u5b9a\uff0c\u5bf9\u4f01\u4e1a\u8425\u6536\u66f4\u53cb\u597d\u3002
+        \u91cd\u65b0\u5b9a\u4e49\u5546\u4e1a\u6a21\u5f0f Snap store\uff0c\u81ea\u7531\u5b9a\u5236\u5316\uff0c\u7075\u6d3b\u7684\u8f6f\u4ef6\u751f\u6001\uff0c\u8425\u6536\u94fe\u3002\u4f01\u4e1a\u53ef\u9009\u62e9\u54c1\u724c\u5b9a\u5236\u5e94\u7528\u5546\u5e97\uff0c\u63a5\u5165\u5e94\u7528\u5546\u5e97\u6216\u5b9a\u5236\uff0c\u62e5\u6709\u53ef\u63a7\u7684\u7075\u6d3b\u5b89\u5168\u66f4\u65b0\u7ef4\u62a4\u673a\u5236\uff0c\u89e3\u51b3\u7ef4\u62a4\u96be\u3001\u6210\u672c\u9ad8\u7684\u96be\u9898\u3002
+        \u5b89\u5168\u548c\u6210\u672c\u6548\u76ca\u517c\u5907 Ubuntu Core 18\u62e5\u6709\u4e3b\u52a8\u5b89\u5168\u673a\u5236\uff0c\u4e8b\u52a1\u6027\u7684\u7cfb\u7edf\u5230\u8f6f\u4ef6\u5c42\u7684\u66f4\u65b0\uff0c\u9ed8\u8ba4\u5e94\u7528\u90fd\u53d7\u9650\uff0cCanonical10\u5e74\u7684\u53ef\u9760\u5b89\u5168\u652f\u6301\u3002\u8fd9\u4e9b\u90fd\u5c06\u5b89\u5168\u63d0\u5347\u5230\u4e86\u65b0\u9ad8\u5ea6\uff0c\u540c\u65f6\u964d\u4f4e\u7ef4\u62a4\u6210\u672c\u3002
+        \u5f3a\u5927\u7684\u5f00\u53d1\u8005\u793e\u533a\uff0c\u73b0\u5728\u5f00\u53d1\u8005\u5728Ubuntu\u5e73\u53f0\u4e0a\u5f00\u53d1\u5d4c\u5165\u5f0f\u7684Linux\u5e94\u7528\u5c06\u53d8\u5f97\u66f4\u7b80\u5355\uff0c\u4e00\u4e2a\u5e73\u53f0\u5373\u53ef\u6db5\u76d6\u8bbe\u5907\u5230\u4e91\u7aef\u7684\u8fde\u63a5\u3002\u540c\u65f6\uff0c\u5728\u591a\u7248\u672c\u591a\u67b6\u6784\u7684\u8f6f\u4ef6\u6d4b\u8bd5\u3001\u5206\u53d1\u4e0a\u4f53\u9a8c\u66f4\u53cb\u597d\u3002
+        \u4e86\u89e3\u66f4\u591a\u5173\u4e8eUbuntu Core 18\u7684\u5185\u5bb9\u6216\u8054\u7cfb\u6211\u4eec\u3002<\/p>\n","protected":false},"author":448,"featured_media":88741,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[1665,3265,1626,3360,3361,3306],"topic":[1924],"group":[1666],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"16","_start_month":"05","_start_year":"2019","_end_day":"16","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89177"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/448"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89177"}],"version-history":[{"count":3,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89177\/revisions"}],"predecessor-version":[{"id":89185,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89177\/revisions\/89185"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/88741"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89177"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89177"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89177"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89177"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89177"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89155,"date":"2019-05-15T21:48:50","date_gmt":"2019-05-15T21:48:50","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89155"},"modified":"2019-05-15T21:48:52","modified_gmt":"2019-05-15T21:48:52","slug":"ubuntu-server-development-summary-15-may-2019","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/15\/ubuntu-server-development-summary-15-may-2019\/","title":{"rendered":"Ubuntu
+        Server development summary &#8211; 15 May 2019"},"content":{"rendered":"<h1
+        id=\"hello-ubuntu-server\">Hello Ubuntu Server<\/h1>\n<p>The purpose of this
+        communication is to provide a status update and highlights for any interesting
+        subjects from the Ubuntu Server Team. If you would like to reach the server
+        team, you can find us at the #ubuntu-server channel on Freenode. Alternatively,
+        you can sign up and use the Ubuntu Server Team <a href=\"https:\/\/lists.ubuntu.com\/mailman\/listinfo\/ubuntu-server\">mailing
+        list<\/a> or visit the <a href=\"https:\/\/discourse.ubuntu.com\/c\/server\">Ubuntu
+        Server discourse hub<\/a> for more discussion.<\/p>\n<h2 id=\"spotlight-cloud-init-19.1.1-upstream-released-to-eoan\">Spotlight:
+        cloud-init 19.1.1 upstream released to Eoan<\/h2>\n<p>Upstream release of
+        cloud-init version 19.1.1 has been released. It represents 5 months of development
+        from 24 developers in 20 different domains and fixes 30 launchpad issues.
+        This release has already been published to Eoan.<\/p>\n<p>Cloud-init 19.1.1
+        is also undergoing Stable Release Update (SRU) verification this week. This
+        version is available in the proposed pockets for Xenial, Bionic, Cosmic and
+        Disco series.<\/p>\n<p>To kick the tires on cloud-init 19.1.1, one can <a
+        href=\"https:\/\/wiki.ubuntu.com\/Testing\/EnableProposed\">add a -proposed
+        apt source line<\/a> and apt-get install cloud-init. Expectation is that we
+        will finish SRU testing on cloud-init 19.1.1 for Xenial, Bionic, Cosmic and
+        Disco by next week.<\/p>\n<h2 id=\"cloud-init\">cloud-init<\/h2>\n<ul>\n<li>Queue
+        SRU of cloud-init 19.1.1 into Xenial, Bionic, Cosmic (<a href=\"https:\/\/bugs.launchpad.net\/ubuntu\/+source\/cloud-init\/+bug\/1828637\">LP:
+        #1828637<\/a>)<\/li>\n<li>Azure: Return static fallback address as if failed
+        to find endpoint [Jason Zions (MSFT)]<\/li>\n<li>release 19.1 (<a href=\"https:\/\/bugs.launchpad.net\/bugs\/1828479\">LP:
+        #1828479<\/a>)<\/li>\n<li>freebsd: add chpasswd pkg in the image [Gon\u00e9ri
+        Le Bouder]<\/li>\n<li>tests: add Eoan release [Paride Legovini]<\/li>\n<li>cc_mounts:
+        check if mount -a on no-change fstab path [Jason Zions (MSFT)] (<a href=\"https:\/\/bugs.launchpad.net\/bugs\/1825596\">LP:
+        #1825596<\/a>)<\/li>\n<li>replace remaining occurrences of LOG.warn [Daniel
+        Watkins]<\/li>\n<li>DataSourceAzure: Adjust timeout for polling IMDS [Anh
+        Vo]<\/li>\n<\/ul>\n<h2 id=\"curtin\">curtin<\/h2>\n<ul>\n<li>grub: add grub
+        config to control os_prober,terminal settings in target [Ryan Harper]<\/li>\n<li>vmtest:
+        add eoan tests [Paride Legovini]<\/li>\n<li>vmtest: add dependency on python3-jsonschema
+        [Paride Legovini]<\/li>\n<li>Pylint compatibility with Python 3.7 [Paride
+        Legovini] (<a href=\"https:\/\/bugs.launchpad.net\/bugs\/1828229\">LP: #1828229<\/a>)<\/li>\n<li>vmtest:
+        disable disco multipath test [Ryan Harper]<\/li>\n<li>vmtests: bump network
+        mtu tests out a bit [Ryan Harper]<\/li>\n<li>Fix up yaml.load warnings [Ryan
+        Harper]<\/li>\n<li>vmtest: disable trusty, it&#8217;s dead jim [Ryan Harper]<\/li>\n<\/ul>\n<h2
+        id=\"contact-the-ubuntu-server-team\">Contact the Ubuntu Server team<\/h2>\n<ul>\n<li>Chat
+        on #ubuntu-server on Freenode<\/li>\n<li>Email the <a href=\"https:\/\/lists.ubuntu.com\/mailman\/listinfo\/ubuntu-server\">ubuntu-server
+        mailing list<\/a><\/li>\n<li>Find us on the <a href=\"https:\/\/discourse.ubuntu.com\/c\/server\">Ubuntu
+        Community Hub &#8211; server channel<\/a><\/li>\n<\/ul>\n<h2 id=\"bug-work-and-triage\">Bug
+        Work and Triage<\/h2>\n<ul>\n<li>280 bugs in the <a href=\"\/\/bugs.launchpad.net\/~ubuntu-server\/+subscribedbugs\">backlog<\/a><\/li>\n<li><a
+        href=\"https:\/\/wiki.ubuntu.com\/ServerTeam\/KnowledgeBase#Bug_Triage\">Notes
+        on daily bug triage<\/a><\/li>\n<\/ul>\n<h2 id=\"ubuntu-server-packages\">Ubuntu
+        Server Packages<\/h2>\n<p>Below is a summary of uploads to the development
+        and supported releases. Current status of the Debian to Ubuntu merges is tracked
+        on the <a href=\"https:\/\/merges.ubuntu.com\/main.html\">Merge-o-Matic page<\/a>.
+        For a full list of recent merges with change logs please see the Ubuntu Server
+        <a href=\"http:\/\/reqorts.qa.ubuntu.com\/reports\/ubuntu-server\/merges.html\">report<\/a>.<\/p>\n<h3
+        id=\"proposed-uploads-to-the-supported-releases\">Proposed Uploads to the
+        Supported Releases<\/h3>\n<p>Please consider testing the following by <a href=\"https:\/\/wiki.ubuntu.com\/Testing\/EnableProposed\">enabling
+        proposed<\/a>, checking packages for update regressions, and making sure to
+        mark affected bugs <a href=\"https:\/\/wiki.ubuntu.com\/StableReleaseUpdates#Verification\">verified
+        as fixed<\/a>.<\/p>\n<p>Total: 15<\/p>\n<ul>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/bind9\/1:9.11.5.P1+dfsg-1ubuntu2.4\"><code>bind9,
+        disco, 1:9.11.5.P1+dfsg-1ubuntu2.4, ahasenack<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/containerd\/1.2.6-0ubuntu1~16.04.1\"><code>containerd,
+        xenial, 1.2.6-0ubuntu1~16.04.1, mwhudson<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/containerd\/1.2.6-0ubuntu1~18.04.1\"><code>containerd,
+        bionic, 1.2.6-0ubuntu1~18.04.1, mwhudson<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/containerd\/1.2.6-0ubuntu1~18.10.1\"><code>containerd,
+        cosmic, 1.2.6-0ubuntu1~18.10.1, mwhudson<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/openvpn\/2.3.10-1ubuntu2.2\"><code>openvpn,
+        xenial, 2.3.10-1ubuntu2.2, j-latten<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/openvpn\/2.4.4-2ubuntu1.2\"><code>openvpn,
+        bionic, 2.4.4-2ubuntu1.2, j-latten<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/openvpn\/2.4.6-1ubuntu2.1\"><code>openvpn,
+        cosmic, 2.4.6-1ubuntu2.1, j-latten<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/rdma-core\/22.1-1ubuntu0.1\"><code>rdma-core,
+        disco, 22.1-1ubuntu0.1, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/resource-agents\/1:3.9.7-1ubuntu1.1\"><code>resource-agents,
+        xenial, 1:3.9.7-1ubuntu1.1, halves<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/resource-agents\/1:4.1.0~rc1-1ubuntu1.1\"><code>resource-agents,
+        bionic, 1:4.1.0~rc1-1ubuntu1.1, halves<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/resource-agents\/1:4.1.1-2ubuntu1\"><code>resource-agents,
+        cosmic, 1:4.1.1-2ubuntu1, halves<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/resource-agents\/1:4.2.0-1ubuntu1.1\"><code>resource-agents,
+        disco, 1:4.2.0-1ubuntu1.1, halves<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/runc\/1.0.0~rc7+git20190403.029124da-0ubuntu1~16.04.1\"><code>runc,
+        xenial, 1.0.0~rc7+git20190403.029124da-0ubuntu1~16.04.1, mwhudson<\/code><\/a><\/li>\n<li><a
+        href=\"https:\/\/launchpad.net\/ubuntu\/+source\/runc\/1.0.0~rc7+git20190403.029124da-0ubuntu1~18.10.1\"><code>runc,
+        cosmic, 1.0.0~rc7+git20190403.029124da-0ubuntu1~18.10.1, mwhudson<\/code><\/a><\/li>\n<li><a
+        href=\"https:\/\/launchpad.net\/ubuntu\/+source\/runc\/1.0.0~rc7+git20190403.029124da-0ubuntu1~18.04.1\"><code>runc,
+        bionic, 1.0.0~rc7+git20190403.029124da-0ubuntu1~18.04.1, mwhudson<\/code><\/a><\/li>\n<\/ul>\n<h3
+        id=\"uploads-released-to-the-supported-releases\">Uploads Released to the
+        Supported Releases<\/h3>\n<p>Total: 28<\/p>\n<ul>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/curtin\/18.2-10-g7afd77fa-0ubuntu1~16.04.1\"><code>curtin,
+        xenial, 18.2-10-g7afd77fa-0ubuntu1~16.04.1, raharper<\/code><\/a><\/li>\n<li><a
+        href=\"https:\/\/launchpad.net\/ubuntu\/+source\/curtin\/18.2-10-g7afd77fa-0ubuntu1~18.04.1\"><code>curtin,
+        bionic, 18.2-10-g7afd77fa-0ubuntu1~18.04.1, raharper<\/code><\/a><\/li>\n<li><a
+        href=\"https:\/\/launchpad.net\/ubuntu\/+source\/dovecot\/1:2.3.4.1-1ubuntu2.2\"><code>dovecot,
+        disco, 1:2.3.4.1-1ubuntu2.2, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/dovecot\/1:2.3.2.1-1ubuntu3.4\"><code>dovecot,
+        cosmic, 1:2.3.2.1-1ubuntu3.4, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/libsodium\/1.0.8-5~ubuntu14.04.1\"><code>libsodium,
+        trusty, 1.0.8-5~ubuntu14.04.1, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/libvirt\/4.0.0-1ubuntu8.9\"><code>libvirt,
+        bionic, 4.0.0-1ubuntu8.9, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/lxd\/1:0.4.2\"><code>lxd,
+        cosmic, 1:0.4.2, stgraber<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/memcached\/1.5.6-0ubuntu1.1\"><code>memcached,
+        bionic, 1.5.6-0ubuntu1.1, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/memcached\/1.5.10-0ubuntu1.19.04.1\"><code>memcached,
+        disco, 1.5.10-0ubuntu1.19.04.1, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/memcached\/1.5.10-0ubuntu1.18.10.1\"><code>memcached,
+        cosmic, 1.5.10-0ubuntu1.18.10.1, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/postgresql-10\/10.8-0ubuntu0.18.10.1\"><code>postgresql-10,
+        cosmic, 10.8-0ubuntu0.18.10.1, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/postgresql-10\/10.8-0ubuntu0.18.04.1\"><code>postgresql-10,
+        bionic, 10.8-0ubuntu0.18.04.1, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/postgresql-11\/11.3-0ubuntu0.19.04.1\"><code>postgresql-11,
+        disco, 11.3-0ubuntu0.19.04.1, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/qemu\/1:3.1+dfsg-2ubuntu3.1\"><code>qemu,
+        disco, 1:3.1+dfsg-2ubuntu3.1, sbeattie<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/qemu\/1:2.12+dfsg-3ubuntu8.7\"><code>qemu,
+        cosmic, 1:2.12+dfsg-3ubuntu8.7, sbeattie<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/qemu\/1:2.11+dfsg-1ubuntu7.13\"><code>qemu,
+        bionic, 1:2.11+dfsg-1ubuntu7.13, sbeattie<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/qemu\/1:2.5+dfsg-5ubuntu10.38\"><code>qemu,
+        xenial, 1:2.5+dfsg-5ubuntu10.38, sbeattie<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/qemu\/2.0.0+dfsg-2ubuntu1.46\"><code>qemu,
+        trusty, 2.0.0+dfsg-2ubuntu1.46, sbeattie<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/qemu\/1:2.5+dfsg-5ubuntu10.37\"><code>qemu,
+        xenial, 1:2.5+dfsg-5ubuntu10.37, ddstreet<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/samba\/2:4.10.0+dfsg-0ubuntu2.1\"><code>samba,
+        disco, 2:4.10.0+dfsg-0ubuntu2.1, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/samba\/2:4.8.4+dfsg-2ubuntu2.4\"><code>samba,
+        cosmic, 2:4.8.4+dfsg-2ubuntu2.4, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/samba\/2:4.7.6+dfsg~ubuntu-0ubuntu2.10\"><code>samba,
+        bionic, 2:4.7.6+dfsg~ubuntu-0ubuntu2.10, mdeslaur<\/code><\/a><\/li>\n<li><a
+        href=\"https:\/\/launchpad.net\/ubuntu\/+source\/samba\/2:4.3.11+dfsg-0ubuntu0.16.04.20\"><code>samba,
+        xenial, 2:4.3.11+dfsg-0ubuntu0.16.04.20, mdeslaur<\/code><\/a><\/li>\n<li><a
+        href=\"https:\/\/launchpad.net\/ubuntu\/+source\/sssd\/1.13.4-1ubuntu1.14\"><code>sssd,
+        xenial, 1.13.4-1ubuntu1.14, vtapia<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/sssd\/1.16.1-1ubuntu1.2\"><code>sssd,
+        bionic, 1.16.1-1ubuntu1.2, vtapia<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/sssd\/1.16.3-1ubuntu2.1\"><code>sssd,
+        cosmic, 1.16.3-1ubuntu2.1, vtapia<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/sssd\/1.16.3-3ubuntu1.1\"><code>sssd,
+        disco, 1.16.3-3ubuntu1.1, vtapia<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/sssd\/1.13.4-1ubuntu1.13\"><code>sssd,
+        xenial, 1.13.4-1ubuntu1.13, ahasenack<\/code><\/a><\/li>\n<\/ul>\n<h3 id=\"uploads-to-the-development-release\">Uploads
+        to the Development Release<\/h3>\n<p>Total: 26<\/p>\n<ul>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/apache2\/2.4.38-2ubuntu3\"><code>apache2,
+        2.4.38-2ubuntu3, xnox<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/bind9\/1:9.11.5.P4+dfsg-4ubuntu1\"><code>bind9,
+        1:9.11.5.P4+dfsg-4ubuntu1, ahasenack<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/cloud-init\/19.1-1-gbaa47854-0ubuntu1\"><code>cloud-init,
+        19.1-1-gbaa47854-0ubuntu1, chad.smith<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/cloud-init\/19.1-0ubuntu1\"><code>cloud-init,
+        19.1-0ubuntu1, chad.smith<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/dovecot\/1:2.3.4.1-5ubuntu1\"><code>dovecot,
+        1:2.3.4.1-5ubuntu1, brmce<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/dovecot\/1:2.3.4.1-1ubuntu3\"><code>dovecot,
+        1:2.3.4.1-1ubuntu3, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/dpdk\/18.11.1-3\"><code>dpdk,
+        18.11.1-3, pkg-dpdk-devel<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/dpdk\/18.11.1-2\"><code>dpdk,
+        18.11.1-2, pkg-dpdk-devel<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/exim4\/4.92-7ubuntu1\"><code>exim4,
+        4.92-7ubuntu1, brmce<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/gfs2-utils\/3.2.0-1ubuntu1\"><code>gfs2-utils,
+        3.2.0-1ubuntu1, costamagnagianfranco<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/gfs2-utils\/3.2.0-1\"><code>gfs2-utils,
+        3.2.0-1, debian-ha-maintainers<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/golang-gopkg-lxc-go-lxc.v2\/0.0~git20181101.0aadfc3-1ubuntu1\"><code>golang-gopkg-lxc-go-lxc.v2,
+        0.0~git20181101.0aadfc3-1ubuntu1, costamagnagianfranco<\/code><\/a><\/li>\n<li><a
+        href=\"https:\/\/launchpad.net\/ubuntu\/+source\/heartbeat\/1:3.0.6-9ubuntu1\"><code>heartbeat,
+        1:3.0.6-9ubuntu1, xnox<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/libseccomp\/2.4.1-0ubuntu0.19.10.3\"><code>libseccomp,
+        2.4.1-0ubuntu0.19.10.3, jdstrand<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/maas\/2.6.0~beta2-7695-g691e14ea3-0ubuntu1\"><code>maas,
+        2.6.0~beta2-7695-g691e14ea3-0ubuntu1, andreserl<\/code><\/a><\/li>\n<li><a
+        href=\"https:\/\/launchpad.net\/ubuntu\/+source\/memcached\/1.5.10-0ubuntu2\"><code>memcached,
+        1.5.10-0ubuntu2, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/multipath-tools\/0.7.9-3ubuntu1\"><code>multipath-tools,
+        0.7.9-3ubuntu1, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/openvpn\/2.4.7-1ubuntu1\"><code>openvpn,
+        2.4.7-1ubuntu1, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/pacemaker\/2.0.1-4ubuntu1\"><code>pacemaker,
+        2.0.1-4ubuntu1, costamagnagianfranco<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/postgresql-common\/200+deb10u1ubuntu1\"><code>postgresql-common,
+        200+deb10u1ubuntu1, ahasenack<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/python-markdown\/3.1-1\"><code>python-markdown,
+        3.1-1, None<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/qemu\/1:3.1+dfsg-2ubuntu4\"><code>qemu,
+        1:3.1+dfsg-2ubuntu4, sbeattie<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/ruby2.5\/2.5.5-2ubuntu1\"><code>ruby2.5,
+        2.5.5-2ubuntu1, costamagnagianfranco<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/samba\/2:4.10.0+dfsg-0ubuntu3\"><code>samba,
+        2:4.10.0+dfsg-0ubuntu3, mdeslaur<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/strongswan\/5.7.2-1ubuntu1\"><code>strongswan,
+        5.7.2-1ubuntu1, paelzer<\/code><\/a><\/li>\n<li><a href=\"https:\/\/launchpad.net\/ubuntu\/+source\/uvtool\/0~git148-0ubuntu1\"><code>uvtool,
+        0~git148-0ubuntu1, racb<\/code><\/a><\/li>\n<\/ul>\n","protected":false},"excerpt":{"rendered":"<p>Hello
+        Ubuntu Server The purpose of this communication is to provide a status update
+        and highlights for any interesting subjects from the Ubuntu Server Team. If
+        you would like to reach the server team, you can find us at the #ubuntu-server
+        channel on Freenode. Alternatively, you can sign up and use the Ubuntu Server
+        Team [&hellip;]<\/p>\n","protected":false},"author":582,"featured_media":89156,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[1480,1610,2425],"topic":[1477,1922],"group":[1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"15","_start_month":"05","_start_year":"2019","_end_day":"15","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89155"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/582"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89155"}],"version-history":[{"count":1,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89155\/revisions"}],"predecessor-version":[{"id":89157,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89155\/revisions\/89157"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89156"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89155"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89155"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89155"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89155"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89155"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89149,"date":"2019-05-15T08:17:15","date_gmt":"2019-05-15T08:17:15","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89149"},"modified":"2019-05-16T07:25:02","modified_gmt":"2019-05-16T07:25:02","slug":"canonical%e3%80%81%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e3%82%a4%e3%83%b3%e3%83%95%e3%83%a9%e5%90%91%e3%81%91%e3%82%b5%e3%83%9d%e3%83%bc%e3%83%88%e3%81%a8%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/15\/canonical%e3%80%81%e3%82%aa%e3%83%bc%e3%83%97%e3%83%b3%e3%82%a4%e3%83%b3%e3%83%95%e3%83%a9%e5%90%91%e3%81%91%e3%82%b5%e3%83%9d%e3%83%bc%e3%83%88%e3%81%a8%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86\/","title":{"rendered":"Canonical\u3001\u30aa\u30fc\u30d7\u30f3\u30a4\u30f3\u30d5\u30e9\u5411\u3051\u30b5\u30dd\u30fc\u30c8\u3068\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u6a5f\u80fd\u3092\u7d71\u5408"},"content":{"rendered":"\n<div
+        class=\"wp-block-image\"><figure class=\"aligncenter\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/9bec\/UbuntuCanonical.png\"
+        alt=\"Ubuntu Canonical\" class=\"wp-image-87988\"\/><\/figure><\/div>\n\n\n\n<p>\u203b\u672c\u30d7\u30ec\u30b9\u30ea\u30ea\u30fc\u30b9\u306f2019\u5e744\u670829\u65e5\u306b\u82f1\u56fd\u30ed\u30f3\u30c9\u30f3\u3067\u767a\u8868\u3057\u305f\u30d7\u30ec\u30b9\u30ea\u30ea\u30fc\u30b9\u306e\u65e5\u672c\u8a9e\u8a33\u3067\u3059\u3002<br><\/p>\n\n\n\n<p>Canonical\u306f\u672c\u65e5\u3001\u7d71\u5408\u578b\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3001\u30b3\u30f3\u30d7\u30e9\u30a4\u30a2\u30f3\u30b9\u304a\u3088\u3073\u30b5\u30dd\u30fc\u30c8\u309210\u5e74\u9593\u63d0\u4f9b\u3059\u308bUbuntu
+        Advantage for Infrastructure\u3092\u767a\u8868\u3057\u307e\u3057\u305f\u3002Ubuntu
+        Advantage for Infrastructure\u306f\u30aa\u30fc\u30d7\u30f3\u30bd\u30fc\u30b9\u30a4\u30f3\u30d5\u30e9\u6a5f\u80fd\u306e\u5168\u7bc4\u56f2\u3092\u5bfe\u8c61\u3068\u3057\u3066\u3044\u307e\u3059\u3002<br><\/p>\n\n\n\n<p>Canonical\u306eCEO\u3067\u3042\u308bMark
+        Shuttleworth\u306f\u6b21\u306e\u3088\u3046\u306b\u8ff0\u3079\u3066\u3044\u307e\u3059\u3002\u300c\u6b63\u5f0f\u306b\u30b5\u30dd\u30fc\u30c8\u3059\u308b\u30aa\u30da\u30ec\u30fc\u30c6\u30a3\u30f3\u30b0\u30b7\u30b9\u30c6\u30e0\u306e\u30ea\u30b9\u30c8\u306bUbuntu\u3092\u52a0\u3048\u3066\u3044\u305f\u3060\u3051\u308b\u304a\u5ba2\u69d8\u304c\u98db\u8e8d\u7684\u306b\u5897\u3048\u305f\u3053\u3068\u3067\u3001\u898f\u6a21\u306e\u5229\u70b9\u304b\u3089\u30a4\u30f3\u30d5\u30e9\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u304a\u3088\u3073\u30b5\u30dd\u30fc\u30c8\u4f53\u5236\u304c\u7c21\u7d20\u5316\u3055\u308c\u3001\u30de\u30b7\u30f31\u53f0\u3042\u305f\u308a\u306e\u5e73\u5747\u30b3\u30b9\u30c8\u3092\u3055\u3089\u306b\u5f15\u304d\u4e0b\u3052\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3057\u305f\u3002\u300d
+        <br><\/p>\n\n\n\n<p>\u3053\u306e\u65b0\u3057\u3044\u53d6\u308a\u7d44\u307f\u306f\u3001Canonical\u306e\u4f1d\u7d71\u3067\u3042\u308b\u30b3\u30b9\u30c8\u524a\u6e1b\u3092\u7d99\u627f\u3057\u3001Linux\u306e\u5927\u898f\u6a21\u306a\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u904b\u7528\u306b\u304a\u3051\u308b\u52b9\u7387\u6027\u306e\u65b0\u305f\u306a\u57fa\u6e96\u3092\u793a\u3059\u3082\u306e\u3067\u3059\u3002\u7af6\u5408\u4ed6\u793e\u306e\u5834\u5408\u3001OpenStack\u3084Kubernetes\u306a\u3069\u306e\u6a5f\u80fd\u306f\u30db\u30b9\u30c8\u3084\u4eee\u60f3\u30de\u30b7\u30f3\u3054\u3068\u306b\u8ffd\u52a0\u30e9\u30a4\u30bb\u30f3\u30b9\u304c\u5fc5\u8981\u306b\u306a\u308a\u3001\u8907\u96d1\u3055\u3084\u30b3\u30b9\u30c8\u306f\u6975\u3081\u3066\u5bfe\u7167\u7684\u3067\u3059\u3002<br><\/p>\n\n\n\n<p>Canonical\u306e\u88fd\u54c1\u62c5\u5f53\u30c7\u30a3\u30ec\u30af\u30bf\u30fc\u3067\u3042\u308bStephan
+        Fabel\u306f\u6b21\u306e\u3088\u3046\u306b\u8ff0\u3079\u3066\u3044\u307e\u3059\u3002\u300cLinux\u3001Kubernetes\u3001Docker\u3001OpenStack\u3001KVM\u3001Ceph\u3001\u304a\u3088\u3073SWIFT\u306e\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u66f4\u65b0\u30d7\u30ed\u30b0\u30e9\u30e0\u304a\u3088\u3073\u30b5\u30dd\u30fc\u30c8\u30921\u3064\u306e\u30d1\u30c3\u30b1\u30fc\u30b8\u306b\u7d71\u5408\u3059\u308b\u3053\u3068\u3067\u3001\u4f01\u696d\u306f\u65e7\u6765\u306e\u30a4\u30f3\u30d5\u30e9\u304b\u3089\u3001\u8ffd\u52a0\u8cbb\u7528\u3092\u304b\u3051\u305a\u306b\u30d7\u30e9\u30a4\u30d9\u30fc\u30c8\u30af\u30e9\u30a6\u30c9\u304a\u3088\u3073\u30b3\u30f3\u30c6\u30ca\u904b\u7528\u3078\u3068\u9032\u5316\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\u300d<br><\/p>\n\n\n\n<p><strong>\u9577\u671f\u306e\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u66f4\u65b0\u30d7\u30ed\u30b0\u30e9\u30e0\u304a\u3088\u3073\u4fdd\u5b88<\/strong><\/p>\n\n\n\n<p>Ubuntu
+        Advantage (UA) for Infrastructure\u306e\u300c\u30a8\u30c3\u30bb\u30f3\u30b7\u30e3\u30eb\u300d\u30ec\u30d9\u30eb\u3067\u306f\u3001\u6280\u8853\u30b5\u30dd\u30fc\u30c8\u304c\u4e0d\u8981\u306a\u304a\u5ba2\u69d8\u5411\u3051\u306b\u30ab\u30fc\u30cd\u30eb\u30e9\u30a4\u30d6\u30d1\u30c3\u30c1\u304a\u3088\u3073\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u4fee\u6b63\u30d7\u30ed\u30b0\u30e9\u30e0\u306e\u30b9\u30c8\u30ea\u30fc\u30e0\u3092\u63d0\u4f9b\u3057\u307e\u3059\u3002\u5bfe\u8c61\u3068\u306a\u308b\u30b7\u30b9\u30c6\u30e0\u30b5\u30fc\u30d3\u30b9\u304a\u3088\u3073\u30e9\u30a4\u30d6\u30e9\u30ea\u306f\u3001OpenStack\u3001Kubernetes\u3001Ceph\u3001SWIFT\u306b\u52a0\u3048\u3001FIPS\u3001\u304a\u3088\u3073Prometheus\u3001Grafana\u3001Telegraf\u3001Graylog\u3001Filebeat\u3001Elastic
+        Search\u3001MAAS\u3001Canonical Landscape\u30b7\u30b9\u30c6\u30e0\u7ba1\u7406\u6a5f\u80fd\u306a\u3069\u306e\u4e00\u9023\u306e\u30a4\u30f3\u30d5\u30e9\u7ba1\u7406\u304a\u3088\u3073\u30aa\u30da\u30ec\u30fc\u30b7\u30e7\u30f3\u6a5f\u80fd\u304c\u542b\u307e\u308c\u307e\u3059\u3002<br><\/p>\n\n\n\n<p>UA
+        for Infrastructure\u30a8\u30c3\u30bb\u30f3\u30b7\u30e3\u30eb\u306f\u3001\u8ffd\u52a0\u306e\u30b5\u30dd\u30fc\u30c8\u8cbb\u7528\u306a\u3057\u3067\u3001Docker\u30d9\u30fc\u30b9\u30a4\u30e1\u30fc\u30b8\u3092\u542b\u3080Linux\u304a\u3088\u3073\u30a4\u30f3\u30d5\u30e9\u30b3\u30f3\u30dd\u30fc\u30cd\u30f3\u30c8\u306b\u95a2\u3059\u308b\u30b3\u30f3\u30d7\u30e9\u30a4\u30a2\u30f3\u30b9\u6e96\u62e0\u3092\u30ab\u30d0\u30fc\u3057\u3066\u3044\u307e\u3059\u3002<\/p>\n\n\n\n<p><strong>\u6280\u8853\u30b5\u30dd\u30fc\u30c8\u3001\u6cd5\u7684\u4fdd\u8a3c\u3001\u7834\u640d\u6642\u88dc\u511f<\/strong><\/p>\n\n\n\n<p>Ubuntu
+        Advantage Infrastructure\u306e\u300c\u30b9\u30bf\u30f3\u30c0\u30fc\u30c9\u300d\u304a\u3088\u3073\u300c\u30a2\u30c9\u30d0\u30f3\u30b9\u30c8\u300d\u30ec\u30d9\u30eb\u306b\u306f\u3001\u30aa\u30fc\u30d7\u30f3\u30a4\u30f3\u30d5\u30e9\u306e\u6280\u8853\u30b5\u30dd\u30fc\u30c8\u3001\u7279\u5b9a\u306e\u4e0d\u5177\u5408\u306b\u95a2\u3059\u308b\u9577\u671f\u306e\u4fee\u6b63\u30d7\u30ed\u30b0\u30e9\u30e0\u306e\u63d0\u4f9b\u3001\u304a\u3088\u3073\u6cd5\u7684\u4fdd\u8a3c\u304c\u542b\u307e\u308c\u307e\u3059\u3002<br><\/p>\n\n\n\n<p>\u30b3\u30d1\u822a\u7a7a\u306e\u30a4\u30f3\u30d5\u30e9\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u90e8\u9580\u9577\u3067\u3042\u308bCastro
+        Sequeira\u6c0f\u306f\u6b21\u306e\u3088\u3046\u306b\u8ff0\u3079\u3066\u3044\u307e\u3059\u3002\u300c\u5f53\u793e\u306f\u5e02\u5834\u6295\u5165\u307e\u3067\u306e\u6642\u9593\u3092\u77ed\u7e2e\u3057\u3001\u67d4\u8edf\u6027\u3092\u9ad8\u3081\u3001\u7d4c\u6e08\u7684\u306a\u6069\u6075\u3092\u53d7\u3051\u3084\u3059\u304f\u3059\u308b\u305f\u3081\u306b\u3001\u30aa\u30fc\u30d7\u30f3\u30bd\u30fc\u30b9\u6280\u8853\u306b\u57fa\u3065\u304f\u30de\u30eb\u30c1\u30af\u30e9\u30a6\u30c9\u6226\u7565\u3092\u63a8\u3057\u9032\u3081\u3066\u3044\u307e\u3059\u3002\u3053\u306e\u65b9\u5411\u6027\u306b\u5411\u3051\u3066Canonical\u3068\u9023\u643a\u3059\u308b\u3053\u3068\u3067\u3001\u4e88\u60f3\u4ee5\u4e0a\u306b\u65e9\u304f\u6210\u679c\u3092\u51fa\u3057\u3001\u7d99\u7d9a\u7684\u306a\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u30b5\u30dd\u30fc\u30c8\u306b\u3088\u308b\u5b89\u5fc3\u611f\u306e\u3042\u308b\u306a\u304b\u3067\u77ed\u671f\u9593\u306b\u30aa\u30fc\u30d7\u30f3\u30bd\u30fc\u30b9\u306e\u52b9\u679c\u3092\u5b9f\u73fe\u3059\u308b\u3053\u3068\u304c\u53ef\u80fd\u306b\u306a\u308a\u307e\u3057\u305f\u3002\u300d<br><\/p>\n\n\n\n<p><strong>\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9\u30a4\u30f3\u30d5\u30e9<\/strong><\/p>\n\n\n\n<p>\u30d1\u30d6\u30ea\u30c3\u30af\u30af\u30e9\u30a6\u30c9\u306e\u63a1\u7528\u306b\u3088\u308a\u3001\u4f01\u696d\u306f\u30a4\u30f3\u30d5\u30e9\u3088\u308a\u3082\u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3\u306b\u91cd\u70b9\u3092\u7f6e\u304f\u3088\u3046\u306b\u306a\u308a\u3001\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9\u306e\u30d7\u30e9\u30a4\u30d9\u30fc\u30c8\u30af\u30e9\u30a6\u30c9\u306e\u9700\u8981\u304c\u9ad8\u307e\u3063\u3066\u3044\u307e\u3059\u3002Canonical\u306f\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9OpenStack\u3001\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9Kubernetes\uff08\u30d9\u30a2\u30e1\u30bf\u30eb\u5411\u3051\uff09\u3001OpenStack\u3001VMware\u3001\u30d1\u30d6\u30ea\u30c3\u30af\u30af\u30e9\u30a6\u30c9\u3001\u304a\u3088\u3073\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9\u30b9\u30c8\u30ec\u30fc\u30b8\u30a4\u30f3\u30d5\u30e9\u3092\u63d0\u4f9b\u3057\u3066\u3044\u307e\u3059\u3002<br><\/p>\n\n\n\n<p><strong>Canonical\u306b\u3064\u3044\u3066<\/strong><\/p>\n\n\n\n<p>Canonical\u306f\u3001\u30af\u30e9\u30a6\u30c9\u904b\u7528\u306e\u5206\u91ce\u3092\u30ea\u30fc\u30c9\u3059\u308bOS\u3067\u3042\u308b\u300cUbuntu\u300d\u3092\u63d0\u4f9b\u3059\u308b\u4f01\u696d\u3067\u3059\u3002Ubuntu\u306f\u3001\u307b\u3068\u3093\u3069\u306e\u30d1\u30d6\u30ea\u30c3\u30af\u30af\u30e9\u30a6\u30c9\u306e\u30ef\u30fc\u30af\u30ed\u30fc\u30c9\u3001\u65b0\u3057\u3044\u30b9\u30de\u30fc\u30c8\u30b2\u30fc\u30c8\u30a6\u30a7\u30a4\u3001\u30b9\u30a4\u30c3\u30c1\u3001\u81ea\u52d5\u904b\u8ee2\u8eca\u3001\u6700\u5148\u7aef\u30ed\u30dc\u30c3\u30c8\u3067\u4f7f\u7528\u3055\u308c\u3066\u3044\u307e\u3059\u3002Canonical\u306f\u3001Ubuntu\u306e\u5546\u7528\u30e6\u30fc\u30b6\u5411\u3051\u306b\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u30b5\u30dd\u30fc\u30c8\u3068\u30b5\u30fc\u30d3\u30b9\u3092\u63d0\u4f9b\u3057\u3066\u3044\u307e\u3059\u3002Canonical\u306f2004\u5e74\u306b\u8a2d\u7acb\u3055\u308c\u305f\u975e\u516c\u958b\u4f01\u696d\u3067\u3059\u3002<\/p>\n\n\n\n<p>\u8a73\u7d30\u306f\u4ee5\u4e0b\u306e\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u304b\u3089\u3054\u89a7\u3044\u305f\u3060\u3051\u307e\u3059\u3002<\/p>\n\n\n\n<p><a
+        href=\"https:\/\/jp.ubuntu.com\/\">https:\/\/jp.ubuntu.com\/<\/a><\/p>\n\n\n\n<p><a
+        href=\"https:\/\/www.ubuntu.com\/\">https:\/\/www.ubuntu.com\/<\/a><\/p>\n","protected":false},"excerpt":{"rendered":"<p>\u203b\u672c\u30d7\u30ec\u30b9\u30ea\u30ea\u30fc\u30b9\u306f2019\u5e744\u670829\u65e5\u306b\u82f1\u56fd\u30ed\u30f3\u30c9\u30f3\u3067\u767a\u8868\u3057\u305f\u30d7\u30ec\u30b9\u30ea\u30ea\u30fc\u30b9\u306e\u65e5\u672c\u8a9e\u8a33\u3067\u3059\u3002
+        Canonical\u306f\u672c\u65e5\u3001\u7d71\u5408\u578b\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3001\u30b3\u30f3\u30d7\u30e9\u30a4\u30a2\u30f3\u30b9\u304a\u3088\u3073\u30b5\u30dd\u30fc\u30c8\u309210\u5e74\u9593\u63d0\u4f9b\u3059\u308bUbuntu
+        Advantage for Infrastructure\u3092\u767a\u8868\u3057\u307e\u3057\u305f\u3002Ubuntu
+        Advantage for Infrastructure\u306f\u30aa\u30fc\u30d7\u30f3\u30bd\u30fc\u30b9\u30a4\u30f3\u30d5\u30e9\u6a5f\u80fd\u306e\u5168\u7bc4\u56f2\u3092\u5bfe\u8c61\u3068\u3057\u3066\u3044\u307e\u3059\u3002
+        Canonical\u306eCEO\u3067\u3042\u308bMark Shuttleworth\u306f\u6b21\u306e\u3088\u3046\u306b\u8ff0\u3079\u3066\u3044\u307e\u3059\u3002\u300c\u6b63\u5f0f\u306b\u30b5\u30dd\u30fc\u30c8\u3059\u308b\u30aa\u30da\u30ec\u30fc\u30c6\u30a3\u30f3\u30b0\u30b7\u30b9\u30c6\u30e0\u306e\u30ea\u30b9\u30c8\u306bUbuntu\u3092\u52a0\u3048\u3066\u3044\u305f\u3060\u3051\u308b\u304a\u5ba2\u69d8\u304c\u98db\u8e8d\u7684\u306b\u5897\u3048\u305f\u3053\u3068\u3067\u3001\u898f\u6a21\u306e\u5229\u70b9\u304b\u3089\u30a4\u30f3\u30d5\u30e9\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u304a\u3088\u3073\u30b5\u30dd\u30fc\u30c8\u4f53\u5236\u304c\u7c21\u7d20\u5316\u3055\u308c\u3001\u30de\u30b7\u30f31\u53f0\u3042\u305f\u308a\u306e\u5e73\u5747\u30b3\u30b9\u30c8\u3092\u3055\u3089\u306b\u5f15\u304d\u4e0b\u3052\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3057\u305f\u3002\u300d
+        \u3053\u306e\u65b0\u3057\u3044\u53d6\u308a\u7d44\u307f\u306f\u3001Canonical\u306e\u4f1d\u7d71\u3067\u3042\u308b\u30b3\u30b9\u30c8\u524a\u6e1b\u3092\u7d99\u627f\u3057\u3001Linux\u306e\u5927\u898f\u6a21\u306a\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u904b\u7528\u306b\u304a\u3051\u308b\u52b9\u7387\u6027\u306e\u65b0\u305f\u306a\u57fa\u6e96\u3092\u793a\u3059\u3082\u306e\u3067\u3059\u3002\u7af6\u5408\u4ed6\u793e\u306e\u5834\u5408\u3001OpenStack\u3084Kubernetes\u306a\u3069\u306e\u6a5f\u80fd\u306f\u30db\u30b9\u30c8\u3084\u4eee\u60f3\u30de\u30b7\u30f3\u3054\u3068\u306b\u8ffd\u52a0\u30e9\u30a4\u30bb\u30f3\u30b9\u304c\u5fc5\u8981\u306b\u306a\u308a\u3001\u8907\u96d1\u3055\u3084\u30b3\u30b9\u30c8\u306f\u6975\u3081\u3066\u5bfe\u7167\u7684\u3067\u3059\u3002
+        Canonical\u306e\u88fd\u54c1\u62c5\u5f53\u30c7\u30a3\u30ec\u30af\u30bf\u30fc\u3067\u3042\u308bStephan
+        Fabel\u306f\u6b21\u306e\u3088\u3046\u306b\u8ff0\u3079\u3066\u3044\u307e\u3059\u3002\u300cLinux\u3001Kubernetes\u3001Docker\u3001OpenStack\u3001KVM\u3001Ceph\u3001\u304a\u3088\u3073SWIFT\u306e\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u66f4\u65b0\u30d7\u30ed\u30b0\u30e9\u30e0\u304a\u3088\u3073\u30b5\u30dd\u30fc\u30c8\u30921\u3064\u306e\u30d1\u30c3\u30b1\u30fc\u30b8\u306b\u7d71\u5408\u3059\u308b\u3053\u3068\u3067\u3001\u4f01\u696d\u306f\u65e7\u6765\u306e\u30a4\u30f3\u30d5\u30e9\u304b\u3089\u3001\u8ffd\u52a0\u8cbb\u7528\u3092\u304b\u3051\u305a\u306b\u30d7\u30e9\u30a4\u30d9\u30fc\u30c8\u30af\u30e9\u30a6\u30c9\u304a\u3088\u3073\u30b3\u30f3\u30c6\u30ca\u904b\u7528\u3078\u3068\u9032\u5316\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u307e\u3059\u3002\u300d
+        \u9577\u671f\u306e\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u66f4\u65b0\u30d7\u30ed\u30b0\u30e9\u30e0\u304a\u3088\u3073\u4fdd\u5b88
+        Ubuntu Advantage (UA) for Infrastructure\u306e\u300c\u30a8\u30c3\u30bb\u30f3\u30b7\u30e3\u30eb\u300d\u30ec\u30d9\u30eb\u3067\u306f\u3001\u6280\u8853\u30b5\u30dd\u30fc\u30c8\u304c\u4e0d\u8981\u306a\u304a\u5ba2\u69d8\u5411\u3051\u306b\u30ab\u30fc\u30cd\u30eb\u30e9\u30a4\u30d6\u30d1\u30c3\u30c1\u304a\u3088\u3073\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u4fee\u6b63\u30d7\u30ed\u30b0\u30e9\u30e0\u306e\u30b9\u30c8\u30ea\u30fc\u30e0\u3092\u63d0\u4f9b\u3057\u307e\u3059\u3002\u5bfe\u8c61\u3068\u306a\u308b\u30b7\u30b9\u30c6\u30e0\u30b5\u30fc\u30d3\u30b9\u304a\u3088\u3073\u30e9\u30a4\u30d6\u30e9\u30ea\u306f\u3001OpenStack\u3001Kubernetes\u3001Ceph\u3001SWIFT\u306b\u52a0\u3048\u3001FIPS\u3001\u304a\u3088\u3073Prometheus\u3001Grafana\u3001Telegraf\u3001Graylog\u3001Filebeat\u3001Elastic
+        Search\u3001MAAS\u3001Canonical Landscape\u30b7\u30b9\u30c6\u30e0\u7ba1\u7406\u6a5f\u80fd\u306a\u3069\u306e\u4e00\u9023\u306e\u30a4\u30f3\u30d5\u30e9\u7ba1\u7406\u304a\u3088\u3073\u30aa\u30da\u30ec\u30fc\u30b7\u30e7\u30f3\u6a5f\u80fd\u304c\u542b\u307e\u308c\u307e\u3059\u3002
+        UA for Infrastructure\u30a8\u30c3\u30bb\u30f3\u30b7\u30e3\u30eb\u306f\u3001\u8ffd\u52a0\u306e\u30b5\u30dd\u30fc\u30c8\u8cbb\u7528\u306a\u3057\u3067\u3001Docker\u30d9\u30fc\u30b9\u30a4\u30e1\u30fc\u30b8\u3092\u542b\u3080Linux\u304a\u3088\u3073\u30a4\u30f3\u30d5\u30e9\u30b3\u30f3\u30dd\u30fc\u30cd\u30f3\u30c8\u306b\u95a2\u3059\u308b\u30b3\u30f3\u30d7\u30e9\u30a4\u30a2\u30f3\u30b9\u6e96\u62e0\u3092\u30ab\u30d0\u30fc\u3057\u3066\u3044\u307e\u3059\u3002
+        \u6280\u8853\u30b5\u30dd\u30fc\u30c8\u3001\u6cd5\u7684\u4fdd\u8a3c\u3001\u7834\u640d\u6642\u88dc\u511f
+        Ubuntu Advantage Infrastructure\u306e\u300c\u30b9\u30bf\u30f3\u30c0\u30fc\u30c9\u300d\u304a\u3088\u3073\u300c\u30a2\u30c9\u30d0\u30f3\u30b9\u30c8\u300d\u30ec\u30d9\u30eb\u306b\u306f\u3001\u30aa\u30fc\u30d7\u30f3\u30a4\u30f3\u30d5\u30e9\u306e\u6280\u8853\u30b5\u30dd\u30fc\u30c8\u3001\u7279\u5b9a\u306e\u4e0d\u5177\u5408\u306b\u95a2\u3059\u308b\u9577\u671f\u306e\u4fee\u6b63\u30d7\u30ed\u30b0\u30e9\u30e0\u306e\u63d0\u4f9b\u3001\u304a\u3088\u3073\u6cd5\u7684\u4fdd\u8a3c\u304c\u542b\u307e\u308c\u307e\u3059\u3002
+        \u30b3\u30d1\u822a\u7a7a\u306e\u30a4\u30f3\u30d5\u30e9\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u90e8\u9580\u9577\u3067\u3042\u308bCastro
+        Sequeira\u6c0f\u306f\u6b21\u306e\u3088\u3046\u306b\u8ff0\u3079\u3066\u3044\u307e\u3059\u3002\u300c\u5f53\u793e\u306f\u5e02\u5834\u6295\u5165\u307e\u3067\u306e\u6642\u9593\u3092\u77ed\u7e2e\u3057\u3001\u67d4\u8edf\u6027\u3092\u9ad8\u3081\u3001\u7d4c\u6e08\u7684\u306a\u6069\u6075\u3092\u53d7\u3051\u3084\u3059\u304f\u3059\u308b\u305f\u3081\u306b\u3001\u30aa\u30fc\u30d7\u30f3\u30bd\u30fc\u30b9\u6280\u8853\u306b\u57fa\u3065\u304f\u30de\u30eb\u30c1\u30af\u30e9\u30a6\u30c9\u6226\u7565\u3092\u63a8\u3057\u9032\u3081\u3066\u3044\u307e\u3059\u3002\u3053\u306e\u65b9\u5411\u6027\u306b\u5411\u3051\u3066Canonical\u3068\u9023\u643a\u3059\u308b\u3053\u3068\u3067\u3001\u4e88\u60f3\u4ee5\u4e0a\u306b\u65e9\u304f\u6210\u679c\u3092\u51fa\u3057\u3001\u7d99\u7d9a\u7684\u306a\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u30b5\u30dd\u30fc\u30c8\u306b\u3088\u308b\u5b89\u5fc3\u611f\u306e\u3042\u308b\u306a\u304b\u3067\u77ed\u671f\u9593\u306b\u30aa\u30fc\u30d7\u30f3\u30bd\u30fc\u30b9\u306e\u52b9\u679c\u3092\u5b9f\u73fe\u3059\u308b\u3053\u3068\u304c\u53ef\u80fd\u306b\u306a\u308a\u307e\u3057\u305f\u3002\u300d
+        \u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9\u30a4\u30f3\u30d5\u30e9 \u30d1\u30d6\u30ea\u30c3\u30af\u30af\u30e9\u30a6\u30c9\u306e\u63a1\u7528\u306b\u3088\u308a\u3001\u4f01\u696d\u306f\u30a4\u30f3\u30d5\u30e9\u3088\u308a\u3082\u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3\u306b\u91cd\u70b9\u3092\u7f6e\u304f\u3088\u3046\u306b\u306a\u308a\u3001\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9\u306e\u30d7\u30e9\u30a4\u30d9\u30fc\u30c8\u30af\u30e9\u30a6\u30c9\u306e\u9700\u8981\u304c\u9ad8\u307e\u3063\u3066\u3044\u307e\u3059\u3002Canonical\u306f\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9OpenStack\u3001\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9Kubernetes\uff08\u30d9\u30a2\u30e1\u30bf\u30eb\u5411\u3051\uff09\u3001OpenStack\u3001VMware\u3001\u30d1\u30d6\u30ea\u30c3\u30af\u30af\u30e9\u30a6\u30c9\u3001\u304a\u3088\u3073\u30d5\u30eb\u30de\u30cd\u30fc\u30b8\u30c9\u30b9\u30c8\u30ec\u30fc\u30b8\u30a4\u30f3\u30d5\u30e9\u3092\u63d0\u4f9b\u3057\u3066\u3044\u307e\u3059\u3002
+        Canonical\u306b\u3064\u3044\u3066 Canonical\u306f\u3001\u30af\u30e9\u30a6\u30c9\u904b\u7528\u306e\u5206\u91ce\u3092\u30ea\u30fc\u30c9\u3059\u308bOS\u3067\u3042\u308b\u300cUbuntu\u300d\u3092\u63d0\u4f9b\u3059\u308b\u4f01\u696d\u3067\u3059\u3002Ubuntu\u306f\u3001\u307b\u3068\u3093\u3069\u306e\u30d1\u30d6\u30ea\u30c3\u30af\u30af\u30e9\u30a6\u30c9\u306e\u30ef\u30fc\u30af\u30ed\u30fc\u30c9\u3001\u65b0\u3057\u3044\u30b9\u30de\u30fc\u30c8\u30b2\u30fc\u30c8\u30a6\u30a7\u30a4\u3001\u30b9\u30a4\u30c3\u30c1\u3001\u81ea\u52d5\u904b\u8ee2\u8eca\u3001\u6700\u5148\u7aef\u30ed\u30dc\u30c3\u30c8\u3067\u4f7f\u7528\u3055\u308c\u3066\u3044\u307e\u3059\u3002Canonical\u306f\u3001Ubuntu\u306e\u5546\u7528\u30e6\u30fc\u30b6\u5411\u3051\u306b\u30a8\u30f3\u30bf\u30fc\u30d7\u30e9\u30a4\u30ba\u30b5\u30dd\u30fc\u30c8\u3068\u30b5\u30fc\u30d3\u30b9\u3092\u63d0\u4f9b\u3057\u3066\u3044\u307e\u3059\u3002Canonical\u306f2004\u5e74\u306b\u8a2d\u7acb\u3055\u308c\u305f\u975e\u516c\u958b\u4f01\u696d\u3067\u3059\u3002
+        \u8a73\u7d30\u306f\u4ee5\u4e0b\u306e\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u304b\u3089\u3054\u89a7\u3044\u305f\u3060\u3051\u307e\u3059\u3002
+        https:\/\/jp.ubuntu.com\/ https:\/\/www.ubuntu.com\/<\/p>\n","protected":false},"author":217,"featured_media":86538,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[1833,3184,1327,1374,1486],"topic":[2099,1477],"group":[2100,1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"15","_start_month":"05","_start_year":"2019","_end_day":"15","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89149"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89149"}],"version-history":[{"count":2,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89149\/revisions"}],"predecessor-version":[{"id":89188,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89149\/revisions\/89188"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/86538"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89149"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89149"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89149"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89149"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89149"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89119,"date":"2019-05-14T17:00:15","date_gmt":"2019-05-14T17:00:15","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89119"},"modified":"2019-05-17T09:11:23","modified_gmt":"2019-05-17T09:11:23","slug":"ubuntu-updates-to-mitigate-new-microarchitectural-data-sampling-mds-vulnerabilities","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/14\/ubuntu-updates-to-mitigate-new-microarchitectural-data-sampling-mds-vulnerabilities\/","title":{"rendered":"Ubuntu
+        updates to mitigate new Microarchitectural Data Sampling (MDS) vulnerabilities"},"content":{"rendered":"\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4592\/ubuntu-updates-for-mds-vulnerabilities.png\"
+        alt=\"Ubuntu updates to mitigate new Microarchitectural Data Sampling (MDS)
+        vulnerabilities\" class=\"wp-image-89126\"\/><\/figure>\n\n\n\n<p>Microarchitectural
+        Data Sampling (MDS) describes a group of vulnerabilities (CVE-2018-12126,
+        CVE-2018-12127, CVE-2018-12130, and CVE-2019-11091) in various Intel microprocessors,
+        which allow a malicious process to read various information from another process
+        which is executing on the same CPU core. This occurs due to the use of various
+        microarchitectural elements (buffers) within the CPU core. If one process
+        is able to speculatively sample data from these buffers, it can infer their
+        contents and read data belonging to another process since these buffers are
+        not cleared when switching between processes. This includes switching between
+        two different userspace processes, switching between kernel and userspace
+        and switching between the host and a guest when using virtualisation.<\/p>\n\n\n\n<p>In
+        the case of a single process being scheduled to a single CPU thread, it is
+        relatively simple to mitigate this vulnerability by clearing these buffers
+        when scheduling a new process onto the CPU thread. To achieve this, Intel
+        have released an updated microcode which combined with changes to the Linux
+        kernel ensure these buffers are appropriately cleared.<\/p>\n\n\n\n<p>Updated
+        versions of the <em>intel-microcode<\/em>, <em>qemu<\/em> and <em>linux<\/em>
+        kernel packages are being published as part of the standard Ubuntu security
+        maintenance of Ubuntu releases 16.04 LTS, 18.04 LTS, 18.10, 19.04 and as part
+        of the extended security maintenance for <a href=\"https:\/\/www.ubuntu.com\/esm\">Ubuntu
+        14.04 ESM<\/a> users. As these vulnerabilities affect such a large range of
+        Intel processors (across laptop, desktop and server machines), a large percentage
+        of Ubuntu users are expected to be impacted &#8211; users are encouraged to
+        install these updated packages as soon as they become available.<\/p>\n\n\n\n<p>The
+        use of Symmetric Multi-Threading (SMT) &#8211; also known as Hyper-Threading
+        &#8211; further complicates these issues since these buffers are shared between
+        sibling Hyper-Threads. Therefore, the above changes are not sufficient to
+        mitigate these vulnerabilities when SMT is enabled. As such, the use of SMT
+        is not recommended when untrusted code or applications are being executed.<\/p>\n\n\n\n<p>For
+        further details, including the specific package versions that mitigate these
+        vulnerablities and instructions for optionally disabling SMT, please consult
+        <a href=\"https:\/\/wiki.ubuntu.com\/SecurityTeam\/KnowledgeBase\/MDS\">this
+        article<\/a> within the Ubuntu Security Knowledge Base.<br><\/p>\n","protected":false},"excerpt":{"rendered":"<p>Microarchitectural
+        Data Sampling (MDS) describes a group of vulnerabilities (CVE-2018-12126,
+        CVE-2018-12127, CVE-2018-12130, and CVE-2019-11091) in various Intel microprocessors,
+        which allow a malicious process to read various information from another process
+        which is executing on the same CPU core. This occurs due to the use of various
+        microarchitectural elements (buffers) within the CPU core. If one [&hellip;]<\/p>\n","protected":false},"author":600,"featured_media":89126,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[],"tags":[3229,2607,2510,3178,1281,3355,1364,1981,2500,2561],"topic":[1477,1921,1922],"group":[1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"14","_start_month":"05","_start_year":"2019","_end_day":"14","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89119"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/600"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89119"}],"version-history":[{"count":6,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89119\/revisions"}],"predecessor-version":[{"id":89133,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89119\/revisions\/89133"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89126"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89119"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89119"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89119"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89119"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89119"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89158,"date":"2019-05-14T03:00:22","date_gmt":"2019-05-14T03:00:22","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89158"},"modified":"2019-05-16T03:16:50","modified_gmt":"2019-05-16T03:16:50","slug":"ubuntu19-04-ten-things","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/14\/ubuntu19-04-ten-things\/","title":{"rendered":"\u5b89\u88c519.04\u540e\u9700\u8981\u505a\u7684\u51e0\u4ef6\u4e8b"},"content":{"rendered":"\n<p>\u5168\u65b0\u7684Ubuntu
+        19.04 \u5df2\u53d1\u5e03\uff0c\u5728\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u4e5f\u8bb8\u4f1a\u9047\u5230\u4e00\u4e9b\u5c0f\u95ee\u9898\uff0c\u4e5f\u8fd8\u6709\u4f60\u672a\u77e5\u7684\u65b0\u7279\u6027\u3002\u4e0b\u9762\u6211\u4eec\u5c06\u4ecb\u7ecd\u4e00\u4e9b\u7cfb\u7edf\u4f7f\u7528\u5c0f\u6280\u5de7\uff0c\u6765\u63d0\u5347\u4f60\u7684\u4f7f\u7528\u4f53\u9a8c\u3002<br><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/1797\/01.jpg\"
+        alt=\"\" class=\"wp-image-89172\"\/><\/figure>\n\n\n\n<p><strong>1\u3001\u56de\u987e\u4e0b\u65b0\u7cfb\u7edf\u7279\u70b9<\/strong><\/p>\n\n\n\n<p>Ubuntu
+        19.04\u4f7f\u7528Gnome 3.32\u4f5c\u4e3a\u9ed8\u8ba4\u684c\u9762\u73af\u5883\uff0c\u5e94\u7528\u542f\u52a8\u548c\u5207\u6362\u52a8\u753b\u5f97\u5230\u5927\u5e45\u63d0\u5347\uff0c\u6700\u65b0\u7248\u7684Linux
+        kernel 5.0\uff0c\u589e\u52a0\u5bf9AMD\u3001Nvidia\u72ec\u7acb\u663e\u5361\u9a71\u52a8\u7684\u652f\u6301\uff0cHiDPI\u5c4f\u5e55\u652f\u6301\u66f4\u53cb\u597d\uff0c\u652f\u6301150%\uff0c200%\u7b49\u7f29\u653e\u3002\u5168\u65b0GNOME
+        Shell \u548c\u4e3b\u9898\u53ca\u56fe\u6807\u663e\u5f97\u66f4\u73b0\u4ee3\u3002\u8fd8\u6709\u5f88\u591a\u65b0\u7279\u6027\u8bf7\u7ee7\u7eed\u5f80\u4e0b\u9605\u8bfb\u3002<br><\/p>\n\n\n\n<p><strong>2\u3001\u65f6\u523b\u4fdd\u6301\u6700\u65b0\u66f4\u65b0<\/strong><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/269b\/update.jpg\"
+        alt=\"\" class=\"wp-image-89160\"\/><\/figure>\n\n\n\n<p>Ubuntu 19.04\u5c06\u62e5\u67099\u4e2a\u6708\u7684\u5b89\u5168\u66f4\u65b0\u7ef4\u62a4\u81f32020\u5e741\u6708\uff0c\u5b89\u88c5\u5b8c\u7cfb\u7edf\u540e\u53ef\u5148\u8fdb\u884c\u6362\u6e90\u64cd\u4f5c\uff0c\u786e\u4fdd\u4f60\u80fd\u83b7\u5f97\u6700\u5feb\u7684\u8fde\u63a5\u901f\u5ea6\uff0c\u540c\u65f6\u65b0\u7cfb\u7edf\u5b89\u88c5\u540e\u8fdb\u884c\u66f4\u65b0\u4e5f\u80fd\u89e3\u51b3\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u78b0\u5230\u7684\u5c0f\u95ee\u9898\u3002\u66f4\u65b0\u4ea6\u53ef\u4fee\u8865\u5df2\u77e5\u5b89\u5168\u6f0f\u6d1e\u548c\u6f5c\u5728\u5371\u9669\uff0c\u4e3a\u4f60\u7684\u7cfb\u7edf\u5b89\u5168\u4fdd\u9a7e\u62a4\u822a\u3002<br><\/p>\n\n\n\n<p><strong>3\u3001Dock\u5fae\u8c03
+        <\/strong><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/d875\/dock.jpg\"
+        alt=\"\" class=\"wp-image-89161\"\/><\/figure>\n\n\n\n<p>Ubuntu \u81f3\u8fc1\u79fb\u5230Gnome\u73af\u5883\u540e\uff0c\u5728\u7528\u6237\u4f53\u9a8c\u4e0a\u4e0eUnity\u5c3d\u91cf\u4fdd\u6301\u4e00\u81f4\u3002Dock\u6709\u548cUnity\u76f8\u4f3c\u7684\u5e94\u7528\u4fa7\u680f\u3002\u9ed8\u8ba4\u8bbe\u7f6e\u4e0b\uff0c\u5355\u51fbDock\u56fe\u6807\u662f\u6253\u5f00\u5e94\u7528\u52a8\u4f5c\u3002\u4e0d\u8fc7\u53ef\u901a\u8fc7\u4fee\u6539\u8bbe\u7f6e\u5f00\u542f\u201c\u5355\u673a\u6700\u5c0f\u5316\u201d\u7684\u529f\u80fd\uff0c\u591a\u4e2a\u5e94\u7528\u7a0b\u5e8f\u95f4\u5207\u6362\u66f4\u5bb9\u6613\u3002<\/p>\n\n\n\n<p>\u5f00\u542f\u547d\u4ee4\uff1a<\/p>\n\n\n\n<p><em>gsettings
+        set org.gnome.shell.extensions.dash-to-dock click-action &#8216;minimize&#8217;<\/em><\/p>\n\n\n\n<p>\u5f53\u7136\uff0c\u4e5f\u53ef\u901a\u8fc7\u5b89\u88c5\u7f16\u8f91\u5668dconf-editor\u6765\u4fee\u6539\uff0c\u8fd0\u884c\u540e\u627e\u5230\u5bf9\u5e94\u8bbe\u7f6e\u9879\u8fdb\u884c\u4fee\u6539\u5373\u53ef\u3002<br><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/67fa\/dock-hide.jpg\"
+        alt=\"\" class=\"wp-image-89162\"\/><\/figure>\n\n\n\n<p>\u53e6\u5916\uff0c\u53e6\u4e00\u4e2a\u5b9e\u7528\u7684\u529f\u80fd\u4e3a\u201c\u81ea\u52a8\u9690\u85cfDock\u201d\uff0cDock\u81ea\u52a8\u9690\u85cf\u540e\u53ef\u83b7\u5f97\u66f4\u591a\u663e\u793a\u7a7a\u95f4\uff0c\u53ea\u8981\u5728\u7cfb\u7edf\u8bbe\u7f6e&#8211;Dock\u5185\u6253\u5f00\u5f00\u5173\u5373\u53ef\u3002\u5f00\u542f\u540e\u5f53\u7a97\u53e3\u8d34\u8fd1Dock\u65f6\u5c31\u4f1a\u89e6\u53d1\uff0c\u6b63\u5e38\u4e00\u76f4\u663e\u793a\u7684\u72b6\u6001\uff0c\u975e\u5e38\u597d\u7528\u3002<br><\/p>\n\n\n\n<p><strong>4\u3001\u4f7f\u7528\u4e30\u5bccGnome\u6269\u5c55<\/strong><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/18ab\/tweak.jpg\"
+        alt=\"\" class=\"wp-image-89169\"\/><\/figure>\n\n\n\n<p>Gnome Shell\u7684\u4e00\u5927\u7279\u70b9\u662f\u53ef\u4ee5\u5b89\u88c5\u5404\u79cd\u4e0d\u540c\u7684\u63d2\u4ef6\u6765\u5b9a\u5236\u5c5e\u4e8e\u81ea\u5df1\u7684\u684c\u9762\uff0c\u4f8b\u5982\u684c\u9762\u5916\u89c2\u8bbe\u7f6e\uff0c\u4e3b\u9898\uff0c\u7a97\u53e3\uff0c\u5f00\u673a\u81ea\u542f\u7a0b\u5e8f\u7b49\u7b49\u3002\u4f7f\u7528\u63d2\u4ef6\u524d\uff0c\u9700\u8981\u5148\u5b89\u88c5\u914d\u7f6e\u5de5\u5177Gnome-tweak-tool\u3002<\/p>\n\n\n\n<p>$
+        sudo apt install gnome-tweak-tool<br><\/p>\n\n\n\n<p>\u5b89\u88c5\u5b8c\u6210\u540e\uff0c\u53ef\u524d\u5f80G<a
+        href=\"https:\/\/www.gnome-look.org\/\">nome-look<\/a> \u548c<a href=\"https:\/\/extensions.gnome.org\/\">Gnome\u6269\u5c55<\/a>\u8d44\u6e90\u7ad9\u5bfb\u627e\u4f60\u559c\u6b22\u7684\u4e3b\u9898\u548c\u6269\u5c55\u63d2\u4ef6\u3002<br><\/p>\n\n\n\n<p><strong>5\u3001\u5176\u4ed6\u684c\u9762\u8bbe\u7f6e<\/strong><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/75b5\/bp.jpg\"
+        alt=\"\" class=\"wp-image-89165\"\/><\/figure>\n\n\n\n<p>Ubuntu \u5bf9\u7b14\u8bb0\u672c\u8fdb\u884c\u4e86\u5927\u91cf\u4f18\u5316\uff0c\u4f7f\u7528\u4f53\u9a8c\u4e5f\u5f97\u5230\u7528\u6237\u8ba4\u53ef\u3002\u5982\u5728\u7cfb\u7edf\u8bbe\u7f6e-\u8bbe\u5907-\u9f20\u6807\u548c\u89e6\u6478\u677f\u91cc\u627e\u5230\u76f8\u5173\u8bbe\u7f6e\uff0c\u5f00\u542f\u81ea\u7136\u6eda\u52a8\u6216\u8bbe\u7f6e\u89e6\u6478\u677f\u624b\u52bf\u7b49\u7b49\u3002\u9664\u6b64\uff0c\u8fd8\u53ef\u4ee5\u5f00\u542f\u9876\u90e8\u680f\u7684\u7535\u6c60\u767e\u5206\u6bd4\u663e\u793a\uff08tweak
+        tool&#8211;\u9876\u90e8\u680f\uff09\uff0c\u4e86\u89e3\u7b14\u8bb0\u672c\u7684\u5269\u4f59\u7535\u91cf\u3002<br><\/p>\n\n\n\n<p><strong>6\u3001\u591c\u95f4\u6a21\u5f0f<\/strong><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/5929\/nightlight.jpg\"
+        alt=\"\" class=\"wp-image-89164\"\/><\/figure>\n\n\n\n<p>\u957f\u65f6\u95f4\u4f7f\u7528\u7535\u8111\u5c06\u589e\u52a0\u773c\u90e8\u75b2\u52b3\u5c24\u5176\u5728\u591c\u95f4\u3002\u73b0\u5728\uff0c\u53ef\u5728\u7cfb\u7edf\u8bbe\u7f6e\u5185\u5f00\u542f\u591c\u95f4\u6a21\u5f0f\uff0c\u591c\u95f4\u6a21\u5f0f\u4e0b\u663e\u793a\u5668\u5c06\u53d8\u4e3a\u6696\u8272\u8c03\uff0c\u542f\u7528\u540e\u5c06\u6709\u52a9\u4e8e\u7f13\u89e3\u773c\u90e8\u75b2\u52b3\u3002<br><\/p>\n\n\n\n<p><strong>7\u3001Snap\u5e94\u7528<\/strong><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/2bc2\/store.jpg\"
+        alt=\"\" class=\"wp-image-89167\"\/><\/figure>\n\n\n\n<p>\u5982\u679c\u4f60\u662f\u8f6f\u4ef6\u5f00\u53d1\u8005\uff0csnap\u5e94\u7528\u5c06\u662f\u4f60\u63d0\u5347\u751f\u4ea7\u529b\u7684\u5de5\u5177\u4e4b\u4e00\u3002Snap\u7684\u7279\u70b9\u4e3a\u63d0\u5347\u8f6f\u4ef6\u7684\u4f7f\u7528\u4f53\u9a8c\uff0c\u589e\u52a0\u5b89\u5168\u6027\uff0c\u7ef4\u62a4\u4fbf\u6377\u7b49\u3002\u4f60\u53ef\u4ee5\u5b89\u88c5\u559c\u6b22\u7684\u5f00\u53d1\u5de5\u5177\uff0c\u4f8b\u5982Visual
+        Studio Code\uff0c\u8fd8\u53ef\u4ee5\u5230<a href=\"http:\/\/snapcraft.io\/\">http:\/\/snapcraft.io<\/a>
+        \u4e0a\u6d4f\u89c8\u5176\u4ed6\u5f00\u53d1\u8005\u7684snap\u6216\u53d1\u5e03\u81ea\u5df1\u7684snap\u5e94\u7528\u3002<br><\/p>\n\n\n\n<p><strong>8\u3001\u5b89\u5353\u624b\u673a\u6574\u5408<\/strong><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f11a\/GS.jpg\"
+        alt=\"\" class=\"wp-image-89166\"\/><\/figure>\n\n\n\n<p>\u5de5\u4f5c\u4e2d\u9891\u7e41\u5207\u6362\u624b\u673a\u548c\u7535\u8111\u662f\u4e00\u4ef6\u975e\u5e38\u9ebb\u70e6\u7684\u4e8b\u60c5\u3002\u4e3a\u6b64\uff0c\u7b2c\u4e09\u65b9\u5f00\u53d1\u8005\u6574\u5408\u4e86\u5b89\u5353\u624b\u673a\u7684\u90e8\u5206\u529f\u80fd\u5230\u4e86Gnome\u684c\u9762\u4e2d\uff0c\u901a\u8fc7\u5b89\u88c5<a
+        href=\"https:\/\/extensions.gnome.org\/extension\/1319\/gsconnect\/\">GSConnect\u6269\u5c55<\/a>\u4ee5\u53ca\u5b89\u5353\u5ba2\u6237\u7aef\uff0c\u5c31\u53ef\u4ee5\u5728\u7535\u8111\u4e0a\u8fdb\u884c\u67e5\u770b\u624b\u673a\u901a\u77e5\u3001\u77ed\u4fe1\u606f\u3001\u4f20\u8f93\u6587\u4ef6\u7b49\u7b49\u64cd\u4f5c\uff0c\u65b9\u4fbf\u3001\u9ad8\u6548\u4fbf\u6377\u3002<br><\/p>\n","protected":false},"excerpt":{"rendered":"<p>\u5168\u65b0\u7684Ubuntu
+        19.04 \u5df2\u53d1\u5e03\uff0c\u5728\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u4e5f\u8bb8\u4f1a\u9047\u5230\u4e00\u4e9b\u5c0f\u95ee\u9898\uff0c\u4e5f\u8fd8\u6709\u4f60\u672a\u77e5\u7684\u65b0\u7279\u6027\u3002\u4e0b\u9762\u6211\u4eec\u5c06\u4ecb\u7ecd\u4e00\u4e9b\u7cfb\u7edf\u4f7f\u7528\u5c0f\u6280\u5de7\uff0c\u6765\u63d0\u5347\u4f60\u7684\u4f7f\u7528\u4f53\u9a8c\u3002
+        1\u3001\u56de\u987e\u4e0b\u65b0\u7cfb\u7edf\u7279\u70b9 Ubuntu 19.04\u4f7f\u7528Gnome
+        3.32\u4f5c\u4e3a\u9ed8\u8ba4\u684c\u9762\u73af\u5883\uff0c\u5e94\u7528\u542f\u52a8\u548c\u5207\u6362\u52a8\u753b\u5f97\u5230\u5927\u5e45\u63d0\u5347\uff0c\u6700\u65b0\u7248\u7684Linux
+        kernel 5.0\uff0c\u589e\u52a0\u5bf9AMD\u3001Nvidia\u72ec\u7acb\u663e\u5361\u9a71\u52a8\u7684\u652f\u6301\uff0cHiDPI\u5c4f\u5e55\u652f\u6301\u66f4\u53cb\u597d\uff0c\u652f\u6301150%\uff0c200%\u7b49\u7f29\u653e\u3002\u5168\u65b0GNOME
+        Shell \u548c\u4e3b\u9898\u53ca\u56fe\u6807\u663e\u5f97\u66f4\u73b0\u4ee3\u3002\u8fd8\u6709\u5f88\u591a\u65b0\u7279\u6027\u8bf7\u7ee7\u7eed\u5f80\u4e0b\u9605\u8bfb\u3002
+        2\u3001\u65f6\u523b\u4fdd\u6301\u6700\u65b0\u66f4\u65b0 Ubuntu 19.04\u5c06\u62e5\u67099\u4e2a\u6708\u7684\u5b89\u5168\u66f4\u65b0\u7ef4\u62a4\u81f32020\u5e741\u6708\uff0c\u5b89\u88c5\u5b8c\u7cfb\u7edf\u540e\u53ef\u5148\u8fdb\u884c\u6362\u6e90\u64cd\u4f5c\uff0c\u786e\u4fdd\u4f60\u80fd\u83b7\u5f97\u6700\u5feb\u7684\u8fde\u63a5\u901f\u5ea6\uff0c\u540c\u65f6\u65b0\u7cfb\u7edf\u5b89\u88c5\u540e\u8fdb\u884c\u66f4\u65b0\u4e5f\u80fd\u89e3\u51b3\u4f7f\u7528\u8fc7\u7a0b\u4e2d\u78b0\u5230\u7684\u5c0f\u95ee\u9898\u3002\u66f4\u65b0\u4ea6\u53ef\u4fee\u8865\u5df2\u77e5\u5b89\u5168\u6f0f\u6d1e\u548c\u6f5c\u5728\u5371\u9669\uff0c\u4e3a\u4f60\u7684\u7cfb\u7edf\u5b89\u5168\u4fdd\u9a7e\u62a4\u822a\u3002
+        3\u3001Dock\u5fae\u8c03 Ubuntu \u81f3\u8fc1\u79fb\u5230Gnome\u73af\u5883\u540e\uff0c\u5728\u7528\u6237\u4f53\u9a8c\u4e0a\u4e0eUnity\u5c3d\u91cf\u4fdd\u6301\u4e00\u81f4\u3002Dock\u6709\u548cUnity\u76f8\u4f3c\u7684\u5e94\u7528\u4fa7\u680f\u3002\u9ed8\u8ba4\u8bbe\u7f6e\u4e0b\uff0c\u5355\u51fbDock\u56fe\u6807\u662f\u6253\u5f00\u5e94\u7528\u52a8\u4f5c\u3002\u4e0d\u8fc7\u53ef\u901a\u8fc7\u4fee\u6539\u8bbe\u7f6e\u5f00\u542f\u201c\u5355\u673a\u6700\u5c0f\u5316\u201d\u7684\u529f\u80fd\uff0c\u591a\u4e2a\u5e94\u7528\u7a0b\u5e8f\u95f4\u5207\u6362\u66f4\u5bb9\u6613\u3002
+        \u5f00\u542f\u547d\u4ee4\uff1a gsettings set org.gnome.shell.extensions.dash-to-dock
+        click-action &#8216;minimize&#8217; \u5f53\u7136\uff0c\u4e5f\u53ef\u901a\u8fc7\u5b89\u88c5\u7f16\u8f91\u5668dconf-editor\u6765\u4fee\u6539\uff0c\u8fd0\u884c\u540e\u627e\u5230\u5bf9\u5e94\u8bbe\u7f6e\u9879\u8fdb\u884c\u4fee\u6539\u5373\u53ef\u3002
+        \u53e6\u5916\uff0c\u53e6\u4e00\u4e2a\u5b9e\u7528\u7684\u529f\u80fd\u4e3a\u201c\u81ea\u52a8\u9690\u85cfDock\u201d\uff0cDock\u81ea\u52a8\u9690\u85cf\u540e\u53ef\u83b7\u5f97\u66f4\u591a\u663e\u793a\u7a7a\u95f4\uff0c\u53ea\u8981\u5728\u7cfb\u7edf\u8bbe\u7f6e&#8211;Dock\u5185\u6253\u5f00\u5f00\u5173\u5373\u53ef\u3002\u5f00\u542f\u540e\u5f53\u7a97\u53e3\u8d34\u8fd1Dock\u65f6\u5c31\u4f1a\u89e6\u53d1\uff0c\u6b63\u5e38\u4e00\u76f4\u663e\u793a\u7684\u72b6\u6001\uff0c\u975e\u5e38\u597d\u7528\u3002
+        4\u3001\u4f7f\u7528\u4e30\u5bccGnome\u6269\u5c55 Gnome Shell\u7684\u4e00\u5927\u7279\u70b9\u662f\u53ef\u4ee5\u5b89\u88c5\u5404\u79cd\u4e0d\u540c\u7684\u63d2\u4ef6\u6765\u5b9a\u5236\u5c5e\u4e8e\u81ea\u5df1\u7684\u684c\u9762\uff0c\u4f8b\u5982\u684c\u9762\u5916\u89c2\u8bbe\u7f6e\uff0c\u4e3b\u9898\uff0c\u7a97\u53e3\uff0c\u5f00\u673a\u81ea\u542f\u7a0b\u5e8f\u7b49\u7b49\u3002\u4f7f\u7528\u63d2\u4ef6\u524d\uff0c\u9700\u8981\u5148\u5b89\u88c5\u914d\u7f6e\u5de5\u5177Gnome-tweak-tool\u3002
+        $ sudo apt install gnome-tweak-tool \u5b89\u88c5\u5b8c\u6210\u540e\uff0c\u53ef\u524d\u5f80Gnome-look
+        \u548cGnome\u6269\u5c55\u8d44\u6e90\u7ad9\u5bfb\u627e\u4f60\u559c\u6b22\u7684\u4e3b\u9898\u548c\u6269\u5c55\u63d2\u4ef6\u3002
+        5\u3001\u5176\u4ed6\u684c\u9762\u8bbe\u7f6e Ubuntu \u5bf9\u7b14\u8bb0\u672c\u8fdb\u884c\u4e86\u5927\u91cf\u4f18\u5316\uff0c\u4f7f\u7528\u4f53\u9a8c\u4e5f\u5f97\u5230\u7528\u6237\u8ba4\u53ef\u3002\u5982\u5728\u7cfb\u7edf\u8bbe\u7f6e-\u8bbe\u5907-\u9f20\u6807\u548c\u89e6\u6478\u677f\u91cc\u627e\u5230\u76f8\u5173\u8bbe\u7f6e\uff0c\u5f00\u542f\u81ea\u7136\u6eda\u52a8\u6216\u8bbe\u7f6e\u89e6\u6478\u677f\u624b\u52bf\u7b49\u7b49\u3002\u9664\u6b64\uff0c\u8fd8\u53ef\u4ee5\u5f00\u542f\u9876\u90e8\u680f\u7684\u7535\u6c60\u767e\u5206\u6bd4\u663e\u793a\uff08tweak
+        tool&#8211;\u9876\u90e8\u680f\uff09\uff0c\u4e86\u89e3\u7b14\u8bb0\u672c\u7684\u5269\u4f59\u7535\u91cf\u3002
+        6\u3001\u591c\u95f4\u6a21\u5f0f \u957f\u65f6\u95f4\u4f7f\u7528\u7535\u8111\u5c06\u589e\u52a0\u773c\u90e8\u75b2\u52b3\u5c24\u5176\u5728\u591c\u95f4\u3002\u73b0\u5728\uff0c\u53ef\u5728\u7cfb\u7edf\u8bbe\u7f6e\u5185\u5f00\u542f\u591c\u95f4\u6a21\u5f0f\uff0c\u591c\u95f4\u6a21\u5f0f\u4e0b\u663e\u793a\u5668\u5c06\u53d8\u4e3a\u6696\u8272\u8c03\uff0c\u542f\u7528\u540e\u5c06\u6709\u52a9\u4e8e\u7f13\u89e3\u773c\u90e8\u75b2\u52b3\u3002
+        7\u3001Snap\u5e94\u7528 \u5982\u679c\u4f60\u662f\u8f6f\u4ef6\u5f00\u53d1\u8005\uff0csnap\u5e94\u7528\u5c06\u662f\u4f60\u63d0\u5347\u751f\u4ea7\u529b\u7684\u5de5\u5177\u4e4b\u4e00\u3002Snap\u7684\u7279\u70b9\u4e3a\u63d0\u5347\u8f6f\u4ef6\u7684\u4f7f\u7528\u4f53\u9a8c\uff0c\u589e\u52a0\u5b89\u5168\u6027\uff0c\u7ef4\u62a4\u4fbf\u6377\u7b49\u3002\u4f60\u53ef\u4ee5\u5b89\u88c5\u559c\u6b22\u7684\u5f00\u53d1\u5de5\u5177\uff0c\u4f8b\u5982Visual
+        Studio Code\uff0c\u8fd8\u53ef\u4ee5\u5230http:\/\/snapcraft.io \u4e0a\u6d4f\u89c8\u5176\u4ed6\u5f00\u53d1\u8005\u7684snap\u6216\u53d1\u5e03\u81ea\u5df1\u7684snap\u5e94\u7528\u3002
+        8\u3001\u5b89\u5353\u624b\u673a\u6574\u5408 \u5de5\u4f5c\u4e2d\u9891\u7e41\u5207\u6362\u624b\u673a\u548c\u7535\u8111\u662f\u4e00\u4ef6\u975e\u5e38\u9ebb\u70e6\u7684\u4e8b\u60c5\u3002\u4e3a\u6b64\uff0c\u7b2c\u4e09\u65b9\u5f00\u53d1\u8005\u6574\u5408\u4e86\u5b89\u5353\u624b\u673a\u7684\u90e8\u5206\u529f\u80fd\u5230\u4e86Gnome\u684c\u9762\u4e2d\uff0c\u901a\u8fc7\u5b89\u88c5GSConnect\u6269\u5c55\u4ee5\u53ca\u5b89\u5353\u5ba2\u6237\u7aef\uff0c\u5c31\u53ef\u4ee5\u5728\u7535\u8111\u4e0a\u8fdb\u884c\u67e5\u770b\u624b\u673a\u901a\u77e5\u3001\u77ed\u4fe1\u606f\u3001\u4f20\u8f93\u6587\u4ef6\u7b49\u7b49\u64cd\u4f5c\uff0c\u65b9\u4fbf\u3001\u9ad8\u6548\u4fbf\u6377\u3002<\/p>\n","protected":false},"author":448,"featured_media":89159,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[3265,3356,3358,3357,3359,3312],"topic":[1921],"group":[1479],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"16","_start_month":"05","_start_year":"2019","_end_day":"16","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89158"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/448"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89158"}],"version-history":[{"count":5,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89158\/revisions"}],"predecessor-version":[{"id":89174,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89158\/revisions\/89174"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89159"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89158"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89158"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89158"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89158"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89158"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89071,"date":"2019-05-11T13:18:37","date_gmt":"2019-05-11T13:18:37","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89071"},"modified":"2019-05-12T12:44:54","modified_gmt":"2019-05-12T12:44:54","slug":"publish-your-unity-games-in-the-snap-store","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/11\/publish-your-unity-games-in-the-snap-store\/","title":{"rendered":"Publish
+        Your Unity Games in the Snap Store"},"content":{"rendered":"\n<p>We often
+        feature and promote applications and games in the Snap Store and via our social
+        media channels. Perhaps unsurprisingly, games are popular among our followers,
+        and our users. There are a few great games already in the Snap Store, but
+        there&#8217;s always room for more!<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8287\/Screenshot_20190510_111601.png\"
+        alt=\"\" class=\"wp-image-89073\"\/><\/figure>\n\n\n\n<p>Snap lends itself
+        well to packaging and distributing free games to Linux users. Snap support
+        is available for over 40 Linux distributions, so with one build of a snap,
+        you can reach millions of Linux gamers. The same snap will work across all
+        those distributions without you needing to test on each one.<\/p>\n\n\n\n<p>Snaps
+        are pretty straightforward to create, easy to publish and come with interesting
+        Snap Store metrics. It&#8217;s also a really simple way to just share your
+        creations with friends, no matter which of the major Linux distributions they
+        use. <\/p>\n\n\n\n<p>In this article we&#8217;ll go through the steps required
+        to publish a game in the Snap Store. We&#8217;ll focus on games built using
+        the Unity Editor, but the principles are largely the same, no matter what
+        engine is used. So long as the engine supports creating Linux binaries, you&#8217;re
+        good. We will be using snapcraft, a tool we created to build snaps.<\/p>\n\n\n\n<h2>Pre-requisites<\/h2>\n\n\n\n<p>In
+        addition to your game binaries you&#8217;ll also need a computer or Virtual
+        Machine (VM) running Linux. You may already be developing on Linux, which
+        is great, but we know many game developers initially build on Windows or macOS,
+        so may not have a Linux machine to hand.<\/p>\n\n\n\n<p>Any distribution listed
+        on the <a href=\"https:\/\/docs.snapcraft.io\/installing-snapd\">installing
+        snapd<\/a> page will work fine on bare metal. <\/p>\n\n\n\n<p>If using a VM,
+        use an up to date installation of Ubuntu 18.04 as the guest OS. While it may
+        be possible to use another distribution in a VM, I&#8217;d recommend using
+        Ubuntu 18.04. By default, snapcraft launches a VM (managed by <a href=\"https:\/\/snapcraft.io\/multipass\">multipass<\/a>)
+        which likely won&#8217;t work when &#8216;nested&#8217; inside another VM.
+        So when running snapcraft in a VM we will pass it a parameter to build directly,
+        and not use multipass. This ensures we don&#8217;t build against, or incorporate
+        libraries from the foreign Linux distribution in the build, which will compromise
+        the ability to run the snap anywhere. <\/p>\n\n\n\n<p>So your two options
+        are:-<\/p>\n\n\n\n<ul><li>Install a <a href=\"https:\/\/docs.snapcraft.io\/installing-snapd\">supported<\/a>
+        Linux distribution on bare metal <\/li><li>Install Ubuntu 18.04 in a VM<\/li><li><\/li><\/ul>\n\n\n\n<h2>Sign
+        up for a store account<\/h2>\n\n\n\n<p>Signing up for a Snap Store account
+        is just like registering for any service. It will give you secure access to
+        manage your snaps, update the description, screenshots, icon and other metadata.
+        It also will give access to release the snap when you&#8217;re ready, and
+        access weekly active device metrics.<\/p>\n\n\n\n<p>Follow the <a href=\"https:\/\/docs.snapcraft.io\/creating-your-developer-account\/\">guide<\/a>
+        to setting up your developer account in the Snap Store.<\/p>\n\n\n\n<h2>Register
+        the name of your game<\/h2>\n\n\n\n<p>Each application name is unique in the
+        Snap Store. Registering the name of your game will reserve it for you. Some
+        common names have been per-registered to prevent name-squatting. If the store
+        says your game name is already taken, there is a dispute process you&#8217;re
+        liked to, in order to request the name be assigned to you. Alternatively choose
+        a different name, or be creative with hypens &#8211; e.g. register &#8220;space-trek&#8221;
+        rather than &#8220;spacetrek&#8221;. The dispute process enables you to discuss
+        the registration with a human Snap Store admin. <\/p>\n\n\n\n<p>The process
+        for registering is covered in more detail in the <a href=\"https:\/\/docs.snapcraft.io\/registering-your-app-name\/\">documentation<\/a>.<\/p>\n\n\n\n<h2>Install
+        snap support<\/h2>\n\n\n\n<p>Snapcraft, the tool used to build snaps, is provided
+        as a snap itself. As such you&#8217;ll need to have access to a Linux machine
+        which has snap support to build your game snap.<\/p>\n\n\n\n<p>Ubuntu 16.04
+        and above, and some other Linux distributions ship with snap support out of
+        the box. If you&#8217;re using something which may not, you can add support
+        via the instructions in the <a href=\"https:\/\/docs.snapcraft.io\/installing-snapd\/\">documentation<\/a>.
+        <\/p>\n\n\n\n<h2>Install snapcraft &amp; multipass<\/h2>\n\n\n\n<p>Once you
+        have snap support, install snapcraft and (if you&#8217;re not running Linux
+        inside a VM), multipass. If you&#8217;re already running Linux in a VM, simply
+        skip installing multipass for now.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">sudo
+        snap install snapcraft<br>sudo snap install multipass --beta<\/pre>\n\n\n\n<h2>Setup
+        working directory<\/h2>\n\n\n\n<p>On the Linux machine, create a directory
+        in which we&#8217;ll build the snap and incorporate the binary build of your
+        game. I&#8217;ve named the folder &#8220;MyGame&#8221; but you can of course
+        change that to whatever your game is called.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">mkdir
+        -p ~\/SnapGames\/MyGame\/snap\/local<\/pre>\n\n\n\n<p><strong>Note: <\/strong>Don&#8217;t
+        be tempted to create a folder called <code>snap<\/code> in your home directory
+        and build in there. The <code>snap<\/code> folder in your home is reserved
+        for snap applications themselves, and things get horribly confusing if it&#8217;s
+        misused.<\/p>\n\n\n\n<p>Export game from Unity3D to  <code>~\/SnapGames\/MyGame\/snap\/local<\/code><\/p>\n\n\n\n<p>Within
+        the Unity Editor, choose File -&gt; Build Settings. Select Linux as the Target
+        Platform and x86_64 as the Architecture. Hit the Build button, then select
+        the previously created <code>~\/SnapGames\/MyGame\/snap\/local<\/code> directory,
+        named &#8220;MyGame&#8221; for example.<\/p>\n\n\n\n<h2>Test the game on Linux<\/h2>\n\n\n\n<p>As
+        a quick sanity check, run the game outside of the Unity Editor by running
+        the binary you exported in the previous step. This is a good way to make sure
+        everything exported correctly. <\/p>\n\n\n\n<p>Run the executable located
+        at:<\/p>\n\n\n\n<p><code>~\/SnapGames\/MyGame\/snap\/local\/MyGame.x86_64<\/code><\/p>\n\n\n\n<h2>Create
+        a snpacraft.yaml<\/h2>\n\n\n\n<p>Snapcraft uses a simple yaml file to drive
+        the build of a snap. I&#8217;ve provided a template below, which shouldn&#8217;t
+        need much modification. Save it as <code>~\/SnapGames\/MyGame\/snap\/snapcraft.yaml<\/code><\/p>\n\n\n\n<p>Replace
+        content of <code>name<\/code>, <code>version<\/code>, <code>summary<\/code>,
+        <code>description<\/code> and <code>command<\/code> at the minimum. <\/p>\n\n\n\n<p><code>name<\/code>
+        should match the lowercase name you registered in the store. <code>summary<\/code>,
+        <code>version<\/code> and description are all human readable text.<\/p>\n\n\n\n<p>The
+        <code>command<\/code> should match the exported binary name from Unity. Consult
+        the <a href=\"https:\/\/docs.snapcraft.io\/snapcraft-yaml-reference\/\">reference
+        documentation<\/a> for snapcraft to learn in detail what each entry does.
+        <\/p>\n\n\n\n<p>Finally, modify the <code>LD_LIBRARY_PATH<\/code> entry in
+        the <code>apps:<\/code> section which points to the folder inside the snap
+        where the supplied Unity run-time libraries reside. Specifically modify the
+        <code>\/MyGame_Data\/<\/code> section of the path to match the data directory
+        exported by the Unity Editor. This will typically be the name of your game,
+        followed by &#8220;_Data&#8221;.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">name:
+        mygame<br> version: \"1.0\"<br> summary: My Awesome Game<br> description:
+        |<br>   This is my amazing game which will clearly win awards.<br>   Shoot
+        the bad guys.<br>   Collect the coins.<br>   Avoid the traps.<br> base: core18<br>
+        confinement: strict<br> parts:<br>   mygame:<br>     after: [desktop-gtk2]<br>     plugin:
+        dump<br>     source: snap\/local<br>     stage-packages:<br>       - libgl1-mesa-dri<br>       -
+        libglu1-mesa<br>       - libgl1-mesa-glx<br>       - libgles2-mesa<br>       -
+        libflac8<br>       - libxcursor1<br>       - libxi6<br>       - libxinerama1<br>       -
+        libxrandr2<br>       - libxrender1<br>       - libasound2<br>       - libasyncns0<br>       -
+        libogg0<br>       - libpulse0<br>       - libsndfile1<br>       - libtheora0<br>       -
+        libvorbis0a<br>       - libvorbisenc2<br>       - libvorbisfile3<br>       -
+        libwebp6<br>   desktop-gtk2:<br>     build-packages:<br>       - build-essential<br>       -
+        libgtk2.0-dev<br>     make-parameters:<br>       - FLAVOR=gtk2<br>     plugin:
+        make<br>     source: https:\/\/github.com\/ubuntu\/snapcraft-desktop-helpers.git<br>     source-subdir:
+        gtk<br>     stage-packages:<br>       - libxkbcommon0<br>       - ttf-ubuntu-font-family<br>       -
+        dmz-cursor-theme<br>       - light-themes<br>       - adwaita-icon-theme<br>       -
+        gnome-themes-standard<br>       - shared-mime-info<br>       - libgtk2.0-0<br>       -
+        libgdk-pixbuf2.0-0<br>       - libglib2.0-bin<br>       - libgtk2.0-bin<br>       -
+        unity-gtk2-module<br>       - locales-all<br>       - libappindicator1<br>       -
+        xdg-user-dirs<br>       - ibus-gtk<br>       - libibus-1.0-5<br>apps:<br>   mygame:<br>     command:
+        desktop-launch $SNAP\/MyGame.x86_64<br>     environment:<br>       LD_LIBRARY_PATH:
+        \"$SNAP\/MyGame_Data\/Plugins\/x86_64:$SNAP\/usr\/lib\/$SNAPCRAFT_ARCH_TRIPLET\/pulseaudio:$LD_LIBRARY_PATH\"<br>     plugs:<br>       -
+        x11<br>       - opengl<br>       - network<br>       - network-bind<br>       -
+        desktop<br>       - desktop-legacy<br>       - pulseaudio<br>       - joystick<\/pre>\n\n\n\n<h2>Create
+        a desktop file<\/h2>\n\n\n\n<p>On Linux distributions a standard <code>.desktop<\/code>
+        file and an icon is required. The desktop file is used to add a menu item
+        to the players&#8217; Linux desktop environment, so the game can be found
+        and launched from the graphical desktop. The icon will be displayed in the
+        menu.<\/p>\n\n\n\n<p>Create a directory <code>~\/SnapGames\/MyGame\/snap\/gui<\/code><\/p>\n\n\n\n<p>Drop
+        a <code>.desktop<\/code> file and icon in called <code>mygame.desktop<\/code>
+        and <code>mygame.png<\/code> in the new folder.<\/p>\n\n\n\n<p>Change the
+        value of <code>exec<\/code> to match the registered snap name in lower case.
+        This should also match the line below <code>apps:<\/code> in the <code>snapcraft.yaml<\/code>.<\/p>\n\n\n\n<p><strong>Note<\/strong>:
+        <code>mygame.desktop<\/code> and <code>mygame.png<\/code> should both match
+        the registered name of the snap.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">[Desktop
+        Entry]<br>\nName=MyGame<br>\nComment=My Awesome Game<br>\nExec=mygame<br>\nIcon=${SNAP}\/meta\/gui\/mygame.png<br>\nType=Application<br>\nTerminal=false<br>\nCategories=Game;<br><\/pre>\n\n\n\n<h2>Build
+        the snap<\/h2>\n\n\n\n<p>If running on bare metal, run <code>snapcraft<\/code>,
+        which will spawn <code>multipass<\/code> and build the snap inside it, and
+        copy the result out to your working directory.<\/p>\n\n\n\n<p>When running
+        Ubuntu 18.04 inside a Virtual Machine, launch <code>snapcraft<\/code> in &#8216;destructive
+        mode&#8217; which will build natively on the machine, and not attempt to further
+        launch any VMs. <\/p>\n\n\n\n<p><strong>Note<\/strong>: &#8216;destructive
+        mode&#8217; is intended for use in CI systems, where the VM or container running
+        snapcraft is likely to be thrown away after the build. You should consider
+        this VM dedicated for use in building these snaps. Adding further packages,
+        PPAs and other software to the VM may compromise the ability for the resulting
+        snap to run everywhere.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>cd
+        ~\/SnapGames\/MyGame\nsnapcraft --destructive-mode<\/code><\/pre>\n\n\n\n<p>Here&#8217;s
+        an abbreviated view of what you should see while it&#8217;s building:<\/p>\n\n\n\n<pre
+        class=\"wp-block-code\"><code>$ snapcraft \nUsing ''snap\/snapcraft.yaml'':
+        Project assets will be searched for from the ''snap'' directory.\nLaunching
+        a VM.\nLaunched: snapcraft-mygame                                                      \n2019-03-20T10:06:08Z
+        INFO Waiting for restart...\ncore 16-2.37.4 from Canonical\u2713 installed\nsnapcraft
+        3.2+git14.ge1bb1c5 from Canonical\u2713 installed\ncore18 18 from Canonical\u2713
+        installed\nPulling mygame \nBuilding mygame \nStaging mygame \nPriming mygame
+        \nThe execstacks are going to be cleared for the following files:\n- \/root\/prime\/MyGame.x86_64\nTo
+        disable this behavior set `build-attributes: [keep-execstack]` for the part.\n''grade''
+        property not specified: defaulting to ''stable''\nSnapping ''mygame''                                                                                                                                     \nSnapped
+        mygame_1.0_amd64.snap<\/code><\/pre>\n\n\n\n<p>If all goes well, you should
+        end up with a snap in the current directory.<\/p>\n\n\n\n<p><strong>Note<\/strong>:
+        You may get warnings (in yellow) about &#8220;execstacks&#8221;. This can
+        usually be ignored, and is simply a standard feature of snapcraft to increase
+        security of applications published in the Snap Store.<\/p>\n\n\n\n<h2>Install
+        the snap<\/h2>\n\n\n\n<p>Before you publish your shiny new snap and share
+        with the world, it&#8217;s worth testing it locally. Install the snap you
+        just created with <code>snap install<\/code>.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">snap
+        install mygame_1.0_amd64.snap --dangerous<\/pre>\n\n\n\n<p><strong>Note<\/strong>:
+        The <code>--dangerous<\/code> parameter is required to indicate you&#8217;re
+        accepting the risk that this snap didn&#8217;t come from, and wasn&#8217;t
+        digitally signed by the Snap Store.<\/p>\n\n\n\n<p>Look in the desktop menu\/launcher
+        to ensure the icon appears correctly and the name of the game appears. Launch
+        the game and check it functions as expected. <\/p>\n\n\n\n<p><strong>Note<\/strong>:
+        If you have installed the game via some other means, you may have two icons,
+        one for the snap you installed, and one for the non-snap install of the game.
+        <\/p>\n\n\n\n<p>If the game fails to launch, try running from a terminal to
+        see if any further output hints at why. <\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">snap
+        run mygame<\/pre>\n\n\n\n<p>We have a friendly <a href=\"https:\/\/forum.snapcraft.io\/\">snapcraft
+        forum<\/a> where developers and the wider community can assist in debugging
+        snap builds.<\/p>\n\n\n\n<h2>Push the snap to the store<\/h2>\n\n\n\n<p>Once
+        you&#8217;re happy with your snap, you can push it to the store using snapcraft.<\/p>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">snapcraft push mygame_1.0_amd64.snap<\/pre>\n\n\n\n<p>The
+        Snap Store will run an automated scan of the snap, to ensure it&#8217;s a
+        valid snap package and is not corrupted or malformed.<\/p>\n\n\n\n<h2>Update
+        store listing page<\/h2>\n\n\n\n<p>Now the snap is in the Snap Store, it&#8217;s
+        time to spruce up the store page. Visit <a href=\"https:\/\/snapcraft.io\/snaps\">https:\/\/snapcraft.io\/snaps<\/a>
+        to get a list of your snaps. From there you can manage the metadata for each
+        one, add an icon, screenshots and a more comprehensive description. Users
+        are more likely to install snaps which have videos, screenshots and detailed
+        descriptions. We&#8217;ve created a <a href=\"https:\/\/snapcraft.io\/blog\/make-your-snap-store-page-pop\">guide<\/a>
+        detailing some of the ways to improve your store page. <\/p>\n\n\n\n<h2>Release
+        the game<\/h2>\n\n\n\n<p>Once you&#8217;re ready to make the game available
+        to the public, release it to the &#8220;stable&#8221; channel in the Snap
+        Store. The Snap Store &#8220;releases&#8221; tab enables you to publish a
+        revision to a channel. Once that&#8217;s done, users can find and install
+        your snap from the store.<\/p>\n\n\n\n<h2>Promote it<\/h2>\n\n\n\n<p>Now it&#8217;s
+        time to get the word out. Update your project web site to link to your store
+        page. Promote your snapped game on social media using pre-made buttons, or
+        links. Use the &#8220;Publicise&#8221; tab at https:\/\/snapcraft.io\/snaps
+        to grab the code for those buttons and embeddable cards. <\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/0fb2\/Screenshot_20190510_143144.png\"
+        alt=\"\" class=\"wp-image-89086\"\/><\/figure>\n\n\n\n<h2>Next steps<\/h2>\n\n\n\n<p>The
+        Snap Store provides metrics so you can see how popular your new creation is,
+        and how effective your promotion is.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/7b89\/Screenshot_20190510_143411.png\"
+        alt=\"\" class=\"wp-image-89087\"\/><\/figure>\n\n\n\n<p>The <a href=\"mailto:snap-advocacy@canonical.com\">Snap
+        Advocacy Team at Canonical<\/a> love to hear about your experiences in building
+        snaps. We take your feedback to the snapcraft and snapd teams to improve the
+        process for yourself and the next developer. We&#8217;d also love to hear
+        about the snaps you publish, and may even promote them on our social media
+        channels, or feature them prominently in the store! Let us know what you make.<\/p>\n\n\n\n<p>Photo
+        by <a href=\"https:\/\/unsplash.com\/photos\/zPHftoPajis?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Reina
+        Kousaka<\/a> on <a href=\"https:\/\/unsplash.com\/search\/photos\/gaming?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Unsplash<\/a><\/p>\n","protected":false},"excerpt":{"rendered":"<p>We
+        often feature and promote applications and games in the Snap Store and via
+        our social media channels. Perhaps unsurprisingly, games are popular among
+        our followers, and our users. There are a few great games already in the Snap
+        Store, but there&#8217;s always room for more! Snap lends itself well to packaging
+        and distributing free [&hellip;]<\/p>\n","protected":false},"author":497,"featured_media":89085,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[3352,3351,1941,2996],"topic":[],"group":[],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"10","_start_month":"05","_start_year":"2019","_end_day":"10","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89071"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/497"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89071"}],"version-history":[{"count":4,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89071\/revisions"}],"predecessor-version":[{"id":89092,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89071\/revisions\/89092"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89085"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89071"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89071"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89071"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89071"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89071"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89076,"date":"2019-05-10T15:30:11","date_gmt":"2019-05-10T15:30:11","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89076"},"modified":"2019-05-10T13:18:34","modified_gmt":"2019-05-10T13:18:34","slug":"fresh-snaps-for-april-2019","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/10\/fresh-snaps-for-april-2019\/","title":{"rendered":"Fresh
+        snaps for April 2019"},"content":{"rendered":"<p>April was another exciting
+        month for the Snapcraft team with <a href=\"https:\/\/snapcraft.io\/blog\/visual-studio-code-launches-as-a-snap\">Microsoft
+        releasing Visual Studio Code as a snap<\/a>. As usual, we had hundreds of
+        other new apps come to the snap store and here are a few of our favourites.<\/p>\n<p><iframe
+        src=\"https:\/\/snapcraft.io\/minizinc\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nMiniZinc is a free and open-source constraint
+        modeling language. Model constraint satisfaction and optimization problems
+        in a high-level, solver-independent way &#x1f913; Now available as a snap
+        for Linux!<\/p>\n<p><code>snap install minizinc<\/code><\/p>\n<hr>\n<p><iframe
+        src=\"https:\/\/snapcraft.io\/electronplayer\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nUnclutter your browser tabs with a desktop
+        video player &#x1f4fa; for Netflix, YouTube, Twitch and FloatPlane for Linux<\/p>\n<p><code>snap
+        install electronplayer<\/code><\/p>\n<hr>\n<p><iframe src=\"https:\/\/snapcraft.io\/eric-ide\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nEric is a full featured Python &#x1f40d;
+        editor and IDE, designed to be usable as an everyday editor as well as being
+        usable as a professional project management tool. Available in the snap store
+        for Linux<\/p>\n<p><code>snap install eric-ide<\/code><\/p>\n<hr>\n<p><iframe
+        src=\"https:\/\/snapcraft.io\/yacy-search\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nYaCy is an open source, peer-to-peer
+        search engine and intranet search appliance. Easily installed and setup as
+        a snap for Linux. Run a decentralized search engine on your own hardware in
+        minutes.<\/p>\n<p><code>snap install yacy-search<\/code><\/p>\n<hr>\n<p><iframe
+        src=\"https:\/\/snapcraft.io\/syzygy\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nSystem Syzygy is a puzzle game, in the
+        style of Cliff Johnson&#8217;s The Fool&#8217;s Errand and 3 in Three, and
+        of Andrew Plotkin&#8217;s System&#8217;s Twilight. Challenging puzzles in
+        a fun retro-style will give your brains some exercise this weekend!<\/p>\n<p><code>snap
+        install syzygy<\/code><\/p>\n<hr>\n<p><iframe src=\"https:\/\/snapcraft.io\/electron-mail\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nSeeking a Linux desktop app for ProtonMail
+        and Tutanota end-to-end encrypted &#x1f510; email &#x1f4e7; providers? We\u2019ve
+        got you covered!<\/p>\n<p><code>snap install electron-mail<\/code><\/p>\n<hr>\n<p><iframe
+        src=\"https:\/\/snapcraft.io\/transporter\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nEnter the magic &#x1f344; wormhole &#x1f573;
+        for hassle-free file sharing on Linux. Share your files between computers,
+        fast &#x26a1;&#xfe0f; and safe &#x1f512;.<\/p>\n<p><code>snap install transporter<\/code><\/p>\n<hr>\n<p><iframe
+        src=\"https:\/\/snapcraft.io\/open-syobon-action\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nOpen Syobon Action (\u30aa\u30fc\u30d7\u30f3\u3057\u3087\u307c\u3093\u306e\u30a2\u30af\u30b7\u30e7\u30f3)
+        is an open-source cross-platform port of the unforgiving Japanese platformer
+        for Linux &#x1f640;<\/p>\n<p><code>snap install open-syobon-action<\/code><\/p>\n<hr>\n<p><iframe
+        src=\"https:\/\/snapcraft.io\/recollectr\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nHere\u2019s a note-taking &#x1f5d2; and
+        reminder &#x1f397; app that stays out of your way unless you ask for it. Use
+        the global hotkey to bring up @Recollectr from anywhere and focus on the Omnibox
+        where you create notes, or set reminders &#x23f0;<\/p>\n<p><code>snap install
+        recollectr<\/code><\/p>\n<hr>\n<p><iframe src=\"https:\/\/snapcraft.io\/panwriter\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nHere\u2019s a markdown editor with pandoc
+        &#x1f4dd; integration and paginated preview for the Linux desktop.<\/p>\n<p><code>snap
+        install panwriter<\/code><\/p>\n<hr>\n<p><iframe src=\"https:\/\/snapcraft.io\/strawberry\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=true\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nStrawberry &#x1f353; is an audio player
+        and music &#x1f3a7; collection organizer, forked from Clementine, and aimed
+        at music collectors, audio enthusiasts and audiophiles.<\/p>\n<p><code>snap
+        install strawberry<\/code><\/p>\n<hr>\n<p><iframe src=\"https:\/\/snapcraft.io\/hyperspace\/embedded?button=black&amp;channels=true&amp;summary=true&amp;screenshot=false\"
+        style=\"border: 1px solid #CCC; border-radius: 2px;\" width=\"100%\" height=\"750px\"
+        frameborder=\"0\"><\/iframe><br \/>\nToot toot! Hyperspace is a fluffy client
+        for Mastodon! Browse and interact in Mastodon with a fun, easy, and clean
+        interface for the web and desktop. Now available as a snap for Linux.<\/p>\n<p><code>snap
+        install hyperspace<\/code><\/p>\n<hr>\n<p>That&#8217;s all for this month.
+        Keep up to date with <a href=\"https:\/\/twitter.com\/snapcraftio\/\">Snapcraft
+        on Twitter<\/a> for more updates! Also, join the community over on the <a
+        href=\"https:\/\/forum.snapcraft.io\/\">Snapcraft forum<\/a> to discuss anything
+        you&#8217;ve seen here.<\/p>\n<p><a href=\"https:\/\/unsplash.com\/photos\/AiXeylszBPA\">Header
+        image<\/a> by <a href=\"https:\/\/unsplash.com\/@jordachelr\">Laurentiu Iordache<\/a>
+        on <a href=\"https:\/\/unsplash.com\">Unsplash<\/a>.<\/p>\n","protected":false},"excerpt":{"rendered":"<p>April
+        was another exciting month for the Snapcraft team with Microsoft releasing
+        Visual Studio Code as a snap. As usual, we had hundreds of other new apps
+        come to the snap store and here are a few of our favourites. MiniZinc is a
+        free and open-source constraint modeling language. Model constraint satisfaction
+        and optimization problems [&hellip;]<\/p>\n","protected":false},"author":586,"featured_media":89081,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[3348,3349,3350,3342,3194,3341,3340,3346,3347,3344,3345,3343,1941,2996],"topic":[1921],"group":[1479],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"10","_start_month":"05","_start_year":"2019","_end_day":"10","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89076"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/586"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89076"}],"version-history":[{"count":6,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89076\/revisions"}],"predecessor-version":[{"id":89083,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89076\/revisions\/89083"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89081"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89076"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89076"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89076"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89076"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89076"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89028,"date":"2019-05-08T10:03:05","date_gmt":"2019-05-08T10:03:05","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89028"},"modified":"2019-05-08T10:03:07","modified_gmt":"2019-05-08T10:03:07","slug":"shared-values-of-travis-ci-and-snaps-enhance-integration-confidence-for-developers","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/08\/shared-values-of-travis-ci-and-snaps-enhance-integration-confidence-for-developers\/","title":{"rendered":"Shared
+        values of Travis CI and snaps enhance integration confidence for developers"},"content":{"rendered":"\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/e1d5\/Snapcraft-and-Travis-CI.png\"
+        alt=\"\" class=\"wp-image-88435\"\/><\/figure>\n\n\n\n<p><a href=\"https:\/\/www.travis-ci.com\/?utm_source=snap&amp;utm_campaign=snap_blog\">Travis
+        CI<\/a> is a hosted, distributed continuous integration (CI) service used
+        to build and test software projects hosted on GitHub, and free for anyone
+        working on open source projects. Often regarded as the home of open source
+        testing, Travis CI enables developers to automate their build without the
+        need to set up their own servers. At GitHub\u2019s Satellite London event
+        in 2017, members of the Travis CI team met with Canonical to talk <a href=\"http:\/\/www.snapcraft.io\">snaps<\/a>.
+        Since then, conversations have progressed to how users build and test their
+        snaps with Travis CI central to the CI process.<br><\/p>\n\n\n\n<p>Josh Kalderimis
+        (Head of Product) and Mar\u00eda de Ant\u00f3n (Product Manager) from Travis
+        CI attended the Snapcraft Summit in London to discuss how snaps and Travis
+        CI integration tools share a similar mission. \u201cWe also built our platform
+        with an open source nature, and we are all about testing simplicity. A lot
+        of what we want to offer developers is how to do tasks without repetition
+        &#8211; in essence, improve the developer experience. That is exactly what
+        snaps are aiming to achieve\u201d explained Josh. <br><\/p>\n\n\n\n<p>Historically
+        Travis CI has used the package manager, apt, but has experienced a lot of
+        pain in the process. For example, if someone takes a package offline, then
+        it has the knock on effect for everyone. The team has been investigating options
+        to move away from apt. The option of a cross-platform, cross-architecture
+        mechanism provided an exciting possibility, and one that could enable consistency
+        and security across vendors. Enter snaps. <br><\/p>\n\n\n\n<p>\u201cOne of
+        the biggest benefits of snaps is that changes can be made without having to
+        re-release the entire software package. This layered core is easier to maintain
+        and ensure security,\u201d comments Mar\u00eda. \u201cAs a user, you can be
+        confident updates are done upstream, thereby removing maintenance issues &#8211;
+        even if developers further down the software development chain are slower
+        to implement.\u201d <br><\/p>\n\n\n\n<p>\u201cWe find anything that builds
+        confidence in developers makes it easier for them to adopt. Snaps provides
+        such assurances,\u201d adds Josh. <br><\/p>\n\n\n\n<p>That\u2019s not to say
+        the snaps journey is complete. Josh believes simple usability enhancements
+        and reduced complexity to aid discoverability would be beneficial. \u201cVersion
+        tags and channels are interesting but too complex. Which version should I
+        use? Is there a better way to define configuration?\u201d asks Josh. <br><\/p>\n\n\n\n<p>The
+        Travis CI snap with the Travis command line client can be installed by clicking
+        <a href=\"https:\/\/snapcraft.io\/travis\">here<\/a>. <\/p>\n","protected":false},"excerpt":{"rendered":"<p>Travis
+        CI is a hosted, distributed continuous integration (CI) service used to build
+        and test software projects hosted on GitHub, and free for anyone working on
+        open source projects. Often regarded as the home of open source testing, Travis
+        CI enables developers to automate their build without the need to set up their
+        own servers. [&hellip;]<\/p>\n","protected":false},"author":511,"featured_media":88435,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[],"tags":[1877,3266,1941,2996,3331],"topic":[1921],"group":[1479],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"07","_start_month":"05","_start_year":"2019","_end_day":"07","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89028"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/511"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89028"}],"version-history":[{"count":2,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89028\/revisions"}],"predecessor-version":[{"id":89058,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89028\/revisions\/89058"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/88435"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89028"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89028"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89028"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89028"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89028"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":89040,"date":"2019-05-07T16:50:29","date_gmt":"2019-05-07T16:50:29","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89040"},"modified":"2019-05-08T13:25:39","modified_gmt":"2019-05-08T13:25:39","slug":"ubuntu-14-04-esm-support","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/07\/ubuntu-14-04-esm-support\/","title":{"rendered":"Ubuntu
+        14.04 LTS has transitioned to ESM support"},"content":{"rendered":"\n<figure
+        class=\"wp-block-image\"><a href=\"https:\/\/ubuntu.com\/esm?attachment_id=89043\"
+        target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/1e5d\/Facebook-Ad-4.jpg\"
+        alt=\"ESM for Ubuntu 14.04\" class=\"wp-image-89043\"\/><\/a><\/figure>\n\n\n\n<p>Ubuntu
+        14.04 LTS \u2018Trusty Tahr\u2019 transitioned into the ESM support phase
+        at the end of April 2019, and will no longer be supported for users who do
+        not have access to Extended Security Maintenance (ESM) through <a href=\"https:\/\/blog.ubuntu.com\/2019\/04\/29\/canonical-consolidates-open-infrastructure-support-and-security-offerings\">Ubuntu
+        Advantage for Infrastructure<\/a>.<br><\/p>\n\n\n\n<p>Ubuntu long term support
+        (LTS) releases provide a stable, supported platform for development and production,
+        with five years of guaranteed public maintenance available. Once the public
+        Standard Security Maintenance window comes to a close, Ubuntu LTS releases
+        have an additional three to five years of support (depending upon the release)
+        through ESM.<br><\/p>\n\n\n\n<p>Access to ESM extends LTS release coverage,
+        allowing for continued security fixes for high and critical common vulnerabilities
+        and exposures (CVEs) for the most commonly used packages in the Ubuntu main
+        archive. This access permits organisations with workloads running on Ubuntu
+        LTS releases to maintain compliance standards by providing a secure environment
+        before upgrading can occur.<br><\/p>\n\n\n\n<p>For users who need access to
+        ESM, or have questions about this service, please refer to the below FAQs.
+        Do not hesitate to get in touch with our team to discuss any additional questions
+        on ESM for Ubuntu 14.04.<\/p>\n\n\n\n<p>\n<a class=\"link-cta-ubuntu\" href=\"https:\/\/www.ubuntu.com\/esm&amp;utm_source=blog&amp;utm_campaign=CY19_DC_UA_GenConForm_ESM14-04#get-in-touch\">Get
+        in touch<\/a><\/p>\n\n\n\n<h2>How can I access ESM?<\/h2>\n\n\n\n<p>If you
+        are a UA Infrastructure customer and need access to the ESM repository, credentials
+        can be found by clicking \u2018My Account\u2019 in the profile section of
+        <a href=\"https:\/\/support.canonical.com\/s\/\">Canonical\u2019s support
+        portal<\/a>. <br><\/p>\n\n\n\n<p><a href=\"https:\/\/support.canonical.com\/ua\/s\/article\/Obtaining-ESM-Credentials-And-Enabling-ESM-On-Ubuntu-14-04-LTS-Trusty\">This
+        Knowledge Base article<\/a> provides the full details on enabling ESM. If
+        ESM credentials have not been provisioned for your account, please request
+        them by <a href=\"https:\/\/support.canonical.com\/ua\/s\/contactsupport\">opening
+        a support case<\/a>.<br><\/p>\n\n\n\n<p>If you are not a UA Infrastructure
+        customer and need access to ESM, please <a href=\"https:\/\/www.ubuntu.com\/esm#get-in-touch\">get
+        in touch<\/a> with our team to learn more and enable ESM for your Ubuntu 14.04
+        systems.<\/p>\n\n\n\n<h2>Why do I need ESM?<\/h2>\n\n\n\n<p>If you are in
+        a heavily-regulated industry where continued security certifications or the
+        compliance of infrastructure systems is critical to meet regulatory requirements,
+        it is recommended to utilise ESM to maintain the integrity and stability of
+        those systems. <\/p>\n\n\n\n<p>PCI DSS, SOC 2 and GDPR are three examples
+        of certifications and regulations that mandate security patching across several
+        industry sectors.<br><\/p>\n\n\n\n<p>Additional reasons and industry requirements
+        for ESM include the below:<br><\/p>\n\n\n\n<ul><li>Legacy software maintenance
+        &#8211; If your organisation is running legacy software that requires older
+        libraries and packages that can not be re-engineered and therefore upgraded<\/li><li>Hardware
+        requirements &#8211; If your organisation has device software built on one
+        version, in HDI or SCADA environments as an example, and are unable to be
+        upgraded until testing can take place, commonly seen with the healthcare industry<\/li><li>Long-term
+        deployments &#8211; If your organisation has long-term deployments, typically
+        common in telecommunications<\/li><\/ul>\n\n\n\n<p>In the five years that
+        Trusty Tahr has been released, more than 1,300 Ubuntu Security Notices (USNs)
+        have been issued, with a single USN potentially addressing multiple CVEs.
+        Going forward, USNs will continue to be addressed for UA Infrastructure customers
+        through ESM.<\/p>\n\n\n\n<h2>Is it time to upgrade?<\/h2>\n\n\n\n<p>It is
+        recommended for all users to upgrade to the latest LTS release, Ubuntu 18.04.
+        This release has significantly faster boot times, is built on the 4.15 kernel,
+        was designed for CI\/CD with Kubernetes support built in, has mitigations
+        for Spectre and Meltdown and is tuned for machine learning.<br><\/p>\n\n\n\n<p>There
+        are three easy ways to upgrade your systems &#8211; <\/p>\n\n\n\n<ol><li>Use
+        the GUI by clicking the Software &amp; Updates icon<\/li><li>Input the below
+        in the command line:<\/li><\/ol>\n\n\n\n<pre class=\"wp-block-code\"><code>$
+        sudo do-release-upgrade<\/code><\/pre>\n\n\n\n<p><br><\/p>\n\n\n\n<ol><li>Use
+        the below command using <a href=\"https:\/\/landscape.canonical.com\">Landscape<\/a>,
+        the cloud-management platform for Ubuntu machines:<\/li><\/ol>\n\n\n\n<pre
+        class=\"wp-block-code\"><code>$ sudo apt-get dist-upgrade<\/code><\/pre>\n\n\n\n<p>For
+        those utilising 14.04 who cannot upgrade, or who are planning to upgrade in
+        the near future, it is recommended to subscribe to ESM through UA Infrastructure
+        for continued access to security patches.<\/p>\n\n\n\n<h2>What are the risks
+        without ESM?<\/h2>\n\n\n\n<p>Security vulnerabilities that remain unpatched
+        open your infrastructure systems to hackers and the potential of a major breach.
+        Furthermore, security patches are often necessary to meet regulatory requirements
+        commonly found in the finance, healthcare, e-commerce and telco industries.
+        <br><\/p>\n\n\n\n<p>Subscribing to ESM helps you mitigate the risks, operational
+        costs and potential fines that come from unidentified and unpatched vulnerabilities.<\/p>\n\n\n\n<h2>How
+        long will Ubuntu 14.04 LTS be supported through ESM?<\/h2>\n\n\n\n<p>Ubuntu
+        14.04 LTS \u2018Trusty Tahr\u2019 will be supported until April 2022 through
+        UA Infrastructure\u2019s ESM service.<br><\/p>\n\n\n\n<hr class=\"wp-block-separator\"\/>\n\n\n\n<p>Extended
+        Security Maintenance (ESM) for Ubuntu 14.04 Trusty Tahr includes security
+        patches for high and critical vulnerabilities for an additional three years
+        of coverage and is available through an Ubuntu Advantage for Infrastructure
+        subscription. For more information, please visit <a href=\"https:\/\/www.ubuntu.com\/esm\">ubuntu.com\/esm<\/a>
+        and reach out with any questions.<br><\/p>\n\n\n\n<p><a class=\"link-cta-ubuntu\"
+        href=\"https:\/\/www.ubuntu.com\/esm#get-in-touch&amp;utm_source=blog&amp;utm_campaign=CY19_DC_UA_GenConForm_ESM14-04\">Get
+        in touch<\/a><\/p>\n","protected":false},"excerpt":{"rendered":"<p>Extended
+        Security Maintenance (ESM) is now available for Ubuntu 14.04 LTS to provide
+        ongoing security patches for high and critical CVEs for UA Infrastructure
+        customers.<\/p>\n","protected":false},"author":217,"featured_media":89043,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[3229,2418,3178,3335,3338,1364,3337,1981,1374,2561,3336,1486,1610,3301,2542],"topic":[1477,1922],"group":[1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"07","_start_month":"05","_start_year":"2019","_end_day":"07","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89040"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89040"}],"version-history":[{"count":8,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89040\/revisions"}],"predecessor-version":[{"id":89056,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89040\/revisions\/89056"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89043"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89040"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89040"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89040"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89040"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89040"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":88877,"date":"2019-05-07T10:27:45","date_gmt":"2019-05-07T10:27:45","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=88877"},"modified":"2019-05-07T10:29:14","modified_gmt":"2019-05-07T10:29:14","slug":"19-04-disco-dingo-now-available-as-optimised-desktop-image-for-hyper-v","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/07\/19-04-disco-dingo-now-available-as-optimised-desktop-image-for-hyper-v\/","title":{"rendered":"19.04
+        &#8216;Disco Dingo&#8217; now available as optimised desktop image for Hyper-V"},"content":{"rendered":"\n<p>Running
+        Ubuntu as a virtual machine continues to be a popular way to use the desktop.  <\/p>\n\n\n\n<div
+        class=\"wp-block-image\"><figure class=\"alignleft\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/a012\/image.png\"
+        alt=\"\" class=\"wp-image-88878\" \/><\/figure><\/div>\n\n\n\n<p>Back in September
+        2018 we <a href=\"https:\/\/admin.insights.ubuntu.com\/2018\/09\/17\/optimised-ubuntu-desktop-images-available-in-microsoft-hyper-v-gallery\/\">announced<\/a>
+        the availability of optimised 18.04 LTS desktop images for Microsoft&#8217;s
+        Hyper-V gallery bring a host of benefits including:<\/p>\n\n\n\n<ul><li>Improved
+        clipboard integration<\/li><li>Dynamic desktop resizing<\/li><li>Shared folders
+        for easy host\/guest file transfer<\/li><li>Improved mouse experience, seamlessly
+        moving between the host and guest desktops<\/li><\/ul>\n\n\n\n<p>Today we&#8217;re
+        very happy to announce that a new 19.04 image joins the LTS version. This
+        will help make life a bit easier for people working with Ubuntu desktop on
+        Windows.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/a46f\/image.png\"
+        alt=\"\" class=\"wp-image-88880\" \/><\/figure>\n\n\n\n<p>To build a virtual
+        machine using the new image open the Hyper V Manager,  click on Quick Create
+        and choose the Ubuntu 19.04 option.<\/p>\n\n\n\n<p>Our plan at this point
+        is to provide the latest LTS and the most recent non-LTS release.  That way
+        you can choose between the known quantity of the LTS or the freshest release.<\/p>\n\n\n\n<p><\/p>\n","protected":false},"excerpt":{"rendered":"<p>Running
+        Ubuntu as a virtual machine continues to be a popular way to use the desktop.
+        Back in September 2018 we announced the availability of optimised 18.04 LTS
+        desktop images for Microsoft&#8217;s Hyper-V gallery bring a host of benefits
+        including: Improved clipboard integration Dynamic desktop resizing Shared
+        folders for easy host\/guest file transfer Improved mouse [&hellip;]<\/p>\n","protected":false},"author":480,"featured_media":0,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[],"topic":[],"group":[],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"30","_start_month":"04","_start_year":"2019","_end_day":"30","_end_month":"04","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88877"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/480"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=88877"}],"version-history":[{"count":7,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88877\/revisions"}],"predecessor-version":[{"id":89032,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88877\/revisions\/89032"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=88877"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=88877"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=88877"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=88877"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=88877"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 May 2019 11:09:41 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2>;
+        rel="next"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-16
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-16:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+      X-WP-Total:
+      - '2633'
+      X-WP-TotalPages:
+      - '220'
+    status:
+      code: 200
+      message: OK
+version: 1
