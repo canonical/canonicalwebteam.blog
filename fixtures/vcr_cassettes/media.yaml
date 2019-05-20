@@ -1,0 +1,112 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89203
+  response:
+    body:
+      string: '{"id":89203,"date":"2019-05-16T11:46:48","date_gmt":"2019-05-16T11:46:48","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/barn-images-12223-unsplash-smaller.jpg"},"modified":"2019-05-16T11:46:54","modified_gmt":"2019-05-16T11:46:54","slug":"barn-images-12223-unsplash-smaller","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/16\/introduction-to-snapcraft\/barn-images-12223-unsplash-smaller\/","title":{"rendered":"barn-images-12223-unsplash-smaller"},"author":597,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b29e\/barn-images-12223-unsplash-smaller.jpg''><img
+        width=\"300\" height=\"200\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b29e\/barn-images-12223-unsplash-smaller.jpg\"
+        class=\"attachment-medium size-medium\" alt=\"Featured\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"Featured","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":2000,"height":1333,"file":"barn-images-12223-unsplash-smaller.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":89189,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b29e\/barn-images-12223-unsplash-smaller.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89203"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/597"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89203"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89203"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89203"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2371'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 May 2019 11:09:44 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/05/16/introduction-to-snapcraft/barn-images-12223-unsplash-smaller/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-16
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-16:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/0
+  response:
+    body:
+      string: '{"code":"rest_post_invalid_id","message":"Invalid post ID.","data":{"status":404}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '82'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 May 2019 11:09:44 GMT
+      Keep-Alive:
+      - timeout=5, max=99
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-16
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-16:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 404
+      message: Not Found
+version: 1

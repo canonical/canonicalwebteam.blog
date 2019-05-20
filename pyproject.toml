@@ -21,6 +21,7 @@ flask_testing = "^0.7.1"
 pytest = "^4.4"
 django = "^2.2"
 Flask = "^1.0.1"
+vcrpy = "^2.0"
 
 
 [tool.poetry.extras]
