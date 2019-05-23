@@ -24,12 +24,12 @@ def index(request):
     page_param = request.GET.get("page", default="1")
     category_param = request.GET.get("category", default="")
 
-    category_id = ""
-    if category_param != "":
-        category = api.get_category_by_slug(category_param)
-        category_id = category["id"]
-
     try:
+        category_id = ""
+        if category_param != "":
+            category = api.get_category_by_slug(category_param)
+            category_id = category["id"]
+            
         if page_param == "1":
             featured_articles, total_pages = api.get_articles(
                 tags=tag_ids,
