@@ -38,7 +38,9 @@ def index(request):
                 sticky="true",
                 per_page=3,
             )
-            featured_article_ids = [article["id"] for article in featured_articles]
+            featured_article_ids = [
+                article["id"] for article in featured_articles
+            ]
             articles, total_pages = api.get_articles(
                 tags=tag_ids,
                 tags_exclude=excluded_tags,
@@ -105,7 +107,9 @@ def topic(request, slug, template_path):
         tag = api.get_tag_by_slug(slug)
 
         articles, total_pages = api.get_articles(
-            tags=tag_ids + [tag["id"]], tags_exclude=excluded_tags, page=page_param
+            tags=tag_ids + [tag["id"]],
+            tags_exclude=excluded_tags,
+            page=page_param,
         )
 
     except Exception as e:
@@ -143,10 +147,17 @@ def author(request, username):
     try:
         author = api.get_user_by_username(username)
         articles, total_pages = api.get_articles(
-            tags=tag_ids, tags_exclude=excluded_tags, per_page=5, author=author["id"]
+            tags=tag_ids,
+            tags_exclude=excluded_tags,
+            per_page=5,
+            author=author["id"],
         )
 
-        context = {"title": blog_title, "author": author, "latest_articles": articles}
+        context = {
+            "title": blog_title,
+            "author": author,
+            "latest_articles": articles,
+        }
 
         return render(request, "blog/author.html", context)
     except Exception as e:
@@ -198,7 +209,9 @@ def archives(request, template_path="blog/archives.html"):
         total_posts = metadata["total_posts"]
 
         if group:
-            context = get_group_page_context(page, articles, total_pages, group)
+            context = get_group_page_context(
+                page, articles, total_pages, group
+            )
         else:
             context = get_index_context(page, articles, total_pages)
 
@@ -247,16 +260,28 @@ def latest_news(request):
 
     try:
         latest_pinned_articles = api.get_articles(
-            tags=tag_ids, exclude=excluded_tags, page=1, per_page=1, sticky=True
+            tags=tag_ids,
+            exclude=excluded_tags,
+            page=1,
+            per_page=1,
+            sticky=True,
         )
         # check if the number of returned articles is 0
         if len(latest_pinned_articles[0]) == 0:
             latest_articles = api.get_articles(
-                tags=tag_ids, exclude=excluded_tags, page=1, per_page=4, sticky=False
+                tags=tag_ids,
+                exclude=excluded_tags,
+                page=1,
+                per_page=4,
+                sticky=False,
             )
         else:
             latest_articles = api.get_articles(
-                tags=tag_ids, exclude=excluded_tags, page=1, per_page=3, sticky=False
+                tags=tag_ids,
+                exclude=excluded_tags,
+                page=1,
+                per_page=3,
+                sticky=False,
             )
 
     except Exception:
