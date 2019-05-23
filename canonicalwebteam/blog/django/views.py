@@ -29,7 +29,6 @@ def index(request):
         if category_param != "":
             category = api.get_category_by_slug(category_param)
             category_id = category["id"]
-            
         if page_param == "1":
             featured_articles, total_pages = api.get_articles(
                 tags=tag_ids,
