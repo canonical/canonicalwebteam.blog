@@ -24,6 +24,11 @@ def index(request):
     page_param = request.GET.get("page", default="1")
     category_param = request.GET.get("category", default="")
 
+    category_id = ""
+    if category_param != "":
+        category = api.get_category_by_slug(category_param)
+        category_id = category["id"]
+
     try:
         if page_param == "1":
             featured_articles, total_pages = api.get_articles(
@@ -32,6 +37,7 @@ def index(request):
                 page=page_param,
                 sticky="true",
                 per_page=3,
+                categories=[category_id]
             )
             featured_article_ids = [
                 article["id"] for article in featured_articles
@@ -41,10 +47,14 @@ def index(request):
                 tags_exclude=excluded_tags,
                 exclude=featured_article_ids,
                 page=page_param,
+                categories=[category_id]
             )
         else:
             articles, total_pages = api.get_articles(
-                tags=tag_ids, page=page_param, tags_exclude=excluded_tags
+                tags=tag_ids, 
+                page=page_param, 
+                tags_exclude=excluded_tags,
+                categories=[category_id]
             )
             featured_articles = []
 
