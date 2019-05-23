@@ -36,8 +36,7 @@ def index(request):
                 tags_exclude=excluded_tags,
                 page=page_param,
                 sticky="true",
-                per_page=3,
-                categories=[category_id]
+                per_page=3
             )
             featured_article_ids = [
                 article["id"] for article in featured_articles
