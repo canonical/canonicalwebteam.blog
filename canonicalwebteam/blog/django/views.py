@@ -51,8 +51,8 @@ def index(request):
             )
         else:
             articles, total_pages = api.get_articles(
-                tags=tag_ids, 
-                page=page_param, 
+                tags=tag_ids,
+                page=page_param,
                 tags_exclude=excluded_tags,
                 categories=[category_id]
             )
