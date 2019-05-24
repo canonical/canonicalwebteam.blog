@@ -179,10 +179,10 @@ def author(request, username):
 def archives(request, template_path="blog/archives.html"):
     try:
         page = request.GET.get("page", default="1")
-        category = request.GET.get("category", default="")
         group = request.GET.get("group", default="")
         month = request.GET.get("month", default="")
         year = request.GET.get("year", default="")
+        category_param = request.GET.get("category", default="")
 
         groups = []
         categories = []
@@ -191,9 +191,11 @@ def archives(request, template_path="blog/archives.html"):
             group = api.get_group_by_slug(group)
             groups.append(group["id"])
 
-        if category:
-            category = api.get_category_by_slug(category)
-            categories.append(category["id"])
+        if category_param:
+            category_slugs = category_param.split(",")
+            for slug in category_slugs:
+                category = api.get_category_by_slug(slug)
+                categories.append(category["id"])
 
         after = ""
         before = ""
