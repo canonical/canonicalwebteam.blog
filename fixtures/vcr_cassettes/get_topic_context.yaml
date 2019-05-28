@@ -965,7 +965,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Tue, 28 May 2019 12:55:57 GMT
+      - Tue, 28 May 2019 14:23:57 GMT
       Keep-Alive:
       - timeout=5, max=100
       Link:
@@ -993,6 +993,2147 @@ interactions:
       - '2640'
       X-WP-TotalPages:
       - '220'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&tags=&page=1&group=&tags_exclude=&categories=&exclude=&author=&sticky=True
+  response:
+    body:
+      string: '[{"id":89019,"date":"2019-05-06T19:52:30","date_gmt":"2019-05-06T19:52:30","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=89019"},"modified":"2019-05-07T10:02:36","modified_gmt":"2019-05-07T10:02:36","slug":"canonical-announces-support-for-ubuntu-on-windows-subsystem-for-linux-2","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/06\/canonical-announces-support-for-ubuntu-on-windows-subsystem-for-linux-2\/","title":{"rendered":"Canonical
+        announces support for Ubuntu on Windows Subsystem for Linux 2"},"content":{"rendered":"\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/30ae\/windows-start.png\"
+        alt=\"\" class=\"wp-image-76154\"\/><\/figure>\n\n\n\n<p><strong>May 6, 2019:<\/strong>
+        Canonical today announces full support for Ubuntu on the Windows Subsystem
+        for Linux (WSL) 2.<br><\/p>\n\n\n\n<p>\u201cExtending enterprise support for
+        Ubuntu from Azure to Windows workstations and servers creates a seamless operating
+        environment for Ubuntu in the Microsoft environment,\u201d said Stephan Fabel,
+        Director of Product at Canonical. \u201cCollaboration with Microsoft enables
+        us to certify Ubuntu on WSL, including Docker containers, Kubernetes, and
+        snaps\u201d.<br><\/p>\n\n\n\n<p><a href=\"https:\/\/devblogs.microsoft.com\/commandline\/announcing-wsl-2\/\">WSL
+        2<\/a> introduces lightweight virtualisation and a Linux kernel which provides
+        the full set of capabilities needed for enterprise certification and support.
+        These changes align Ubuntu on WSL with the Azure and AzureStack capabilities,
+        greatly reducing friction for workflows which start on the Windows workstation
+        and finish on Azure.<br><\/p>\n\n\n\n<p>\u201cPerformance optimisation of
+        Ubuntu in Azure and WSL ensures total efficiency for enterprises developing
+        new Linux applications on Microsoft platforms,\u201d said Kiko Reis, VP Cloud
+        at Canonical. \u201cOur commitment to security updates for the full stack
+        on any cloud or virtualisation extends naturally to this new WSL environment.\u201d<br><\/p>\n\n\n\n<p>Ubuntu
+        on WSL will include integrated Windows file sharing capabilities to simplify
+        the developer experience with Windows-based IDEs and version control systems
+        for Linux-built and operated apps. &nbsp;In addition, the integration of Active
+        Directory and other Windows services with Ubuntu will simplify operations
+        at scale in Microsoft environments.<br><\/p>\n\n\n\n<p style=\"text-align:center\"><em>&lt;ENDS&gt;<\/em><\/p>\n\n\n\n<p><strong>About
+        Canonical<\/strong><\/p>\n\n\n\n<p>Canonical is the publisher of Ubuntu, the
+        OS for most public cloud workloads as well as the emerging categories of smart
+        gateways, self-driving cars and advanced robots. Canonical provides enterprise
+        security, support and services to commercial users of Ubuntu. Established
+        in 2004, Canonical is a privately held company.<br><\/p>\n","protected":false},"excerpt":{"rendered":"<p>May
+        6, 2019: Canonical today announces full support for Ubuntu on the Windows
+        Subsystem for Linux (WSL) 2. \u201cExtending enterprise support for Ubuntu
+        from Azure to Windows workstations and servers creates a seamless operating
+        environment for Ubuntu in the Microsoft environment,\u201d said Stephan Fabel,
+        Director of Product at Canonical. \u201cCollaboration with Microsoft enables
+        us to [&hellip;]<\/p>\n","protected":false},"author":217,"featured_media":76153,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[],"tags":[1539,1920,1241,1309,1809,1564,1400,3328],"topic":[2099,1477,1921],"group":[2100,1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"06","_start_month":"05","_start_year":"2019","_end_day":"06","_end_month":"05","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89019"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89019"}],"version-history":[{"count":3,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89019\/revisions"}],"predecessor-version":[{"id":89024,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/89019\/revisions\/89024"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/76153"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=89019"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=89019"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=89019"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89019"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89019"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":88870,"date":"2019-04-29T16:53:02","date_gmt":"2019-04-29T16:53:02","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=88870"},"modified":"2019-04-29T16:53:04","modified_gmt":"2019-04-29T16:53:04","slug":"canonical-consolidates-open-infrastructure-support-and-security-offerings","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/04\/29\/canonical-consolidates-open-infrastructure-support-and-security-offerings\/","title":{"rendered":"Canonical
+        consolidates open infrastructure support and security offerings"},"content":{"rendered":"\n<div
+        class=\"wp-block-image\"><figure class=\"aligncenter\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/9bec\/UbuntuCanonical.png\"
+        alt=\"Ubuntu Canonical\" class=\"wp-image-87988\"\/><\/figure><\/div>\n\n\n\n<p><strong>29th
+        April, 2019:<\/strong> Canonical today announced Ubuntu Advantage for Infrastructure,
+        a consolidated enterprise security, compliance and support offering that covers
+        the full range of open source infrastructure capabilities for up to 10 years.<br><\/p>\n\n\n\n<p>\u201cA
+        surge of customers adding Ubuntu to their list of officially supported operating
+        systems has given us the volume to simplify our infrastructure security and
+        support offering, and lower the average cost per machine even further,\u201d
+        said Mark Shuttleworth, CEO at Canonical. <br><\/p>\n\n\n\n<p>The new approach
+        continues Canonical\u2019s tradition of driving down costs and sets a new
+        bar for efficiency in large-scale Linux enterprise operations. It stands in
+        direct contrast to the complexity and cost of offerings from Red Hat and VMware
+        which require additional licenses per host or per VM for capabilities like
+        OpenStack and Kubernetes.<br><\/p>\n\n\n\n<p>\u201cAggregating Linux, Kubernetes,
+        Docker, OpenStack, KVM, Ceph and SWIFT security update and support offerings
+        into a single package enables businesses to evolve from traditional infrastructure
+        to private cloud and container operations without introducing any new cost,\u201d
+        said Stephan Fabel, Director of Product at Canonical.<br><\/p>\n\n\n\n<p><strong>Long-term
+        security updates and maintenance<\/strong><\/p>\n\n\n\n<p>For customers who
+        do not need technical support, the Essential level of UA for Infrastructure
+        provides a stream of kernel live patches and security fixes for system services
+        and libraries including <a href=\"https:\/\/www.ubuntu.com\/openstack\">OpenStack<\/a>
+        and <a href=\"https:\/\/www.ubuntu.com\/kubernetes\">Kubernetes<\/a>, Ceph
+        and SWIFT, together with FIPS and a range of infrastructure management and
+        operations capabilities such as Prometheus, Grafana, Telegraf, Graylog, Filebeat,
+        Elastic Search, MAAS and Canonical\u2019s Landscape systems management offering.<br><\/p>\n\n\n\n<p>UA
+        Infrastructure Essential covers regulatory compliance for Linux and infrastructure
+        components including base Docker images, without adding the cost of support.<br><\/p>\n\n\n\n<p><strong>Technical
+        support, legal assurance and break-fix engineering<\/strong><br><\/p>\n\n\n\n<p>The
+        Standard and Advanced levels of UA Infrastructure include technical support
+        for open infrastructure, the development of long-term fixes to specific defects,
+        and legal assurance.<br><\/p>\n\n\n\n<p>&#8220;We are moving our business
+        towards a multi-cloud strategy built on open-source technology to enhance
+        our time to market, flexibility and benefit from better economics. Partnering
+        with Canonical to shape this direction has enabled us to move quicker than
+        anticipated and realise the benefits of open source in an agile manner with
+        the reassurance of ongoing enterprise support,&#8221; said Luis Castro Sequeira,
+        Head of Infrastructure Architecture at Copa Airlines.<br><\/p>\n\n\n\n<p><strong>Fully
+        managed infrastructure<\/strong><br><\/p>\n\n\n\n<p>Embracing public cloud
+        has taught companies the value of focus on their applications rather than
+        their infrastructure, and has increased demand for fully managed private cloud.<br><\/p>\n\n\n\n<p>Canonical
+        offers fully <a href=\"https:\/\/www.ubuntu.com\/openstack\/managed\">managed
+        OpenStack<\/a>, fully managed Kubernetes on bare metal, OpenStack, VMware
+        and public clouds, and fully managed storage infrastructure.<br><\/p>\n\n\n\n<p
+        style=\"text-align:center\"><em>&lt;ENDS><\/em><br><\/p>\n\n\n\n<p><strong>About
+        Canonical<\/strong><\/p>\n\n\n\n<p>Canonical is the publisher of Ubuntu, the
+        OS for most public cloud workloads as well as the emerging categories of smart
+        gateways, self-driving cars and advanced robots. Canonical provides enterprise
+        security, support and services to commercial users of Ubuntu. Established
+        in 2004, Canonical is a privately held company.<br><\/p>\n","protected":false},"excerpt":{"rendered":"<p>29th
+        April, 2019: Canonical today announced Ubuntu Advantage for Infrastructure,
+        a consolidated enterprise security, compliance and support offering that covers
+        the full range of open source infrastructure capabilities for up to 10 years.
+        \u201cA surge of customers adding Ubuntu to their list of officially supported
+        operating systems has given us the volume to simplify our [&hellip;]<\/p>\n","protected":false},"author":217,"featured_media":87988,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[2628,2639],"tags":[1374,1486,3321],"topic":[2099,1477],"group":[2100,1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"29","_start_month":"04","_start_year":"2019","_end_day":"29","_end_month":"04","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88870"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=88870"}],"version-history":[{"count":1,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88870\/revisions"}],"predecessor-version":[{"id":88871,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88870\/revisions\/88871"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/87988"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=88870"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=88870"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=88870"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=88870"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=88870"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":88750,"date":"2019-04-18T13:11:36","date_gmt":"2019-04-18T13:11:36","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=88750"},"modified":"2019-04-18T13:11:38","modified_gmt":"2019-04-18T13:11:38","slug":"open-infrastructure-developer-desktop-and-iot-are-the-focus-for-ubuntu-19-04","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/04\/18\/open-infrastructure-developer-desktop-and-iot-are-the-focus-for-ubuntu-19-04\/","title":{"rendered":"Open
+        infrastructure, developer desktop and IoT are the focus for Ubuntu 19.04"},"content":{"rendered":"\n<figure
+        class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/c32b\/vscode.png\"
+        alt=\"\" class=\"wp-image-88751\"\/><\/figure>\n\n\n\n<p><strong>18th April,
+        2019:<\/strong> Canonical today announced the release of Ubuntu 19.04, focused
+        on open infrastructure deployments, the developer desktop, IoT, and cloud
+        to edge software distribution.<br><\/p>\n\n\n\n<p>\u201cThe open-source-first
+        on Ubuntu movement in telco, finance, and media has spread to other sectors.
+        From the public cloud to the private data center to the edge appliance or
+        cluster, open source has become the reference for efficiency and innovation.
+        Ubuntu 19.04 includes the leading projects to underpin that transition, and
+        the developer tooling to accelerate the applications for those domains\u201d
+        said Mark Shuttleworth, CEO of Canonical.<br><\/p>\n\n\n\n<p><strong>Open
+        infrastructure from cloud to edge<\/strong><\/p>\n\n\n\n<p>Ubuntu 19.04 integrates
+        recent innovations from key open infrastructure projects &#8211; like OpenStack,
+        Kubernetes, and Ceph &#8211; with advanced life-cycle management for multi-cloud
+        and on-prem operations &#8211; from bare metal, VMware and OpenStack to every
+        major public cloud.<br><\/p>\n\n\n\n<p>OpenStack Stein brings AI and NFV hardware
+        acceleration with GPGPU and FPGA passthrough. Ceph Mimic provides multi-site
+        replication and the latest <a href=\"https:\/\/blog.ubuntu.com\/2019\/03\/25\/kubernetes-1-14-now-available-from-canonical\">Kubernetes
+        1.14<\/a> enables enterprise storage and the new containerd direct runtime.<br><\/p>\n\n\n\n<p>Optimised
+        Ubuntu Server 19.04 and Minimal Ubuntu 19.04 images are available on all major
+        public clouds. <br><\/p>\n\n\n\n<p><strong>IoT ecosystems for gateways, robotics
+        and smart displays<\/strong><\/p>\n\n\n\n<p>Control decisions move to the
+        edge with smart appliances based on Ubuntu, enabling edge-centric business
+        models. Amazon published <a href=\"https:\/\/snapcraft.io\/aws-iot-greengrass\">Greengrass<\/a>
+        for IoT on Ubuntu, as well as launching the <a href=\"https:\/\/aws.amazon.com\/deepracer\/\">AWS
+        DeepRacer<\/a> developer-centric model for autonomous ground vehicle community
+        development, also running Ubuntu. The Edge X stack and a wide range of industrial
+        control capabilities are now available for integration on Ubuntu based devices,
+        with long term security updates. Multiple smart display solutions are also
+        available as off-the-shelf components in the snap store.<br><\/p>\n\n\n\n<p><strong>Developer
+        productivity<\/strong><\/p>\n\n\n\n<p>Microsoft <a href=\"https:\/\/snapcraft.io\/code\">Visual
+        Studio Code<\/a> joined the list of popular developer tools published as snaps
+        including <a href=\"https:\/\/snapcraft.io\/intellij-idea-ultimate\">IntelliJ<\/a>,
+        <a href=\"https:\/\/snapcraft.io\/pycharm-professional\">pyCharm<\/a>, <a
+        href=\"https:\/\/snapcraft.io\/postman\">Postman<\/a> and <a href=\"https:\/\/snapcraft.io\/microk8s\">microK8s<\/a>.
+        AI, machine learning and data science platforms continue to prefer Ubuntu
+        for rapid adoption and fast project iterations.<br><\/p>\n\n\n\n<p>In 19.04,
+        multiple instances of the same snap can be installed for CI\/CD, testing or
+        phased rollouts. For example, two versions of a database or two versions of
+        the golang compiler can be installed at the same time. Snap epochs control
+        when and how data migration happens between major version upgrades.<br><\/p>\n\n\n\n<p>More
+        than 2,000 independent software publishers now distribute their applications
+        to Linux desktops, appliances and cloud VMs through the <a href=\"https:\/\/snapcraft.io\/store\">snap
+        store<\/a>, growing 30% since October 2018.<br><\/p>\n\n\n\n<p><strong>Developer
+        desktop integrated with VMware<\/strong><\/p>\n\n\n\n<p>Ubuntu 19.04 introduces
+        GNOME 3.32 with higher frame rates, smoother startup animations, quicker icon
+        load times and reduced CPU+GPU load. Fractional scaling for HiDPI screens
+        is now available in X-org and Wayland. Installing Ubuntu on VMWare will automatically
+        install open-vm-tools for bi-directional clipboard, easy sharing of files
+        and graceful power state management.<\/p>\n\n\n\n<p>Ubuntu 19.04 is available
+        for download <a href=\"https:\/\/www.ubuntu.com\/download\">here<\/a>.<\/p>\n\n\n\n<p>To
+        learn more about Ubuntu 19.04, click <a href=\"https:\/\/www.brighttalk.com\/webcast\/6793\/354804?utm_source=Blog&amp;utm_medium=Blog&amp;utm_campaign=CY19_DC_19.04_WBN_19.04\">here<\/a>
+        to join the webinar on 7th May 2019. <\/p>\n\n\n\n<p style=\"text-align:center\"><strong>&lt;ENDS&gt;<\/strong><br><\/p>\n\n\n\n<p><strong>About
+        Canonical<\/strong><\/p>\n\n\n\n<p>Canonical is the company behind Ubuntu,
+        the leading OS for cloud operations. Most public cloud workloads use Ubuntu,
+        as do most new smart gateways, switches, self-driving cars and advanced robots.
+        Canonical provides enterprise support and services for commercial users of
+        Ubuntu. Established in 2004, Canonical is a privately held company.<br><\/p>\n","protected":false},"excerpt":{"rendered":"<p>18th
+        April, 2019: Canonical today announced the release of Ubuntu 19.04, focused
+        on open infrastructure deployments, the developer desktop, IoT, and cloud
+        to edge software distribution. \u201cThe open-source-first on Ubuntu movement
+        in telco, finance, and media has spread to other sectors. From the public
+        cloud to the private data center to the edge appliance or [&hellip;]<\/p>\n","protected":false},"author":217,"featured_media":88752,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[1920,1241,2249,1665,1833,1327,2076,3308],"topic":[2099,1477,1921,1924],"group":[1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"17","_start_month":"04","_start_year":"2019","_end_day":"17","_end_month":"04","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88750"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=88750"}],"version-history":[{"count":4,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88750\/revisions"}],"predecessor-version":[{"id":88765,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88750\/revisions\/88765"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/88752"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=88750"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=88750"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=88750"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=88750"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=88750"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":88510,"date":"2019-04-04T19:05:56","date_gmt":"2019-04-04T19:05:56","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=88510"},"modified":"2019-04-05T08:01:05","modified_gmt":"2019-04-05T08:01:05","slug":"visual-studio-code-launches-as-a-snap","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/04\/04\/visual-studio-code-launches-as-a-snap\/","title":{"rendered":"Visual
+        Studio Code launches as a snap"},"content":{"rendered":"\n<div class=\"wp-block-image\"><figure
+        class=\"aligncenter\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/c9f4\/visualstudio_code-card.png\"
+        alt=\"\" class=\"wp-image-88511\"\/><\/figure><\/div>\n\n\n\n<p><strong>4th
+        &nbsp;April<\/strong><strong> 2019, London, UK <\/strong>\u2013<strong> <\/strong>As
+        of<strong> <\/strong>today, <a href=\"https:\/\/code.visualstudio.com\/\">Microsoft
+        Visual Studio Code<\/a> is available for Linux as a snap, providing seamless
+        auto-updates for its users. Visual Studio Code, a free, lightweight code editor,
+        has redefined editors for building modern web and cloud applications, with
+        built-in support for debugging, task running, and version control for a variety
+        of languages and frameworks.<br><\/p>\n\n\n\n<p>Snaps are containerised software
+        packages designed to work across cloud, desktop, and IoT devices. They work
+        natively on most popular Linux distributions and feature automatic updates
+        and rollback functionality, enhanced security, and greater flexibility for
+        developers working within Linux environments. <br><\/p>\n\n\n\n<p> A single
+        <a href=\"https:\/\/snapcraft.io\/?utm_source=Snapcraft_PR\">snap<\/a> can
+        run universally across over 40 Linux distribution variants, easing the amount
+        of work needed on packaging, so the Visual Studio Code team can focus on delivering
+        a great product. This also helps the team manage consistent builds across
+        multiple Linux distros.<br><\/p>\n\n\n\n<p>Jo\u00e3o Moreno, Software Development
+        Engineer, Microsoft Visual Studio Code said: \u201cThe automatic update functionality
+        of snaps is a major benefit. It is clear there is a thriving community around
+        snaps and that it is moving forward at great pace. The backing of Canonical
+        ensures our confidence in its ongoing development and long-term future.\u201d
+        <br><\/p>\n\n\n\n<p>\u201cVisual Studio Code is hugely popular, and it\u2019s
+        fantastic that we\u2019re able to help it extend its reach into the Linux
+        ecosystem,\u201d commented Evan Dandrea, Engineering Manager, Canonical. \u201cDevelopers
+        are the lifeblood of snaps and it is great to see this recognition from Microsoft
+        as they join a host of others who can now provide their users with the latest
+        updates seamlessly, and with assurance of rollbacks and containment.\u201d<br><\/p>\n\n\n\n<p>The
+        snap for Visual Studio Code is available to download here <a href=\"https:\/\/snapcraft.io\/code\">https:\/\/snapcraft.io\/code<\/a><br><\/p>\n\n\n\n<p>The
+        Visual Studio Code &#8211; Insiders build, a daily build with the latest features,
+        is available to download here: <a href=\"https:\/\/snapcraft.io\/code-insiders\">https:\/\/snapcraft.io\/code-insiders<\/a><br><\/p>\n\n\n\n<p
+        style=\"text-align:center\"><strong>&lt;Ends&gt;<\/strong><\/p>\n\n\n\n<p><strong>About
+        Canonical<\/strong><\/p>\n\n\n\n<p>Canonical is the company behind Ubuntu,
+        the leading OS for cloud operations. Most public cloud workloads use Ubuntu,
+        as do most new smart gateways, switches, self-driving cars and advanced robots.
+        Canonical provides enterprise support and services for commercial users of
+        Ubuntu. Established in 2004, Canonical is a privately held company. <br><\/p>\n","protected":false},"excerpt":{"rendered":"<p>4th
+        &nbsp;April 2019, London, UK \u2013 As of today, Microsoft Visual Studio Code
+        is available for Linux as a snap, providing seamless auto-updates for its
+        users. Visual Studio Code, a free, lightweight code editor, has redefined
+        editors for building modern web and cloud applications, with built-in support
+        for debugging, task running, and version control for [&hellip;]<\/p>\n","protected":false},"author":217,"featured_media":88511,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[],"tags":[2159,1309,3283,2996,2076,3280],"topic":[2099,1921],"group":[2100,1479],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"02","_start_month":"04","_start_year":"2019","_end_day":"02","_end_month":"04","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88510"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=88510"}],"version-history":[{"count":1,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88510\/revisions"}],"predecessor-version":[{"id":88512,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88510\/revisions\/88512"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/88511"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=88510"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=88510"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=88510"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=88510"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=88510"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":88501,"date":"2019-04-02T08:22:20","date_gmt":"2019-04-02T08:22:20","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=88501"},"modified":"2019-04-04T08:52:27","modified_gmt":"2019-04-04T08:52:27","slug":"aws-iot-greengrass-released-as-a-snap","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/04\/02\/aws-iot-greengrass-released-as-a-snap\/","title":{"rendered":"AWS
+        IoT Greengrass released as a snap"},"content":{"rendered":"\n<div class=\"wp-block-image\"><figure
+        class=\"aligncenter\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4c9d\/product-icon_AWS-Greengrass_lockup_centered_squid_ink.png\"
+        alt=\"\" class=\"wp-image-88535\"\/><\/figure><\/div>\n\n\n\n<p>Canonical
+        and AWS are excited to announce the public release of AWS IoT Greengrass as
+        a <a href=\"https:\/\/snapcraft.io\/aws-iot-greengrass\">snap<\/a>. AWS IoT
+        Greengrass is software that brings local compute, messaging, data caching,
+        sync, and ML inference capabilities to your IoT device. IoT and embedded developers
+        can now easily install and get started with IoT Greengrass in seconds on an
+        ever-expanding list of Linux distributions. By combining IoT Greengrass as
+        a snap and <a href=\"https:\/\/www.ubuntu.com\/core\">Ubuntu Core<\/a>, an
+        IoT-focused OS built entirely from snaps, device manufacturers and system
+        integrators can build an IoT appliance in weeks with no compromise on security
+        and long-term support. <br><\/p>\n\n\n\n<p>Warehouse-vendor <a href=\"https:\/\/www.prologis.com\/\">Prologis<\/a>
+        determined that using <a href=\"https:\/\/www.rigado.com\/\">Rigado<\/a> Cascade
+        500 devices running Ubuntu Core 16 to deploy IoT Greengrass was the best choice
+        because of the increased security that Ubuntu Core and snaps bring as well
+        as the control and flexibility provided by Rigado\u2019s Edge Direct service.
+        Using Ubuntu Core on the Rigado Cascade 500, Prologis can gather and process
+        Bluetooth Low Energy (BLE) data directly on the device with IoT Greengrass
+        &#8211; doing compute on the edge or easily pushing their data up to their
+        AWS cloud. <br><\/p>\n\n\n\n<p>\u201cRigado Cascade Gateways provide flexible
+        connectivity and secure edge computing for large-scale commercial IoT applications.\u201d,
+        says Toban Zolman, Rigado\u2019s Vice President of Product. &nbsp;\u201cThe
+        combination of Ubuntu Core with AWS IoT Greengrass gives Rigado customers
+        a containerised platform to quickly deploy IoT applications that leverage
+        the power and scale of AWS Lambda functions.\u201d<br><\/p>\n\n\n\n<p><strong>AWS
+        IoT Greengrass as a snap = developer productivity <\/strong><\/p>\n\n\n\n<p>Snaps
+        are containerised, secure software packages, designed to work perfectly and
+        securely within any Linux environment; not only for IoT devices but also across
+        desktop, cloud and data centers. <br><\/p>\n\n\n\n<p>Deploying IoT Greengrass
+        as a snap allows developers to quickly iterate on AWS Lambda development by
+        easily installing in one line, the same IoT Greengrass package on their Linux
+        desktop as on their target device. <br><\/p>\n\n\n\n<p><strong>AWS IoT Greengrass
+        as a snap = security<\/strong><br><\/p>\n\n\n\n<p>Snaps are secure with a
+        cryptographically-signed, tamper-proof format, keeping you up to date with
+        automatic <a href=\"https:\/\/docs.snapcraft.io\/keeping-snaps-up-to-date\">over-the-air
+        (OTA) updates<\/a>, save bandwidth costs using <a href=\"https:\/\/blog.ubuntu.com\/2017\/08\/01\/snap-updates-are-getting-smaller-heres-why\">delta-binary
+        downloads<\/a>, have <a href=\"https:\/\/docs.snapcraft.io\/keeping-snaps-up-to-date\">atomic
+        install and removal<\/a> for isolated development and production environments,
+        ensure reliability with <a href=\"https:\/\/docs.snapcraft.io\/keeping-snaps-up-to-date\">rollbacks<\/a>
+        on failed upgrades, and use strict, modern <a href=\"https:\/\/www.kernel.org\/doc\/Documentation\/security\/LSM.txt\">linux-security-module<\/a>
+        <a href=\"https:\/\/docs.snapcraft.io\/interface-management\/6154\">confinement<\/a>
+        for the strongest security. As the IoT Greengrass snap is officially maintained
+        and published by AWS into the <a href=\"https:\/\/snapcraft.io\/store\">Snap
+        Store<\/a>, developers, device manufacturers and users can trust that the
+        code they\u2019re running is the original and latest code.<br><\/p>\n\n\n\n<p><strong>AWS
+        IoT Greengrass as a snap = faster time to market<\/strong><br><\/p>\n\n\n\n<p>Using
+        IoT Greengrass as snap and Ubuntu Core, developers can easily create appliance
+        software for any hardware. Device manufacturers can thus accelerate their
+        time from prototype to production. Snaps ensure that these devices always
+        receive the latest security updates applied to their OS platform and to IoT
+        Greengrass, for the entire lifetime of the device.<br><\/p>\n\n\n\n<p><strong>Getting
+        started with the AWS IoT Greengrass snap<\/strong><br><\/p>\n\n\n\n<p>To install
+        the IoT Greengrass snap today, first <a href=\"https:\/\/docs.snapcraft.io\/installing-snapd\">install
+        snapd 2.38 on your system<\/a>, if it doesn\u2019t already have it, and run:<br><\/p>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">snap install aws-iot-greengrass<br><\/pre>\n\n\n\n<p>Or
+        install directly from the Snap Store by clicking <a href=\"https:\/\/snapcraft.io\/aws-iot-greengrass\">here<\/a>.
+        <br><\/p>\n\n\n\n<p>After installation, start the greengrassd service by providing
+        your IoT Greengrass certificate and configuration files to the snap with:<br><\/p>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">snap set aws-iot-greengrass gg-certs=\/path\/to\/the\/certs\/22e592db.tgz<br><\/pre>\n\n\n\n<p>And
+        with that you\u2019re ready to deploy AWS Lambda functions to the device using
+        standard AWS IoT Greengrass tools. From then on, every time a new stable version
+        of IoT Greengrass is available, the snap will automatically update itself
+        and you\u2019ll be able to work with the latest IoT Greengrass features. If
+        you would rather gate the updates, you can decide to turn off the automatic
+        snap updates.<br><\/p>\n\n\n\n<p>For more information about snaps, please
+        visit <a href=\"https:\/\/www.snapcraft.io\">snapcraft.io<\/a> and the <a
+        href=\"https:\/\/docs.snapcraft.io\/snap-documentation\/3781\">snap documentation<\/a>.
+        For more information about AWS IoT Greengrass, please visit <a href=\"https:\/\/aws.amazon.com\/greengrass\/\">here<\/a>.<br>To
+        find out more about how Rigado and Prologis utilise the AWS IoT Greengrass
+        snap, view this <a href=\"https:\/\/pages.awscloud.com\/How-to-Deploy-AWS-IoT-Greengrass-Using-Docker-Containers-and-Ubuntu-Snap_2019_0316-IOT_OD.html\">TechTalk<\/a>.
+        <\/p>\n","protected":false},"excerpt":{"rendered":"<p>Canonical and AWS are
+        excited to announce the public release of AWS IoT Greengrass as a snap. AWS
+        IoT Greengrass is software that brings local compute, messaging, data caching,
+        sync, and ML inference capabilities to your IoT device. IoT and embedded developers
+        can now easily install and get started with IoT Greengrass in seconds on [&hellip;]<\/p>\n","protected":false},"author":217,"featured_media":85170,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[1205,3278,1241,2249,1665,3005,2065,2996,1626],"topic":[2099,1924],"group":[2100,1666],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"02","_start_month":"04","_start_year":"2019","_end_day":"02","_end_month":"04","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88501"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=88501"}],"version-history":[{"count":6,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88501\/revisions"}],"predecessor-version":[{"id":88537,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88501\/revisions\/88537"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/85170"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=88501"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=88501"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=88501"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=88501"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=88501"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":88073,"date":"2019-03-06T14:00:10","date_gmt":"2019-03-06T14:00:10","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=88073"},"modified":"2019-03-07T09:32:39","modified_gmt":"2019-03-07T09:32:39","slug":"infographic-snapcraft-for-developers","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/03\/06\/infographic-snapcraft-for-developers\/","title":{"rendered":"Infographic:
+        Snapcraft for developers"},"content":{"rendered":"\n<p>At the end of last
+        year, we shared an <a href=\"https:\/\/snapcraft.io\/blog\/infographic-snaps-in-numbers\">infographic<\/a>
+        highlighting the adoption of snaps by users for their desktop, server or IoT
+        devices. Those snaps wouldn&#8217;t be available without the growing number
+        of developers building them behind the scenes. But why have developers, including
+        those from some of the world&#8217;s largest software companies, decided to
+        package their applications as a snap? This new infographic below shares insight
+        into how simple building snaps is, the community support available and more.
+        <\/p>\n\n\n\n<p>Ready to start building your first snap? Visit <a href=\"https:\/\/snapcraft.io\/build\">Snapcraft<\/a>
+        to get started. <\/p>\n\n\n\n<figure class=\"wp-block-image\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/0085\/Snapcraft-Infographic-Developers-1.jpg\"
+        alt=\"\" class=\"wp-image-88089\"\/><\/figure>\n","protected":false},"excerpt":{"rendered":"<p>At
+        the end of last year, we shared an infographic highlighting the adoption of
+        snaps by users for their desktop, server or IoT devices. Those snaps wouldn&#8217;t
+        be available without the growing number of developers building them behind
+        the scenes. But why have developers, including those from some of the world&#8217;s
+        largest software companies, decided [&hellip;]<\/p>\n","protected":false},"author":217,"featured_media":88075,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[1241,1941,2996,2076],"topic":[1477,1921,1924],"group":[1706,1479,1666],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"05","_start_month":"03","_start_year":"2019","_end_day":"05","_end_month":"03","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88073"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=88073"}],"version-history":[{"count":3,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88073\/revisions"}],"predecessor-version":[{"id":88090,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/88073\/revisions\/88090"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/88075"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=88073"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=88073"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=88073"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=88073"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=88073"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":87723,"date":"2019-02-14T16:00:49","date_gmt":"2019-02-14T16:00:49","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=87723"},"modified":"2019-02-19T10:53:47","modified_gmt":"2019-02-19T10:53:47","slug":"bootstrap-your-snap","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/02\/14\/bootstrap-your-snap\/","title":{"rendered":"Bootstrap
+        Your Snap"},"content":{"rendered":"\n<p>People frequently tell me they&#8217;d
+        like to make a snap of an application they care about. Whether it&#8217;s
+        in person at events like <a href=\"https:\/\/www.youtube.com\/watch?v=UAEdSjou3c4\">FOSDEM<\/a>,
+        or online via IRC or Telegram, there are developers who want to share their
+        Linux software creations with the world, and snaps are designed exactly for
+        this. <\/p>\n\n\n\n<p>We have run a few in-person &#8220;Snapcraft Summits&#8221;,
+        bringing together application developers and experts from snapcraft and Linux
+        security to help get software into the Snap Store. Often pair programming
+        through building a snap will accelerate developer knowledge and get applications
+        over the finish line to an audience of millions. <\/p>\n\n\n\n<p>It&#8217;s
+        clearly not scalable or sustainable to keep flying programmers and experts
+        around the world to spread wisdom and answer technical questions about software
+        packaging. So last week we kicked off <a href=\"https:\/\/www.youtube.com\/playlist?list=PLLz665zen7Q4i5dLSELjcwisF8AN3yvZW\">Snapcraft
+        Live<\/a> to augment our in person summits.<\/p>\n\n\n\n<p>The goal of Snapcraft
+        Live is to bootstrap developers in building snaps and publishing them in the
+        Snap Store. We cover the tools and setup required, best practices and recommended
+        processes. We also have opportunity to ask the experts who sit in the live
+        chat along side the live session.<\/p>\n\n\n\n<p>In the first episode (below)
+        we kicked off with what&#8217;s needed to get started, and we built a couple
+        of simple snaps. The live stream is archived, so you can watch (and re-watch)
+        later, and share it with your friends and colleagues. <\/p>\n\n\n\n<figure><iframe
+        src=\"https:\/\/www.youtube.com\/embed\/BEp_l2oUcD8\" allowfullscreen=\"\"
+        width=\"560\" height=\"315\"><\/iframe><\/figure>\n\n\n\n<p>This week we moved
+        on to a more complex example application, a game written in Rust. This required
+        quite a bit more work as the build process was a little non-standard. <\/p>\n\n\n\n<p>During
+        the stream I was joined in the chat by colleagues from the snapcraft team
+        who were on hand to answer questions from the audience. You may learn additional
+        tips by following along with the chat as you watch the archived version below.<\/p>\n\n\n\n<figure><iframe
+        src=\"https:\/\/www.youtube.com\/embed\/DtZySQgBxmM\" allowfullscreen=\"\"
+        width=\"560\" height=\"315\"><\/iframe><\/figure>\n\n\n\n<p>We have plans
+        for specific content in more of these over the coming months. We&#8217;re
+        also keen to focus on topics our viewers are keen to understand better. <\/p>\n\n\n\n<p>If
+        there&#8217;s something you&#8217;d like is to cover in an upcoming Snapcraft
+        Live, drop by the <a href=\"https:\/\/forum.snapcraft.io\/\">forum<\/a> and
+        let us know. Alternatively leave a comment on either of the <a href=\"https:\/\/www.youtube.com\/embed\/BEp_l2oUcD8\">existing<\/a>
+        <a href=\"https:\/\/www.youtube.com\/embed\/DtZySQgBxmM\">videos<\/a>, and
+        we may incorporate those suggestions in a later session.<\/p>\n\n\n\n<p>Header
+        image by <a href=\"https:\/\/unsplash.com\/photos\/h08yb07WPjk?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Nils
+        Schirmer<\/a> on <a href=\"https:\/\/unsplash.com\/search\/photos\/rock-concert?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Unsplash<\/a><\/p>\n","protected":false},"excerpt":{"rendered":"<p>People
+        frequently tell me they&#8217;d like to make a snap of an application they
+        care about. Whether it&#8217;s in person at events like FOSDEM, or online
+        via IRC or Telegram, there are developers who want to share their Linux software
+        creations with the world, and snaps are designed exactly for this. We have
+        run a [&hellip;]<\/p>\n","protected":false},"author":497,"featured_media":87724,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[2707],"tags":[1941,2996,3207],"topic":[1921],"group":[1479],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"14","_start_month":"02","_start_year":"2019","_end_day":"14","_end_month":"02","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87723"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/497"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=87723"}],"version-history":[{"count":1,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87723\/revisions"}],"predecessor-version":[{"id":87725,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87723\/revisions\/87725"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/87724"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=87723"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=87723"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=87723"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=87723"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=87723"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":87572,"date":"2019-02-07T14:00:45","date_gmt":"2019-02-07T14:00:45","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=87572"},"modified":"2019-02-19T16:48:00","modified_gmt":"2019-02-19T16:48:00","slug":"financial-services-businesses-say-multi-cloud-is-central-to-their-plans-for-ai-containers-and-blockchain-451-research-reveals","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/02\/07\/financial-services-businesses-say-multi-cloud-is-central-to-their-plans-for-ai-containers-and-blockchain-451-research-reveals\/","title":{"rendered":"Financial
+        services businesses say multi-cloud is central to their plans for AI, containers
+        and blockchain, 451 Research reveals"},"content":{"rendered":"\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/72a4\/451.png\"
+        alt=\"Cloud prices comparison\" class=\"wp-image-85226\"\/><\/figure>\n\n\n\n<p><em>The
+        Canonical commissioned study found that 60% of financial services businesses
+        bank on the benefits of multi-cloud<\/em> <em>to support emerging technologies,
+        but significant skills gap still exists <\/em><\/p>\n\n\n\n<p>An independent
+        report by <a href=\"https:\/\/451research.com\/\">451 Research<\/a>, \u2018<em>Multi-Cloud
+        Fundamental to Financial Services Transformation\u2019, <\/em>found that<strong>
+        <\/strong>financial services businesses are looking to emerging technologies
+        at a higher rate than organisations in other sectors. The study, commissioned
+        by Canonical, found that AI and machine learning (36%), containers (29%) and
+        blockchain (24%) are highlighted as the industry\u2019s top priorities. However,
+        adopting emerging technologies often leads to increased complexity of IT environments
+        who cite acute skills shortages in cloud platform expertise (46%), information
+        security (41%) and machine learning \/ AI (37%). This combination of a demand
+        for innovation and skill shortages will result in many businesses seeking
+        out managed services. <br><\/p>\n\n\n\n<p>The report findings reveal that
+        60% of EMEA and North American financial services businesses expect multi-cloud
+        to be the architecture of their IT environments in the next two years. Established
+        financial services organisations are being driven to transform by new cloud-native
+        competitors making it critical to develop new tools and services enabled by
+        emerging technologies, such as AI and blockchain. As such, agility tops the
+        list of cloud adoption drivers in the financial services industry &#8211;
+        47% cite time to market as a key incentive compared to 32% of businesses overall.<br><\/p>\n\n\n\n<p>Implementing
+        a multi-cloud environment is a key part of financial services organisations\u2019
+        overall IT strategy: 62% of the sector\u2019s IT managers believe multi-cloud
+        will allow them to improve application performance and availability demands.
+        Such container driven portability is required for financial services businesses,
+        where different workloads may need isolation if containing sensitive customer
+        data or intellectual property. An increase in extensive regulations for the
+        sector mean that 43% expect multi-cloud to help satisfy the granular compliance
+        and security requirements. Finally, 41% anticipate that multi-cloud will help
+        them to reduce the overall costs of cloud deployments through data center
+        consolidation and more effective use of resources, which is important to financial
+        services organisations as higher operational costs puts additional pressure
+        on bottom lines.<br><\/p>\n\n\n\n<p>\u201cEmerging technologies are transforming
+        financial services businesses by enabling product innovation and updates to
+        existing operating models,\u201d says Liam Eagle, Research Manager for Cloud,
+        Hosting and Managed Services at 451 Research. \u201cThe next few years will
+        bring critical changes, including a major shift toward execution on cloud
+        platforms. Executing on transformation in the finance sector means tackling
+        challenges such as regulatory compliance and information security. We expect
+        hybrid IT strategies and partner-led managed services to be key elements in
+        overcoming those obstacles.\u201d<br><\/p>\n\n\n\n<p>Financial institutions
+        looking to move towards a multi-cloud environment and adopting emerging technologies
+        can benefit from managed services such as Canonical\u2019s managed <a href=\"https:\/\/www.ubuntu.com\/openstack\">Openstack<\/a>
+        and <a href=\"https:\/\/www.ubuntu.com\/kubernetes\">Kubernetes<\/a> offering.
+        The widespread use of <a href=\"https:\/\/www.ubuntu.com\/\">Ubuntu<\/a> Openstack
+        in conjunction with a competitive public cloud represent a clear transition
+        path to multi-cloud to provide superior economics, security and the compliant
+        infrastructure that the financial industry demands. Benefitting from an automated
+        yet flexible managed service enables developers to concentrate their time
+        on new services rather than infrastructure maintenance. &nbsp;<br><\/p>\n\n\n\n<p>\u201cWe\u2019re
+        pleased to see that financial services institutions are identifying the importance
+        of a multi-cloud environment to help them accelerate change and innovate.
+        Since 2017, eight of the world\u2019s top 20 banks have chosen Canonical for
+        their cloud infrastructure,\u201d comments Stephan Fabel, Director of Product
+        at Canonical. \u201cUbuntu is the trusted platform of innovation for technologies
+        such as machine learning, blockchain and Kubernetes. Canonical\u2019s Charmed
+        Distribution of Kubernetes provides the workload container portability to
+        enable financial services organisations to innovate in a multi-cloud environment
+        and deliver new services to their customers quicker.\u201d &nbsp;<\/p>\n\n\n\n<p>For
+        further insight, please read the Black and White paper from 451 Research,
+        \u2018Multi-Cloud Fundamental to Financial Services Transformation\u2019,
+        which can be downloaded <a href=\"https:\/\/www.ubuntu.com\/engage\/finserv-multi-cloud?utm_source=PR&amp;utm_medium=PR&amp;utm_campaign=CY19_DC_Finance_eBook_451_PR\">here<\/a><strong>.
+        <\/strong><\/p>\n","protected":false},"excerpt":{"rendered":"<p>The Canonical
+        commissioned study found that 60% of financial services businesses bank on
+        the benefits of multi-cloud to support emerging technologies, but significant
+        skills gap still exists An independent report by 451 Research, \u2018Multi-Cloud
+        Fundamental to Financial Services Transformation\u2019, found that financial
+        services businesses are looking to emerging technologies at a higher rate
+        than organisations [&hellip;]<\/p>\n","protected":false},"author":217,"featured_media":85226,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[1485],"tags":[3000,1539,1833,2976,1327],"topic":[2099,1477],"group":[1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"07","_start_month":"02","_start_year":"2019","_end_day":"07","_end_month":"02","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87572"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=87572"}],"version-history":[{"count":3,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87572\/revisions"}],"predecessor-version":[{"id":87577,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87572\/revisions\/87577"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/85226"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=87572"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=87572"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=87572"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=87572"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=87572"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":87447,"date":"2019-01-31T10:35:14","date_gmt":"2019-01-31T10:35:14","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=87447"},"modified":"2019-02-05T12:29:14","modified_gmt":"2019-02-05T12:29:14","slug":"where-eagles-snap-a-closer-look","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/01\/31\/where-eagles-snap-a-closer-look\/","title":{"rendered":"Where
+        eagles snap &#8211; A closer look"},"content":{"rendered":"\n<p>A couple of
+        weeks ago, we talked about <a href=\"https:\/\/snapcraft.io\/blog\/where-eagles-snap-snap-security-overview\">snap
+        security<\/a>, taking a journey through the eyes of a developer and handing
+        over to a user who wants to install applications from the Snap Store. We discussed
+        concepts like application confinement, interfaces, store review, and automatic
+        updates. Today, we will look under the hood, and examine the underlying security
+        mechanisms, and then talk some more about Ubuntu Core.<\/p>\n\n\n\n<h1>Ubuntu
+        hardening mechanisms<\/h1>\n\n\n\n<p>Ubuntu uses several security hardening
+        mechanisms, including: Discretionary Access Controls (DAC), Mandatory Access
+        Control (MAC) via AppArmor, Seccomp kernel system call filtering (limits the
+        system calls a process may use), cgroups device access controls for hardware
+        assignment, and pseudoterminal (PTY) functionality for login sessions via
+        a new devpts instance per command to prevent snooping and input injection
+        via \/dev\/pts. Ubuntu also uses YAMA Linux Security Module in Canonical-supported
+        kernels, and provides ptrace scoping, symlink restrictions and hardlink restrictions.<\/p>\n\n\n\n<h2>DHCP<\/h2>\n\n\n\n<p>The
+        DHCP client runs under a restrictive AppArmor profile.<\/p>\n\n\n\n<h2>User
+        logins<\/h2>\n\n\n\n<p>The administrative user (root) has a disabled password.
+        All system users have disabled logins.<\/p>\n\n\n\n<h2>Remote connectivity<\/h2>\n\n\n\n<p>When
+        installed on desktop and server, OpenSSH listens by default but it is configured
+        with PermitRootLogin prohibit-password to disable root logins when a password
+        is set. For Ubuntu on cloud, this is the default configuration.<\/p>\n\n\n\n<h1>Ubuntu
+        Core Filesystem Hierarchy Standard (FHS)<\/h1>\n\n\n\n<p>The name of this
+        subsection can be a little confusing, because the FHS applies to snaps used
+        both on classic Ubuntu as well Ubuntu Core. The snap installation directory
+        is read-only, with specific writable data areas. These areas correspond to
+        environment variables that are set during runtime. Specifically:<\/p>\n\n\n\n<ul><li>read-only
+        access to <code>$SNAP<\/code> (versioned install path)<\/li><li>write access
+        to <code>$SNAP_DATA<\/code> (versioned path in \/var)<\/li><li>write access
+        to <code>$SNAP_USER_DATA<\/code> (versioned path in \/home)<\/li><li>write
+        access to <code>$SNAP_COMMON<\/code> (snap-specific path in \/var)<\/li><li>write
+        access to <code>$SNAP_USER_COMMON<\/code> (snap-specific path in \/home)<\/li><li>write
+        access to <code>$XDG_RUNTIME_DIR<\/code> (snap-specific path in \/run\/user\/&#8221;uid&#8221;)<\/li><li>write
+        access to shared memory files (<code>\/dev\/shm\/snap.SNAP_NAME.*<\/code>)<\/li><li>read-only
+        access to install path and data directories of previous versions<\/li><li>access
+        to a subset of executables in <code>\/bin<\/code>, <code>\/sbin<\/code>, <code>\/usr\/bin<\/code>
+        and \/usr\/sbin<\/li><li>allow processes from the same snap to communicate
+        with each other via abstract and anonymous sockets<\/li><li>allow processes
+        from the same snap to signal each other via signals<\/li><\/ul>\n\n\n\n<h1>Application
+        confinement<\/h1>\n\n\n\n<p>Furthermore, there are several confinement mechanisms
+        enabled in Ubuntu (snaps):<\/p>\n\n\n\n<ul><li>Security policy ID &#8211;
+        Applications are tracked by the system using the concept of identifiers. This
+        identifier is a composition of elements from the snap\u2019s packaging. Specifically,
+        it consists of the package name and the command name. The security policy
+        ID takes the form of snap.&#8221;name&#8221;.&#8221;command&#8221;.<\/li><li>Snap
+        trust model &#8211; Snaps are not allowed to use crond scheduling service,
+        change to another user, have unapproved access to hardware, add rsyslog rules,
+        add users, ship setuid\/setgid programs, change security policy, modify the
+        system, modify kernel runtime variables, or access sensitive kernel syscalls.
+        By default, snaps are not allowed to manipulate network interfaces, routing,
+        QoS, network namespaces, manipulate the firewall, monitor the network, and
+        do not run with CAP_NET_ADMIN. Snaps may request \u2018network-control\u2019,
+        \u2018firewall-control\u2019 or \u2018network-observe\u2019 in their plugs
+        to perform the above, but these are subject to store upload policies.<\/li><li>Application
+        launching &#8211; When a snap starts, the snap run command will determine
+        how to start the program and configure its runtime environment variables.
+        It will execute snap-confine, which will then: configure work and temporary
+        directories for the snap, setup device access to hardware, setup a Linux kernel
+        system call filter via seccomp, and launch the command under an AppArmor profile.<\/li><li>Self-checks
+        &#8211; On boot and during installations, the snapd service will perform integrity
+        checks on snaps. If any problems are detected, the snaps will be disabled
+        until refreshed from the store with an updated version.<\/li><\/ul>\n\n\n\n<h1>Ubuntu
+        Core<\/h1>\n\n\n\n<p><a href=\"https:\/\/www.ubuntu.com\/core\">Ubuntu Core<\/a>
+        is a lightweight, robust, transactional version of Ubuntu for IoT devices
+        and large, scale-out container deployments. It comes with additional security
+        hardening and restrictions compared to the snap security on classic desktop
+        distributions.<\/p>\n\n\n\n<p>Please note that the list below is not comprehensive,
+        and does not cover all the security features available in Ubuntu Core, but
+        it outlines some of the major differences, as well as security mechanisms
+        in it.<\/p>\n\n\n\n<h2>Architecture<\/h2>\n\n\n\n<p>There are a few important
+        differences in how Ubuntu Core is designed:<\/p>\n\n\n\n<ul><li>Ubuntu Core
+        is application-centric instead of distribution archive-centric.<\/li><li>Ubuntu
+        Core replaces <code>apt<\/code> with the <code>snap<\/code> command &#8211;
+        applications are packaged and delivered entirely as snaps.<\/li><li>The base
+        system is a minimal system that consists of three parts: the operating system,
+        the kernel, and gadget, which are all delivered using the snap packaging format.
+        The OS snap is constructed from DEB packages from the Ubuntu archive. The
+        gadget snap provides several snaps during the provisioning steps, and they
+        will be preinstalled for the user.<\/li><li>There is a clean separation between
+        the base system (base snaps) and the applications installed from the store
+        (application snaps), as well as a clean separation between installed applications.<\/li><li>The
+        root filesystem is read-only.<\/li><\/ul>\n\n\n\n<h2>Boot mechanisms<\/h2>\n\n\n\n<p>Ubuntu
+        Core uses the same boot process as classic Ubuntu. However, unlike classic
+        Ubuntu, all applications on Ubuntu Core run under an application sandbox,
+        and they are not permitted to modify the firmware, bootloader, kernel, modules,
+        initrd, and init, and they are not allowed to interact with the base system
+        except in very controlled ways.<\/p>\n\n\n\n<h2>System mechanisms<\/h2>\n\n\n\n<p>The
+        Ubuntu Core base system contains only the following components: kernel, the
+        init process, snapd service, and several standard Linux\/UNIX tools and libraries
+        to make application development easier.<\/p>\n\n\n\n<p>Ubuntu Core only exposes
+        a very small subset of the systemd specification in the snap packaging. On
+        system install, the systemd unit file is auto-generated based on these packaging
+        options. This prevents snaps from interacting with systemd and the system
+        in uncontrolled ways.<\/p>\n\n\n\n<h2>User logins<\/h2>\n\n\n\n<p>As part
+        of provisioning, one user account is setup using the Ubuntu SSO as the name
+        of the user. By default this user has console access disabled and SSH access
+        allowed via the SSH key stored in Launchpad for the user. This user is in
+        the sudo group and thus capable of running commands as root. Multi-user support
+        is limited on Ubuntu Core, but alternate user accounts can be set up using
+        standard tools.<\/p>\n\n\n\n<h2>Security trust model<\/h2>\n\n\n\n<p>As we
+        briefly mentioned earlier, Ubuntu Core differs from classic Ubuntu in how
+        software is distributed, including core operating system snap, pre-installed
+        snaps and snaps installed via the store.<\/p>\n\n\n\n<h3>Untrusted by the
+        operating system<\/h3>\n\n\n\n<p>Application snaps are considered <em>untrusted<\/em>.
+        We touched on this in the first article on security, whereby we mentioned
+        that untrusted applications:<\/p>\n\n\n\n<ul><li>can freely access their own
+        data.<\/li><li>cannot access other applications\u2019 data.<\/li><li>cannot
+        access non-application-specific user data.<\/li><li>cannot access privileged
+        portions of the OS.<\/li><li>cannot access privileged system APIs.<\/li><li>may
+        access sensitive APIs with user permission provided the API asks for permission
+        at time of access or the permission is granted to the application outside
+        of snap installation.<\/li><\/ul>\n\n\n\n<h1>Security in action<\/h1>\n\n\n\n<p>To
+        understand how the snap packaging, security policy and runtime restrictions
+        all work together, let\u2019s examine a use case. Below, we have a sample
+        <code>snapcraft.yaml<\/code> file for a <em>foo<\/em> application. This content
+        will be transformed into a snap and uploaded to the store. In this example,
+        the snap is assigned revision 7 by the store.<\/p>\n\n\n\n<pre class=\"wp-block-preformatted\">name:
+        foo<br>\nversion: 1.0<br>\ndescription: foo does stuff<br>\napps:<br>\n  bar:<br>\n    command:
+        bin\/bar-service<br>\n    daemon: simple<br>\n    plugs: <br>\n    - qux<br>\n    -
+        network<br>\n  ctl:<br>\n    command: bin\/control<\/pre>\n\n\n\n<p>What do
+        we have here? We have a snap named <em>foo<\/em>, version 1.0. It has two
+        commands in it, one called <em>bar<\/em> and one called <em>ctl<\/em>. <em>Bar<\/em>
+        is a background service (daemon), and it requests access to <em>qux<\/em>
+        and <em>network<\/em> interfaces. <em>Ctl<\/em> runs the bin\/control executable.To
+        make the example more complete, there is also an existing snap named <em>baz<\/em>.<\/p>\n\n\n\n<pre
+        class=\"wp-block-preformatted\">name: baz<br>\n  apps:<br>\n  norf<br>\n    daemon:
+        dbus<br>\n    slots:<br>\n    - qux<\/pre>\n\n\n\n<p>The snap named <em>baz<\/em>
+        has an application named <em>norf<\/em>. It is a D-BUS message bus type background
+        service, and it provides a slot named <em>qux<\/em>, to snaps that request
+        access (plug) for <em>qux<\/em>.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/91fc\/foo-baz-qux.png\"
+        alt=\"Snap example\" class=\"wp-image-87454\"\/><\/figure>\n\n\n\n<p>When
+        <em>foo<\/em> runs, the following happens: <\/p>\n\n\n\n<ul><li>Security policy
+        ID for <em>bar<\/em> is <em>snap.foo.bar<\/em>. It has the default security
+        policy with the <em>network<\/em> interface auto-connected. The <em>qux<\/em>
+        interface is not auto-connected, but it can be manually connected during runtime.<\/li><li>Security
+        policy ID for <em>ctl<\/em> is <em>snap.foo.ctl<\/em>. It has the default
+        security policy only.<\/li><li>For both of the above commands, the runtime
+        environment variables are set to <code>SNAP_REVISION=7<\/code>, <code>SNAP=\/snap\/foo\/7<\/code>,
+        <code>SNAP_DATA=\/var\/snap\/foo\/7<\/code>, and <code>SNAP_USER_DATA=$HOME\/snap\/foo\/7<\/code>.<\/li><li>The
+        <em>foo<\/em> snap plugs into the <em>qux<\/em> interface. The <em>baz<\/em>
+        <em>norf<\/em> service implements the <em>qux<\/em> slot. There is no automatic
+        connection &#8211; it is done manually via snap connect <em>foo:qux baz:qux<\/em>.
+        The security policies are configured to allow (by seccomp filter) <em>bar<\/em>
+        to <em>connect()<\/em> to <em>norf<\/em> D-Bus service at <em>org.qux<\/em>
+        (by AppArmor policy).<\/li><\/ul>\n\n\n\n<h1>Conclusion<\/h1>\n\n\n\n<p>Snap
+        security comprises several layers, and users often only see the top one, working
+        and interacting with snaps. But there is a lot happening under the surface,
+        starting with robust operating system fundamentals, and continuing with hardening
+        policies and a strong trust model. Hopefully, this article has shed some light
+        of the things happening behind the scenes, which should give you a better
+        understanding and more confidence into the snap security model.<\/p>\n\n\n\n<p>Furthermore,
+        Ubuntu Core introduces additional measures, specifically tailored for IoT
+        devices. With the entire system deployed as snaps, and further restrictions
+        on what snaps can do, Ubuntu Core is a dependable choice for IoT deployments.If
+        you have any thoughts or feedback on this article, we invite you join our
+        <a href=\"https:\/\/forum.snapcraft.io\/\">discussion forum<\/a>.<\/p>\n\n\n\n<p>Photo
+        by <a href=\"https:\/\/unsplash.com\/photos\/AxW7QCCqLCE?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Sandra
+        Ahn Mode<\/a> on <a href=\"https:\/\/unsplash.com\/search\/photos\/castle?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText\">Unsplash<\/a>.<\/p>\n","protected":false},"excerpt":{"rendered":"<p>A
+        couple of weeks ago, we talked about snap security, taking a journey through
+        the eyes of a developer and handing over to a user who wants to install applications
+        from the Snap Store. We discussed concepts like application confinement, interfaces,
+        store review, and automatic updates. Today, we will look under the hood, and
+        examine [&hellip;]<\/p>\n","protected":false},"author":597,"featured_media":87449,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[2635],"tags":[1364,2211,1941,2996,2076,1626],"topic":[1921,1924],"group":[1479,1666],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"31","_start_month":"01","_start_year":"2019","_end_day":"31","_end_month":"01","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87447"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/597"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=87447"}],"version-history":[{"count":4,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87447\/revisions"}],"predecessor-version":[{"id":87455,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87447\/revisions\/87455"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/87449"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=87447"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=87447"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=87447"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=87447"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=87447"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":87409,"date":"2019-01-28T17:20:09","date_gmt":"2019-01-28T17:20:09","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=87409"},"modified":"2019-02-05T12:29:24","modified_gmt":"2019-02-05T12:29:24","slug":"taking-octavia-for-a-ride-with-kubernetes-on-openstack","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2019\/01\/28\/taking-octavia-for-a-ride-with-kubernetes-on-openstack\/","title":{"rendered":"Taking
+        Octavia for a ride with Kubernetes on OpenStack"},"content":{"rendered":"<p><img
+        class=\"alignleft size-full wp-image-87419\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/9e6d\/Airride.jpeg\"
+        alt=\"Taking Octavia for a ride with Kubernetes on OpenStack\" width=\"2417\"
+        height=\"1500\" \/><\/p>\n<p>Want to enable your developers to deploy highly
+        available web applications, web services or microservices?<\/p>\n<p>Do you
+        also need to cater for existing and legacy workloads?<\/p>\n<p>Sounds like
+        your requirements are in the sweet spot between what OpenStack and Kubernetes
+        has to offer.<\/p>\n<p>OpenStack is as you may already know a mature, stable
+        and flexible cloud platform which can help you make the resources (CPUs, RAM,
+        disks, networks, load balancers) in your datacenter available on a self-service
+        and fully automated basis to your consumers.<\/p>\n<p>Kubernetes is simply
+        put an excellent engine for automatically keeping your application workload
+        up to date and highly available, and it is quite happy doing that by consuming
+        resources from a underlying OpenStack cloud.<\/p>\n<p>Why <a href=\"https:\/\/docs.openstack.org\/octavia\/latest\/reference\/introduction.html\">Octavia<\/a>?<\/p>\n<p>Historically
+        the OpenStack Neutron project has carried a built-in load balancer implementation.
+        This implementation never gained support for high availability nor TLS termination.
+        Its design put limitations on the scalability of the service as it was deployed
+        directly in namespaces on the Neutron gateway nodes. This pattern also made
+        it harder to replace the core load balancing software itself should you want
+        to do that.<\/p>\n<p>The Octavia project is a redesign and re-implementation
+        of a load balancer service for OpenStack and it has become the de-facto reference
+        implementation of the LBaaS v2 API. Among other things it addresses both the
+        scalability- and core software exchangeability issue by managing a fleet of
+        virtual, containerized or metal load balancers.<\/p>\n<p>Great, how do I get
+        started?<\/p>\n<h2>1. Get <a href=\"https:\/\/maas.io\/install\">MAAS<\/a>
+        and <a href=\"https:\/\/docs.jujucharms.com\/2.5\/en\/clouds-maas\">Juju<\/a><\/h2>\n<h2>2.
+        Deploy <a href=\"https:\/\/jujucharms.com\/openstack-base\/\">Ubuntu OpenStack<\/a>
+        with a <a href=\"https:\/\/github.com\/openstack-charmers\/openstack-bundles\/blob\/master\/stable\/overlays\/loadbalancer-octavia.yaml\">Octavia
+        overlay<\/a><\/h2>\n<pre><code class=\"bash\" style=\"font-family: monospace;
+        font-size: 60%;\">\n    snap install --classic charm\n    charm pull cs:openstack-base\n    cd
+        openstack-base\n    curl https:\/\/raw.githubusercontent.com\/openstack-charmers\/openstack-bundles\/master\/stable\/overlays\/loadbalancer-octavia.yaml
+        -o loadbalancer-octavia.yaml\n    juju deploy .\/bundle.yaml --overlay loadbalancer-octavia.yaml\n<\/code><\/pre>\n<h2>3.
+        Configure Octavia-internal client\/server certificates<\/h2>\n<p>Octavia uses
+        mandatory bi-directional certificate based authentication between the controller
+        components and the load balancer instances. Note that these certificates will
+        not be used for actual payload data, only internal management traffic. You
+        should nevertheless procure\/issue certificates that meets the security requirements
+        and guidelines of your organization before putting the service into production.<\/p>\n<pre><code
+        class=\"bash\" style=\"font-family: monospace; font-size: 60%;\">\n    mkdir
+        -p demoCA\/newcerts\n    touch demoCA\/index.txt\n    touch demoCA\/index.txt.attr\n    openssl
+        genrsa -passout pass:foobar -des3 -out issuing_ca_key.pem 2048\n    openssl
+        req -x509 -passin pass:foobar -new -nodes -key issuing_ca_key.pem \\\n        -config
+        \/etc\/ssl\/openssl.cnf \\\n        -subj \"\/C=US\/ST=Somestate\/O=Org\/CN=www.example.com\"
+        \\\n        -days 365 \\\n        -out issuing_ca.pem\n    openssl genrsa
+        -passout pass:foobar -des3 -out controller_ca_key.pem 2048\n    openssl req
+        -x509 -passin pass:foobar -new -nodes \\\n            -key controller_ca_key.pem
+        \\\n        -config \/etc\/ssl\/openssl.cnf \\\n        -subj \"\/C=US\/ST=Somestate\/O=Org\/CN=www.example.com\"
+        \\\n        -days 365 \\\n        -out controller_ca.pem\n    openssl req
+        \\\n        -newkey rsa:2048 -nodes -keyout controller_key.pem \\\n        -subj
+        \"\/C=US\/ST=Somestate\/O=Org\/CN=www.example.com\" \\\n        -out controller.csr\n    openssl
+        ca -passin pass:foobar -config \/etc\/ssl\/openssl.cnf \\\n        -cert controller_ca.pem
+        -keyfile controller_ca_key.pem \\\n        -create_serial -batch \\\n        -in
+        controller.csr -days 365 -out controller_cert.pem\n    cat controller_cert.pem
+        controller_key.pem &gt; controller_cert_bundle.pem\n<\/code><\/pre>\n<pre><code
+        class=\"bash\" style=\"font-family: monospace; font-size: 60%;\">\n    juju
+        config octavia lb-mgmt-issuing-cacert=\"$(base64 controller_ca.pem)\" \\\n    \tlb-mgmt-issuing-ca-private-key=\"$(base64
+        controller_ca_key.pem)\" \\\n    \tlb-mgmt-issuing-ca-key-passphrase=foobar
+        \\\n    \tlb-mgmt-controller-cacert=\"$(base64 controller_ca.pem)\" \\\n    \tlb-mgmt-controller-cert=\"$(base64
+        controller_cert_bundle.pem)\"\n<\/code><\/pre>\n<h2>4. Deploy glance-simplestreams-sync
+        charm<\/h2>\n<p>To deploy workloads ontop of OpenStack with Juju your Glance
+        image database needs to contain some cloud images and Juju needs a index to
+        locate them. The Glance SimpleStreams Sync charm takes care of this for you.<\/p>\n<pre><code
+        class=\"bash\" style=\"font-family: monospace; font-size: 60%;\">\n    juju
+        deploy cs:glance-simplestreams-sync --to lxd:0 --config source=ppa:simplestreams-dev\/trunk\n    juju
+        add-relation glance-simplestreams-sync keystone\n<\/code><\/pre>\n<h2>5. Adjust
+        Octavia configuration for HA<\/h2>\n<p>Note that there are many more steps
+        required for a fully Highly Available controlplane and dataplane across the
+        stack, but this demonstrates Octavia HA features for the load balancer dataplane
+        component itself.<\/p>\n<pre><code class=\"bash\" style=\"font-family: monospace;
+        font-size: 60%;\">\n    juju config octavia loadbalancer-topology=ACTIVE_STANDBY
+        spare-pool-size=4\n<\/code><\/pre>\n<h2>6. Wait for deployment to complete
+        and settle<\/h2>\n<pre><code class=\"bash\" style=\"font-family: monospace;
+        font-size: 60%;\">\n    watch -c juju status --color\n\n<\/code><\/pre>\n<p><img
+        class=\"alignleft size-full wp-image-87411\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/d727\/juju-status-octavia.png\"
+        alt=\"\" width=\"1589\" height=\"1586\" \/><\/p>\n<h2>7. Run post-deployment
+        Octavia configuration<\/h2>\n<p>Octavia relies on resources within your OpenStack
+        cloud to operate, these will be created for you by executing a charm action.
+        At the time of this writing you will have to take care of the Octavia Amphora
+        image yourself.<\/p>\n<pre><code class=\"bash\" style=\"font-family: monospace;
+        font-size: 60%;\">\n    juju run-action --wait octavia\/0 configure-resources\n    openstack
+        image create --tag octavia-amphora \\\n         --container-format bare --disk-format
+        qcow2 \\\n         --file images\/amphora-x64-haproxy.qcow2 \\\n         octavia-amphora\n<\/code><\/pre>\n<p><i>You
+        will find a script to build your Octavia Amphora images in Octavias <a href=\"https:\/\/github.com\/openstack\/octavia\/tree\/master\/diskimage-create\">GitHub
+        repository<\/a>. There is also daily pre-built test images available on <a
+        href=\"http:\/\/tarballs.openstack.org\/octavia\/test-images\/\">tarballs.openstack.org<\/a>.<\/i><\/p>\n<h2>8.
+        Prepare your OpenStack project for deployment of Kubernetes<\/h2>\n<p>Note
+        that for simplicity this example will update your default security group to
+        allow all traffic to your instances, it also makes use of the default admin
+        project. You will probably want to create a separate project and use more
+        fine grained security groups before putting this into production.<\/p>\n<pre><code
+        class=\"bash\" style=\"font-family: monospace; font-size: 60%;\">\n    . .\/openrcv3_project\n    PROJECT_ID=$(openstack
+        project show --domain admin_domain admin -f value -c id)\n    SECGRP_ID=$(openstack
+        security group list --project ${PROJECT_ID} | awk ''\/default\/ {print $2}'')\n    openstack
+        security group rule create ${SECGRP_ID} \\\n    \t--protocol any --ethertype
+        IPv6 --ingress\n    openstack security group rule create ${SECGRP_ID} \\\n    \t--protocol
+        any --ethertype IPv4 --ingress\n    openstack flavor create --ram 512 --disk
+        8 tiny\n    openstack flavor create --ram 1024 --disk 10 small\n    openstack
+        flavor create --vcpus 2 --ram 2048 --disk 20 medium\n    openstack flavor
+        create --vcpus 2 --ram 3584 --disk 20 juju\n    openstack flavor create --vcpus
+        4 --ram 4096 --disk 20 large\n    openstack flavor create --vcpus 12 --ram
+        16384 --disk 40 xlarge\n    openstack network create --external --provider-network-type
+        flat \\\n    \t--provider-physical-network physnet1 ext_net\n    openstack
+        subnet create --network ext_net --no-dhcp \\\n    \t--subnet-range 192.168.122.0\/24
+        --gateway 192.168.122.1 \\\n    \t--allocation-pool start=192.168.122.2,end=192.168.122.254
+        Internet\n    NETWORK_ID=$(openstack network create network -f value -c id)\n    openstack
+        subnet create subnet --network network \\\n        --subnet-range 10.42.0.0\/24
+        \n    openstack router create router\n    openstack router set --external-gateway
+        ext_net router\n    GATEWAY_IP=$(openstack router show router -f value -c
+        external_gateway_info \\\n    \t| awk ''\/ip_address\/ { for (i=1;i&lt;NF;i++)
+        if ($i~\"ip_address\") print $(i+1)}'' \\\n    \t| cut -f2 -d\\\")\n<\/code>
+        <code class=\"bash\" style=\"font-family: monospace; font-size: 60%;\">\n    openstack
+        router add subnet router subnet\n    openstack quota set --cores 100 ${PROJECT_ID}\n    openstack
+        quota set --instances 100 ${PROJECT_ID}\n    sudo ip route add 10.42.0.0\/24
+        via ${GATEWAY_IP}\n    cat &lt; cloud-inception.yaml\n    clouds:\n      inception:\n        type:
+        openstack\n        auth-types: [ userpass ]\n        regions:\n          RegionOne:\n            endpoint:
+        $OS_AUTH_URL\n    EOF\n    juju add-cloud inception cloud-inception.yaml\n    juju
+        bootstrap inception \\\n    \t--config network=${NETWORK_ID} \\\n    \t--model-default
+        network=${NETWORK_ID} \\\n    \t--model-default use-default-secgroup=true\n<\/code><\/pre>\n<h2>9.
+        Deploy Kubernetes on OpenStack<\/h2>\n<p>There is a <a href=\"https:\/\/jujucharms.com\/u\/containers\/openstack-integrator\/\">openstack-integrator<\/a>
+        charm available, that after you have sanctioned it with your trust, gets the
+        keys from your OpenStack and sets up your Kubernetes with them.<\/p>\n<p>It
+        can also give information required for Kubernetes to use OpenStack LBaaS if
+        you configure the appropriate options.<\/p>\n<p>Get the UUID of the subnet
+        and the UUID from the external network created above and configure the openstack-integrator
+        charm.<\/p>\n<pre><code class=\"bash\" style=\"font-family: monospace; font-size:
+        60%;\">\n    juju deploy cs:~containers\/kubernetes-core\n    juju deploy
+        cs:~containers\/openstack-integrator\n    juju add-relation openstack-integrator
+        kubernetes-master\n    juju add-relation openstack-integrator kubernetes-worker\n    juju
+        config openstack-integrator subnet-id=&lt;UUID of subnet&gt;\n    juju config
+        openstack-integrator floating-network-id=&lt;UUID of ext_net&gt;\n    juju
+        trust openstack-integrator\n<\/code><\/pre>\n<h2>10. Wait for deployment to
+        complete and settle<\/h2>\n<pre><code class=\"bash\" style=\"font-family:
+        monospace; font-size: 60%;\">\n    watch -c juju status --color\n<img class=\"alignleft
+        size-full wp-image-87414\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/2cbc\/Octaviablog.png\"
+        alt=\"\" width=\"970\" height=\"473\" \/>\n<\/code><\/pre>\n<h2>11. Get Kubernetes
+        credentials, launch and watch sample app<\/h2>\n<pre><code class=\"bash\"
+        style=\"font-family: monospace; font-size: 60%;\">\n    mkdir ~\/.kube\n    juju
+        scp kubernetes-master\/0:config ~\/.kube\/config\n    sudo snap install kubectl
+        --classic\n    kubectl run hello-world --replicas=5 --labels=\"run=load-balancer-example\"
+        --image=gcr.io\/google-samples\/node-hello:1.0  --port=8080\n    kubectl expose
+        deployment hello-world --type=LoadBalancer --name=hello\n    watch kubectl
+        get svc -o wide --selector=run=load-balancer-example\n<\/code><\/pre>\n<p><img
+        class=\"alignleft size-full wp-image-87416\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cf44\/kubectl-hello-loadbalancer.png\"
+        alt=\"\" width=\"1085\" height=\"524\" \/><\/p>\n<p>Behind the scenes Kubernetes
+        will now request and configure a load balancer from your OpenStack. It will
+        also request and configure a floating IP for it and expose it to the world.<\/p>\n<p>To
+        meet the request Octavia will boot up or commission two of its idle load balancer
+        instances, plug them into your network, create a VIP port and configure VRRP
+        between the two load balancer instances.<\/p>\n<p><img class=\"alignleft size-full
+        wp-image-87418\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/8e21\/octavia-loadbalancer-detail.png\"
+        alt=\"\" width=\"1427\" height=\"524\" \/><\/p>\n<p>Author:\u00a0Frode Nordahl,\u00a0Software
+        Engineer (OpenStack)<\/p>\n<p>The original article can be found <a href=\"https:\/\/fnordahl.com\/2019\/01\/25\/taking-octavia-for-a-ride-with-kubernetes-on-openstack\/\">here<\/a>.<\/p>\n","protected":false},"excerpt":{"rendered":"<p>Want
+        to enable your developers to deploy highly available web applications, web
+        services or microservices? Do you also need to cater for existing and legacy
+        workloads? Sounds like your requirements are in the sweet spot between what
+        OpenStack and Kubernetes has to offer. OpenStack is as you may already know
+        a mature, stable and flexible [&hellip;]<\/p>\n","protected":false},"author":401,"featured_media":87419,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[1453],"tags":[1833,3217,1327],"topic":[1477],"group":[1706],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"28","_start_month":"01","_start_year":"2019","_end_day":"28","_end_month":"01","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87409"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/401"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=87409"}],"version-history":[{"count":9,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87409\/revisions"}],"predecessor-version":[{"id":87431,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/87409\/revisions\/87431"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/87419"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=87409"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=87409"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=87409"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=87409"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=87409"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:00 GMT
+      Keep-Alive:
+      - timeout=5, max=99
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+      X-WP-Total:
+      - '10'
+      X-WP-TotalPages:
+      - '1'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89323
+  response:
+    body:
+      string: '{"id":89323,"date":"2019-05-27T11:07:38","date_gmt":"2019-05-27T11:07:38","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/usp-on-itunes.png"},"modified":"2019-05-27T11:07:38","modified_gmt":"2019-05-27T11:07:38","slug":"usp-on-itunes","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/28\/introducing-the-ubuntu-security-podcast\/usp-on-itunes\/","title":{"rendered":"usp-on-itunes"},"author":600,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/460e\/usp-on-itunes.png''><img
+        width=\"300\" height=\"222\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/460e\/usp-on-itunes.png\"
+        class=\"attachment-medium size-medium\" alt=\"\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/png","media_details":{"width":1014,"height":750,"file":"usp-on-itunes.png","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":89322,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/460e\/usp-on-itunes.png","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89323"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/600"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89323"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89323"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89323"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2199'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:05 GMT
+      Keep-Alive:
+      - timeout=5, max=98
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/05/28/introducing-the-ubuntu-security-podcast/usp-on-itunes/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/600
+  response:
+    body:
+      string: '{"id":600,"name":"Alex Murray","url":"https:\/\/login.ubuntu.com\/+id\/R3BbMR8","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/alexmurray\/","slug":"alexmurray","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/5d8f4208b8f16db0f3c5a0e34f9c0f2c?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/5d8f4208b8f16db0f3c5a0e34f9c0f2c?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/5d8f4208b8f16db0f3c5a0e34f9c0f2c?s=96&d=mm&r=g"},"meta":[],"user_job_title":"Ubuntu
+        Security Tech Lead","user_website_title":"","user_google":"","user_twitter":"alex_murray","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/600"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '840'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:05 GMT
+      Keep-Alive:
+      - timeout=5, max=97
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89126
+  response:
+    body:
+      string: '{"id":89126,"date":"2019-05-14T15:59:45","date_gmt":"2019-05-14T15:59:45","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/ubuntu-updates-for-mds-vulnerabilities.png"},"modified":"2019-05-14T16:04:14","modified_gmt":"2019-05-14T16:04:14","slug":"ubuntu-updates-for-mds-vulnerabilities","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/14\/ubuntu-updates-to-mitigate-new-microarchitectural-data-sampling-mds-vulnerabilities\/ubuntu-updates-for-mds-vulnerabilities\/","title":{"rendered":"ubuntu-updates-for-mds-vulnerabilities"},"author":592,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4592\/ubuntu-updates-for-mds-vulnerabilities.png''><img
+        width=\"300\" height=\"152\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4592\/ubuntu-updates-for-mds-vulnerabilities.png\"
+        class=\"attachment-medium size-medium\" alt=\"Ubuntu updates to mitigate new
+        Microarchitectural Data Sampling (MDS) vulnerabilities\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"Ubuntu
+        updates to mitigate new Microarchitectural Data Sampling (MDS) vulnerabilities","media_type":"image","mime_type":"image\/png","media_details":{"width":875,"height":443,"file":"ubuntu-updates-for-mds-vulnerabilities.png","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":89119,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4592\/ubuntu-updates-for-mds-vulnerabilities.png","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89126"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/592"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89126"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89126"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89126"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2612'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:05 GMT
+      Keep-Alive:
+      - timeout=5, max=96
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/05/14/ubuntu-updates-to-mitigate-new-microarchitectural-data-sampling-mds-vulnerabilities/ubuntu-updates-for-mds-vulnerabilities/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/217
+  response:
+    body:
+      string: '{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '760'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:06 GMT
+      Keep-Alive:
+      - timeout=5, max=95
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89307
+  response:
+    body:
+      string: '{"id":89307,"date":"2019-05-24T03:32:11","date_gmt":"2019-05-24T03:32:11","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/kubecon-shanghai.jpg"},"modified":"2019-05-24T03:32:11","modified_gmt":"2019-05-24T03:32:11","slug":"kubecon-shanghai","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/24\/canonical-at-kubecon-cloudnativecon-shanghai\/kubecon-shanghai\/","title":{"rendered":"kubecon-shanghai"},"author":448,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4bad\/kubecon-shanghai.jpg''><img
+        width=\"300\" height=\"155\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4bad\/kubecon-shanghai.jpg\"
+        class=\"attachment-medium size-medium\" alt=\"\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":1826,"height":944,"file":"kubecon-shanghai.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":89306,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/4bad\/kubecon-shanghai.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89307"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/448"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89307"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89307"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89307"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2229'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:06 GMT
+      Keep-Alive:
+      - timeout=5, max=94
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/05/24/canonical-at-kubecon-cloudnativecon-shanghai/kubecon-shanghai/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/448
+  response:
+    body:
+      string: '{"id":448,"name":"liam zheng","url":"http:\/\/voices.canonical.com","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/liam-zheng\/","slug":"liam-zheng","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/448"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '792'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:06 GMT
+      Keep-Alive:
+      - timeout=5, max=93
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89303
+  response:
+    body:
+      string: '{"id":89303,"date":"2019-05-23T14:33:18","date_gmt":"2019-05-23T14:33:18","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/tory-bishop-1316454-unsplash.jpg"},"modified":"2019-05-23T14:33:25","modified_gmt":"2019-05-23T14:33:25","slug":"tory-bishop-1316454-unsplash","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/23\/snapcraft-parts-plugins\/tory-bishop-1316454-unsplash\/","title":{"rendered":""},"author":597,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/7aeb\/tory-bishop-1316454-unsplash.jpg''><img
+        width=\"300\" height=\"200\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/7aeb\/tory-bishop-1316454-unsplash.jpg\"
+        class=\"attachment-medium size-medium\" alt=\"Featured\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"Featured","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":2000,"height":1333,"file":"tory-bishop-1316454-unsplash.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":89302,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/7aeb\/tory-bishop-1316454-unsplash.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89303"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/597"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89303"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89303"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89303"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2293'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:06 GMT
+      Keep-Alive:
+      - timeout=5, max=92
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/05/23/snapcraft-parts-plugins/tory-bishop-1316454-unsplash/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/597
+  response:
+    body:
+      string: '{"id":597,"name":"Igor Ljubuncic","url":"https:\/\/login.ubuntu.com\/+id\/XppHAr6","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/igorljubuncic\/","slug":"igorljubuncic","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/fe0589ad41ef5c32641d0dbf4e77a589?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/fe0589ad41ef5c32641d0dbf4e77a589?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/fe0589ad41ef5c32641d0dbf4e77a589?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/597"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '813'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:06 GMT
+      Keep-Alive:
+      - timeout=5, max=91
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/76153
+  response:
+    body:
+      string: '{"id":76153,"date":"2017-07-11T08:17:17","date_gmt":"2017-07-11T08:17:17","guid":{"rendered":"https:\/\/insights.ubuntu.com\/wp-content\/uploads\/windows-store.png"},"modified":"2017-07-11T08:17:17","modified_gmt":"2017-07-11T08:17:17","slug":"windows-store","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2017\/07\/11\/windows-10-loves-ubuntu-loveislove\/windows-store\/","title":{"rendered":"windows
+        store"},"author":511,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/fdde\/windows-store.png''><img
+        width=\"254\" height=\"300\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/fdde\/windows-store.png\"
+        class=\"attachment-medium size-medium\" alt=\"\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/png","media_details":{"width":682,"height":804,"file":"windows-store.png","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":76151,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/fdde\/windows-store.png","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/76153"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/511"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=76153"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=76153"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=76153"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2187'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:07 GMT
+      Keep-Alive:
+      - timeout=5, max=90
+      Link:
+      - <https://admin.insights.ubuntu.com/2017/07/11/windows-10-loves-ubuntu-loveislove/windows-store/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/217
+  response:
+    body:
+      string: '{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '760'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:07 GMT
+      Keep-Alive:
+      - timeout=5, max=89
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/11973
+  response:
+    body:
+      string: '{"id":11973,"date":"2015-06-02T15:56:26","date_gmt":"2015-06-02T14:56:26","guid":{"rendered":"https:\/\/insights.ubuntu.com\/wp-content\/uploads\/CF206GSUMAATFOf.jpg"},"modified":"2015-09-18T16:17:36","modified_gmt":"2015-09-18T15:17:36","slug":"cf206gsumaatfof","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2015\/09\/22\/crowdsourcing-the-appenabledhome-ge-firstbuild-and-canonical\/cf206gsumaatfof\/","title":{"rendered":"Snappy
+        Ubuntu Core"},"author":217,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b53e\/CF206GSUMAATFOf.jpg''><img
+        width=\"300\" height=\"171\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b53e\/CF206GSUMAATFOf.jpg\"
+        class=\"attachment-medium size-medium\" alt=\"\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":599,"height":342,"file":"CF206GSUMAATFOf.jpg","image_meta":{"aperture":0,"credit":"","camera":"","caption":"","created_timestamp":0,"copyright":"","focal_length":0,"iso":0,"shutter_speed":0,"title":"","orientation":0},"sizes":{}},"post":23866,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b53e\/CF206GSUMAATFOf.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/11973"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=11973"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=11973"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=11973"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2207'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:07 GMT
+      Keep-Alive:
+      - timeout=5, max=88
+      Link:
+      - <https://admin.insights.ubuntu.com/2015/09/22/crowdsourcing-the-appenabledhome-ge-firstbuild-and-canonical/cf206gsumaatfof/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/448
+  response:
+    body:
+      string: '{"id":448,"name":"liam zheng","url":"http:\/\/voices.canonical.com","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/liam-zheng\/","slug":"liam-zheng","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/448"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '792'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:07 GMT
+      Keep-Alive:
+      - timeout=5, max=87
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/88898
+  response:
+    body:
+      string: '{"id":88898,"date":"2019-04-30T20:01:57","date_gmt":"2019-04-30T20:01:57","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/KubeCon-CloudNativeCon-Europe-2019.png"},"modified":"2019-04-30T20:02:13","modified_gmt":"2019-04-30T20:02:13","slug":"kubecon-cloudnativecon-europe-2019","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/01\/canonical-at-kubecon-europe-2019\/kubecon-cloudnativecon-europe-2019\/","title":{"rendered":"KubeCon-CloudNativeCon-Europe-2019"},"author":426,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/93d5\/KubeCon-CloudNativeCon-Europe-2019.png''><img
+        width=\"300\" height=\"139\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/93d5\/KubeCon-CloudNativeCon-Europe-2019.png\"
+        class=\"attachment-medium size-medium\" alt=\"Kubecon Europe 2019\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"Kubecon
+        Europe 2019","media_type":"image","mime_type":"image\/png","media_details":{"width":805,"height":372,"file":"KubeCon-CloudNativeCon-Europe-2019.png","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":88897,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/93d5\/KubeCon-CloudNativeCon-Europe-2019.png","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/88898"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/426"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=88898"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=88898"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=88898"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2397'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:12 GMT
+      Keep-Alive:
+      - timeout=5, max=86
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/05/01/canonical-at-kubecon-europe-2019/kubecon-cloudnativecon-europe-2019/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/626
+  response:
+    body:
+      string: '{"id":626,"name":"Carmine Rimi","url":"https:\/\/login.ubuntu.com\/+id\/C43hkKr","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/carmine-rimi\/","slug":"carmine-rimi","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/86fdf7d70fae56e3b2fbdb229525896c?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/86fdf7d70fae56e3b2fbdb229525896c?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/86fdf7d70fae56e3b2fbdb229525896c?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/626"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '809'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:17 GMT
+      Keep-Alive:
+      - timeout=5, max=85
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/85858
+  response:
+    body:
+      string: '{"id":85858,"date":"2018-08-13T13:19:39","date_gmt":"2018-08-13T13:19:39","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/Design-and-Web-Team-Blog.jpg"},"modified":"2018-08-13T13:19:39","modified_gmt":"2018-08-13T13:19:39","slug":"design-and-web-team-blog","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2018\/08\/13\/design-and-web-team-summary-13-august-2018\/design-and-web-team-blog\/","title":{"rendered":"Design-and-Web-Team-Blog"},"author":279,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/2232\/Design-and-Web-Team-Blog.jpg''><img
+        width=\"300\" height=\"168\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/2232\/Design-and-Web-Team-Blog.jpg\"
+        class=\"attachment-medium size-medium\" alt=\"\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":600,"height":336,"file":"Design-and-Web-Team-Blog.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":85857,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/2232\/Design-and-Web-Team-Blog.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/85858"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/279"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=85858"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=85858"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=85858"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2290'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:17 GMT
+      Keep-Alive:
+      - timeout=5, max=84
+      Link:
+      - <https://admin.insights.ubuntu.com/2018/08/13/design-and-web-team-summary-13-august-2018/design-and-web-team-blog/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/270
+  response:
+    body:
+      string: '{"id":270,"name":"Peter Mahnke","url":"https:\/\/login.ubuntu.com\/+id\/BwcCnLE","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/peterm-ubuntu\/","slug":"peterm-ubuntu","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/321591be60c6e0081e5624f85357d725?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/321591be60c6e0081e5624f85357d725?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/321591be60c6e0081e5624f85357d725?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/270"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '811'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:17 GMT
+      Keep-Alive:
+      - timeout=5, max=83
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89203
+  response:
+    body:
+      string: '{"id":89203,"date":"2019-05-16T11:46:48","date_gmt":"2019-05-16T11:46:48","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/barn-images-12223-unsplash-smaller.jpg"},"modified":"2019-05-16T11:46:54","modified_gmt":"2019-05-16T11:46:54","slug":"barn-images-12223-unsplash-smaller","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/16\/introduction-to-snapcraft\/barn-images-12223-unsplash-smaller\/","title":{"rendered":"barn-images-12223-unsplash-smaller"},"author":597,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b29e\/barn-images-12223-unsplash-smaller.jpg''><img
+        width=\"300\" height=\"200\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b29e\/barn-images-12223-unsplash-smaller.jpg\"
+        class=\"attachment-medium size-medium\" alt=\"Featured\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"Featured","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":2000,"height":1333,"file":"barn-images-12223-unsplash-smaller.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":89189,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b29e\/barn-images-12223-unsplash-smaller.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89203"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/597"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89203"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89203"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89203"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2371'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:17 GMT
+      Keep-Alive:
+      - timeout=5, max=82
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/05/16/introduction-to-snapcraft/barn-images-12223-unsplash-smaller/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/597
+  response:
+    body:
+      string: '{"id":597,"name":"Igor Ljubuncic","url":"https:\/\/login.ubuntu.com\/+id\/XppHAr6","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/igorljubuncic\/","slug":"igorljubuncic","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/fe0589ad41ef5c32641d0dbf4e77a589?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/fe0589ad41ef5c32641d0dbf4e77a589?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/fe0589ad41ef5c32641d0dbf4e77a589?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/597"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '813'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:18 GMT
+      Keep-Alive:
+      - timeout=5, max=81
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/88741
+  response:
+    body:
+      string: '{"id":88741,"date":"2019-04-17T09:59:38","date_gmt":"2019-04-17T09:59:38","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/core-18jpg.jpg"},"modified":"2019-04-17T09:59:38","modified_gmt":"2019-04-17T09:59:38","slug":"core-18jpg","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/02\/01\/ubuntu-core-18-%e6%ad%a3%e5%bc%8f%e5%8f%91%e5%b8%83%ef%bc%9a%e7%94%a8%e4%ba%8e%e5%ae%89%e5%85%a8%e5%8f%af%e9%9d%a0%e7%9a%84%e7%89%a9%e8%81%94%e7%bd%91%e8%ae%be%e5%a4%87\/core-18jpg\/","title":{"rendered":"core
+        18jpg"},"author":448,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/99a4\/core-18jpg.jpg''><img
+        width=\"300\" height=\"213\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/99a4\/core-18jpg.jpg\"
+        class=\"attachment-medium size-medium\" alt=\"\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":777,"height":552,"file":"core-18jpg.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":88737,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/99a4\/core-18jpg.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/88741"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/448"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=88741"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=88741"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=88741"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2304'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:18 GMT
+      Keep-Alive:
+      - timeout=5, max=80
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/02/01/ubuntu-core-18-%e6%ad%a3%e5%bc%8f%e5%8f%91%e5%b8%83%ef%bc%9a%e7%94%a8%e4%ba%8e%e5%ae%89%e5%85%a8%e5%8f%af%e9%9d%a0%e7%9a%84%e7%89%a9%e8%81%94%e7%bd%91%e8%ae%be%e5%a4%87/core-18jpg/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/448
+  response:
+    body:
+      string: '{"id":448,"name":"liam zheng","url":"http:\/\/voices.canonical.com","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/liam-zheng\/","slug":"liam-zheng","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/72f3dd3367561427bf0464de78603d0c?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/448"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '792'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:19 GMT
+      Keep-Alive:
+      - timeout=5, max=79
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89156
+  response:
+    body:
+      string: '{"id":89156,"date":"2019-05-15T21:48:12","date_gmt":"2019-05-15T21:48:12","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/Weekly-Update-Templates-2.png"},"modified":"2019-05-15T21:48:38","modified_gmt":"2019-05-15T21:48:38","slug":"weekly-update-templates-2-4","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/15\/ubuntu-server-development-summary-15-may-2019\/weekly-update-templates-2-4\/","title":{"rendered":"Bi-weekly
+        Ubuntu Server Update"},"author":582,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/dc8b\/Weekly-Update-Templates-2.png''><img
+        width=\"300\" height=\"169\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/dc8b\/Weekly-Update-Templates-2.png\"
+        class=\"attachment-medium size-medium\" alt=\"Bi-weekly Ubuntu Server Update\"
+        \/><\/a><\/p>\n"},"caption":{"rendered":"<p>Bi-weekly Ubuntu Server Update<\/p>\n"},"alt_text":"Bi-weekly
+        Ubuntu Server Update","media_type":"image","mime_type":"image\/png","media_details":{"width":960,"height":540,"file":"Weekly-Update-Templates-2.png","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":89155,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/dc8b\/Weekly-Update-Templates-2.png","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/89156"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/582"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=89156"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=89156"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=89156"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2409'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:19 GMT
+      Keep-Alive:
+      - timeout=5, max=78
+      Link:
+      - <https://admin.insights.ubuntu.com/2019/05/15/ubuntu-server-development-summary-15-may-2019/weekly-update-templates-2-4/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/582
+  response:
+    body:
+      string: '{"id":582,"name":"Chad Smith","url":"https:\/\/login.ubuntu.com\/+id\/RAsJCNm","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/chad-smith\/","slug":"chad-smith","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/dd1d57f6f1ea59ea0c12260f5e3b5767?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/dd1d57f6f1ea59ea0c12260f5e3b5767?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/dd1d57f6f1ea59ea0c12260f5e3b5767?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/582"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '803'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:19 GMT
+      Keep-Alive:
+      - timeout=5, max=77
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/86538
+  response:
+    body:
+      string: '{"id":86538,"date":"2018-10-30T13:14:07","date_gmt":"2018-10-30T13:14:07","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/ubuntu-canonical.png"},"modified":"2019-02-06T16:06:40","modified_gmt":"2019-02-06T16:06:40","slug":"ubuntu-canonical-2","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2018\/10\/30\/statement-on-ibm-acquisition-of-red-hat\/ubuntu-canonical-2\/","title":{"rendered":"ubuntu-canonical"},"author":511,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
+        class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b48b\/ubuntu-canonical.png''><img
+        width=\"300\" height=\"161\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b48b\/ubuntu-canonical.png\"
+        class=\"attachment-medium size-medium\" alt=\"Canonical Ubuntu at mobile world
+        congress\" \/><\/a><\/p>\n"},"caption":{"rendered":""},"alt_text":"Canonical
+        Ubuntu at mobile world congress","media_type":"image","mime_type":"image\/png","media_details":{"width":3068,"height":1651,"file":"ubuntu-canonical.png","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"post":86533,"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b48b\/ubuntu-canonical.png","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/86538"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/511"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=86538"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=86538"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=86538"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2310'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:19 GMT
+      Keep-Alive:
+      - timeout=5, max=76
+      Link:
+      - <https://admin.insights.ubuntu.com/2018/10/30/statement-on-ibm-acquisition-of-red-hat/ubuntu-canonical-2/>;
+        rel="alternate"; type=text/html
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/217
+  response:
+    body:
+      string: '{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
+    headers:
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '760'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 28 May 2019 14:24:19 GMT
+      Keep-Alive:
+      - timeout=5, max=75
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Cookie,Origin
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-4
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
     status:
       code: 200
       message: OK

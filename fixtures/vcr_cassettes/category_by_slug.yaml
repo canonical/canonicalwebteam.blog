@@ -14,7 +14,7 @@ interactions:
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=articles
   response:
     body:
-      string: '[{"id":1453,"count":1294,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'
+      string: '[{"id":1453,"count":1293,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'
     headers:
       Access-Control-Allow-Headers:
       - Authorization, Content-Type
@@ -29,7 +29,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 20 May 2019 11:22:19 GMT
+      - Tue, 28 May 2019 12:56:06 GMT
       Keep-Alive:
       - timeout=5, max=100
       Link:
@@ -87,7 +87,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 20 May 2019 11:22:20 GMT
+      - Tue, 28 May 2019 12:56:06 GMT
       Keep-Alive:
       - timeout=5, max=99
       Link:

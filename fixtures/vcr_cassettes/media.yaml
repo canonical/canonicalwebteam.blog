@@ -32,7 +32,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 20 May 2019 11:09:44 GMT
+      - Tue, 28 May 2019 12:56:14 GMT
       Keep-Alive:
       - timeout=5, max=100
       Link:
@@ -43,11 +43,11 @@ interactions:
       Vary:
       - Cookie,Origin
       Via:
-      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
       X-Cache:
-      - MISS from juju-prod45-is-insights-blog-machine-16
+      - MISS from juju-prod45-is-insights-blog-machine-4
       X-Cache-Lookup:
-      - MISS from juju-prod45-is-insights-blog-machine-16:8080
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
       X-Content-Type-Options:
       - nosniff
       X-Powered-By:
@@ -85,7 +85,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 20 May 2019 11:09:44 GMT
+      - Tue, 28 May 2019 12:56:19 GMT
       Keep-Alive:
       - timeout=5, max=99
       Link:
@@ -95,11 +95,11 @@ interactions:
       Vary:
       - Cookie,Origin
       Via:
-      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
       X-Cache:
-      - MISS from juju-prod45-is-insights-blog-machine-16
+      - MISS from juju-prod45-is-insights-blog-machine-4
       X-Cache-Lookup:
-      - MISS from juju-prod45-is-insights-blog-machine-16:8080
+      - MISS from juju-prod45-is-insights-blog-machine-4:8080
       X-Content-Type-Options:
       - nosniff
       X-Powered-By:
