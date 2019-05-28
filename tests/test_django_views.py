@@ -55,7 +55,11 @@ class TestDjangoViews(unittest.TestCase):
 
         self.assertEqual(self.get_articles_patch.call_count, 3)
         self.get_index_context_patch.assert_called_once_with(
-            "1", [mock_article], "1", featured_articles=[mock_article]
+            "1",
+            [mock_article],
+            "1",
+            featured_articles=[mock_article],
+            upcoming=[mock_article],
         )
 
     # TODO: This test has a problem with the patching method

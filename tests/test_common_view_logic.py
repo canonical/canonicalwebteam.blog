@@ -61,6 +61,7 @@ class TestCommonViewLogic(unittest.TestCase):
                 },
             ],
             "groups": {1: "test_group"},
+            "upcoming": [],
             "used_categories": {
                 1: "test_category",
                 2: "test_category",
@@ -158,6 +159,7 @@ class TestCommonViewLogic(unittest.TestCase):
                 },
             ],
             "groups": {1: "test_group"},
+            "upcoming": [],
             "used_categories": {
                 1: "test_category",
                 2: "test_category",
@@ -220,6 +222,7 @@ class TestCommonViewLogic(unittest.TestCase):
                 },
             ],
             "groups": {1: "test_group"},
+            "upcoming": [],
             "used_categories": {
                 1: "test_category",
                 2: "test_category",

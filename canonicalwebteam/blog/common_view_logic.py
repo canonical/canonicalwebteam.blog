@@ -44,22 +44,30 @@ def get_complete_article(article, group=None):
     )
 
 
-def get_index_context(page_param, articles, total_pages, featured_articles=[]):
+def get_index_context(
+    page_param, articles, total_pages, featured_articles=[], upcoming=[]
+):
     """
     Build the content for the index page
     :param page_param: String or int for index of the page to get
     :param articles: Array of articles
     :param articles: String of int of total amount of pages
     :param featured_articles: List of featured articles
+    :param upcoming_articles: List of upcoming articles
     """
 
     transformed_articles = []
     transformed_featured_articles = []
+    transformed_upcoming_articles = []
+
     for article in articles:
         transformed_articles.append(get_complete_article(article))
 
     for article in featured_articles:
         transformed_featured_articles.append(get_complete_article(article))
+
+    for article in upcoming:
+        transformed_upcoming_articles.append(get_complete_article(article))
 
     return {
         "current_page": int(page_param),
@@ -68,6 +76,7 @@ def get_index_context(page_param, articles, total_pages, featured_articles=[]):
         "used_categories": category_cache,
         "groups": group_cache,
         "featured_articles": transformed_featured_articles,
+        "upcoming": transformed_upcoming_articles,
     }
 
 
