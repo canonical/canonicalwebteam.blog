@@ -188,4 +188,4 @@ class TestWordPressApi(unittest.TestCase):
         get.return_value = FailingMockResponse()
 
         with self.assertRaises(Exception):
-            api.get.articles()
+            api.get_articles()
