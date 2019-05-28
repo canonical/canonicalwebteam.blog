@@ -2,6 +2,7 @@ import re
 import html
 
 from datetime import datetime
+from datetime import date
 
 
 def strip_excerpt(raw_html):
@@ -96,6 +97,18 @@ def transform_article(
             article["content"]["rendered"]
         )
 
+    if "_start_month" in article:
+        start_month_name = get_month_name(int(article["_start_month"]))
+        article["start_date"] = "{} {} {}".format(
+            article["_start_day"], start_month_name, article["_start_year"]
+        )
+
+    if "_end_month" in article:
+        end_month_name = get_month_name(int(article["_end_month"]))
+        article["end_date"] = "{} {} {}".format(
+            article["_end_day"], end_month_name, article["_end_year"]
+        )
+
     return article
 
 
@@ -140,3 +153,12 @@ def is_in_series(tags):
             return True
 
     return False
+
+
+def get_month_name(month_index):
+    """
+    Get the month name from it's number, e.g.:
+    January
+    """
+
+    return date(1900, month_index, 1).strftime("%B")

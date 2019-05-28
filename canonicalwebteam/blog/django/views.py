@@ -72,7 +72,11 @@ def index(request, enable_upcoming=True):
         return HttpResponse("Error: " + e, status=502)
 
     context = get_index_context(
-        page_param, articles, total_pages, featured_articles=featured_articles
+        page_param,
+        articles,
+        total_pages,
+        featured_articles=featured_articles,
+        upcoming=upcoming,
     )
     context["title"] = blog_title
     context["category"] = {"slug": category_param}
