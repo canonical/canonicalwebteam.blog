@@ -1,9 +1,13 @@
 import unittest
 import vcr
 
-from datetime import timedelta, date
+from datetime import timedelta, datetime
 from unittest.mock import patch
 from canonicalwebteam.blog import wordpress_api as api
+from canonicalwebteam.http import CachedSession
+
+# make sure that timeouts do not hinder tests
+api.api_session = CachedSession(fallback_cache_duration=3600, timeout=(1, 100))
 
 
 class FailingMockResponse:
@@ -16,66 +20,6 @@ class FailingMockResponse:
 
 
 class TestWordPressApi(unittest.TestCase):
-    def test_build_get_articles_url(self,):
-
-        base_url = (
-            "https://admin.insights.ubuntu.com/"
-            + "wp-json/wp/v2/posts?"
-            + "per_page=12"
-            + "&tags="
-            + "&page=1"
-            + "&group="
-            + "&tags_exclude="
-            + "&categories="
-            + "&exclude="
-            + "&author="
-        )
-
-        url = api.build_get_articles_url(page=3, per_page=24)
-        self.assertEqual(
-            base_url.replace("per_page=12", "per_page=24").replace(
-                "page=1", "page=3"
-            ),
-            url,
-        )
-
-        url = api.build_get_articles_url(tags_exclude=[1234, 5678])
-        self.assertEqual(
-            base_url.replace("tags_exclude=", "tags_exclude=1234,5678"), url
-        )
-
-        url = api.build_get_articles_url(tags=[1234, 5678])
-        self.assertEqual(base_url.replace("tags=", "tags=1234,5678"), url)
-
-        url = api.build_get_articles_url(
-            tags=[1234, 5678], tags_exclude=[9876]
-        )
-        self.assertEqual(
-            base_url.replace("tags=", "tags=1234,5678").replace(
-                "tags_exclude=", "tags_exclude=9876"
-            ),
-            url,
-        )
-
-        url = api.build_get_articles_url(categories=[5678])
-        self.assertEqual(
-            base_url.replace("categories=", "categories=5678"), url
-        )
-
-        url = api.build_get_articles_url(sticky=True)
-        self.assertEqual(base_url + "&sticky=True", url)
-
-        before = date(year=2007, month=12, day=5)
-        after = before - timedelta(days=365)
-
-        url = api.build_get_articles_url(after=after, before=before)
-        self.assertEqual(
-            base_url + "&before=2007-12-05" + "&after=2006-12-05", url
-        )
-
-        url = api.build_get_articles_url(author=1)
-        self.assertEqual(base_url.replace("author=", "author=1"), url)
-
     @vcr.use_cassette("fixtures/vcr_cassettes/articles_with_metadata.yaml")
     def test_get_articles_with_metadata(self):
         articles, metadata = api.get_articles_with_metadata()
@@ -83,11 +27,77 @@ class TestWordPressApi(unittest.TestCase):
         self.assertIsNotNone(metadata["total_posts"])
         self.assertEqual(len(articles), 12)
 
+        # all other functionality is test via get_articles
+
     @vcr.use_cassette("fixtures/vcr_cassettes/articles.yaml")
     def test_get_articles(self):
         articles, total_pages = api.get_articles()
         self.assertIsInstance(total_pages, str)
         self.assertEqual(len(articles), 12)
+
+        first_page_articles, _ = api.get_articles(page=1, per_page=6)
+        second_page_articles, _ = api.get_articles(page=2, per_page=6)
+        first_and_second, _ = api.get_articles(per_page=12)
+        self.assertEqual(len(first_page_articles), 6)
+        self.assertEqual(len(second_page_articles), 6)
+        self.assertEqual(len(first_and_second), 12)
+        for article in first_page_articles:
+            self.assertTrue(article in first_and_second)
+        for article in second_page_articles:
+            self.assertTrue(article in first_and_second)
+        for article in second_page_articles:
+            self.assertTrue(article not in first_page_articles)
+
+        articles_without_tags, _ = api.get_articles(tags_exclude=[3278])
+
+        for article in articles_without_tags:
+            self.assertTrue(3278 not in article["tags"])
+
+        articles_all_have_one_tag, _ = api.get_articles(tags=[3278])
+
+        for article in articles_all_have_one_tag:
+            self.assertTrue(3278 in article["tags"])
+
+        # TODO: this is not yet implemented
+        # articles_with_all_tags, _ = api.get_articles(tags=[3278, 1419])
+
+        # for article in articles_with_all_tags:
+        #    self.assertTrue(
+        #        3278 in article["tags"] and 1419 in article["tags"]
+        #    )
+
+        articles_with_either_tags, _ = api.get_articles(tags=[3278, 1419])
+        for article in articles_with_either_tags:
+            self.assertTrue(3278 in article["tags"] or 1419 in article["tags"])
+
+        articles_for_one_tag_excluding_another_tag, _ = api.get_articles(
+            tags=[3278], tags_exclude=[1419]
+        )
+
+        self.assertTrue(
+            articles_for_one_tag_excluding_another_tag
+            is not articles_all_have_one_tag
+        )
+
+        articles_for_category, _ = api.get_articles(categories=[1453])
+        for article in articles_for_category:
+            self.assertTrue(1453 in article["categories"])
+
+        featured_articles, _ = api.get_articles(sticky=True)
+        for article in featured_articles:
+            self.assertTrue(article["sticky"] is True)
+
+        before = datetime(
+            year=2018, month=12, day=30, hour=12, minute=00, second=00
+        )
+        after = before - timedelta(days=365)
+        articles_in_2018, _ = api.get_articles(after=after, before=before)
+        for article in articles_in_2018:
+            self.assertTrue("2018" in article["date"])
+
+        articles_from_author, _ = api.get_articles(author=217)
+        for article in articles_from_author:
+            self.assertTrue(article["author"] == 217)
 
     @vcr.use_cassette("fixtures/vcr_cassettes/article.yaml")
     def test_get_article(self):
