@@ -1,3 +1,4 @@
+1.5.15: Bugfix on date parsing in logic.py
 1.5.14: Updates upcoming articles to include additional data
 1.5.13: Adds filtering by multiple categories on archive view
 1.5.12: Add next 3 upcoming webinars and events to index

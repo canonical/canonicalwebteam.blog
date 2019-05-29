@@ -97,13 +97,21 @@ def transform_article(
             article["content"]["rendered"]
         )
 
-    if "_start_month" in article:
+    if (
+        article.get("_start_month")
+        and article.get("_start_year")
+        and article.get("_start_day")
+    ):
         start_month_name = get_month_name(int(article["_start_month"]))
         article["start_date"] = "{} {} {}".format(
             article["_start_day"], start_month_name, article["_start_year"]
         )
 
-    if "_end_month" in article:
+    if (
+        article.get("_end_month")
+        and article.get("_end_year")
+        and article.get("_end_day")
+    ):
         end_month_name = get_month_name(int(article["_end_month"]))
         article["end_date"] = "{} {} {}".format(
             article["_end_day"], end_month_name, article["_end_year"]
