@@ -13,14 +13,12 @@ class BlogViews:
         self.tag_name = tag_name
 
     def get_index(self, page=1, category_type="", enable_upcoming=True):
-        upcoming = []
-
         category_id = ""
         if category_type != "":
             category = api.get_category_by_slug(category_type)
             category_id = category["id"]
 
-
+        upcoming = []
         featured_articles = []
         featured_article_ids = []
         if page == "1":
@@ -38,6 +36,7 @@ class BlogViews:
 
 
             if enable_upcoming:
+                # Maybe we can get the IDs since there is no chance this going to move
                 events = api.get_category_by_slug("events")
                 webinars = api.get_category_by_slug("webinars")
                 upcoming, _ = api.get_articles(
@@ -85,16 +84,18 @@ def get_complete_article(article, group=None):
     if "author" in article["_embedded"]:
         author = article["_embedded"]["author"][0]
 
+    categories = []
+    if "wp:term" in article["_embedded"]:
+        categories = article["_embedded"]["wp:term"][0]
+
     category_ids = article["categories"]
 
-    # Can these calls be bundled?
     first_item = True
-    for category_id in category_ids:
-        if category_id not in category_cache:
-            resolved_category = api.get_category_by_id(category_id)
-            category_cache[category_id] = resolved_category
+    for category in categories:
+        if category["id"] not in category_cache:
+            category_cache[category["id"]] = category
         if first_item:
-            article["display_category"] = category_cache[category_id]
+            article["display_category"] = category_cache[category["id"]]
             first_item = False
 
     if group:
