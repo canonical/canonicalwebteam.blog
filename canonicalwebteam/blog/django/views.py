@@ -4,6 +4,7 @@ from datetime import datetime
 from canonicalwebteam.blog import wordpress_api as api
 from canonicalwebteam.blog import logic
 from canonicalwebteam.blog.common_view_logic import (
+    get_index,
     get_index_context,
     get_article_context,
     get_group_page_context,
@@ -23,7 +24,13 @@ tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 def index(request, enable_upcoming=True):
     page_param = request.GET.get("page", default="1")
     category_param = request.GET.get("category", default="")
-    upcoming = []
+
+    context = get_index(page_param, category_param)
+
+    return render(request, "blog/index.html", context)
+
+
+def group(request, slug, template_path):    upcoming = []
 
     try:
         category_id = ""
@@ -71,21 +78,6 @@ def index(request, enable_upcoming=True):
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
 
-    context = get_index_context(
-        page_param,
-        articles,
-        total_pages,
-        featured_articles=featured_articles,
-        upcoming=upcoming,
-    )
-    context["title"] = blog_title
-    context["category"] = {"slug": category_param}
-    context["upcoming"] = upcoming
-
-    return render(request, "blog/index.html", context)
-
-
-def group(request, slug, template_path):
     try:
         page_param = request.GET.get("page", default="1")
         category_param = request.GET.get("category", default="")
