@@ -5,18 +5,24 @@ category_cache = {}
 group_cache = {}
 
 
-def get_index(page=1, catefory=""):
-    upcoming = []
+class BlogViews:
+    def __init__(self, tag_ids, excluded_tags, blog_title, tag_name):
+        self.tag_ids = tag_ids
+        self.excluded_tags = excluded_tags
+        self.blog_title = blog_title
+        self.tag_name = tag_name
 
-    try:
+    def get_index(self, page_param=1, category_param="", enable_upcoming=True):
+        upcoming = []
+
         category_id = ""
         if category_param != "":
             category = api.get_category_by_slug(category_param)
             category_id = category["id"]
         if page_param == "1":
             featured_articles, total_pages = api.get_articles(
-                tags=tag_ids,
-                tags_exclude=excluded_tags,
+                tags=self.tag_ids,
+                tags_exclude=self.excluded_tags,
                 page=page_param,
                 sticky="true",
                 per_page=3,
@@ -25,8 +31,8 @@ def get_index(page=1, catefory=""):
                 article["id"] for article in featured_articles
             ]
             articles, total_pages = api.get_articles(
-                tags=tag_ids,
-                tags_exclude=excluded_tags,
+                tags=self.tag_ids,
+                tags_exclude=self.excluded_tags,
                 exclude=featured_article_ids,
                 page=page_param,
                 categories=[category_id],
@@ -35,8 +41,8 @@ def get_index(page=1, catefory=""):
                 events = api.get_category_by_slug("events")
                 webinars = api.get_category_by_slug("webinars")
                 upcoming, _ = api.get_articles(
-                    tags=tag_ids,
-                    tags_exclude=excluded_tags,
+                    tags=self.tag_ids,
+                    tags_exclude=self.excluded_tags,
                     page=page_param,
                     per_page=3,
                     categories=[events["id"], webinars["id"]],
@@ -44,28 +50,25 @@ def get_index(page=1, catefory=""):
 
         else:
             articles, total_pages = api.get_articles(
-                tags=tag_ids,
+                tags=self.tag_ids,
                 page=page_param,
-                tags_exclude=excluded_tags,
+                tags_exclude=self.excluded_tags,
                 categories=[category_id],
             )
             featured_articles = []
 
-    except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        context = get_index_context(
+            page_param,
+            articles,
+            total_pages,
+            featured_articles=featured_articles,
+            upcoming=upcoming,
+        )
+        context["title"] = self.blog_title
+        context["category"] = {"slug": category_param}
+        context["upcoming"] = upcoming
 
-    context = get_index_context(
-        page_param,
-        articles,
-        total_pages,
-        featured_articles=featured_articles,
-        upcoming=upcoming,
-    )
-    context["title"] = blog_title
-    context["category"] = {"slug": category_param}
-    context["upcoming"] = upcoming
-
-    return context
+        return context
 
 
 def get_complete_article(article, group=None):
