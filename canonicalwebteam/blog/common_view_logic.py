@@ -12,60 +12,60 @@ class BlogViews:
         self.blog_title = blog_title
         self.tag_name = tag_name
 
-    def get_index(self, page_param=1, category_param="", enable_upcoming=True):
+    def get_index(self, page=1, category_type="", enable_upcoming=True):
         upcoming = []
 
         category_id = ""
-        if category_param != "":
-            category = api.get_category_by_slug(category_param)
+        if category_type != "":
+            category = api.get_category_by_slug(category_type)
             category_id = category["id"]
-        if page_param == "1":
+
+
+        featured_articles = []
+        featured_article_ids = []
+        if page == "1":
             featured_articles, total_pages = api.get_articles(
                 tags=self.tag_ids,
                 tags_exclude=self.excluded_tags,
-                page=page_param,
+                page=page,
                 sticky="true",
                 per_page=3,
             )
+
             featured_article_ids = [
                 article["id"] for article in featured_articles
             ]
-            articles, total_pages = api.get_articles(
-                tags=self.tag_ids,
-                tags_exclude=self.excluded_tags,
-                exclude=featured_article_ids,
-                page=page_param,
-                categories=[category_id],
-            )
+
+
             if enable_upcoming:
                 events = api.get_category_by_slug("events")
                 webinars = api.get_category_by_slug("webinars")
                 upcoming, _ = api.get_articles(
                     tags=self.tag_ids,
                     tags_exclude=self.excluded_tags,
-                    page=page_param,
+                    page=page,
                     per_page=3,
                     categories=[events["id"], webinars["id"]],
                 )
 
-        else:
-            articles, total_pages = api.get_articles(
-                tags=self.tag_ids,
-                page=page_param,
-                tags_exclude=self.excluded_tags,
-                categories=[category_id],
-            )
-            featured_articles = []
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            exclude=featured_article_ids,
+            page=page,
+            categories=[category_id],
+        )
 
         context = get_index_context(
-            page_param,
+            page,
             articles,
             total_pages,
             featured_articles=featured_articles,
             upcoming=upcoming,
         )
+
         context["title"] = self.blog_title
-        context["category"] = {"slug": category_param}
+        context["category"] = {"slug": category_type}
         context["upcoming"] = upcoming
 
         return context
@@ -77,9 +77,13 @@ def get_complete_article(article, group=None):
     as an object that includes all information for the templates,
     some of which will be fetched from the Wordpress API
     """
-    featured_image = api.get_media(article["featured_media"])
+    featured_image = {}
+    if "wp:featuredmedia" in article["_embedded"]:
+        featured_image = article["_embedded"]["wp:featuredmedia"][0]
 
-    author = api.get_user(article["author"])
+    author = {}
+    if "author" in article["_embedded"]:
+        author = article["_embedded"]["author"][0]
 
     category_ids = article["categories"]
 
