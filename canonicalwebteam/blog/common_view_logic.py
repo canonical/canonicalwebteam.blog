@@ -5,6 +5,69 @@ category_cache = {}
 group_cache = {}
 
 
+def get_index(page=1, catefory=""):
+    upcoming = []
+
+    try:
+        category_id = ""
+        if category_param != "":
+            category = api.get_category_by_slug(category_param)
+            category_id = category["id"]
+        if page_param == "1":
+            featured_articles, total_pages = api.get_articles(
+                tags=tag_ids,
+                tags_exclude=excluded_tags,
+                page=page_param,
+                sticky="true",
+                per_page=3,
+            )
+            featured_article_ids = [
+                article["id"] for article in featured_articles
+            ]
+            articles, total_pages = api.get_articles(
+                tags=tag_ids,
+                tags_exclude=excluded_tags,
+                exclude=featured_article_ids,
+                page=page_param,
+                categories=[category_id],
+            )
+            if enable_upcoming:
+                events = api.get_category_by_slug("events")
+                webinars = api.get_category_by_slug("webinars")
+                upcoming, _ = api.get_articles(
+                    tags=tag_ids,
+                    tags_exclude=excluded_tags,
+                    page=page_param,
+                    per_page=3,
+                    categories=[events["id"], webinars["id"]],
+                )
+
+        else:
+            articles, total_pages = api.get_articles(
+                tags=tag_ids,
+                page=page_param,
+                tags_exclude=excluded_tags,
+                categories=[category_id],
+            )
+            featured_articles = []
+
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
+
+    context = get_index_context(
+        page_param,
+        articles,
+        total_pages,
+        featured_articles=featured_articles,
+        upcoming=upcoming,
+    )
+    context["title"] = blog_title
+    context["category"] = {"slug": category_param}
+    context["upcoming"] = upcoming
+
+    return context
+
+
 def get_complete_article(article, group=None):
     """
     This returns any given article from the wordpress API
