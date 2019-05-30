@@ -4,7 +4,7 @@ from datetime import datetime
 from canonicalwebteam.blog import wordpress_api as api
 from canonicalwebteam.blog import logic
 from canonicalwebteam.blog.common_view_logic import (
-    get_index,
+    BlogViews,
     get_index_context,
     get_article_context,
     get_group_page_context,
@@ -20,64 +20,19 @@ excluded_tags = settings.BLOG_CONFIG["EXCLUDED_TAGS"]
 blog_title = settings.BLOG_CONFIG["BLOG_TITLE"]
 tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 
+blog_views = BlogViews(tag_ids, excluded_tags, blog_title, tag_name)
+
 
 def index(request, enable_upcoming=True):
     page_param = request.GET.get("page", default="1")
     category_param = request.GET.get("category", default="")
 
-    context = get_index(page_param, category_param)
+    context = blog_views.get_index(page_param, category_param, enable_upcoming)
 
     return render(request, "blog/index.html", context)
 
 
-def group(request, slug, template_path):    upcoming = []
-
-    try:
-        category_id = ""
-        if category_param != "":
-            category = api.get_category_by_slug(category_param)
-            category_id = category["id"]
-        if page_param == "1":
-            featured_articles, total_pages = api.get_articles(
-                tags=tag_ids,
-                tags_exclude=excluded_tags,
-                page=page_param,
-                sticky="true",
-                per_page=3,
-            )
-            featured_article_ids = [
-                article["id"] for article in featured_articles
-            ]
-            articles, total_pages = api.get_articles(
-                tags=tag_ids,
-                tags_exclude=excluded_tags,
-                exclude=featured_article_ids,
-                page=page_param,
-                categories=[category_id],
-            )
-            if enable_upcoming:
-                events = api.get_category_by_slug("events")
-                webinars = api.get_category_by_slug("webinars")
-                upcoming, _ = api.get_articles(
-                    tags=tag_ids,
-                    tags_exclude=excluded_tags,
-                    page=page_param,
-                    per_page=3,
-                    categories=[events["id"], webinars["id"]],
-                )
-
-        else:
-            articles, total_pages = api.get_articles(
-                tags=tag_ids,
-                page=page_param,
-                tags_exclude=excluded_tags,
-                categories=[category_id],
-            )
-            featured_articles = []
-
-    except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
-
+def group(request, slug, template_path):
     try:
         page_param = request.GET.get("page", default="1")
         category_param = request.GET.get("category", default="")
