@@ -90,25 +90,23 @@ def get_complete_article(article, group=None):
 
     category_ids = article["categories"]
 
-    first_item = True
     for category in categories:
         if category["id"] not in category_cache:
             category_cache[category["id"]] = category
-        if first_item:
-            article["display_category"] = category_cache[category["id"]]
-            first_item = False
+
+        if "display_category" not in article:
+            article["display_category"] = category
 
     if group:
         article["group"] = group
     else:
-        first_item = True
         for group_id in article["group"]:
             if group_id not in group_cache:
                 resolved_group = api.get_group_by_id(group_id)
                 group_cache[group_id] = resolved_group
-            if first_item:
+
+            if "group" not in article:
                 article["group"] = group_cache[group_id]
-                first_item = False
 
     return logic.transform_article(
         article, featured_image=featured_image, author=author
