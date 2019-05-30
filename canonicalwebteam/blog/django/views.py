@@ -29,7 +29,7 @@ def index(request, enable_upcoming=True):
 
     context = blog_views.get_index(
         page=page_param,
-        category_type=category_param,
+        category=category_param,
         enable_upcoming=enable_upcoming,
     )
 

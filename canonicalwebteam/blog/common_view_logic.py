@@ -12,11 +12,11 @@ class BlogViews:
         self.blog_title = blog_title
         self.tag_name = tag_name
 
-    def get_index(self, page=1, category_type="", enable_upcoming=True):
+    def get_index(self, page=1, category="", enable_upcoming=True):
         category_id = ""
-        if category_type != "":
-            category = api.get_category_by_slug(category_type)
-            category_id = category["id"]
+        if category != "":
+            category_resolved = api.get_category_by_slug(category)
+            category_id = category_resolved["id"]
 
         upcoming = []
         featured_articles = []
@@ -64,7 +64,7 @@ class BlogViews:
         )
 
         context["title"] = self.blog_title
-        context["category"] = {"slug": category_type}
+        context["category"] = {"slug": category}
         context["upcoming"] = upcoming
 
         return context
