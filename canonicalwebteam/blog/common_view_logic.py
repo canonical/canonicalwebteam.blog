@@ -100,13 +100,8 @@ def get_complete_article(article, group=None):
     if group:
         article["group"] = group
     else:
-        for group_id in article["group"]:
-            if group_id not in group_cache:
-                resolved_group = api.get_group_by_id(group_id)
-                group_cache[group_id] = resolved_group
-
-            if "group" not in article:
-                article["group"] = group_cache[group_id]
+        if "wp:term" in article["_embedded"] and article["_embedded"]["wp:term"][3]:
+            article["group"] = article["_embedded"]["wp:term"][3][0]
 
     return logic.transform_article(
         article, featured_image=featured_image, author=author
