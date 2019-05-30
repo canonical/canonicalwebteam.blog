@@ -34,9 +34,9 @@ class BlogViews:
                 article["id"] for article in featured_articles
             ]
 
-
             if enable_upcoming:
-                # Maybe we can get the IDs since there is no chance this going to move
+                # Maybe we can get the IDs since there is no chance
+                # this going to move
                 events = api.get_category_by_slug("events")
                 webinars = api.get_category_by_slug("webinars")
                 upcoming, _ = api.get_articles(
@@ -88,8 +88,6 @@ def get_complete_article(article, group=None):
     if "wp:term" in article["_embedded"]:
         categories = article["_embedded"]["wp:term"][0]
 
-    category_ids = article["categories"]
-
     for category in categories:
         if category["id"] not in category_cache:
             category_cache[category["id"]] = category
@@ -100,7 +98,10 @@ def get_complete_article(article, group=None):
     if group:
         article["group"] = group
     else:
-        if "wp:term" in article["_embedded"] and article["_embedded"]["wp:term"][3]:
+        if (
+            "wp:term" in article["_embedded"]
+            and article["_embedded"]["wp:term"][3]
+        ):
             article["group"] = article["_embedded"]["wp:term"][3][0]
 
     return logic.transform_article(
