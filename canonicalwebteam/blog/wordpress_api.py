@@ -55,7 +55,7 @@ def build_get_articles_url(
         f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
         f"&categories={','.join(str(id) for id in categories)}"
         f"&exclude={','.join(str(id) for id in exclude)}"
-        f"&author={author}"
+        f"&author={author}&_embed"
     )
     if sticky != "":
         url = url + f"&sticky={sticky}"
