@@ -21,7 +21,6 @@ class TestCommonViewLogic(unittest.TestCase):
             "canonical-announces-support-for"
             "-ubuntu-on-windows-subsystem-for-linux-2"
         )
-        article["categories"] = [1453]
 
         complete_article = get_complete_article(article)
         self.assertEqual(complete_article["author"]["name"], "Canonical")
@@ -36,9 +35,6 @@ class TestCommonViewLogic(unittest.TestCase):
         self.assertLessEqual(len(complete_article["excerpt"]["raw"]), 344)
 
         self.assertEqual(
-            complete_article["display_category"]["name"], "Articles"
-        )
-        self.assertEqual(
             complete_article["group"]["name"], "Canonical announcements"
         )
 
@@ -49,9 +45,6 @@ class TestCommonViewLogic(unittest.TestCase):
             category
             for article in articles
             for category in article["categories"]
-        ]
-        all_groups = [
-            group for article in articles for group in article["group"]
         ]
 
         featured, _ = api.get_articles(sticky=True)
@@ -74,10 +67,6 @@ class TestCommonViewLogic(unittest.TestCase):
         used_categories = list(index_context["used_categories"].keys())
         for category in all_categories:
             self.assertTrue(category in used_categories)
-
-        used_groups = list(index_context["groups"].keys())
-        for group in all_groups:
-            self.assertTrue(group in used_groups)
 
     @vcr.use_cassette("fixtures/vcr_cassettes/get_group_context.yaml")
     def test_get_group_page_context(self):
@@ -124,10 +113,6 @@ class TestCommonViewLogic(unittest.TestCase):
             for category in article["categories"]
         ]
 
-        all_groups = [
-            group for article in articles for group in article["group"]
-        ]
-
         featured, _ = api.get_articles(sticky=True)
 
         # TODO: TDD refactor of function signature, to include
@@ -146,10 +131,6 @@ class TestCommonViewLogic(unittest.TestCase):
         used_categories = list(topic_context["used_categories"].keys())
         for category in all_categories:
             self.assertTrue(category in used_categories)
-
-        used_topics = list(topic_context["groups"].keys())
-        for topic in all_groups:
-            self.assertTrue(topic in used_topics)
 
     @vcr.use_cassette("fixtures/vcr_cassettes/get_article_context.yaml")
     def test_get_article_context(self):

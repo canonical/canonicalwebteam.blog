@@ -134,7 +134,6 @@ def get_complete_article(article, group=None):
     featured_image = {}
     if featured_images:
         featured_image = featured_images[0]
-
     author = get_embedded_author(article["_embedded"])
     categories = get_embedded_categories(article["_embedded"])
 
