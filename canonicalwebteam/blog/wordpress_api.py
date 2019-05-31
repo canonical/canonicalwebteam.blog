@@ -129,7 +129,7 @@ def get_article(slug="", tags=[], tags_exclude=[]):
     Get an article from Wordpress api
     :param slug: Article slug to fetch
     """
-    url = f"{API_URL}/posts?slug={slug}"
+    url = f"{API_URL}/posts?slug={slug}&_embed"
 
     response = api_session.get(url)
 
