@@ -27,11 +27,14 @@ def index(request, enable_upcoming=True):
     page_param = request.GET.get("page", default="1")
     category_param = request.GET.get("category", default="")
 
-    context = blog_views.get_index(
-        page=page_param,
-        category=category_param,
-        enable_upcoming=enable_upcoming,
-    )
+    try:
+        context = blog_views.get_index(
+            page=page_param,
+            category=category_param,
+            enable_upcoming=enable_upcoming,
+        )
+    except Exception as e:
+        return HttpResponse("Error: " + e, status=502)
 
     return render(request, "blog/index.html", context)
 
