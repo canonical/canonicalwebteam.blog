@@ -14,7 +14,7 @@ class BlogViews:
 
     def get_index(self, page=1, category="", enable_upcoming=True):
         category_id = ""
-        if category != "":
+        if category:
             category_resolved = api.get_category_by_slug(category)
             category_id = category_resolved["id"]
 
@@ -70,23 +70,73 @@ class BlogViews:
         return context
 
 
+def get_embedded_categories(embedded):
+    """Returns the categories in the embedded response from wp
+    The category is in the first object of the wp:term of the response:
+    embedded["wp:term"][0]
+
+
+    :param embedded: The embedded dictionnary in teh response
+    :returns: Dictionnary of categories
+    """
+    if "wp:term" in embedded and embedded["wp:term"][0]:
+        return embedded["wp:term"][0]
+    return {}
+
+
+def get_embedded_group(embedded):
+    """Returns the group in the embedded response from wp.
+    The group is in the fourth object of the wp:term list of the response:
+    embedded["wp:term"][3]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of group
+    """
+    if "wp:term" in embedded and embedded["wp:term"][3]:
+        return embedded["wp:term"][3][0]
+    return {}
+
+
+def get_embedded_author(embedded):
+    """Returns the author in the embedded response from wp.
+    embedded["author"]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of author
+    """
+    if "author" in embedded:
+        return embedded["author"][0]
+    return {}
+
+
+def get_embedded_featured_media(embedded):
+    """Returns the featured media in the embedded response from wp.
+    embedded["wp:featuredmedia"]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: List of featuredmedia
+    """
+    if "wp:featuredmedia" in embedded:
+        return embedded["wp:featuredmedia"]
+    return []
+
+
 def get_complete_article(article, group=None):
     """
     This returns any given article from the wordpress API
     as an object that includes all information for the templates,
     some of which will be fetched from the Wordpress API
     """
+    featured_images = get_embedded_featured_media(article["_embedded"])
     featured_image = {}
-    if "wp:featuredmedia" in article["_embedded"]:
-        featured_image = article["_embedded"]["wp:featuredmedia"][0]
+    if featured_images:
+        featured_image = featured_images[0]
 
-    author = {}
-    if "author" in article["_embedded"]:
-        author = article["_embedded"]["author"][0]
-
-    categories = []
-    if "wp:term" in article["_embedded"]:
-        categories = article["_embedded"]["wp:term"][0]
+    author = get_embedded_author(article["_embedded"])
+    categories = get_embedded_categories(article["_embedded"])
 
     for category in categories:
         if category["id"] not in category_cache:
@@ -98,11 +148,7 @@ def get_complete_article(article, group=None):
     if group:
         article["group"] = group
     else:
-        if (
-            "wp:term" in article["_embedded"]
-            and article["_embedded"]["wp:term"][3]
-        ):
-            article["group"] = article["_embedded"]["wp:term"][3][0]
+        article["group"] = get_embedded_group(article["_embedded"])
 
     return logic.transform_article(
         article, featured_image=featured_image, author=author
