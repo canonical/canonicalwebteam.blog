@@ -79,9 +79,8 @@ def get_embedded_categories(embedded):
     :param embedded: The embedded dictionnary in teh response
     :returns: Dictionnary of categories
     """
-    if "wp:term" in embedded and embedded["wp:term"][0]:
-        return embedded["wp:term"][0]
-    return {}
+    terms = embedded.get("wp:term", [{}])
+    return terms[0]
 
 
 def get_embedded_group(embedded):
@@ -106,9 +105,8 @@ def get_embedded_author(embedded):
     :param embedded: The embedded dictionnary in the response
     :returns: Dictionnary of author
     """
-    if "author" in embedded:
-        return embedded["author"][0]
-    return {}
+    authors = embedded.get("author", [{}])
+    return authors[0]
 
 
 def get_embedded_featured_media(embedded):
@@ -119,9 +117,7 @@ def get_embedded_featured_media(embedded):
     :param embedded: The embedded dictionnary in the response
     :returns: List of featuredmedia
     """
-    if "wp:featuredmedia" in embedded:
-        return embedded["wp:featuredmedia"]
-    return []
+    return embedded.get("wp:featuredmedia", [])
 
 
 def get_complete_article(article, group=None):
