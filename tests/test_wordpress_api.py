@@ -22,12 +22,12 @@ class FailingMockResponse:
 class TestWordPressApi(unittest.TestCase):
     @vcr.use_cassette("fixtures/vcr_cassettes/articles_with_metadata.yaml")
     def test_get_articles_with_metadata(self):
+        # This function is similar to get_articles, plus the metadata
+        # therefore all other functionality is tested via test_get_articles
         articles, metadata = api.get_articles_with_metadata()
         self.assertIsNotNone(metadata["total_pages"])
         self.assertIsNotNone(metadata["total_posts"])
         self.assertEqual(len(articles), 12)
-
-        # all other functionality is test via get_articles
 
     @vcr.use_cassette("fixtures/vcr_cassettes/articles.yaml")
     def test_get_articles(self):
@@ -58,7 +58,8 @@ class TestWordPressApi(unittest.TestCase):
         for article in articles_all_have_one_tag:
             self.assertTrue(3278 in article["tags"])
 
-        # TODO: this is not yet implemented
+        # TODO:
+        # https://github.com/canonical-web-and-design/canonicalwebteam.blog/issues/67
         # articles_with_all_tags, _ = api.get_articles(tags=[3278, 1419])
 
         # for article in articles_with_all_tags:
