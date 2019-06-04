@@ -9,10 +9,9 @@ from canonicalwebteam.blog.common_view_logic import (
     get_topic_page_context,
     get_article_context,
 )
-from canonicalwebteam.http import CachedSession
+from canonicalwebteam.http import Session
 
-# make sure that timeouts do not hinder tests
-api.api_session = CachedSession(fallback_cache_duration=3600, timeout=(1, 100))
+api.api_session = Session()
 
 
 class TestCommonViewLogic(unittest.TestCase):
