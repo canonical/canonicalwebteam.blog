@@ -128,15 +128,8 @@ def get_article(slug="", tags=[], tags_exclude=[]):
     """
     Get an article from Wordpress api
     :param slug: Article slug to fetch
-    :param tags: Array tags to fetch articles for
-    :param tags_exclude: Array of IDs of tags that will be excluded
-        should be fetched
     """
-    url = (
-        f"{API_URL}/posts?slug={slug}"
-        f"&tags={','.join(str(id) for id in tags)}"
-        f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
-    )
+    url = f"{API_URL}/posts?slug={slug}"
 
     response = api_session.get(url)
 
