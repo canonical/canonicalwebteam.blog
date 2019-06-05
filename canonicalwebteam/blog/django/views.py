@@ -6,7 +6,6 @@ from canonicalwebteam.blog import logic
 from canonicalwebteam.blog.common_view_logic import (
     BlogViews,
     get_index_context,
-    get_article_context,
     get_group_page_context,
     get_topic_page_context,
 )
