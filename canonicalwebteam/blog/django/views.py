@@ -51,21 +51,12 @@ def group(request, slug, template_path):
 
 
 def topic(request, slug, template_path):
+    page_param = request.GET.get("page", default="1")
+
     try:
-        page_param = request.GET.get("page", default="1")
-
-        tag = api.get_tag_by_slug(slug)
-
-        articles, total_pages = api.get_articles(
-            tags=tag_ids + [tag["id"]],
-            tags_exclude=excluded_tags,
-            page=page_param,
-        )
-
+        context = blog_views.get_topic(slug, page_param)
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
-    context = get_topic_page_context(page_param, articles, total_pages)
-    context["title"] = blog_title
 
     return render(request, template_path, context)
 
