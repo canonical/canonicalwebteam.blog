@@ -72,68 +72,26 @@ class BlogViews:
 
         return get_article_context(article, self.tag_ids, self.excluded_tags)
 
+    def get_group(self, group_slug, page=1, category_slug=""):
+        group = api.get_group_by_slug(group_slug)
 
-def get_embedded_categories(embedded):
-    """Returns the categories in the embedded response from wp
-    The category is in the first object of the wp:term of the response:
-    embedded["wp:term"][0]
+        category = {}
+        if category_slug:
+            category = api.get_category_by_slug(category_slug)
 
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            page=page,
+            groups=[group.get("id", "")],
+            categories=[category.get("id", "")],
+        )
 
-    :param embedded: The embedded dictionnary in teh response
-    :returns: Dictionnary of categories
-    """
-    terms = embedded.get("wp:term", [{}])
-    return terms[0]
+        context = get_group_page_context(page, articles, total_pages, group)
+        context["title"] = self.blog_title
+        context["category"] = {"slug": category_slug}
 
-
-def get_embedded_group(embedded):
-    """Returns the group in the embedded response from wp.
-    The group is in the fourth object of the wp:term list of the response:
-    embedded["wp:term"][3]
-
-
-    :param embedded: The embedded dictionnary in the response
-    :returns: Dictionnary of group
-    """
-    if "wp:term" in embedded and embedded["wp:term"][3]:
-        return embedded["wp:term"][3][0]
-    return {}
-
-
-def get_embedded_author(embedded):
-    """Returns the author in the embedded response from wp.
-    embedded["author"]
-
-
-    :param embedded: The embedded dictionnary in the response
-    :returns: Dictionnary of author
-    """
-    authors = embedded.get("author", [{}])
-    return authors[0]
-
-
-def get_embedded_featured_media(embedded):
-    """Returns the featured media in the embedded response from wp.
-    embedded["wp:featuredmedia"]
-
-
-    :param embedded: The embedded dictionnary in the response
-    :returns: List of featuredmedia
-    """
-    return embedded.get("wp:featuredmedia", [])
-
-
-def get_embedded_tags(embedded):
-    """Returns the tags in the embedded response from wp.
-    The group is in the fourth object of the wp:term list of the response:
-    embedded["wp:term"][1]
-
-
-    :param embedded: The embedded dictionnary in the response
-    :returns: Dictionnary of tags
-    """
-    terms = embedded.get("wp:term", [{}, {}])
-    return terms[1]
+        return context
 
 
 def get_complete_article(article, group=None):
@@ -142,12 +100,12 @@ def get_complete_article(article, group=None):
     as an object that includes all information for the templates,
     some of which will be fetched from the Wordpress API
     """
-    featured_images = get_embedded_featured_media(article["_embedded"])
+    featured_images = logic.get_embedded_featured_media(article["_embedded"])
     featured_image = {}
     if featured_images:
         featured_image = featured_images[0]
-    author = get_embedded_author(article["_embedded"])
-    categories = get_embedded_categories(article["_embedded"])
+    author = logic.get_embedded_author(article["_embedded"])
+    categories = logic.get_embedded_categories(article["_embedded"])
 
     for category in categories:
         if category["id"] not in category_cache:
@@ -159,7 +117,7 @@ def get_complete_article(article, group=None):
     if group:
         article["group"] = group
     else:
-        article["group"] = get_embedded_group(article["_embedded"])
+        article["group"] = logic.get_embedded_group(article["_embedded"])
 
     return logic.transform_article(
         article, featured_image=featured_image, author=author
@@ -260,13 +218,13 @@ def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
     Build the content for the article page
     :param article: Article to create context for
     """
-    author = get_embedded_author(article["_embedded"])
+    author = logic.get_embedded_author(article["_embedded"])
 
     transformed_article = logic.transform_article(
         article, author=author, optimise_images=True
     )
 
-    tags = get_embedded_tags(article["_embedded"])
+    tags = logic.get_embedded_tags(article["_embedded"])
     is_in_series = logic.is_in_series(tags)
 
     all_related_articles, total_pages = api.get_articles(
@@ -281,7 +239,7 @@ def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
         if set(related_tag_ids) <= set(related_article["tags"]):
             related_articles.append(logic.transform_article(related_article))
 
-    article["group"] = get_embedded_group(article["_embedded"])
+    article["group"] = logic.get_embedded_group(article["_embedded"])
 
     return {
         "article": transformed_article,
