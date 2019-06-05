@@ -64,6 +64,14 @@ class BlogViews:
 
         return context
 
+    def get_article(self, slug):
+        article = api.get_article(slug, self.tag_ids)
+
+        if not article:
+            return {}
+
+        return get_article_context(article, self.tag_ids)
+
 
 def get_embedded_categories(embedded):
     """Returns the categories in the embedded response from wp
@@ -113,6 +121,19 @@ def get_embedded_featured_media(embedded):
     :returns: List of featuredmedia
     """
     return embedded.get("wp:featuredmedia", [])
+
+
+def get_embedded_tags(embedded):
+    """Returns the tags in the embedded response from wp.
+    The group is in the fourth object of the wp:term list of the response:
+    embedded["wp:term"][1]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of tags
+    """
+    terms = embedded.get("wp:term", [{}, {}])
+    return terms[1]
 
 
 def get_complete_article(article, group=None):
@@ -240,7 +261,7 @@ def get_article_context(article, related_tag_ids=[]):
     :param article: Article to create context for
     """
 
-    author = api.get_user(article["author"])
+    author = get_embedded_author(article["_embedded"])
 
     transformed_article = logic.transform_article(
         article, author=author, optimise_images=True
@@ -248,7 +269,7 @@ def get_article_context(article, related_tag_ids=[]):
 
     tags = article["tags"]
     tag_names = []
-    tag_names_response = api.get_tags_by_ids(tags)
+    tag_names_response = get_embedded_tags(article["_embedded"])
 
     if tag_names_response:
         for tag in tag_names_response:
