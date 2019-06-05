@@ -55,7 +55,7 @@ def build_get_articles_url(
         f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
         f"&categories={','.join(str(id) for id in categories)}"
         f"&exclude={','.join(str(id) for id in exclude)}"
-        f"&author={author}"
+        f"&author={author}&_embed"
     )
     if sticky != "":
         url = url + f"&sticky={sticky}"
@@ -129,7 +129,7 @@ def get_article(slug="", tags=[], tags_exclude=[]):
     Get an article from Wordpress api
     :param slug: Article slug to fetch
     """
-    url = f"{API_URL}/posts?slug={slug}"
+    url = f"{API_URL}/posts?slug={slug}&_embed"
 
     response = api_session.get(url)
 

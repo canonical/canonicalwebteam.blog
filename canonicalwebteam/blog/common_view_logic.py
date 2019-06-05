@@ -5,39 +5,140 @@ category_cache = {}
 group_cache = {}
 
 
+class BlogViews:
+    def __init__(self, tag_ids, excluded_tags, blog_title, tag_name):
+        self.tag_ids = tag_ids
+        self.excluded_tags = excluded_tags
+        self.blog_title = blog_title
+        self.tag_name = tag_name
+
+    def get_index(self, page=1, category="", enable_upcoming=True):
+        category_id = ""
+        if category:
+            category_resolved = api.get_category_by_slug(category)
+            category_id = category_resolved["id"]
+
+        upcoming = []
+        featured_articles = []
+        if page == "1":
+            featured_articles, total_pages = api.get_articles(
+                tags=self.tag_ids,
+                tags_exclude=self.excluded_tags,
+                page=page,
+                sticky="true",
+                per_page=3,
+            )
+
+            if enable_upcoming:
+                # Maybe we can get the IDs since there is no chance
+                # this going to move
+                events = api.get_category_by_slug("events")
+                webinars = api.get_category_by_slug("webinars")
+                upcoming, _ = api.get_articles(
+                    tags=self.tag_ids,
+                    tags_exclude=self.excluded_tags,
+                    page=page,
+                    per_page=3,
+                    categories=[events["id"], webinars["id"]],
+                )
+
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            exclude=[article["id"] for article in featured_articles],
+            page=page,
+            categories=[category_id],
+        )
+
+        context = get_index_context(
+            page,
+            articles,
+            total_pages,
+            featured_articles=featured_articles,
+            upcoming=upcoming,
+        )
+
+        context["title"] = self.blog_title
+        context["category"] = {"slug": category}
+        context["upcoming"] = upcoming
+
+        return context
+
+
+def get_embedded_categories(embedded):
+    """Returns the categories in the embedded response from wp
+    The category is in the first object of the wp:term of the response:
+    embedded["wp:term"][0]
+
+
+    :param embedded: The embedded dictionnary in teh response
+    :returns: Dictionnary of categories
+    """
+    terms = embedded.get("wp:term", [{}])
+    return terms[0]
+
+
+def get_embedded_group(embedded):
+    """Returns the group in the embedded response from wp.
+    The group is in the fourth object of the wp:term list of the response:
+    embedded["wp:term"][3]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of group
+    """
+    if "wp:term" in embedded and embedded["wp:term"][3]:
+        return embedded["wp:term"][3][0]
+    return {}
+
+
+def get_embedded_author(embedded):
+    """Returns the author in the embedded response from wp.
+    embedded["author"]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of author
+    """
+    authors = embedded.get("author", [{}])
+    return authors[0]
+
+
+def get_embedded_featured_media(embedded):
+    """Returns the featured media in the embedded response from wp.
+    embedded["wp:featuredmedia"]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: List of featuredmedia
+    """
+    return embedded.get("wp:featuredmedia", [])
+
+
 def get_complete_article(article, group=None):
     """
     This returns any given article from the wordpress API
     as an object that includes all information for the templates,
     some of which will be fetched from the Wordpress API
     """
-    featured_image = api.get_media(article["featured_media"])
+    featured_images = get_embedded_featured_media(article["_embedded"])
+    featured_image = {}
+    if featured_images:
+        featured_image = featured_images[0]
+    author = get_embedded_author(article["_embedded"])
+    categories = get_embedded_categories(article["_embedded"])
 
-    author = api.get_user(article["author"])
+    for category in categories:
+        if category["id"] not in category_cache:
+            category_cache[category["id"]] = category
 
-    category_ids = article["categories"]
-
-    # Can these calls be bundled?
-    first_item = True
-    for category_id in category_ids:
-        if category_id not in category_cache:
-            resolved_category = api.get_category_by_id(category_id)
-            category_cache[category_id] = resolved_category
-        if first_item:
-            article["display_category"] = category_cache[category_id]
-            first_item = False
+        if "display_category" not in article:
+            article["display_category"] = category
 
     if group:
         article["group"] = group
     else:
-        first_item = True
-        for group_id in article["group"]:
-            if group_id not in group_cache:
-                resolved_group = api.get_group_by_id(group_id)
-                group_cache[group_id] = resolved_group
-            if first_item:
-                article["group"] = group_cache[group_id]
-                first_item = False
+        article["group"] = get_embedded_group(article["_embedded"])
 
     return logic.transform_article(
         article, featured_image=featured_image, author=author
