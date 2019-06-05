@@ -164,6 +164,63 @@ class BlogViews:
             "latest_pinned_articles": latest_pinned_articles,
         }
 
+    def get_archives(page=1, group="", month="", year="", category=""):
+        groups = []
+        categories = []
+
+        if group:
+            group = api.get_group_by_slug(group)
+            groups.append(group["id"])
+
+        if category:
+            category_slugs = category.split(",")
+            for slug in category_slugs:
+                category = api.get_category_by_slug(slug)
+                categories.append(category["id"])
+
+        after = ""
+        before = ""
+        if year:
+            year = int(year)
+            if month:
+                after = datetime(year=year, month=int(month), day=1)
+                before = after + relativedelta(months=1)
+            else:
+                after = datetime(year=year, month=1, day=1)
+                before = datetime(year=year, month=12, day=31)
+
+        articles, metadata = api.get_articles_with_metadata(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            page=page,
+            groups=groups,
+            categories=categories,
+            after=after,
+            before=before,
+        )
+
+        total_pages = metadata["total_pages"]
+        total_posts = metadata["total_posts"]
+
+        if group:
+            context = get_group_page_context(
+                page, articles, total_pages, group
+            )
+        else:
+            context = get_index_context(page, articles, total_pages)
+
+        context["title"] = self.blog_title
+        context["total_posts"] = total_posts
+
+        return context
+
+    def get_feed(uri):
+        feed = api.get_feed(self.tag_name)
+        right_urls = logic.change_url(feed, uri.replace("/feed", ""))
+        context = right_urls.replace("Ubuntu Blog", blog_title)
+
+        return context
+
 
 def get_complete_article(article, group=None):
     """
