@@ -41,11 +41,6 @@ class TestCommonViewLogic(unittest.TestCase):
     @vcr.use_cassette("fixtures/vcr_cassettes/get_index_context.yaml")
     def test_get_index_context(self):
         articles, total_pages = api.get_articles()
-        all_categories = [
-            category
-            for article in articles
-            for category in article["categories"]
-        ]
 
         featured, _ = api.get_articles(sticky=True)
 
@@ -64,18 +59,9 @@ class TestCommonViewLogic(unittest.TestCase):
             self.assertIsNotNone(article["image"])
             self.assertIsNotNone(article["group"])
 
-        used_categories = list(index_context["used_categories"].keys())
-        for category in all_categories:
-            self.assertTrue(category in used_categories)
-
     @vcr.use_cassette("fixtures/vcr_cassettes/get_group_context.yaml")
     def test_get_group_page_context(self):
         articles, total_pages = api.get_articles()
-        all_categories = [
-            category
-            for article in articles
-            for category in article["categories"]
-        ]
 
         featured, _ = api.get_articles(sticky=True)
 
@@ -100,18 +86,9 @@ class TestCommonViewLogic(unittest.TestCase):
             self.assertIsNotNone(article["image"])
             self.assertIsNotNone(article["group"])
 
-        used_categories = list(group_context["used_categories"].keys())
-        for category in all_categories:
-            self.assertTrue(category in used_categories)
-
     @vcr.use_cassette("fixtures/vcr_cassettes/get_topic_context.yaml")
     def test_get_topic_page_context(self):
         articles, total_pages = api.get_articles()
-        all_categories = [
-            category
-            for article in articles
-            for category in article["categories"]
-        ]
 
         featured, _ = api.get_articles(sticky=True)
 
@@ -127,10 +104,6 @@ class TestCommonViewLogic(unittest.TestCase):
             self.assertIsNotNone(article["author"]["name"])
             self.assertIsNotNone(article["image"])
             self.assertIsNotNone(article["topic"])
-
-        used_categories = list(topic_context["used_categories"].keys())
-        for category in all_categories:
-            self.assertTrue(category in used_categories)
 
     @vcr.use_cassette("fixtures/vcr_cassettes/get_article_context.yaml")
     def test_get_article_context(self):
