@@ -151,7 +151,9 @@ def get_article_context(article, related_tag_ids=[]):
 
     if tag_names_response:
         for tag in tag_names_response:
-            tag_names.append({"id": tag["id"], "name": tag["name"]})
+            tag_names.append(
+                {"id": tag["id"], "name": tag["name"], "slug": tag["slug"]}
+            )
 
     is_in_series = logic.is_in_series(tag_names)
 
