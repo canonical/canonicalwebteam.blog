@@ -107,6 +107,22 @@ class BlogViews:
 
         return context
 
+    def get_upcoming(self, page=1):
+        events = api.get_category_by_slug("events")
+        webinars = api.get_category_by_slug("webinars")
+
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            page=page,
+            categories=[events["id"], webinars["id"]],
+        )
+
+        context = get_index_context(page, articles, total_pages)
+        context["title"] = self.blog_title
+
+        return context
+
 
 def get_complete_article(article, group=None):
     """
