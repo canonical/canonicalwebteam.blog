@@ -65,12 +65,12 @@ class BlogViews:
         return context
 
     def get_article(self, slug):
-        article = api.get_article(slug, self.tag_ids)
+        article = api.get_article(slug, self.tag_ids, self.excluded_tags)
 
         if not article:
             return {}
 
-        return get_article_context(article, self.tag_ids)
+        return get_article_context(article, self.tag_ids, self.excluded_tags)
 
 
 def get_embedded_categories(embedded):
@@ -255,12 +255,11 @@ def get_topic_page_context(page_param, articles, total_pages):
     }
 
 
-def get_article_context(article, related_tag_ids=[]):
+def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
     """
     Build the content for the article page
     :param article: Article to create context for
     """
-
     author = get_embedded_author(article["_embedded"])
 
     transformed_article = logic.transform_article(
@@ -280,29 +279,22 @@ def get_article_context(article, related_tag_ids=[]):
     is_in_series = logic.is_in_series(tag_names)
 
     all_related_articles, total_pages = api.get_articles(
-        tags=tags, per_page=3, exclude=[article["id"]]
+        tags=[tag["id"] for tag in tags],
+        tags_exclude=excluded_tags,
+        per_page=3,
+        exclude=[article["id"]],
     )
 
     related_articles = []
-    if all_related_articles:
-        for related_article in all_related_articles:
-            if set(related_tag_ids).issubset(related_article["tags"]):
-                related_articles.append(
-                    logic.transform_article(related_article)
-                )
+    for related_article in all_related_articles:
+        if set(related_tag_ids) <= set(related_article["tags"]):
+            related_articles.append(logic.transform_article(related_article))
 
-    for group_id in article["group"]:
-        if group_id not in group_cache:
-            resolved_group = api.get_group_by_id(group_id)
-            group_cache[group_id] = resolved_group
-            article["group"] = resolved_group
-            break
-        else:
-            article["group"] = group_cache[group_id]
+    article["group"] = get_embedded_group(article["_embedded"])
 
     return {
         "article": transformed_article,
         "related_articles": related_articles,
-        "tags": tag_names,
+        "tags": tags,
         "is_in_series": is_in_series,
     }
