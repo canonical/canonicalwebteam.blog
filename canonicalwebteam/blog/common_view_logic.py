@@ -123,6 +123,20 @@ class BlogViews:
 
         return context
 
+    def get_author(self, username):
+        author = api.get_user_by_username(username)
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            per_page=5,
+            author=author["id"],
+        )
+
+        return {
+            "title": self.blog_title,
+            "author": author,
+            "latest_articles": articles,
+        }
 
 def get_complete_article(article, group=None):
     """

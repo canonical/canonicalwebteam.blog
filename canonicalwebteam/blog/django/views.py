@@ -74,20 +74,7 @@ def upcoming(request):
 
 def author(request, username):
     try:
-        author = api.get_user_by_username(username)
-        articles, total_pages = api.get_articles(
-            tags=tag_ids,
-            tags_exclude=excluded_tags,
-            per_page=5,
-            author=author["id"],
-        )
-
-        context = {
-            "title": blog_title,
-            "author": author,
-            "latest_articles": articles,
-        }
-
+        context = blog_views.get_author(username)
         return render(request, "blog/author.html", context)
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
