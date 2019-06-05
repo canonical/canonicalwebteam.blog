@@ -1,18 +1,7 @@
-from datetime import datetime
-
-
-from canonicalwebteam.blog import wordpress_api as api
-from canonicalwebteam.blog import logic
-from canonicalwebteam.blog.common_view_logic import (
-    BlogViews,
-    get_index_context,
-    get_group_page_context,
-    get_topic_page_context,
-)
-from dateutil.relativedelta import relativedelta
+from canonicalwebteam.blog.common_view_logic import BlogViews
 from django.conf import settings
-from django.http import HttpResponseNotFound, HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
+from django.shortcuts import redirect, render
 
 tag_ids = settings.BLOG_CONFIG["TAG_IDS"]
 excluded_tags = settings.BLOG_CONFIG["EXCLUDED_TAGS"]
@@ -88,7 +77,9 @@ def archives(request, template_path="blog/archives.html"):
     category_param = request.GET.get("category", default="")
 
     try:
-        context = blog_views.get_archives(page, group, month, year, category_param)
+        context = blog_views.get_archives(
+            page, group, month, year, category_param
+        )
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
 
@@ -97,11 +88,11 @@ def archives(request, template_path="blog/archives.html"):
 
 def feed(request):
     try:
-        blog_views.get_feed(request.build_absolute_uri())
+        context = blog_views.get_feed(request.build_absolute_uri())
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
 
-    return HttpResponse(right_title, status=200, content_type="txt/xml")
+    return HttpResponse(context, status=200, content_type="txt/xml")
 
 
 def article_redirect(request, slug, year=None, month=None, day=None):
@@ -122,7 +113,7 @@ def article(request, slug):
 
 def latest_news(request):
     try:
-        context = blog.get_latest_news()
+        context = blog_views.get_latest_news()
     except Exception:
         return JsonResponse({"Error": "An error ocurred"}, status=502)
 

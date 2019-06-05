@@ -1,5 +1,8 @@
-from canonicalwebteam.blog import wordpress_api as api
+from datetime import datetime
+
 from canonicalwebteam.blog import logic
+from canonicalwebteam.blog import wordpress_api as api
+from dateutil.relativedelta import relativedelta
 
 category_cache = {}
 group_cache = {}
@@ -94,7 +97,7 @@ class BlogViews:
         return context
 
     def get_topic(self, topic_slug, page=1):
-        tag = api.get_tag_by_slug(slug)
+        tag = api.get_tag_by_slug(topic_slug)
 
         articles, total_pages = api.get_articles(
             tags=self.tag_ids + [tag["id"]],
@@ -164,7 +167,7 @@ class BlogViews:
             "latest_pinned_articles": latest_pinned_articles,
         }
 
-    def get_archives(page=1, group="", month="", year="", category=""):
+    def get_archives(self, page=1, group="", month="", year="", category=""):
         groups = []
         categories = []
 
@@ -214,10 +217,10 @@ class BlogViews:
 
         return context
 
-    def get_feed(uri):
+    def get_feed(self, uri):
         feed = api.get_feed(self.tag_name)
         right_urls = logic.change_url(feed, uri.replace("/feed", ""))
-        context = right_urls.replace("Ubuntu Blog", blog_title)
+        context = right_urls.replace("Ubuntu Blog", self.blog_title)
 
         return context
 
