@@ -20,7 +20,6 @@ class BlogViews:
 
         upcoming = []
         featured_articles = []
-        featured_article_ids = []
         if page == "1":
             featured_articles, total_pages = api.get_articles(
                 tags=self.tag_ids,
@@ -29,10 +28,6 @@ class BlogViews:
                 sticky="true",
                 per_page=3,
             )
-
-            featured_article_ids = [
-                article["id"] for article in featured_articles
-            ]
 
             if enable_upcoming:
                 # Maybe we can get the IDs since there is no chance
@@ -50,7 +45,7 @@ class BlogViews:
         articles, total_pages = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
-            exclude=featured_article_ids,
+            exclude=[article["id"] for article in featured_articles],
             page=page,
             categories=[category_id],
         )
