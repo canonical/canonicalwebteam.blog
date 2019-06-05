@@ -262,8 +262,8 @@ class TestCommonViewLogic(unittest.TestCase):
         )
         get_user.return_value = "test_author"
         get_tags_by_id.return_value = [
-            {"id": 1, "name": "test_tag_1"},
-            {"id": 2, "name": "test_tag_2"},
+            {"id": 1, "name": "test_tag_1", "slug": "test_tag_1"},
+            {"id": 2, "name": "test_tag_2", "slug": "test_tag_2"},
         ]
         article = {
             "id": 1,
@@ -298,8 +298,8 @@ class TestCommonViewLogic(unittest.TestCase):
                 }
             ],
             "tags": [
-                {"id": 1, "name": "test_tag_1"},
-                {"id": 2, "name": "test_tag_2"},
+                {"id": 1, "name": "test_tag_1", "slug": "test_tag_1"},
+                {"id": 2, "name": "test_tag_2", "slug": "test_tag_2"},
             ],
         }
 
@@ -344,8 +344,8 @@ class TestCommonViewLogic(unittest.TestCase):
         )
         get_user.return_value = "test_author"
         get_tags_by_id.return_value = [
-            {"id": 1, "name": "test_tag_1"},
-            {"id": 2, "name": "test_tag_2"},
+            {"id": 1, "name": "test_tag_1", "slug": "test_tag_1"},
+            {"id": 2, "name": "test_tag_2", "slug": "test_tag_2"},
         ]
         article = {
             "id": 1,
@@ -380,8 +380,8 @@ class TestCommonViewLogic(unittest.TestCase):
                 }
             ],
             "tags": [
-                {"id": 1, "name": "test_tag_1"},
-                {"id": 2, "name": "test_tag_2"},
+                {"id": 1, "name": "test_tag_1", "slug": "test_tag_1"},
+                {"id": 2, "name": "test_tag_2", "slug": "test_tag_2"},
             ],
         }
 
