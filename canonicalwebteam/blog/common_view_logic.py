@@ -293,24 +293,12 @@ def get_group_page_context(
     :param articles: String of int of total amount of pages
     :param group: Article group
     """
+    context = get_index_context(
+        page_param, articles, total_pages, featured_articles
+    )
+    context["group"] = group
 
-    transformed_articles = []
-    transformed_featured_articles = []
-    for article in articles:
-        transformed_articles.append(get_complete_article(article, group))
-
-    for article in featured_articles:
-        transformed_featured_articles.append(
-            get_complete_article(article, group)
-        )
-
-    return {
-        "current_page": int(page_param),
-        "total_pages": int(total_pages),
-        "articles": transformed_articles,
-        "group": group,
-        "featured_articles": transformed_featured_articles,
-    }
+    return context
 
 
 def get_topic_page_context(page_param, articles, total_pages):
@@ -321,15 +309,7 @@ def get_topic_page_context(page_param, articles, total_pages):
     :param articles: String of int of total amount of pages
     """
 
-    transformed_articles = []
-    for article in articles:
-        transformed_articles.append(get_complete_article(article))
-
-    return {
-        "current_page": int(page_param),
-        "total_pages": int(total_pages),
-        "articles": transformed_articles,
-    }
+    return get_index_context(page_param, articles, total_pages)
 
 
 def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
