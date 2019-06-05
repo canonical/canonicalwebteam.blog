@@ -85,3 +85,8 @@ The blog extension leverages [poetry](https://poetry.eustace.io/) for dependency
 
 ## Testing
 All tests can be run with `poetry run pytest`.
+
+### Regenerating Fixtures
+All API calls are caught with [VCR](https://vcrpy.readthedocs.io/en/latest/) and saved as fixtures in the `fixtures` directory. If the API updates, all fixtures can easily be updated by just removing the `fixtures` directory and rerunning the tests.
+
+To do this run `rm -rf fixtures && poetry run pytest`.
