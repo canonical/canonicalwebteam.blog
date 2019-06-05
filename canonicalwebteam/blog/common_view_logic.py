@@ -93,6 +93,20 @@ class BlogViews:
 
         return context
 
+    def get_topic(self, topic_slug, page=1):
+        tag = api.get_tag_by_slug(slug)
+
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids + [tag["id"]],
+            tags_exclude=self.excluded_tags,
+            page=page,
+        )
+
+        context = get_topic_page_context(page, articles, total_pages)
+        context["title"] = self.blog_title
+
+        return context
+
 
 def get_complete_article(article, group=None):
     """
