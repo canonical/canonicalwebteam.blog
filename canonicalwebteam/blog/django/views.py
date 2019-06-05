@@ -174,38 +174,9 @@ def article(request, slug):
 
 
 def latest_news(request):
-
     try:
-        latest_pinned_articles = api.get_articles(
-            tags=tag_ids,
-            exclude=excluded_tags,
-            page=1,
-            per_page=1,
-            sticky=True,
-        )
-        # check if the number of returned articles is 0
-        if len(latest_pinned_articles[0]) == 0:
-            latest_articles = api.get_articles(
-                tags=tag_ids,
-                exclude=excluded_tags,
-                page=1,
-                per_page=4,
-                sticky=False,
-            )
-        else:
-            latest_articles = api.get_articles(
-                tags=tag_ids,
-                exclude=excluded_tags,
-                page=1,
-                per_page=3,
-                sticky=False,
-            )
-
+        context = blog.get_latest_news()
     except Exception:
         return JsonResponse({"Error": "An error ocurred"}, status=502)
-    return JsonResponse(
-        {
-            "latest_articles": latest_articles,
-            "latest_pinned_articles": latest_pinned_articles,
-        }
-    )
+
+    return JsonResponse(context)
