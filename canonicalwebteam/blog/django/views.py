@@ -39,32 +39,13 @@ def index(request, enable_upcoming=True):
 
 
 def group(request, slug, template_path):
+    page_param = request.GET.get("page", default="1")
+    category_param = request.GET.get("category", default="")
+
     try:
-        page_param = request.GET.get("page", default="1")
-        category_param = request.GET.get("category", default="")
-
-        group = api.get_group_by_slug(slug)
-        group_id = group["id"]
-
-        category_id = ""
-        if category_param != "":
-            category = api.get_category_by_slug(category_param)
-            category_id = category["id"]
-
-        articles, total_pages = api.get_articles(
-            tags=tag_ids,
-            tags_exclude=excluded_tags,
-            page=page_param,
-            groups=[group_id],
-            categories=[category_id],
-        )
-
+        context = blog_views.get_group(slug, page_param, category_param)
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
-
-    context = get_group_page_context(page_param, articles, total_pages, group)
-    context["title"] = blog_title
-    context["category"] = {"slug": category_param}
 
     return render(request, template_path, context)
 
