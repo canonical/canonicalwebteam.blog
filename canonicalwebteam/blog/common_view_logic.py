@@ -4,9 +4,6 @@ from canonicalwebteam.blog import logic
 from canonicalwebteam.blog import wordpress_api as api
 from dateutil.relativedelta import relativedelta
 
-category_cache = {}
-group_cache = {}
-
 
 class BlogViews:
     def __init__(self, tag_ids, excluded_tags, blog_title, tag_name):
@@ -239,9 +236,6 @@ def get_complete_article(article, group=None):
     categories = logic.get_embedded_categories(article["_embedded"])
 
     for category in categories:
-        if category["id"] not in category_cache:
-            category_cache[category["id"]] = category
-
         if "display_category" not in article:
             article["display_category"] = category
 
@@ -284,8 +278,6 @@ def get_index_context(
         "current_page": int(page_param),
         "total_pages": int(total_pages),
         "articles": transformed_articles,
-        "used_categories": category_cache,
-        "groups": group_cache,
         "featured_articles": transformed_featured_articles,
         "upcoming": transformed_upcoming_articles,
     }
@@ -301,26 +293,12 @@ def get_group_page_context(
     :param articles: String of int of total amount of pages
     :param group: Article group
     """
+    context = get_index_context(
+        page_param, articles, total_pages, featured_articles
+    )
+    context["group"] = group
 
-    transformed_articles = []
-    transformed_featured_articles = []
-    for article in articles:
-        transformed_articles.append(get_complete_article(article, group))
-
-    for article in featured_articles:
-        transformed_featured_articles.append(
-            get_complete_article(article, group)
-        )
-
-    return {
-        "current_page": int(page_param),
-        "total_pages": int(total_pages),
-        "articles": transformed_articles,
-        "used_categories": category_cache,
-        "group": group,
-        "groups": group_cache,
-        "featured_articles": transformed_featured_articles,
-    }
+    return context
 
 
 def get_topic_page_context(page_param, articles, total_pages):
@@ -331,17 +309,7 @@ def get_topic_page_context(page_param, articles, total_pages):
     :param articles: String of int of total amount of pages
     """
 
-    transformed_articles = []
-    for article in articles:
-        transformed_articles.append(get_complete_article(article))
-
-    return {
-        "current_page": int(page_param),
-        "total_pages": int(total_pages),
-        "articles": transformed_articles,
-        "used_categories": category_cache,
-        "groups": group_cache,
-    }
+    return get_index_context(page_param, articles, total_pages)
 
 
 def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
