@@ -170,3 +170,66 @@ def get_month_name(month_index):
     """
 
     return date(1900, month_index, 1).strftime("%B")
+
+
+def get_embedded_categories(embedded):
+    """Returns the categories in the embedded response from wp
+    The category is in the first object of the wp:term of the response:
+    embedded["wp:term"][0]
+
+
+    :param embedded: The embedded dictionnary in teh response
+    :returns: Dictionnary of categories
+    """
+    terms = embedded.get("wp:term", [{}])
+    return terms[0]
+
+
+def get_embedded_group(embedded):
+    """Returns the group in the embedded response from wp.
+    The group is in the fourth object of the wp:term list of the response:
+    embedded["wp:term"][3]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of group
+    """
+    if "wp:term" in embedded and embedded["wp:term"][3]:
+        return embedded["wp:term"][3][0]
+    return {}
+
+
+def get_embedded_author(embedded):
+    """Returns the author in the embedded response from wp.
+    embedded["author"]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of author
+    """
+    authors = embedded.get("author", [{}])
+    return authors[0]
+
+
+def get_embedded_featured_media(embedded):
+    """Returns the featured media in the embedded response from wp.
+    embedded["wp:featuredmedia"]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: List of featuredmedia
+    """
+    return embedded.get("wp:featuredmedia", [])
+
+
+def get_embedded_tags(embedded):
+    """Returns the tags in the embedded response from wp.
+    The group is in the fourth object of the wp:term list of the response:
+    embedded["wp:term"][1]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of tags
+    """
+    terms = embedded.get("wp:term", [{}, {}])
+    return terms[1]

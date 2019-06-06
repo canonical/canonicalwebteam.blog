@@ -1,5 +1,8 @@
-from canonicalwebteam.blog import wordpress_api as api
+from datetime import datetime
+
 from canonicalwebteam.blog import logic
+from canonicalwebteam.blog import wordpress_api as api
+from dateutil.relativedelta import relativedelta
 
 category_cache = {}
 group_cache = {}
@@ -72,68 +75,154 @@ class BlogViews:
 
         return get_article_context(article, self.tag_ids, self.excluded_tags)
 
+    def get_group(self, group_slug, page=1, category_slug=""):
+        group = api.get_group_by_slug(group_slug)
 
-def get_embedded_categories(embedded):
-    """Returns the categories in the embedded response from wp
-    The category is in the first object of the wp:term of the response:
-    embedded["wp:term"][0]
+        category = {}
+        if category_slug:
+            category = api.get_category_by_slug(category_slug)
 
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            page=page,
+            groups=[group.get("id", "")],
+            categories=[category.get("id", "")],
+        )
 
-    :param embedded: The embedded dictionnary in teh response
-    :returns: Dictionnary of categories
-    """
-    terms = embedded.get("wp:term", [{}])
-    return terms[0]
+        context = get_group_page_context(page, articles, total_pages, group)
+        context["title"] = self.blog_title
+        context["category"] = {"slug": category_slug}
 
+        return context
 
-def get_embedded_group(embedded):
-    """Returns the group in the embedded response from wp.
-    The group is in the fourth object of the wp:term list of the response:
-    embedded["wp:term"][3]
+    def get_topic(self, topic_slug, page=1):
+        tag = api.get_tag_by_slug(topic_slug)
 
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids + [tag["id"]],
+            tags_exclude=self.excluded_tags,
+            page=page,
+        )
 
-    :param embedded: The embedded dictionnary in the response
-    :returns: Dictionnary of group
-    """
-    if "wp:term" in embedded and embedded["wp:term"][3]:
-        return embedded["wp:term"][3][0]
-    return {}
+        context = get_topic_page_context(page, articles, total_pages)
+        context["title"] = self.blog_title
 
+        return context
 
-def get_embedded_author(embedded):
-    """Returns the author in the embedded response from wp.
-    embedded["author"]
+    def get_upcoming(self, page=1):
+        events = api.get_category_by_slug("events")
+        webinars = api.get_category_by_slug("webinars")
 
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            page=page,
+            categories=[events["id"], webinars["id"]],
+        )
 
-    :param embedded: The embedded dictionnary in the response
-    :returns: Dictionnary of author
-    """
-    authors = embedded.get("author", [{}])
-    return authors[0]
+        context = get_index_context(page, articles, total_pages)
+        context["title"] = self.blog_title
 
+        return context
 
-def get_embedded_featured_media(embedded):
-    """Returns the featured media in the embedded response from wp.
-    embedded["wp:featuredmedia"]
+    def get_author(self, username):
+        author = api.get_user_by_username(username)
+        articles, total_pages = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            per_page=5,
+            author=author["id"],
+        )
 
+        return {
+            "title": self.blog_title,
+            "author": author,
+            "latest_articles": articles,
+        }
 
-    :param embedded: The embedded dictionnary in the response
-    :returns: List of featuredmedia
-    """
-    return embedded.get("wp:featuredmedia", [])
+    def get_latest_news(self):
+        latest_pinned_articles = api.get_articles(
+            tags=self.tag_ids,
+            exclude=self.excluded_tags,
+            page=1,
+            per_page=1,
+            sticky=True,
+        )
 
+        per_page = 3
+        if latest_pinned_articles:
+            per_page = 4
 
-def get_embedded_tags(embedded):
-    """Returns the tags in the embedded response from wp.
-    The group is in the fourth object of the wp:term list of the response:
-    embedded["wp:term"][1]
+        latest_articles = api.get_articles(
+            tags=self.tag_ids,
+            exclude=self.excluded_tags,
+            page=1,
+            per_page=per_page,
+            sticky=False,
+        )
 
+        return {
+            "latest_articles": latest_articles,
+            "latest_pinned_articles": latest_pinned_articles,
+        }
 
-    :param embedded: The embedded dictionnary in the response
-    :returns: Dictionnary of tags
-    """
-    terms = embedded.get("wp:term", [{}, {}])
-    return terms[1]
+    def get_archives(self, page=1, group="", month="", year="", category=""):
+        groups = []
+        categories = []
+
+        if group:
+            group = api.get_group_by_slug(group)
+            groups.append(group["id"])
+
+        if category:
+            category_slugs = category.split(",")
+            for slug in category_slugs:
+                category = api.get_category_by_slug(slug)
+                categories.append(category["id"])
+
+        after = ""
+        before = ""
+        if year:
+            year = int(year)
+            if month:
+                after = datetime(year=year, month=int(month), day=1)
+                before = after + relativedelta(months=1)
+            else:
+                after = datetime(year=year, month=1, day=1)
+                before = datetime(year=year, month=12, day=31)
+
+        articles, metadata = api.get_articles_with_metadata(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            page=page,
+            groups=groups,
+            categories=categories,
+            after=after,
+            before=before,
+        )
+
+        total_pages = metadata["total_pages"]
+        total_posts = metadata["total_posts"]
+
+        if group:
+            context = get_group_page_context(
+                page, articles, total_pages, group
+            )
+        else:
+            context = get_index_context(page, articles, total_pages)
+
+        context["title"] = self.blog_title
+        context["total_posts"] = total_posts
+
+        return context
+
+    def get_feed(self, uri):
+        feed = api.get_feed(self.tag_name)
+        right_urls = logic.change_url(feed, uri.replace("/feed", ""))
+        context = right_urls.replace("Ubuntu Blog", self.blog_title)
+
+        return context
 
 
 def get_complete_article(article, group=None):
@@ -142,12 +231,12 @@ def get_complete_article(article, group=None):
     as an object that includes all information for the templates,
     some of which will be fetched from the Wordpress API
     """
-    featured_images = get_embedded_featured_media(article["_embedded"])
+    featured_images = logic.get_embedded_featured_media(article["_embedded"])
     featured_image = {}
     if featured_images:
         featured_image = featured_images[0]
-    author = get_embedded_author(article["_embedded"])
-    categories = get_embedded_categories(article["_embedded"])
+    author = logic.get_embedded_author(article["_embedded"])
+    categories = logic.get_embedded_categories(article["_embedded"])
 
     for category in categories:
         if category["id"] not in category_cache:
@@ -159,7 +248,7 @@ def get_complete_article(article, group=None):
     if group:
         article["group"] = group
     else:
-        article["group"] = get_embedded_group(article["_embedded"])
+        article["group"] = logic.get_embedded_group(article["_embedded"])
 
     return logic.transform_article(
         article, featured_image=featured_image, author=author
@@ -260,13 +349,13 @@ def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
     Build the content for the article page
     :param article: Article to create context for
     """
-    author = get_embedded_author(article["_embedded"])
+    author = logic.get_embedded_author(article["_embedded"])
 
     transformed_article = logic.transform_article(
         article, author=author, optimise_images=True
     )
 
-    tags = get_embedded_tags(article["_embedded"])
+    tags = logic.get_embedded_tags(article["_embedded"])
     is_in_series = logic.is_in_series(tags)
 
     all_related_articles, total_pages = api.get_articles(
@@ -281,7 +370,7 @@ def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
         if set(related_tag_ids) <= set(related_article["tags"]):
             related_articles.append(logic.transform_article(related_article))
 
-    article["group"] = get_embedded_group(article["_embedded"])
+    article["group"] = logic.get_embedded_group(article["_embedded"])
 
     return {
         "article": transformed_article,
