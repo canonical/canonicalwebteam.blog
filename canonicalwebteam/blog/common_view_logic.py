@@ -64,6 +64,14 @@ class BlogViews:
 
         return context
 
+    def get_article(self, slug):
+        article = api.get_article(slug, self.tag_ids, self.excluded_tags)
+
+        if not article:
+            return {}
+
+        return get_article_context(article, self.tag_ids, self.excluded_tags)
+
 
 def get_embedded_categories(embedded):
     """Returns the categories in the embedded response from wp
@@ -113,6 +121,19 @@ def get_embedded_featured_media(embedded):
     :returns: List of featuredmedia
     """
     return embedded.get("wp:featuredmedia", [])
+
+
+def get_embedded_tags(embedded):
+    """Returns the tags in the embedded response from wp.
+    The group is in the fourth object of the wp:term list of the response:
+    embedded["wp:term"][1]
+
+
+    :param embedded: The embedded dictionnary in the response
+    :returns: Dictionnary of tags
+    """
+    terms = embedded.get("wp:term", [{}, {}])
+    return terms[1]
 
 
 def get_complete_article(article, group=None):
@@ -234,52 +255,37 @@ def get_topic_page_context(page_param, articles, total_pages):
     }
 
 
-def get_article_context(article, related_tag_ids=[]):
+def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
     """
     Build the content for the article page
     :param article: Article to create context for
     """
-
-    author = api.get_user(article["author"])
+    author = get_embedded_author(article["_embedded"])
 
     transformed_article = logic.transform_article(
         article, author=author, optimise_images=True
     )
 
-    tags = article["tags"]
-    tag_names = []
-    tag_names_response = api.get_tags_by_ids(tags)
-
-    if tag_names_response:
-        for tag in tag_names_response:
-            tag_names.append({"id": tag["id"], "name": tag["name"]})
-
-    is_in_series = logic.is_in_series(tag_names)
+    tags = get_embedded_tags(article["_embedded"])
+    is_in_series = logic.is_in_series(tags)
 
     all_related_articles, total_pages = api.get_articles(
-        tags=tags, per_page=3, exclude=[article["id"]]
+        tags=[tag["id"] for tag in tags],
+        tags_exclude=excluded_tags,
+        per_page=3,
+        exclude=[article["id"]],
     )
 
     related_articles = []
-    if all_related_articles:
-        for related_article in all_related_articles:
-            if set(related_tag_ids).issubset(related_article["tags"]):
-                related_articles.append(
-                    logic.transform_article(related_article)
-                )
+    for related_article in all_related_articles:
+        if set(related_tag_ids) <= set(related_article["tags"]):
+            related_articles.append(logic.transform_article(related_article))
 
-    for group_id in article["group"]:
-        if group_id not in group_cache:
-            resolved_group = api.get_group_by_id(group_id)
-            group_cache[group_id] = resolved_group
-            article["group"] = resolved_group
-            break
-        else:
-            article["group"] = group_cache[group_id]
+    article["group"] = get_embedded_group(article["_embedded"])
 
     return {
         "article": transformed_article,
         "related_articles": related_articles,
-        "tags": tag_names,
+        "tags": tags,
         "is_in_series": is_in_series,
     }

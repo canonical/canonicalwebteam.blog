@@ -6,7 +6,6 @@ from canonicalwebteam.blog import logic
 from canonicalwebteam.blog.common_view_logic import (
     BlogViews,
     get_index_context,
-    get_article_context,
     get_group_page_context,
     get_topic_page_context,
 )
@@ -217,13 +216,12 @@ def article_redirect(request, slug, year=None, month=None, day=None):
 
 def article(request, slug):
     try:
-        article = api.get_article(slug, tag_ids)
+        context = blog_views.get_article(slug)
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
 
-    if not article:
+    if not context:
         return HttpResponseNotFound("Article not found")
-    context = get_article_context(article, tag_ids)
 
     return render(request, "blog/article.html", context)
 
