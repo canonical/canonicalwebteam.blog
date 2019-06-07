@@ -104,4 +104,40 @@ def build_blueprint(
 
         return flask.render_template("blog/archives.html", **context)
 
+    @blog.route("/group/<slug>")
+    def group(slug):
+        page_param = flask.request.args.get("page", default=1, type=int)
+        category_param = flask.request.args.get(
+            "category", default="", type=str
+        )
+
+        try:
+            context = blog_views.get_group(slug, page_param, category_param)
+        except Exception:
+            flask.abort(502)
+
+        return flask.render_template("blog/group.html", **context)
+
+    @blog.route("/topic/<slug>")
+    def topic(slug):
+        page_param = flask.request.args.get("page", default=1, type=int)
+
+        try:
+            context = blog_views.get_topic(slug, page_param)
+        except Exception:
+            flask.abort(502)
+
+        return flask.render_template("blog/topic.html", **context)
+
+    @blog.route("/upcoming")
+    def upcoming():
+        page_param = flask.request.args.get("page", default=1, type=int)
+
+        try:
+            context = blog_views.get_upcoming(page_param)
+        except Exception:
+            flask.abort(502)
+
+        return flask.render_template("blog/upcoming.html", **context)
+
     return blog
