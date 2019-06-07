@@ -81,4 +81,27 @@ def build_blueprint(
 
         return flask.render_template("blog/author.html", **context)
 
+    @blog.route("/archives")
+    def archives():
+        page_param = flask.request.args.get("page", default=1, type=int)
+        group_param = flask.request.args.get("group", default="", type=str)
+        month_param = flask.request.args.get("month", default="", type=str)
+        year_param = flask.request.args.get("year", default="", type=str)
+        category_param = flask.request.args.get(
+            "category", default="", type=str
+        )
+
+        try:
+            context = blog_views.get_archives(
+                page_param,
+                group_param,
+                month_param,
+                year_param,
+                category_param,
+            )
+        except Exception:
+            flask.abort(502)
+
+        return flask.render_template("blog/archives.html", **context)
+
     return blog
