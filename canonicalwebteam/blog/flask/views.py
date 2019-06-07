@@ -69,4 +69,16 @@ def build_blueprint(
 
         return flask.jsonify(context)
 
+    @blog.route("/author/<username>")
+    def author(username):
+        try:
+            context = blog_views.get_author(username)
+        except Exception:
+            return flask.abort(502)
+
+        if not context:
+            flask.abort(404)
+
+        return flask.render_template("blog/author.html", **context)
+
     return blog
