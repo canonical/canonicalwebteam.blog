@@ -1,15 +1,11 @@
 import flask
 
 from canonicalwebteam.blog.common_view_logic import BlogViews
-from canonicalwebteam.blog import wordpress_api as api
-from canonicalwebteam.blog import logic
-from canonicalwebteam.blog.common_view_logic import (
-    get_index_context,
-    get_article_context,
-)
 
 
-def build_blueprint(blog_title, tag_ids, tag_name, excluded_tags=[], enable_upcoming=True):
+def build_blueprint(
+    blog_title, tag_ids, tag_name, excluded_tags=[], enable_upcoming=True
+):
     blog = flask.Blueprint(
         "blog", __name__, template_folder="/templates", static_folder="/static"
     )
@@ -19,7 +15,9 @@ def build_blueprint(blog_title, tag_ids, tag_name, excluded_tags=[], enable_upco
     @blog.route("/")
     def homepage():
         page_param = flask.request.args.get("page", default=1, type=int)
-        category_param = flask.request.args.get("category", default="", type=str)
+        category_param = flask.request.args.get(
+            "category", default="", type=str
+        )
 
         try:
             context = blog_views.get_index(
@@ -36,7 +34,7 @@ def build_blueprint(blog_title, tag_ids, tag_name, excluded_tags=[], enable_upco
     def feed():
         try:
             context = blog_views.get_feed(flask.request.base_url)
-        except Exception as e:
+        except Exception:
             return flask.abort(502)
 
         return flask.Response(context, mimetype="text/xml")
@@ -65,38 +63,10 @@ def build_blueprint(blog_title, tag_ids, tag_name, excluded_tags=[], enable_upco
     @blog.route("/latest-news")
     def latest_news():
         try:
-            latest_pinned_articles = api.get_articles(
-                tags=tag_ids,
-                exclude=excluded_tags,
-                page=1,
-                per_page=1,
-                sticky=True,
-            )
-            # check if the number of returned articles is 0
-            if len(latest_pinned_articles[0]) == 0:
-                latest_articles = api.get_articles(
-                    tags=tag_ids,
-                    exclude=excluded_tags,
-                    page=1,
-                    per_page=4,
-                    sticky=False,
-                )
-            else:
-                latest_articles = api.get_articles(
-                    tags=tag_ids,
-                    exclude=excluded_tags,
-                    page=1,
-                    per_page=3,
-                    sticky=False,
-                )
+            context = blog_views.get_latest_news()
         except Exception:
             return flask.jsonify({"Error": "An error ocurred"}), 502
 
-        return flask.jsonify(
-            {
-                "latest_articles": latest_articles,
-                "latest_pinned_articles": latest_pinned_articles,
-            }
-        )
+        return flask.jsonify(context)
 
     return blog
