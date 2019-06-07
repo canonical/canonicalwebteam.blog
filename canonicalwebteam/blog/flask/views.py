@@ -53,14 +53,12 @@ def build_blueprint(blog_title, tag_ids, tag_name, excluded_tags=[], enable_upco
     @blog.route("/<slug>")
     def article(slug):
         try:
-            articles = api.get_article(slug, tag_ids)
+            context = blog_views.get_article(slug)
         except Exception:
             return flask.abort(502)
 
-        if not articles:
+        if not context:
             flask.abort(404, "Article not found")
-
-        context = get_article_context(articles, tag_ids)
 
         return flask.render_template("blog/article.html", **context)
 
