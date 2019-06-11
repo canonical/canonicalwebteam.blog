@@ -8,7 +8,7 @@ API_URL = os.getenv(
 )
 
 
-api_session = CachedSession(fallback_cache_duration=3600)
+api_session = CachedSession(fallback_cache_duration=300)
 
 tags = {}
 
