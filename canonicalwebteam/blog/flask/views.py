@@ -140,4 +140,15 @@ def build_blueprint(
 
         return flask.render_template("blog/upcoming.html", **context)
 
+    @blog.route("/tag/<slug>")
+    def tag(slug):
+        page_param = flask.request.args.get("page", default=1, type=int)
+
+        try:
+            context = blog_views.get_tag(slug, page_param)
+        except Exception:
+            flask.abort(404)
+
+        return flask.render_template("blog/tag.html", **context)
+
     return blog

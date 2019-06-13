@@ -118,3 +118,14 @@ def latest_news(request):
         return JsonResponse({"Error": "An error ocurred"}, status=502)
 
     return JsonResponse(context)
+
+
+def tag(request, slug):
+    page_param = request.GET.get("page", default="1")
+
+    try:
+        context = blog_views.get_tag(slug, page_param)
+    except Exception:
+        return HttpResponseNotFound("Tag not found")
+
+    return render(request, "blog/tag.html", context)
