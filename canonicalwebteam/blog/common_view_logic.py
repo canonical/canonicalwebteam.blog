@@ -337,17 +337,8 @@ def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
         article, author=author, optimise_images=True
     )
 
-    tags = article["tags"]
-    tag_names = []
-    tag_names_response = get_embedded_tags(article["_embedded"])
-
-    if tag_names_response:
-        for tag in tag_names_response:
-            tag_names.append(
-                {"id": tag["id"], "name": tag["name"], "slug": tag["slug"]}
-            )
-
-    is_in_series = logic.is_in_series(tag_names)
+    tags = logic.get_embedded_tags(article["_embedded"])
+    is_in_series = logic.is_in_series(tags)
 
     all_related_articles, total_pages = api.get_articles(
         tags=[tag["id"] for tag in tags],
