@@ -19,7 +19,7 @@ def process_response(response):
     return response.json()
 
 
-def build_get_article_url(
+def build_get_articles_url(
     tags=[],
     per_page=12,
     page=1,
@@ -55,7 +55,7 @@ def build_get_article_url(
         f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
         f"&categories={','.join(str(id) for id in categories)}"
         f"&exclude={','.join(str(id) for id in exclude)}"
-        f"&author={author}"
+        f"&author={author}&_embed"
     )
     if sticky != "":
         url = url + f"&sticky={sticky}"
@@ -83,7 +83,7 @@ def get_articles_with_metadata(**kwargs):
 
     :returns: response, metadata dictionary
     """
-    url = build_get_article_url(**kwargs)
+    url = build_get_articles_url(**kwargs)
 
     response = api_session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
@@ -112,7 +112,7 @@ def get_articles(**kwargs):
     :returns: array of articles, total amount of pages
     """
 
-    url = build_get_article_url(**kwargs)
+    url = build_get_articles_url(**kwargs)
 
     response = api_session.get(url)
     # TODO: Remove this.
@@ -128,15 +128,8 @@ def get_article(slug="", tags=[], tags_exclude=[]):
     """
     Get an article from Wordpress api
     :param slug: Article slug to fetch
-    :param tags: Array tags to fetch articles for
-    :param tags_exclude: Array of IDs of tags that will be excluded
-        should be fetched
     """
-    url = (
-        f"{API_URL}/posts?slug={slug}"
-        f"&tags={','.join(str(id) for id in tags)}"
-        f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
-    )
+    url = f"{API_URL}/posts?slug={slug}&_embed"
 
     response = api_session.get(url)
 
@@ -152,7 +145,11 @@ def get_tag_by_name(name):
 
     response = api_session.get(url)
 
-    return process_response(response)
+    try:
+        tag_response = process_response(response)
+        return tag_response[0]
+    except Exception:
+        return None
 
 
 def get_tags_by_ids(ids):

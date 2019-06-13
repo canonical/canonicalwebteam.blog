@@ -7,6 +7,7 @@ from canonicalwebteam.blog.django.views import (
     feed,
     index,
     latest_news,
+    tag,
     upcoming,
 )
 
@@ -52,6 +53,7 @@ urlpatterns = [
     path(r"/<yyyy:year>/<str:slug>", article_redirect),
     path(r"/archives", archives),
     path(r"/author/<str:username>", author),
+    path(r"/tag/<str:slug>", tag),
     path(r"/feed", feed),
     path(r"/upcoming", upcoming),
     path(r"/latest-news", latest_news),
