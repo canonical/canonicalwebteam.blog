@@ -8,6 +8,7 @@ from canonicalwebteam.blog.common_view_logic import (
     get_group_page_context,
     get_topic_page_context,
     get_article_context,
+    BlogViews,
 )
 from canonicalwebteam.http import Session
 
@@ -124,3 +125,17 @@ class TestCommonViewLogic(unittest.TestCase):
             self.assertTrue(tag["id"] in article["tags"])
 
         self.assertFalse(article_context["is_in_series"])
+
+    @vcr.use_cassette("fixtures/vcr_cassettes/get_tag.yaml")
+    def test_get_tag_page_context(self):
+        views = BlogViews([], [], "test", "")
+        tag_context = views.get_tag("snappy")
+        tag_id = api.get_tag_by_slug("snappy")["id"]
+
+        self.assertEqual(tag_context["current_page"], 1)
+        self.assertEqual(tag_context["total_pages"], 1)
+        self.assertEqual(tag_context["title"], "test")
+        self.assertEqual(tag_context["tag"]["id"], tag_id)
+
+        for article in tag_context["articles"]:
+            self.assertTrue(tag_id in article["tags"])
