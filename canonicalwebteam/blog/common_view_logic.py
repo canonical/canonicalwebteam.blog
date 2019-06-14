@@ -232,6 +232,7 @@ class BlogViews:
 
         context = get_topic_page_context(page, articles, total_pages)
         context["title"] = self.blog_title
+        context["tag"] = tag
 
         return context
 
