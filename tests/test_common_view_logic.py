@@ -115,9 +115,7 @@ class TestCommonViewLogic(unittest.TestCase):
         article_context = get_article_context(article)
 
         self.assertIsNotNone(article_context["article"]["author"]["name"])
-        self.assertTrue(
-            "cloudinary" in article_context["article"]["content"]["rendered"]
-        )
+        self.assertIsNotNone(article_context["article"]["image"])
         self.assertIsNotNone(article_context["article"]["topic"])
 
         self.assertEqual(len(article_context["related_articles"]), 3)

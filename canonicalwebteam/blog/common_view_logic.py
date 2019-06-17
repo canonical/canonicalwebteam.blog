@@ -332,11 +332,7 @@ def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
     Build the content for the article page
     :param article: Article to create context for
     """
-    author = logic.get_embedded_author(article["_embedded"])
-
-    transformed_article = logic.transform_article(
-        article, author=author, optimise_images=True
-    )
+    transformed_article = get_complete_article(article)
 
     tags = logic.get_embedded_tags(article["_embedded"])
     is_in_series = logic.is_in_series(tags)
@@ -352,8 +348,6 @@ def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
     for related_article in all_related_articles:
         if set(related_tag_ids) <= set(related_article["tags"]):
             related_articles.append(logic.transform_article(related_article))
-
-    article["group"] = logic.get_embedded_group(article["_embedded"])
 
     return {
         "article": transformed_article,
