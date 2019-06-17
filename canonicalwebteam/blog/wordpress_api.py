@@ -1,5 +1,7 @@
 import os
 
+from urllib.parse import urlencode
+
 from canonicalwebteam.http import CachedSession
 
 
@@ -47,24 +49,27 @@ def build_get_articles_url(
 
     :returns: URL to Wordpress api
     """
-    url = (
-        f"{API_URL}/posts?per_page={per_page}"
-        f"&tags={','.join(str(id) for id in tags)}"
-        f"&page={page}"
-        f"&group={','.join(str(id) for id in groups)}"
-        f"&tags_exclude={','.join(str(id) for id in tags_exclude)}"
-        f"&categories={','.join(str(id) for id in categories)}"
-        f"&exclude={','.join(str(id) for id in exclude)}"
-        f"&author={author}&_embed"
-    )
-    if sticky != "":
-        url = url + f"&sticky={sticky}"
-    if before != "":
-        url = url + f"&before={before}"
-    if after != "":
-        url = url + f"&after={after}"
+    params_object = [
+        param
+        for param in [
+            ("tags", ",".join(str(id) for id in tags)),
+            ("per_page", per_page),
+            ("page", page),
+            ("tags_exclude", ",".join(str(id) for id in tags_exclude)),
+            ("exclude", ",".join(str(id) for id in exclude)),
+            ("categories", ",".join(str(id) for id in categories)),
+            ("sticky", sticky),
+            ("groups", ",".join(str(id) for id in groups)),
+            ("after", after),
+            ("before", before),
+            ("author", author),
+        ]
+        if param[1]
+    ]
 
-    return url
+    params = urlencode(params_object)
+
+    return f"{API_URL}/posts?{params}&_embed"
 
 
 def get_articles_with_metadata(**kwargs):

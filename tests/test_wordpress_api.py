@@ -36,8 +36,7 @@ class TestWordPressApi(unittest.TestCase):
 
         get.assert_called_once_with(
             "https://admin.insights.ubuntu.com/"
-            "wp-json/wp/v2/posts?per_page=12&tags=&page=1"
-            "&group=&tags_exclude=&categories=&exclude=&author="
+            "wp-json/wp/v2/posts?per_page=12&page=1"
             "&_embed"
         )
 
@@ -50,8 +49,8 @@ class TestWordPressApi(unittest.TestCase):
         get.assert_called_once_with(
             "https://admin.insights.ubuntu.com/"
             "wp-json/wp/v2/posts?"
-            "per_page=12&tags=&page=1&group=&tags_exclude="
-            "&categories=&exclude=&author=&_embed"
+            "per_page=12&page=1"
+            "&_embed"
         )
 
     @patch("canonicalwebteam.blog.wordpress_api.api_session.get")
