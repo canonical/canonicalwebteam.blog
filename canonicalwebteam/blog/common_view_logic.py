@@ -123,20 +123,21 @@ class BlogViews:
 
         return context
 
-    def get_author(self, username):
+    def get_author(self, username, page=1):
         author = api.get_user_by_username(username)
+
         articles, total_pages = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
-            per_page=5,
+            page=page,
             author=author["id"],
         )
 
-        return {
-            "title": self.blog_title,
-            "author": author,
-            "latest_articles": articles,
-        }
+        context = get_index_context(page, articles, total_pages)
+        context["title"] = self.blog_title
+        context["author"] = author
+
+        return context
 
     def get_latest_news(self):
         latest_pinned_articles = api.get_articles(
