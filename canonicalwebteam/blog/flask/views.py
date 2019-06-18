@@ -71,8 +71,9 @@ def build_blueprint(
 
     @blog.route("/author/<username>")
     def author(username):
+        page_param = flask.request.args.get("page", default=1, type=int)
         try:
-            context = blog_views.get_author(username)
+            context = blog_views.get_author(username, page_param)
         except Exception:
             return flask.abort(502)
 

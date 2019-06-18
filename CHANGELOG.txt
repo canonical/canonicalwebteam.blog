@@ -1,3 +1,4 @@
+2.0.3: Add pagination for author endpoint
 2.0.2: Update article context to return complete article
 2.0.0: Wordpress api optimisation, flask support and added tag endpoint.
 1.5.15: Bugfix on date parsing in logic.py

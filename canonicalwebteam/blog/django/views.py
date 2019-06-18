@@ -62,8 +62,9 @@ def upcoming(request):
 
 
 def author(request, username):
+    page_param = request.GET.get("page", default="1")
     try:
-        context = blog_views.get_author(username)
+        context = blog_views.get_author(username, page_param)
         return render(request, "blog/author.html", context)
     except Exception as e:
         return HttpResponse("Error: " + e, status=502)
