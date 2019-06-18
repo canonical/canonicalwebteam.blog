@@ -126,16 +126,19 @@ class BlogViews:
     def get_author(self, username, page=1):
         author = api.get_user_by_username(username)
 
-        articles, total_pages = api.get_articles(
+        articles, metadata = api.get_articles_with_metadata(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
             author=author["id"],
         )
 
-        context = get_index_context(page, articles, total_pages)
+        context = get_index_context(
+            page, articles, metadata.get("total_pages")
+        )
         context["title"] = self.blog_title
         context["author"] = author
+        context["total_posts"] = metadata.get("total_posts", 0)
 
         return context
 
