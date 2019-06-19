@@ -21,7 +21,7 @@ class BlogViews:
         upcoming = []
         featured_articles = []
         if page == "1":
-            featured_articles, total_pages = api.get_articles(
+            featured_articles, _ = api.get_articles(
                 tags=self.tag_ids,
                 tags_exclude=self.excluded_tags,
                 page=page,
@@ -42,13 +42,14 @@ class BlogViews:
                     categories=[events["id"], webinars["id"]],
                 )
 
-        articles, total_pages = api.get_articles(
+        articles, metadata = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             exclude=[article["id"] for article in featured_articles],
             page=page,
             categories=[category_id],
         )
+        total_pages = metadata["total_pages"]
 
         context = get_index_context(
             page,
@@ -79,13 +80,14 @@ class BlogViews:
         if category_slug:
             category = api.get_category_by_slug(category_slug)
 
-        articles, total_pages = api.get_articles(
+        articles, metadata = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
             groups=[group.get("id", "")],
             categories=[category.get("id", "")],
         )
+        total_pages = metadata["total_pages"]
 
         context = get_group_page_context(page, articles, total_pages, group)
         context["title"] = self.blog_title
@@ -96,11 +98,12 @@ class BlogViews:
     def get_topic(self, topic_slug, page=1):
         tag = api.get_tag_by_slug(topic_slug)
 
-        articles, total_pages = api.get_articles(
+        articles, metadata = api.get_articles(
             tags=self.tag_ids + [tag["id"]],
             tags_exclude=self.excluded_tags,
             page=page,
         )
+        total_pages = metadata["total_pages"]
 
         context = get_topic_page_context(page, articles, total_pages)
         context["title"] = self.blog_title
@@ -111,12 +114,13 @@ class BlogViews:
         events = api.get_category_by_slug("events")
         webinars = api.get_category_by_slug("webinars")
 
-        articles, total_pages = api.get_articles(
+        articles, metadata = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
             categories=[events["id"], webinars["id"]],
         )
+        total_pages = metadata["total_pages"]
 
         context = get_index_context(page, articles, total_pages)
         context["title"] = self.blog_title
@@ -126,7 +130,7 @@ class BlogViews:
     def get_author(self, username, page=1):
         author = api.get_user_by_username(username)
 
-        articles, metadata = api.get_articles_with_metadata(
+        articles, metadata = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
@@ -143,7 +147,7 @@ class BlogViews:
         return context
 
     def get_latest_news(self):
-        latest_pinned_articles = api.get_articles(
+        latest_pinned_articles, _ = api.get_articles(
             tags=self.tag_ids,
             exclude=self.excluded_tags,
             page=1,
@@ -155,7 +159,7 @@ class BlogViews:
         if latest_pinned_articles:
             per_page = 4
 
-        latest_articles = api.get_articles(
+        latest_articles, _ = api.get_articles(
             tags=self.tag_ids,
             exclude=self.excluded_tags,
             page=1,
@@ -193,7 +197,7 @@ class BlogViews:
                 after = datetime(year=year, month=1, day=1)
                 before = datetime(year=year, month=12, day=31)
 
-        articles, metadata = api.get_articles_with_metadata(
+        articles, metadata = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
@@ -228,11 +232,12 @@ class BlogViews:
     def get_tag(self, slug, page=1):
         tag = api.get_tag_by_slug(slug)
 
-        articles, total_pages = api.get_articles(
+        articles, metadata = api.get_articles(
             tags=self.tag_ids + [tag["id"]],
             tags_exclude=self.excluded_tags,
             page=page,
         )
+        total_pages = metadata["total_pages"]
 
         context = get_topic_page_context(page, articles, total_pages)
         context["title"] = self.blog_title
@@ -341,7 +346,7 @@ def get_article_context(article, related_tag_ids=[], excluded_tags=[]):
     tags = logic.get_embedded_tags(article["_embedded"])
     is_in_series = logic.is_in_series(tags)
 
-    all_related_articles, total_pages = api.get_articles(
+    all_related_articles, _ = api.get_articles(
         tags=[tag["id"] for tag in tags],
         tags_exclude=excluded_tags,
         per_page=3,
