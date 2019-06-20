@@ -102,12 +102,14 @@ def get_articles(
     )
 
 
-def get_article(slug):
+def get_article(slug, tags=None, tags_exclude=None):
     """
     Get an article from Wordpress api
     :param slug: Article slug to fetch
     """
-    url = build_url("posts", {"slug": slug})
+    url = build_url(
+        "posts", {"slug": slug, "tags": tags, "tags_exclude": tags_exclude}
+    )
 
     response = api_session.get(url)
 
