@@ -10,7 +10,9 @@ API_URL = os.getenv(
 )
 
 
-api_session = CachedSession(fallback_cache_duration=300)
+api_session = CachedSession(
+    fallback_cache_duration=300, file_cache_directory=".webcache_blog"
+)
 
 tags = {}
 
