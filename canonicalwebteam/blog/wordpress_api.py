@@ -86,7 +86,7 @@ def get_articles(
             "tags_exclude": tags_exclude,
             "exclude": exclude,
             "categories": categories,
-            "groups": groups,
+            "group": groups,
             "sticky": sticky,
             "before": before,
             "after": after,
