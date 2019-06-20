@@ -57,6 +57,7 @@ def get_articles(
     before=None,
     after=None,
     author=None,
+    groups=None,
     per_page=12,
     page=1,
 ):
@@ -85,6 +86,7 @@ def get_articles(
             "tags_exclude": tags_exclude,
             "exclude": exclude,
             "categories": categories,
+            "groups": groups,
             "sticky": sticky,
             "before": before,
             "after": after,
