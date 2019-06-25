@@ -5,6 +5,7 @@ from urllib.parse import urlencode
 from canonicalwebteam.http import CachedSession
 
 
+BLOG_URL = os.getenv("BLOG_URL", "https://admin.insights.ubuntu.com")
 API_URL = os.getenv(
     "BLOG_API", "https://admin.insights.ubuntu.com/wp-json/wp/v2"
 )
@@ -238,8 +239,7 @@ def get_user(user_id):
 
 
 def get_feed(tag):
-    url = build_url("", {"tag": tag, "feed": "rss"})
-    response = api_session.get(url)
+    response = api_session.get(f"{BLOG_URL}/?tag={tag}&feed=rss")
 
     if not response.ok:
         return None
