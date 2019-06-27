@@ -186,8 +186,8 @@ class BlogViews:
                 category = api.get_category_by_slug(slug)
                 categories.append(category["id"])
 
-        after = ""
-        before = ""
+        after = None
+        before = None
         if year:
             year = int(year)
             if month:
