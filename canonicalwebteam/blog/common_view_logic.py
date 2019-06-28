@@ -13,10 +13,11 @@ class BlogViews:
         self.tag_name = tag_name
 
     def get_index(self, page=1, category="", enable_upcoming=True):
-        category_id = ""
+        categories = []
         if category:
             category_resolved = api.get_category_by_slug(category)
-            category_id = category_resolved["id"]
+            if category_resolved:
+                categories.append(category_resolved.get("id", ""))
 
         upcoming = []
         featured_articles = []
@@ -42,9 +43,6 @@ class BlogViews:
                     categories=[events["id"], webinars["id"]],
                 )
 
-        categories = []
-        if category_id:
-            categories = [category_id]
         articles, metadata = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
