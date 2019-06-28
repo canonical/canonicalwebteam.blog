@@ -1,6 +1,6 @@
 from canonicalwebteam.blog.common_view_logic import BlogViews
 from django.conf import settings
-from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
+from django.http import HttpResponse, JsonResponse, Http404
 from django.shortcuts import redirect, render
 
 tag_ids = settings.BLOG_CONFIG["TAG_IDS"]
@@ -115,7 +115,7 @@ def article(request, slug):
         return HttpResponse("Error: " + str(e), status=502)
 
     if not context:
-        return HttpResponseNotFound("Article not found")
+        raise Http404("Article not found")
 
     return render(request, "blog/article.html", context)
 
@@ -135,6 +135,6 @@ def tag(request, slug):
     try:
         context = blog_views.get_tag(slug, page_param)
     except Exception:
-        return HttpResponseNotFound("Tag not found")
+        return Http404("Tag not found")
 
     return render(request, "blog/tag.html", context)
