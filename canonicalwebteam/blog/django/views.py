@@ -29,7 +29,7 @@ def index(request, enable_upcoming=True):
             enable_upcoming=enable_upcoming,
         )
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, "blog/index.html", context)
 
@@ -41,7 +41,7 @@ def group(request, slug, template_path):
     try:
         context = blog_views.get_group(slug, page_param, category_param)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, template_path, context)
 
@@ -52,7 +52,7 @@ def topic(request, slug, template_path):
     try:
         context = blog_views.get_topic(slug, page_param)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, template_path, context)
 
@@ -63,7 +63,7 @@ def upcoming(request):
     try:
         context = blog_views.get_upcoming(page_param)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, "blog/upcoming.html", context)
 
@@ -75,7 +75,7 @@ def author(request, username):
         context = blog_views.get_author(username, page_param)
         return render(request, "blog/author.html", context)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
 
 def archives(request, template_path="blog/archives.html"):
@@ -90,7 +90,7 @@ def archives(request, template_path="blog/archives.html"):
             page, group, month, year, category_param
         )
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, template_path, context)
 
@@ -99,7 +99,7 @@ def feed(request):
     try:
         context = blog_views.get_feed(request.build_absolute_uri())
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return HttpResponse(context, status=200, content_type="txt/xml")
 
@@ -112,7 +112,7 @@ def article(request, slug):
     try:
         context = blog_views.get_article(slug)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     if not context:
         return HttpResponseNotFound("Article not found")
