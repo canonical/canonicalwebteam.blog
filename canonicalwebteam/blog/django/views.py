@@ -11,8 +11,15 @@ tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 blog_views = BlogViews(tag_ids, excluded_tags, blog_title, tag_name)
 
 
+def str_to_int(string):
+    try:
+        return int(string)
+    except ValueError:
+        return 1
+
+
 def index(request, enable_upcoming=True):
-    page_param = request.GET.get("page", default="1")
+    page_param = str_to_int(request.GET.get("page", default="1"))
     category_param = request.GET.get("category", default="")
 
     try:
@@ -22,56 +29,57 @@ def index(request, enable_upcoming=True):
             enable_upcoming=enable_upcoming,
         )
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, "blog/index.html", context)
 
 
 def group(request, slug, template_path):
-    page_param = request.GET.get("page", default="1")
+    page_param = str_to_int(request.GET.get("page", default="1"))
     category_param = request.GET.get("category", default="")
 
     try:
         context = blog_views.get_group(slug, page_param, category_param)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, template_path, context)
 
 
 def topic(request, slug, template_path):
-    page_param = request.GET.get("page", default="1")
+    page_param = str_to_int(request.GET.get("page", default="1"))
 
     try:
         context = blog_views.get_topic(slug, page_param)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, template_path, context)
 
 
 def upcoming(request):
-    page_param = request.GET.get("page", default="1")
+    page_param = str_to_int(request.GET.get("page", default="1"))
 
     try:
         context = blog_views.get_upcoming(page_param)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, "blog/upcoming.html", context)
 
 
 def author(request, username):
-    page_param = request.GET.get("page", default="1")
+    page_param = str_to_int(request.GET.get("page", default="1"))
+
     try:
         context = blog_views.get_author(username, page_param)
         return render(request, "blog/author.html", context)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
 
 def archives(request, template_path="blog/archives.html"):
-    page = request.GET.get("page", default="1")
+    page = str_to_int(request.GET.get("page", default="1"))
     group = request.GET.get("group", default="")
     month = request.GET.get("month", default="")
     year = request.GET.get("year", default="")
@@ -82,7 +90,7 @@ def archives(request, template_path="blog/archives.html"):
             page, group, month, year, category_param
         )
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, template_path, context)
 
@@ -91,7 +99,7 @@ def feed(request):
     try:
         context = blog_views.get_feed(request.build_absolute_uri())
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     return HttpResponse(context, status=200, content_type="txt/xml")
 
@@ -104,7 +112,7 @@ def article(request, slug):
     try:
         context = blog_views.get_article(slug)
     except Exception as e:
-        return HttpResponse("Error: " + e, status=502)
+        return HttpResponse("Error: " + str(e), status=502)
 
     if not context:
         return HttpResponseNotFound("Article not found")
@@ -122,7 +130,7 @@ def latest_news(request):
 
 
 def tag(request, slug):
-    page_param = request.GET.get("page", default="1")
+    page_param = str_to_int(request.GET.get("page", default="1"))
 
     try:
         context = blog_views.get_tag(slug, page_param)

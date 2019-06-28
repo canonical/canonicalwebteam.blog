@@ -13,14 +13,15 @@ class BlogViews:
         self.tag_name = tag_name
 
     def get_index(self, page=1, category="", enable_upcoming=True):
-        category_id = ""
+        categories = []
         if category:
             category_resolved = api.get_category_by_slug(category)
-            category_id = category_resolved["id"]
+            if category_resolved:
+                categories.append(category_resolved.get("id", ""))
 
         upcoming = []
         featured_articles = []
-        if page == "1":
+        if page == 1:
             featured_articles, _ = api.get_articles(
                 tags=self.tag_ids,
                 tags_exclude=self.excluded_tags,
@@ -47,7 +48,7 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             exclude=[article["id"] for article in featured_articles],
             page=page,
-            categories=[category_id],
+            categories=categories,
         )
         total_pages = metadata["total_pages"]
 

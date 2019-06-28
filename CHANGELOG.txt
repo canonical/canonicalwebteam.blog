@@ -1,3 +1,4 @@
+2.0.11: Fix error of int conversion for page parameter on Django
 2.0.10: Fix get_archives error caused by default after/before params being empty strings
 2.0.4: Internal API refactor
 2.0.3: Add pagination for author endpoint
