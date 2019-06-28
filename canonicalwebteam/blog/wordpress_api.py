@@ -35,10 +35,11 @@ def build_url(endpoint, params={}):
 
     clean_params = {}
     for key, value in params.items():
-        if type(value) is list:
-            clean_params[key] = ",".join(str(item) for item in value)
-        elif value is not None:
-            clean_params[key] = value
+        if value:
+            if type(value) is list:
+                clean_params[key] = ",".join(str(item) for item in value)
+            else:
+                clean_params[key] = value
 
     query = urlencode(clean_params)
 

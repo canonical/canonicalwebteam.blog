@@ -20,7 +20,7 @@ class BlogViews:
 
         upcoming = []
         featured_articles = []
-        if page == "1":
+        if page == 1:
             featured_articles, _ = api.get_articles(
                 tags=self.tag_ids,
                 tags_exclude=self.excluded_tags,
@@ -42,12 +42,15 @@ class BlogViews:
                     categories=[events["id"], webinars["id"]],
                 )
 
+        categories = []
+        if category_id:
+            categories = [category_id]
         articles, metadata = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             exclude=[article["id"] for article in featured_articles],
             page=page,
-            categories=[category_id],
+            categories=categories,
         )
         total_pages = metadata["total_pages"]
 
