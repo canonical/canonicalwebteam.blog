@@ -1,3 +1,4 @@
+2.0.14: Return 404 when author not found
 2.0.13: Fix 404 not raised on tag endpoint
 2.0.12: Handle 404 with Exception in Django
 2.0.11: Fix error of int conversion for page parameter on Django

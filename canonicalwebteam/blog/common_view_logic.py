@@ -131,6 +131,9 @@ class BlogViews:
     def get_author(self, username, page=1):
         author = api.get_user_by_username(username)
 
+        if not author:
+            return None
+
         articles, metadata = api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,

@@ -73,9 +73,13 @@ def author(request, username):
 
     try:
         context = blog_views.get_author(username, page_param)
-        return render(request, "blog/author.html", context)
     except Exception as e:
         return HttpResponse("Error: " + str(e), status=502)
+
+    if not context:
+        raise Http404("Author not found")
+
+    return render(request, "blog/author.html", context)
 
 
 def archives(request, template_path="blog/archives.html"):
