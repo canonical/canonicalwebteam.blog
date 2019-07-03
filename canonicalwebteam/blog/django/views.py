@@ -135,6 +135,6 @@ def tag(request, slug):
     try:
         context = blog_views.get_tag(slug, page_param)
     except Exception:
-        return Http404("Tag not found")
+        raise Http404("Tag not found")
 
     return render(request, "blog/tag.html", context)
