@@ -30,6 +30,15 @@ def build_blueprint(
 
         return flask.render_template("blog/index.html", **context)
 
+    @blog.route("/latest")
+    def lastest_article():
+        try:
+            context = blog_views.get_latest_article()
+        except Exception:
+            return flask.abort(502)
+
+        return flask.render_template("blog/article.html", **context)
+
     @blog.route("/feed")
     def feed():
         try:
