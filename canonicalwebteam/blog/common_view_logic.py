@@ -74,6 +74,21 @@ class BlogViews:
 
         return get_article_context(article, self.tag_ids, self.excluded_tags)
 
+    def get_latest_article(self):
+        articles, _ = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            page=1,
+            per_page=1,
+        )
+
+        if not articles:
+            return {}
+
+        return get_article_context(
+            articles[0], self.tag_ids, self.excluded_tags
+        )
+
     def get_group(self, group_slug, page=1, category_slug=""):
         group = api.get_group_by_slug(group_slug)
 

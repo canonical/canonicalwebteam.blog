@@ -34,6 +34,15 @@ def index(request, enable_upcoming=True):
     return render(request, "blog/index.html", context)
 
 
+def latest_article(request):
+    try:
+        context = blog_views.get_latest_article()
+    except Exception as e:
+        return HttpResponse("Error: " + str(e), status=502)
+
+    return render(request, "blog/article.html", context)
+
+
 def group(request, slug, template_path):
     page_param = str_to_int(request.GET.get("page", default="1"))
     category_param = request.GET.get("category", default="")
