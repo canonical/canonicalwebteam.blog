@@ -40,7 +40,7 @@ def latest_article(request):
     except Exception as e:
         return HttpResponse("Error: " + str(e), status=502)
 
-    return render(request, "blog/article.html", context)
+    return redirect("article", slug=context.get("article").get("slug"))
 
 
 def group(request, slug, template_path):
