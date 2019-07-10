@@ -37,7 +37,9 @@ def build_blueprint(
         except Exception:
             return flask.abort(502)
 
-        return flask.render_template("blog/article.html", **context)
+        return flask.redirect(
+            flask.url_for(".article", slug=context.get("article").get("slug"))
+        )
 
     @blog.route("/feed")
     def feed():
