@@ -69,7 +69,7 @@ class TestWordPressApi(unittest.TestCase):
         _ = api.get_user(user_id)
 
         get.assert_called_once_with(
-            "https://admin.insights.ubuntu.com/wp-json/wp/v2/users/217"
+            "https://admin.insights.ubuntu.com/wp-json/wp/v2/users/217?"
             "&_embed"
         )
 
@@ -88,7 +88,7 @@ class TestWordPressApi(unittest.TestCase):
         id = 89203
         _ = api.get_media(id)
         get.assert_called_once_with(
-            "https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89203"
+            "https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89203?"
             "&_embed"
         )
 
@@ -106,7 +106,7 @@ class TestWordPressApi(unittest.TestCase):
         id = 1453
         _ = api.get_category_by_id(id)
         get.assert_called_once_with(
-            "https://admin.insights.ubuntu.com/wp-json/wp/v2/categories/1453"
+            "https://admin.insights.ubuntu.com/wp-json/wp/v2/categories/1453?"
             "&_embed"
         )
 
@@ -134,7 +134,7 @@ class TestWordPressApi(unittest.TestCase):
         id = 3367
         _ = api.get_group_by_id(id)
         get.assert_called_once_with(
-            "https://admin.insights.ubuntu.com/wp-json/wp/v2/group/3367"
+            "https://admin.insights.ubuntu.com/wp-json/wp/v2/group/3367?"
             "&_embed"
         )
 
