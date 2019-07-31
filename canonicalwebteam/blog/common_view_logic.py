@@ -246,7 +246,9 @@ class BlogViews:
     def get_feed(
         self, uri, tags_exclude=[], tags=[], title="Ubuntu Blog", subtitle=""
     ):
-        posts = api.get_feed([self.tag_name] + tags, tags_exclude=tags_exclude)
+        posts = api.get_feed(
+            self.tag_ids + tags, tags_exclude=tags_exclude + self.excluded_tags
+        )
 
         feed = AtomFeed(title, feed_url=uri, url=uri, subtitle=subtitle)
 

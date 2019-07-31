@@ -4,7 +4,12 @@ from canonicalwebteam.blog.common_view_logic import BlogViews
 
 
 def build_blueprint(
-    blog_title, tag_ids, tag_name, excluded_tags=[], enable_upcoming=True
+    blog_title,
+    tag_ids,
+    tag_name,
+    excluded_tags=[],
+    enable_upcoming=True,
+    feed_subtitle="",
 ):
     blog = flask.Blueprint(
         "blog", __name__, template_folder="/templates", static_folder="/static"
@@ -42,11 +47,17 @@ def build_blueprint(
     @blog.route("/feed")
     def feed():
         try:
-            context = blog_views.get_feed(flask.request.base_url)
+            feed = blog_views.get_feed(
+                flask.request.base_url,
+                title=blog_title,
+                subtitle=feed_subtitle,
+                tags=tag_ids,
+                tags_exclude=excluded_tags,
+            )
         except Exception:
             return flask.abort(502)
 
-        return flask.Response(context, mimetype="text/xml")
+        return flask.Response(feed, mimetype="text/xml")
 
     @blog.route(
         '/<regex("[0-9]{4}"):year>/<regex("[0-9]{2}"):month>/'
