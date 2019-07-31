@@ -4,6 +4,8 @@ from canonicalwebteam.blog import logic
 from canonicalwebteam.blog import wordpress_api as api
 from dateutil.relativedelta import relativedelta
 
+from werkzeug.contrib.atom import AtomFeed
+
 
 class BlogViews:
     def __init__(self, tag_ids, excluded_tags, blog_title, tag_name):
@@ -241,12 +243,31 @@ class BlogViews:
 
         return context
 
-    def get_feed(self, uri):
-        feed = api.get_feed(self.tag_name)
-        right_urls = logic.change_url(feed, uri.replace("/feed", ""))
-        context = right_urls.replace("Ubuntu Blog", self.blog_title)
+    def get_feed(
+        self, uri, tags_exclude=[], tags=[], title="Ubuntu Blog", subtitle=""
+    ):
+        posts = api.get_feed([self.tag_name] + tags, tags_exclude=tags_exclude)
 
-        return context
+        feed = AtomFeed(title, feed_url=uri, url=uri, subtitle=subtitle)
+
+        for post in posts:
+            last_modified = datetime.strptime(
+                post["modified_gmt"], "%Y-%m-%dT%H:%M:%S"
+            )
+            published = datetime.strptime(
+                post["modified_gmt"], "%Y-%m-%dT%H:%M:%S"
+            )
+            feed.add(
+                post["title"]["rendered"],
+                post["content"]["rendered"],
+                content_type="html",
+                author=post["_embedded"]["author"][0],
+                url=post["link"],
+                id=post["id"],
+                updated=last_modified,
+                published=published,
+            )
+        return feed.to_string()
 
     def get_tag(self, slug, page=1):
         tag = api.get_tag_by_slug(slug)

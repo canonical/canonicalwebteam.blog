@@ -43,11 +43,7 @@ def build_url(endpoint, params={}):
 
     query = urlencode(clean_params)
 
-    return (
-        f"{API_URL}/{endpoint}?{query}&_embed"
-        if query
-        else f"{API_URL}/{endpoint}&_embed"
-    )
+    return f"{API_URL}/{endpoint}?" f"{query if query else ''}&_embed"
 
 
 def get_articles(
@@ -239,10 +235,14 @@ def get_user(user_id):
     return process_response(response)
 
 
-def get_feed(tag):
-    response = api_session.get(f"{BLOG_URL}/?tag={tag}&feed=rss")
+def get_feed(tags, tags_exclude=[]):
+    url = build_url(
+        "posts",
+        params={"tags_exclude": tags_exclude, "tags": tags, "feed": "rss"},
+    )
+    response = api_session.get(url)
 
     if not response.ok:
         return None
 
-    return response.text
+    return process_response(response)

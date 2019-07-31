@@ -108,13 +108,18 @@ def archives(request, template_path="blog/archives.html"):
     return render(request, template_path, context)
 
 
-def feed(request):
+def feed(request, tags_exclude=[], tags=[], title="", subtitle=""):
     try:
-        context = blog_views.get_feed(request.build_absolute_uri())
+        feed = blog_views.get_feed(
+            request.build_absolute_uri(),
+            tags_exclude=tags_exclude,
+            tags=tags,
+            title=title,
+            subtitle=subtitle,
+        )
     except Exception as e:
         return HttpResponse("Error: " + str(e), status=502)
-
-    return HttpResponse(context, status=200, content_type="txt/xml")
+    return HttpResponse(feed, status=200, content_type="txt/xml")
 
 
 def article_redirect(request, slug, year=None, month=None, day=None):
