@@ -244,7 +244,7 @@ class BlogViews:
         return context
 
     def get_feed(
-        self, uri, tags_exclude=[], tags=[], title="Ubuntu Blog", subtitle=""
+        self, uri, tags_exclude=[], tags=[], title="Blog", subtitle=""
     ):
         posts = api.get_feed(
             self.tag_ids + tags, tags_exclude=tags_exclude + self.excluded_tags

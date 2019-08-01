@@ -41,9 +41,9 @@ def build_url(endpoint, params={}):
             else:
                 clean_params[key] = value
 
-    query = urlencode(clean_params)
+    query = urlencode({**clean_params, "_embed": "true"})
 
-    return f"{API_URL}/{endpoint}?" f"{query if query else ''}&_embed"
+    return f"{API_URL}/{endpoint}?{query}"
 
 
 def get_articles(
