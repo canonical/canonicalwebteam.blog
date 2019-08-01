@@ -129,11 +129,11 @@ class TestCommonViewLogic(unittest.TestCase):
     @vcr.use_cassette("fixtures/vcr_cassettes/get_tag.yaml")
     def test_get_tag_page_context(self):
         views = BlogViews([], [], "test", "")
-        tag_context = views.get_tag("snappy")
-        tag_id = api.get_tag_by_slug("snappy")["id"]
+        tag_context = views.get_tag("kubernetes")
+        tag_id = api.get_tag_by_slug("kubernetes")["id"]
 
         self.assertEqual(tag_context["current_page"], 1)
-        self.assertEqual(tag_context["total_pages"], 1)
+        self.assertEqual(tag_context["total_pages"] > 0, True)
         self.assertEqual(tag_context["title"], "test")
         self.assertEqual(tag_context["tag"]["id"], tag_id)
 
