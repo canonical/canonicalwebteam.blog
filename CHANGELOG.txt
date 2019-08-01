@@ -1,3 +1,4 @@
+2.2.0: Improve `/blog/feed` to make it customizable
 2.1.1: Redirect latest endpoint to latest article page
 2.1.0: Add latest article endpoint ("/latest")
 2.0.14: Return 404 when author not found
