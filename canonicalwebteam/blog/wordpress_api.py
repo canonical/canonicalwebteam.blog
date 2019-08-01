@@ -199,7 +199,6 @@ def get_tag_by_slug(slug):
 
     try:
         tag = process_response(response)
-        print(tag)
         return tag[0]
     except Exception:
         return None

@@ -108,7 +108,7 @@ def archives(request, template_path="blog/archives.html"):
     return render(request, template_path, context)
 
 
-def feed(request, tags_exclude=[], tags=[], title="", subtitle=""):
+def feed(request, tags_exclude=[], tags=[], title=blog_title, subtitle=""):
     try:
         feed = blog_views.get_feed(
             request.build_absolute_uri(),
