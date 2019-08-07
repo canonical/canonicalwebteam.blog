@@ -1,3 +1,4 @@
+2.3.0: Use uncached sessions for API calls
 2.2.1: Fix up default Title setting for blog feed
 2.2.0: Improve `/blog/feed` to make it customizable
 2.1.1: Redirect latest endpoint to latest article page

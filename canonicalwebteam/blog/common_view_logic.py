@@ -269,6 +269,7 @@ class BlogViews:
                 updated=last_modified,
                 published=published,
             )
+
         return feed.to_string()
 
     def get_tag(self, slug, page=1):

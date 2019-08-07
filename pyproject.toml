@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "canonicalwebteam.blog"
-version = "2.2.1"
+version = "2.3.0"
 description = "Flask extension and Django App to add a nice blog to your website"
 authors = ["Canonical webteam <webteam@canonical.com>"]
 
@@ -31,4 +31,3 @@ Flask = ["Flask"]
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
-
