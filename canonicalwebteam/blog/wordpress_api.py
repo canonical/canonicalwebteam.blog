@@ -2,20 +2,20 @@ import os
 
 from urllib.parse import urlencode
 
-from canonicalwebteam.http import CachedSession
+from canonicalwebteam.http import CachedSession, UncachedSession
 
 
-BLOG_URL = os.getenv("BLOG_URL", "https://admin.insights.ubuntu.com")
 API_URL = os.getenv(
     "BLOG_API", "https://admin.insights.ubuntu.com/wp-json/wp/v2"
 )
+BLOG_URL = os.getenv("BLOG_URL", "https://admin.insights.ubuntu.com")
 
 
 api_session = CachedSession(
     fallback_cache_duration=300, file_cache_directory=".webcache_blog"
 )
 
-tags = {}
+feed_session = UncachedSession()
 
 
 def process_response(response):
@@ -240,8 +240,8 @@ def get_feed(tags, tags_exclude=[]):
         "posts",
         params={"tags_exclude": tags_exclude, "tags": tags, "feed": "rss"},
     )
-    response = api_session.get(url)
 
+    response = feed_session.get(url)
     if not response.ok:
         return None
 
