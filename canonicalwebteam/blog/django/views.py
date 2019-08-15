@@ -3,6 +3,7 @@ from django.conf import settings
 from django.http import HttpResponse, JsonResponse, Http404
 from django.shortcuts import redirect, render
 
+
 tag_ids = settings.BLOG_CONFIG["TAG_IDS"]
 excluded_tags = settings.BLOG_CONFIG["EXCLUDED_TAGS"]
 blog_title = settings.BLOG_CONFIG["BLOG_TITLE"]
@@ -34,6 +35,17 @@ def index(request, enable_upcoming=True):
     return render(request, "blog/index.html", context)
 
 
+def index_feed(request, title=blog_title, subtitle=""):
+    feed = blog_views.get_index_feed(
+        uri=request.build_absolute_uri("/"),
+        path=request.path,
+        title=title,
+        subtitle=subtitle,
+    )
+
+    return HttpResponse(feed, status=200, content_type="application/rss+xml")
+
+
 def latest_article(request):
     try:
         context = blog_views.get_latest_article()
@@ -55,6 +67,21 @@ def group(request, slug, template_path):
     return render(request, template_path, context)
 
 
+def group_feed(request, slug, title=blog_title, subtitle=""):
+    feed = blog_views.get_group_feed(
+        group_slug=slug,
+        uri=request.build_absolute_uri("/"),
+        path=request.path,
+        title=title,
+        subtitle=subtitle,
+    )
+
+    if not feed:
+        raise Http404()
+
+    return HttpResponse(feed, status=200, content_type="application/rss+xml")
+
+
 def topic(request, slug, template_path):
     page_param = str_to_int(request.GET.get("page", default="1"))
 
@@ -64,6 +91,21 @@ def topic(request, slug, template_path):
         return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, template_path, context)
+
+
+def topic_feed(request, slug, title=blog_title, subtitle=""):
+    feed = blog_views.get_topic_feed(
+        topic_slug=slug,
+        uri=request.build_absolute_uri("/"),
+        path=request.path,
+        title=title,
+        subtitle=subtitle,
+    )
+
+    if not feed:
+        raise Http404()
+
+    return HttpResponse(feed, status=200, content_type="application/rss+xml")
 
 
 def upcoming(request):
@@ -91,6 +133,21 @@ def author(request, username):
     return render(request, "blog/author.html", context)
 
 
+def author_feed(request, username, title=blog_title, subtitle=""):
+    feed = blog_views.get_author_feed(
+        username=username,
+        uri=request.build_absolute_uri("/"),
+        path=request.path,
+        title=title,
+        subtitle=subtitle,
+    )
+
+    if not feed:
+        raise Http404()
+
+    return HttpResponse(feed, status=200, content_type="application/rss+xml")
+
+
 def archives(request, template_path="blog/archives.html"):
     page = str_to_int(request.GET.get("page", default="1"))
     group = request.GET.get("group", default="")
@@ -106,20 +163,6 @@ def archives(request, template_path="blog/archives.html"):
         return HttpResponse("Error: " + str(e), status=502)
 
     return render(request, template_path, context)
-
-
-def feed(request, tags_exclude=[], tags=[], title=blog_title, subtitle=""):
-    try:
-        feed = blog_views.get_feed(
-            request.build_absolute_uri(),
-            tags_exclude=tags_exclude,
-            tags=tags,
-            title=title,
-            subtitle=subtitle,
-        )
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
-    return HttpResponse(feed, status=200, content_type="txt/xml")
 
 
 def article_redirect(request, slug, year=None, month=None, day=None):
