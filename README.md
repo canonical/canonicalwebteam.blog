@@ -83,6 +83,13 @@ path(
 ## Development
 The blog extension leverages [poetry](https://poetry.eustace.io/) for dependency management.
 
+### Regenerate setup.py
+
+``` bash
+poetry install
+poetry run poetry-setup
+```
+
 ## Testing
 All tests can be run with `poetry run pytest`.
 
