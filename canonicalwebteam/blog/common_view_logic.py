@@ -4,7 +4,7 @@ from canonicalwebteam.blog import logic
 from canonicalwebteam.blog import wordpress_api as api
 from dateutil.relativedelta import relativedelta
 
-from werkzeug.contrib.atom import AtomFeed
+from canonicalwebteam.blog import feeds
 
 
 class BlogViews:
@@ -68,6 +68,21 @@ class BlogViews:
 
         return context
 
+    def get_index_feed(self, uri, path, title="Blog", subtitle=""):
+        articles, _ = api.get_articles(
+            tags=self.tag_ids, tags_exclude=self.excluded_tags, cache=False
+        )
+
+        feed = feeds.build_feed(
+            uri=uri,
+            path=path,
+            title=title,
+            subtitle=subtitle,
+            articles=articles,
+        )
+
+        return feed.rss_str()
+
     def get_article(self, slug):
         article = api.get_article(slug, self.tag_ids, self.excluded_tags)
 
@@ -113,6 +128,30 @@ class BlogViews:
 
         return context
 
+    def get_group_feed(self, group_slug, uri, path, title="Blog", subtitle=""):
+        group = api.get_group_by_slug(group_slug)
+
+        if not group:
+            return None
+
+        articles, _ = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            groups=[group.get("id", "")],
+            cache=False,
+        )
+
+        title = f"{group['name']} - {title}"
+        feed = feeds.build_feed(
+            uri=uri,
+            path=path,
+            title=title,
+            subtitle=subtitle,
+            articles=articles,
+        )
+
+        return feed.rss_str()
+
     def get_topic(self, topic_slug, page=1):
         tag = api.get_tag_by_slug(topic_slug)
 
@@ -127,6 +166,28 @@ class BlogViews:
         context["title"] = self.blog_title
 
         return context
+
+    def get_topic_feed(self, topic_slug, uri, path, title="Blog", subtitle=""):
+        tag = api.get_tag_by_slug(topic_slug)
+
+        if not tag:
+            return None
+
+        tag_ids = self.tag_ids + [tag["id"]]
+        articles, _ = api.get_articles(
+            tags=tag_ids, tags_exclude=self.excluded_tags, cache=False
+        )
+
+        title = f"{tag['name']} - {title}"
+        feed = feeds.build_feed(
+            uri=uri,
+            path=path,
+            title=title,
+            subtitle=subtitle,
+            articles=articles,
+        )
+
+        return feed.rss_str()
 
     def get_upcoming(self, page=1):
         events = api.get_category_by_slug("events")
@@ -166,6 +227,30 @@ class BlogViews:
         context["total_posts"] = metadata.get("total_posts", 0)
 
         return context
+
+    def get_author_feed(self, username, uri, path, title="Blog", subtitle=""):
+        author = api.get_user_by_username(username)
+
+        if not author:
+            return None
+
+        articles, _ = api.get_articles(
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            author=author["id"],
+            cache=False,
+        )
+
+        title = f"{author['name']} - {title}"
+        feed = feeds.build_feed(
+            uri=uri,
+            title=title,
+            path=path,
+            subtitle=subtitle,
+            articles=articles,
+        )
+
+        return feed.rss_str()
 
     def get_latest_news(self):
         latest_pinned_articles, _ = api.get_articles(
@@ -242,35 +327,6 @@ class BlogViews:
         context["total_posts"] = total_posts
 
         return context
-
-    def get_feed(
-        self, uri, tags_exclude=[], tags=[], title="Blog", subtitle=""
-    ):
-        posts = api.get_feed(
-            self.tag_ids + tags, tags_exclude=tags_exclude + self.excluded_tags
-        )
-
-        feed = AtomFeed(title, feed_url=uri, url=uri, subtitle=subtitle)
-
-        for post in posts:
-            last_modified = datetime.strptime(
-                post["modified_gmt"], "%Y-%m-%dT%H:%M:%S"
-            )
-            published = datetime.strptime(
-                post["modified_gmt"], "%Y-%m-%dT%H:%M:%S"
-            )
-            feed.add(
-                post["title"]["rendered"],
-                post["content"]["rendered"],
-                content_type="html",
-                author=post["_embedded"]["author"][0],
-                url=post["link"],
-                id=post["id"],
-                updated=last_modified,
-                published=published,
-            )
-
-        return feed.to_string()
 
     def get_tag(self, slug, page=1):
         tag = api.get_tag_by_slug(slug)

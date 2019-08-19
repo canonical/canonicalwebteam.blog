@@ -35,6 +35,17 @@ def build_blueprint(
 
         return flask.render_template("blog/index.html", **context)
 
+    @blog.route("/feed")
+    def homepage_feed():
+        feed = blog_views.get_index_feed(
+            uri=flask.request.url_root,
+            path=flask.request.path,
+            title=blog_title,
+            subtitle=feed_subtitle,
+        )
+
+        return flask.Response(feed, mimetype="application/rss+xml")
+
     @blog.route("/latest")
     def lastest_article():
         try:
@@ -45,21 +56,6 @@ def build_blueprint(
         return flask.redirect(
             flask.url_for(".article", slug=context.get("article").get("slug"))
         )
-
-    @blog.route("/feed")
-    def feed():
-        try:
-            feed = blog_views.get_feed(
-                flask.request.base_url,
-                title=blog_title,
-                subtitle=feed_subtitle,
-                tags=tag_ids,
-                tags_exclude=excluded_tags,
-            )
-        except Exception:
-            return flask.abort(502)
-
-        return flask.Response(feed, mimetype="text/xml")
 
     @blog.route(
         '/<regex("[0-9]{4}"):year>/<regex("[0-9]{2}"):month>/'
@@ -104,6 +100,21 @@ def build_blueprint(
 
         return flask.render_template("blog/author.html", **context)
 
+    @blog.route("/author/<username>/feed")
+    def author_feed(username):
+        feed = blog_views.get_author_feed(
+            username=username,
+            uri=flask.request.url_root,
+            path=flask.request.path,
+            title=blog_title,
+            subtitle=feed_subtitle,
+        )
+
+        if not feed:
+            flask.abort(404)
+
+        return flask.Response(feed, mimetype="application/rss+xml")
+
     @blog.route("/archives")
     def archives():
         page_param = flask.request.args.get("page", default=1, type=int)
@@ -141,6 +152,21 @@ def build_blueprint(
 
         return flask.render_template("blog/group.html", **context)
 
+    @blog.route("/group/<slug>/feed")
+    def group_feed(slug):
+        feed = blog_views.get_group_feed(
+            group_slug=slug,
+            uri=flask.request.url_root,
+            path=flask.request.path,
+            title=blog_title,
+            subtitle=feed_subtitle,
+        )
+
+        if not feed:
+            flask.abort(404)
+
+        return flask.Response(feed, mimetype="application/rss+xml")
+
     @blog.route("/topic/<slug>")
     def topic(slug):
         page_param = flask.request.args.get("page", default=1, type=int)
@@ -151,6 +177,21 @@ def build_blueprint(
             flask.abort(502)
 
         return flask.render_template("blog/topic.html", **context)
+
+    @blog.route("/topic/<slug>/feed")
+    def topic_feed(slug):
+        feed = blog_views.get_topic_feed(
+            topic_slug=slug,
+            uri=flask.request.url_root,
+            path=flask.request.path,
+            title=blog_title,
+            subtitle=feed_subtitle,
+        )
+
+        if not feed:
+            flask.abort(404)
+
+        return flask.Response(feed, mimetype="application/rss+xml")
 
     @blog.route("/upcoming")
     def upcoming():

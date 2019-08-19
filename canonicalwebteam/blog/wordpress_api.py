@@ -8,14 +8,11 @@ from canonicalwebteam.http import CachedSession, UncachedSession
 API_URL = os.getenv(
     "BLOG_API", "https://admin.insights.ubuntu.com/wp-json/wp/v2"
 )
-BLOG_URL = os.getenv("BLOG_URL", "https://admin.insights.ubuntu.com")
-
 
 api_session = CachedSession(
     fallback_cache_duration=300, file_cache_directory=".webcache_blog"
 )
-
-feed_session = UncachedSession()
+uncached_api_session = UncachedSession()
 
 
 def process_response(response):
@@ -58,6 +55,7 @@ def get_articles(
     groups=None,
     per_page=12,
     page=1,
+    cache=True,
 ):
     """
     Get articles from Wordpress api
@@ -92,7 +90,8 @@ def get_articles(
         },
     )
 
-    response = api_session.get(url)
+    session = api_session if cache else uncached_api_session
+    response = session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
     total_posts = response.headers.get("X-WP-Total")
 
@@ -231,18 +230,5 @@ def get_user_by_username(username):
 def get_user(user_id):
     url = build_url(f"users/{str(user_id)}")
     response = api_session.get(url)
-
-    return process_response(response)
-
-
-def get_feed(tags, tags_exclude=[]):
-    url = build_url(
-        "posts",
-        params={"tags_exclude": tags_exclude, "tags": tags, "feed": "rss"},
-    )
-
-    response = feed_session.get(url)
-    if not response.ok:
-        return None
 
     return process_response(response)

@@ -1,3 +1,4 @@
+2.4.0: Add feeds endpoints for groups, topics and authors
 2.3.0: Use uncached sessions for API calls
 2.2.1: Fix up default Title setting for blog feed
 2.2.0: Improve `/blog/feed` to make it customizable

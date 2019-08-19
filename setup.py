@@ -27,7 +27,7 @@ setup(
     name='canonicalwebteam.blog',  # Required
     # https://www.python.org/dev/peps/pep-0440/
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='2.2.1',  # Required
+    version='2.4.0',  # Required
     # https://packaging.python.org/specifications/core-metadata/#summary
     description="Flask extension and Django App to add a nice blog to your website",  # Required
     # https://packaging.python.org/specifications/core-metadata/#description-optional
@@ -46,10 +46,8 @@ setup(
     packages=find_packages(),  # Required
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[
-        'django[django] (>=2.2,<3.0)',
-        'Flask (>=1.0,<2.0)',
         'canonicalwebteam.http (>=1.0.1,<2.0.0)',
-        'poetry-setup (>=0.3.6,<0.4.0)',
+        'feedgen (>=0.7,<0.8)',
     ],  # Optional
     # https://setuptools.readthedocs.io/en/latest/setuptools.html#dependencies-that-aren-t-in-pypi
     dependency_links=[],  # Optional
