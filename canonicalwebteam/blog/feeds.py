@@ -13,7 +13,7 @@ def build_feed(uri, path, title, subtitle, articles):
     feed.description(f"{title} feeds")
 
     for article in articles:
-        feed.add_entry(build_entry(article, blog_uri))
+        feed.add_entry(build_entry(article, blog_uri), order="append")
 
     return feed
 
