@@ -1,4 +1,4 @@
-# Ubuntu blog extension
+# Canonical blog extension
 
 This extension allows you to add a simple frontend section to your flask app. All the articles
 are pulled from the (Ubuntu blog)[https://ubuntu.com/blog] WordPress API using JSON.
