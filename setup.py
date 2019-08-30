@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 """A setuptools based setup module.
 See:
 https://packaging.python.org/en/latest/distributing.html
@@ -27,7 +29,7 @@ setup(
     name='canonicalwebteam.blog',  # Required
     # https://www.python.org/dev/peps/pep-0440/
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='2.4.1',  # Required
+    version='3.0.0',  # Required
     # https://packaging.python.org/specifications/core-metadata/#summary
     description="Flask extension and Django App to add a nice blog to your website",  # Required
     # https://packaging.python.org/specifications/core-metadata/#description-optional
