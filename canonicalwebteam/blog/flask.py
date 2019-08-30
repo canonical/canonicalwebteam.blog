@@ -95,11 +95,7 @@ def build_blueprint(blog_views, enable_upcoming=True):
         )
 
         context = blog_views.get_archives(
-            page_param,
-            group_param,
-            month_param,
-            year_param,
-            category_param,
+            page_param, group_param, month_param, year_param, category_param
         )
 
         return flask.render_template("blog/archives.html", **context)
