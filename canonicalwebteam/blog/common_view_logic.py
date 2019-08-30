@@ -8,11 +8,10 @@ from canonicalwebteam.blog import feeds
 
 
 class BlogViews:
-    def __init__(self, tag_ids, excluded_tags, blog_title, tag_name):
+    def __init__(self, tag_ids=[], excluded_tags=[], blog_title="Blog"):
         self.tag_ids = tag_ids
         self.excluded_tags = excluded_tags
         self.blog_title = blog_title
-        self.tag_name = tag_name
 
     def get_index(self, page=1, category="", enable_upcoming=True):
         categories = []
@@ -68,7 +67,7 @@ class BlogViews:
 
         return context
 
-    def get_index_feed(self, uri, path, title="Blog", subtitle=""):
+    def get_index_feed(self, uri, path, subtitle=""):
         articles, _ = api.get_articles(
             tags=self.tag_ids, tags_exclude=self.excluded_tags, cache=False
         )
@@ -76,7 +75,7 @@ class BlogViews:
         feed = feeds.build_feed(
             uri=uri,
             path=path,
-            title=title,
+            title=self.blog_title,
             subtitle=subtitle,
             articles=articles,
         )
@@ -128,7 +127,7 @@ class BlogViews:
 
         return context
 
-    def get_group_feed(self, group_slug, uri, path, title="Blog", subtitle=""):
+    def get_group_feed(self, group_slug, uri, path, subtitle=""):
         group = api.get_group_by_slug(group_slug)
 
         if not group:
@@ -141,7 +140,7 @@ class BlogViews:
             cache=False,
         )
 
-        title = f"{group['name']} - {title}"
+        title = f"{group['name']} - {self.blog_title}"
         feed = feeds.build_feed(
             uri=uri,
             path=path,
@@ -167,7 +166,7 @@ class BlogViews:
 
         return context
 
-    def get_topic_feed(self, topic_slug, uri, path, title="Blog", subtitle=""):
+    def get_topic_feed(self, topic_slug, uri, path, subtitle=""):
         tag = api.get_tag_by_slug(topic_slug)
 
         if not tag:
@@ -178,7 +177,7 @@ class BlogViews:
             tags=tag_ids, tags_exclude=self.excluded_tags, cache=False
         )
 
-        title = f"{tag['name']} - {title}"
+        title = f"{tag['name']} - {self.blog_title}"
         feed = feeds.build_feed(
             uri=uri,
             path=path,
@@ -228,7 +227,7 @@ class BlogViews:
 
         return context
 
-    def get_author_feed(self, username, uri, path, title="Blog", subtitle=""):
+    def get_author_feed(self, username, uri, path, subtitle=""):
         author = api.get_user_by_username(username)
 
         if not author:
@@ -241,7 +240,7 @@ class BlogViews:
             cache=False,
         )
 
-        title = f"{author['name']} - {title}"
+        title = f"{author['name']} - {self.blog_title}"
         feed = feeds.build_feed(
             uri=uri,
             title=title,

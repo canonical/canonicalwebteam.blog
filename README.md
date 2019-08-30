@@ -31,17 +31,28 @@ An example of these templates can be found at https://github.com/canonical-websi
 
 In your app you can then:
 
-```python
-    import canonicalwebteam.blog_extension import BlogExtension
-    blog = BlogExtension(app, "Blog title", [1], "tag_name", "/url-prefix")
+``` python3
+    import flask
+    from canonicalwebteam.blog import BlogViews
+    from canonicalwebteam.blog.flask import build_blueprint
+
+    app = flask.Flask(__name__)
+
+    # ...
+
+    blog_views = BlogViews()
+    app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
 ```
 
-If you use the factory pattern you can also:
+You can customise the blog through the following optional arguments:
 
-```python
-    import canonicalwebteam.blog_extension import BlogExtension
-    blog = BlogExtension()
-    blog.init_app(app, "Blog title", [1], "tag_name", "/url-prefix")
+``` python3
+    blog_views = BlogViews(
+        blog_title="Blog",
+        tag_ids=[1, 12, 112],
+        exclude_tags=[26, 34],
+    )
+    app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
 ```
 
 `BlogExtension()` accepts five parameters;
