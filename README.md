@@ -1,7 +1,7 @@
 # Canonical blog extension
 
 This extension allows you to add a simple frontend section to your flask app. All the articles
-are pulled from the (Ubuntu blog)[https://ubuntu.com/blog] WordPress API using JSON.
+are pulled from `[Canonical's Wordpress back-end](https://admin.insights.ubuntu.com/wp-admin/)` through the JSON API.
 
 This extension provides a blueprint with 3 routes:
 
