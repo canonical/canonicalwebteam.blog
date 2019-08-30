@@ -7,9 +7,8 @@ from django.shortcuts import redirect, render
 tag_ids = settings.BLOG_CONFIG["TAG_IDS"]
 excluded_tags = settings.BLOG_CONFIG["EXCLUDED_TAGS"]
 blog_title = settings.BLOG_CONFIG["BLOG_TITLE"]
-tag_name = settings.BLOG_CONFIG["TAG_NAME"]
 
-blog_views = BlogViews(tag_ids, excluded_tags, blog_title, tag_name)
+blog_views = BlogViews(tag_ids, excluded_tags, blog_title)
 
 
 def str_to_int(string):

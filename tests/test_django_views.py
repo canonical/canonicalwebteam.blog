@@ -16,7 +16,6 @@ settings.configure(
         "TAG_IDS": [],
         "EXCLUDED_TAGS": [3184, 3265],
         "BLOG_TITLE": "Blog",
-        "TAG_NAME": "",
     },
     ROOT_URLCONF="canonicalwebteam.blog.django.urls",
     TEMPLATES=[
@@ -34,7 +33,6 @@ mock_article = {"id": 1}
 class TestDjangoViews(unittest.TestCase):
     @vcr.use_cassette("fixtures/vcr_cassettes/django_homepage.yaml")
     def test_homepage(self):
-
         django_client = Client()
 
         response = django_client.get("/")
