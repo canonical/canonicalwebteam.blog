@@ -98,6 +98,9 @@ def build_blueprint(blog_views, enable_upcoming=True):
             page_param, group_param, month_param, year_param, category_param
         )
 
+        if not context:
+            flask.abort(404)
+
         return flask.render_template("blog/archives.html", **context)
 
     @blueprint.route("/group/<slug>")
@@ -108,6 +111,9 @@ def build_blueprint(blog_views, enable_upcoming=True):
         )
 
         context = blog_views.get_group(slug, page_param, category_param)
+
+        if not context:
+            flask.abort(404)
 
         return flask.render_template("blog/group.html", **context)
 
@@ -154,10 +160,9 @@ def build_blueprint(blog_views, enable_upcoming=True):
     @blueprint.route("/tag/<slug>")
     def tag(slug):
         page_param = flask.request.args.get("page", default=1, type=int)
+        context = blog_views.get_tag(slug, page_param)
 
-        try:
-            context = blog_views.get_tag(slug, page_param)
-        except Exception:
+        if not context:
             flask.abort(404)
 
         return flask.render_template("blog/tag.html", **context)

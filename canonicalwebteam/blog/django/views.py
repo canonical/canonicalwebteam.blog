@@ -22,14 +22,11 @@ def index(request, enable_upcoming=True):
     page_param = str_to_int(request.GET.get("page", default="1"))
     category_param = request.GET.get("category", default="")
 
-    try:
-        context = blog_views.get_index(
-            page=page_param,
-            category=category_param,
-            enable_upcoming=enable_upcoming,
-        )
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
+    context = blog_views.get_index(
+        page=page_param,
+        category=category_param,
+        enable_upcoming=enable_upcoming,
+    )
 
     return render(request, "blog/index.html", context)
 
@@ -46,10 +43,7 @@ def index_feed(request, title=blog_title, subtitle=""):
 
 
 def latest_article(request):
-    try:
-        context = blog_views.get_latest_article()
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
+    context = blog_views.get_latest_article()
 
     return redirect("article", slug=context.get("article").get("slug"))
 
@@ -57,11 +51,10 @@ def latest_article(request):
 def group(request, slug, template_path):
     page_param = str_to_int(request.GET.get("page", default="1"))
     category_param = request.GET.get("category", default="")
+    context = blog_views.get_group(slug, page_param, category_param)
 
-    try:
-        context = blog_views.get_group(slug, page_param, category_param)
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
+    if not context:
+        raise Http404("Group not found")
 
     return render(request, template_path, context)
 
@@ -83,11 +76,7 @@ def group_feed(request, slug, title=blog_title, subtitle=""):
 
 def topic(request, slug, template_path):
     page_param = str_to_int(request.GET.get("page", default="1"))
-
-    try:
-        context = blog_views.get_topic(slug, page_param)
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
+    context = blog_views.get_topic(slug, page_param)
 
     return render(request, template_path, context)
 
@@ -109,22 +98,14 @@ def topic_feed(request, slug, title=blog_title, subtitle=""):
 
 def upcoming(request):
     page_param = str_to_int(request.GET.get("page", default="1"))
-
-    try:
-        context = blog_views.get_upcoming(page_param)
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
+    context = blog_views.get_upcoming(page_param)
 
     return render(request, "blog/upcoming.html", context)
 
 
 def author(request, username):
     page_param = str_to_int(request.GET.get("page", default="1"))
-
-    try:
-        context = blog_views.get_author(username, page_param)
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
+    context = blog_views.get_author(username, page_param)
 
     if not context:
         raise Http404("Author not found")
@@ -154,12 +135,10 @@ def archives(request, template_path="blog/archives.html"):
     year = request.GET.get("year", default="")
     category_param = request.GET.get("category", default="")
 
-    try:
-        context = blog_views.get_archives(
-            page, group, month, year, category_param
-        )
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
+    context = blog_views.get_archives(page, group, month, year, category_param)
+
+    if not context:
+        raise Http404("Group not found")
 
     return render(request, template_path, context)
 
@@ -169,10 +148,7 @@ def article_redirect(request, slug, year=None, month=None, day=None):
 
 
 def article(request, slug):
-    try:
-        context = blog_views.get_article(slug)
-    except Exception as e:
-        return HttpResponse("Error: " + str(e), status=502)
+    context = blog_views.get_article(slug)
 
     if not context:
         raise Http404("Article not found")
@@ -181,20 +157,16 @@ def article(request, slug):
 
 
 def latest_news(request):
-    try:
-        context = blog_views.get_latest_news()
-    except Exception:
-        return JsonResponse({"Error": "An error ocurred"}, status=502)
+    context = blog_views.get_latest_news()
 
     return JsonResponse(context)
 
 
 def tag(request, slug):
     page_param = str_to_int(request.GET.get("page", default="1"))
+    context = blog_views.get_tag(slug, page_param)
 
-    try:
-        context = blog_views.get_tag(slug, page_param)
-    except Exception:
+    if not context:
         raise Http404("Tag not found")
 
     return render(request, "blog/tag.html", context)

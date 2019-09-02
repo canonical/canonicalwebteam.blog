@@ -283,6 +283,10 @@ class BlogViews:
 
         if group:
             group = api.get_group_by_slug(group)
+
+            if not group:
+                return None
+
             groups.append(group["id"])
 
         if category:
@@ -329,6 +333,9 @@ class BlogViews:
 
     def get_tag(self, slug, page=1):
         tag = api.get_tag_by_slug(slug)
+
+        if not tag:
+            return None
 
         articles, metadata = api.get_articles(
             tags=self.tag_ids + [tag["id"]],
