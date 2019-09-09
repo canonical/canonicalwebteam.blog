@@ -51,6 +51,7 @@ You can customise the blog through the following optional arguments:
         blog_title="Blog",
         tag_ids=[1, 12, 112],
         exclude_tags=[26, 34],
+        feed_description="The Ubuntu Blog Feed",
     )
     app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
 ```

@@ -2,15 +2,15 @@ from feedgen.entry import FeedEntry
 from feedgen.feed import FeedGenerator
 
 
-def build_feed(uri, path, title, subtitle, articles):
+def build_feed(uri, path, title, description, articles):
     uri = uri.rstrip("/")
     blog_uri = f"{uri}/{path.split('/')[1]}"
 
     feed = FeedGenerator()
     feed.generator("Python Feedgen")
     feed.title(title)
+    feed.description(description)
     feed.link(href=f"{uri}{path}", rel="self")
-    feed.description(f"{title} feeds")
 
     for article in articles:
         feed.add_entry(build_entry(article, blog_uri), order="append")
