@@ -1,3 +1,4 @@
+3.1.0: Allow setting feed_description through BlogViews
 3.0.1: Fix 404s for groups
 3.0.0: Change Flask interface to expose BlogViews
 2.4.1: List feeds from most recent to oldest

@@ -8,10 +8,17 @@ from canonicalwebteam.blog import feeds
 
 
 class BlogViews:
-    def __init__(self, tag_ids=[], excluded_tags=[], blog_title="Blog"):
+    def __init__(
+        self,
+        tag_ids=[],
+        excluded_tags=[],
+        blog_title="Blog",
+        feed_description=None,
+    ):
         self.tag_ids = tag_ids
         self.excluded_tags = excluded_tags
         self.blog_title = blog_title
+        self.feed_description = feed_description or f"{blog_title} feed"
 
     def get_index(self, page=1, category="", enable_upcoming=True):
         categories = []
@@ -67,7 +74,7 @@ class BlogViews:
 
         return context
 
-    def get_index_feed(self, uri, path, subtitle=""):
+    def get_index_feed(self, uri, path):
         articles, _ = api.get_articles(
             tags=self.tag_ids, tags_exclude=self.excluded_tags, cache=False
         )
@@ -76,7 +83,7 @@ class BlogViews:
             uri=uri,
             path=path,
             title=self.blog_title,
-            subtitle=subtitle,
+            description=self.feed_description,
             articles=articles,
         )
 
@@ -127,7 +134,7 @@ class BlogViews:
 
         return context
 
-    def get_group_feed(self, group_slug, uri, path, subtitle=""):
+    def get_group_feed(self, group_slug, uri, path):
         group = api.get_group_by_slug(group_slug)
 
         if not group:
@@ -145,7 +152,7 @@ class BlogViews:
             uri=uri,
             path=path,
             title=title,
-            subtitle=subtitle,
+            description=self.feed_description,
             articles=articles,
         )
 
@@ -166,7 +173,7 @@ class BlogViews:
 
         return context
 
-    def get_topic_feed(self, topic_slug, uri, path, subtitle=""):
+    def get_topic_feed(self, topic_slug, uri, path):
         tag = api.get_tag_by_slug(topic_slug)
 
         if not tag:
@@ -182,7 +189,7 @@ class BlogViews:
             uri=uri,
             path=path,
             title=title,
-            subtitle=subtitle,
+            description=self.feed_description,
             articles=articles,
         )
 
@@ -227,7 +234,7 @@ class BlogViews:
 
         return context
 
-    def get_author_feed(self, username, uri, path, subtitle=""):
+    def get_author_feed(self, username, uri, path):
         author = api.get_user_by_username(username)
 
         if not author:
@@ -245,7 +252,7 @@ class BlogViews:
             uri=uri,
             title=title,
             path=path,
-            subtitle=subtitle,
+            description=self.feed_description,
             articles=articles,
         )
 
