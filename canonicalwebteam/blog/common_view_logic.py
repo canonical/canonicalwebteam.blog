@@ -261,19 +261,21 @@ class BlogViews:
     def get_latest_news(self):
         latest_pinned_articles, _ = api.get_articles(
             tags=self.tag_ids,
-            exclude=self.excluded_tags,
+            tags_exclude=self.excluded_tags,
             page=1,
             per_page=1,
             sticky=True,
         )
 
-        per_page = 3
+        per_page = 4
+
         if latest_pinned_articles:
-            per_page = 4
+            per_page = 3
 
         latest_articles, _ = api.get_articles(
             tags=self.tag_ids,
-            exclude=self.excluded_tags,
+            tags_exclude=self.excluded_tags,
+            exclude=[article["id"] for article in latest_pinned_articles],
             page=1,
             per_page=per_page,
             sticky=False,
