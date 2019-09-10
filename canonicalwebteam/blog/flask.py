@@ -57,7 +57,10 @@ def build_blueprint(blog_views, enable_upcoming=True):
 
     @blueprint.route("/latest-news")
     def latest_news():
-        context = blog_views.get_latest_news()
+        context = blog_views.get_latest_news(
+            tag_ids=flask.request.args.getlist("tag-id"),
+            limit=flask.request.args.get("limit", "3"),
+        )
 
         return flask.jsonify(context)
 
