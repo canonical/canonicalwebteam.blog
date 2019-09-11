@@ -59,6 +59,7 @@ def build_blueprint(blog_views, enable_upcoming=True):
     def latest_news():
         context = blog_views.get_latest_news(
             tag_ids=flask.request.args.getlist("tag-id"),
+            group_ids=flask.request.args.getlist("group-id"),
             limit=flask.request.args.get("limit", "3"),
         )
 
