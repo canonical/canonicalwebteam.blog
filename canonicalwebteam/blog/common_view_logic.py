@@ -179,9 +179,8 @@ class BlogViews:
         if not tag:
             return None
 
-        tag_ids = self.tag_ids + [tag["id"]]
         articles, _ = api.get_articles(
-            tags=tag_ids, tags_exclude=self.excluded_tags, cache=False
+            tags=[tag["id"]], tags_exclude=self.excluded_tags, cache=False
         )
 
         title = f"{tag['name']} - {self.blog_title}"
@@ -258,24 +257,21 @@ class BlogViews:
 
         return feed.rss_str()
 
-    def get_latest_news(self):
+    def get_latest_news(self, limit=3, tag_ids=[]):
         latest_pinned_articles, _ = api.get_articles(
-            tags=self.tag_ids,
-            exclude=self.excluded_tags,
+            tags=tag_ids or self.tag_ids,
+            tags_exclude=self.excluded_tags,
             page=1,
             per_page=1,
             sticky=True,
         )
 
-        per_page = 3
-        if latest_pinned_articles:
-            per_page = 4
-
         latest_articles, _ = api.get_articles(
             tags=self.tag_ids,
-            exclude=self.excluded_tags,
+            tags_exclude=self.excluded_tags,
+            exclude=[article["id"] for article in latest_pinned_articles],
             page=1,
-            per_page=per_page,
+            per_page=limit,
             sticky=False,
         )
 
@@ -345,9 +341,7 @@ class BlogViews:
             return None
 
         articles, metadata = api.get_articles(
-            tags=self.tag_ids + [tag["id"]],
-            tags_exclude=self.excluded_tags,
-            page=page,
+            tags=[tag["id"]], tags_exclude=self.excluded_tags, page=page
         )
         total_pages = metadata["total_pages"]
 
