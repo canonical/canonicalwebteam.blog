@@ -257,18 +257,20 @@ class BlogViews:
 
         return feed.rss_str()
 
-    def get_latest_news(self, limit=3, tag_ids=[]):
+    def get_latest_news(self, limit=3, tag_ids=None, group_ids=None):
         latest_pinned_articles, _ = api.get_articles(
             tags=tag_ids or self.tag_ids,
             tags_exclude=self.excluded_tags,
+            groups=group_ids,
             page=1,
             per_page=1,
             sticky=True,
         )
 
         latest_articles, _ = api.get_articles(
-            tags=self.tag_ids,
+            tags=tag_ids or self.tag_ids,
             tags_exclude=self.excluded_tags,
+            groups=group_ids,
             exclude=[article["id"] for article in latest_pinned_articles],
             page=1,
             per_page=limit,
