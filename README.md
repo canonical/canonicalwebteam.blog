@@ -56,14 +56,6 @@ You can customise the blog through the following optional arguments:
     app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
 ```
 
-`BlogExtension()` accepts five parameters;
-
-- (obj) `app`
-- (str) "The title of your blog"
-- (arr) Array of tags from blog entries on which to filter e.g `['1234', '4321']` 
-- (str) Language string e.g. `"lang:en"`
-- (str) "/path/to/display/your/blog"
-
 ### Django
 
 - Add the blog module as a dependency to your Django project
