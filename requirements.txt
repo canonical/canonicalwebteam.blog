@@ -2,7 +2,7 @@
 Flask (>=1.0.1,<2.0.0)
 canonicalwebteam.http (>=1.0.1,<2.0.0)
 django (>=2.2,<3.0)
-feedgen (>=0.7,<0.8)
+feedgen (>=0.8,<0.9)
 flask_testing (>=0.7.1,<0.8.0)
 pytest (>=5.0,<6.0)
 vcrpy (>=2.0,<3.0)
