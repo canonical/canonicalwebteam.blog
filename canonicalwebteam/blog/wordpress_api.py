@@ -2,17 +2,14 @@ import os
 
 from urllib.parse import urlencode
 
-from canonicalwebteam.http import CachedSession, UncachedSession
+from requests import Session
 
 
 API_URL = os.getenv(
     "BLOG_API", "https://admin.insights.ubuntu.com/wp-json/wp/v2"
 )
 
-api_session = CachedSession(
-    fallback_cache_duration=300, file_cache_directory=".webcache_blog"
-)
-uncached_api_session = UncachedSession()
+api_session = Session()
 
 
 def process_response(response):
@@ -55,7 +52,6 @@ def get_articles(
     groups=None,
     per_page=12,
     page=1,
-    cache=True,
 ):
     """
     Get articles from Wordpress api
@@ -90,8 +86,7 @@ def get_articles(
         },
     )
 
-    session = api_session if cache else uncached_api_session
-    response = session.get(url)
+    response = api_session.get(url)
     total_pages = response.headers.get("X-WP-TotalPages")
     total_posts = response.headers.get("X-WP-Total")
 

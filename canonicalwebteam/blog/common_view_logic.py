@@ -76,7 +76,7 @@ class BlogViews:
 
     def get_index_feed(self, uri, path):
         articles, _ = api.get_articles(
-            tags=self.tag_ids, tags_exclude=self.excluded_tags, cache=False
+            tags=self.tag_ids, tags_exclude=self.excluded_tags
         )
 
         feed = feeds.build_feed(
@@ -144,7 +144,6 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             groups=[group.get("id", "")],
-            cache=False,
         )
 
         title = f"{group['name']} - {self.blog_title}"
@@ -180,7 +179,7 @@ class BlogViews:
             return None
 
         articles, _ = api.get_articles(
-            tags=[tag["id"]], tags_exclude=self.excluded_tags, cache=False
+            tags=[tag["id"]], tags_exclude=self.excluded_tags
         )
 
         title = f"{tag['name']} - {self.blog_title}"
@@ -243,7 +242,6 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             author=author["id"],
-            cache=False,
         )
 
         title = f"{author['name']} - {self.blog_title}"
