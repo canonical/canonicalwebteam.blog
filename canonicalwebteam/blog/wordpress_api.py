@@ -2,14 +2,14 @@ import os
 
 from urllib.parse import urlencode
 
-from canonicalwebteam.http import UncachedSession
+from requests import Session
 
 
 API_URL = os.getenv(
     "BLOG_API", "https://admin.insights.ubuntu.com/wp-json/wp/v2"
 )
 
-api_session = UncachedSession()
+api_session = Session()
 
 
 def process_response(response):

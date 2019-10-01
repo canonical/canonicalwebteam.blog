@@ -46,8 +46,8 @@ setup(
     packages=find_packages(),  # Required
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[
-        'canonicalwebteam.http (>=1.0.1,<2.0.0)',
         'feedgen (>=0.8,<0.9)',
+        'requests (>=2.22,<3.0)',
     ],  # Optional
     # https://setuptools.readthedocs.io/en/latest/setuptools.html#dependencies-that-aren-t-in-pypi
     dependency_links=[],  # Optional

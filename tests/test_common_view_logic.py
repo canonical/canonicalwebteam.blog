@@ -10,7 +10,7 @@ from canonicalwebteam.blog.common_view_logic import (
     get_article_context,
     BlogViews,
 )
-from canonicalwebteam.http import Session
+from requests import Session
 
 api.api_session = Session()
 

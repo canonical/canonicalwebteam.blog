@@ -15,8 +15,9 @@ license = "LGPL-3.0"
 python = "^3.6"
 django = {version = "^2.2", extras = ["django"]}
 Flask = {version = "^1.0", extra = ["flask"]}
-"canonicalwebteam.http" = "^1.0.1"
 feedgen = "^0.8"
+requests = "^2.22"
+
 
 [tool.poetry.dev-dependencies]
 flask_testing = "^0.7.1"
