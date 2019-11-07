@@ -7,8 +7,17 @@ from django.shortcuts import redirect, render
 tag_ids = settings.BLOG_CONFIG["TAG_IDS"]
 excluded_tags = settings.BLOG_CONFIG["EXCLUDED_TAGS"]
 blog_title = settings.BLOG_CONFIG["BLOG_TITLE"]
+feed_description = settings.BLOG_CONFIG.get("FEED_DESCRIPTION")
+per_page = settings.BLOG_CONFIG.get("PER_PAGE", 12)
 
-blog_views = BlogViews(tag_ids, excluded_tags, blog_title)
+
+blog_views = BlogViews(
+    tag_ids=tag_ids,
+    excluded_tags=excluded_tags,
+    blog_title=blog_title,
+    feed_description=feed_description,
+    per_page=per_page,
+)
 
 
 def str_to_int(string):
