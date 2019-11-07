@@ -14,11 +14,13 @@ class BlogViews:
         excluded_tags=[],
         blog_title="Blog",
         feed_description=None,
+        per_page=12,
     ):
         self.tag_ids = tag_ids
         self.excluded_tags = excluded_tags
         self.blog_title = blog_title
         self.feed_description = feed_description or f"{blog_title} feed"
+        self.per_page = per_page
 
     def get_index(self, page=1, category="", enable_upcoming=True):
         categories = []
@@ -56,6 +58,7 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             exclude=[article["id"] for article in featured_articles],
             page=page,
+            per_page=self.per_page,
             categories=categories,
         )
         total_pages = metadata["total_pages"]
