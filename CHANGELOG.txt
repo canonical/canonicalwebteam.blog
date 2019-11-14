@@ -1,3 +1,4 @@
+4.0.2: Fix issue with author feeds
 4.0.1: Add `per_page` to blog views
 4.0.0: Swap to uncached session
 3.1.2: Filter /latest-news JSON endpoint by group

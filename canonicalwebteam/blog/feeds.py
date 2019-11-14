@@ -29,8 +29,12 @@ def build_entry(article, blog_uri):
     link = f"{blog_uri}/{slug}"
 
     categories = []
-    for category in article["_embedded"]["wp:term"][1]:
-        categories.append(dict(term=category["slug"], label=category["name"]))
+
+    if "wp:term" in article["_embedded"]:
+        for category in article["_embedded"]["wp:term"][1]:
+            categories.append(
+                dict(term=category["slug"], label=category["name"])
+            )
 
     entry = FeedEntry()
     entry.title(title)
