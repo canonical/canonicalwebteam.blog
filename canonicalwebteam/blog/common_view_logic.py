@@ -45,12 +45,14 @@ class BlogViews:
                 # this going to move
                 events = api.get_category_by_slug("events")
                 webinars = api.get_category_by_slug("webinars")
+                date_after = (datetime.now() - relativedelta(months=6)).isoformat()
                 upcoming, _ = api.get_articles(
                     tags=self.tag_ids,
                     tags_exclude=self.excluded_tags,
                     page=page,
                     per_page=3,
                     categories=[events["id"], webinars["id"]],
+                    after=date_after
                 )
 
         articles, metadata = api.get_articles(
