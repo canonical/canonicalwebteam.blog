@@ -14,7 +14,7 @@ license = "LGPL-3.0"
 [tool.poetry.dependencies]
 python = "^3.6"
 django = {version = "^2.2", extras = ["django"]}
-Flask = {version = "^1.0", extra = ["flask"]}
+Flask = {version = "^1.0"}
 feedgen = "^0.8"
 requests = "^2.22"
 
