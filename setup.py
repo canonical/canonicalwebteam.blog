@@ -32,7 +32,7 @@ setup(
     version="4.0.2",  # Required
     # https://packaging.python.org/specifications/core-metadata/#summary
     description=(
-        "Flask extension and Django App to add a nice blog to your website"
+        "Flask extension to add a nice blog to your website"
     ),  # Required
     # https://packaging.python.org/specifications/core-metadata/#description-optional
     long_description=long_description,  # Optional
