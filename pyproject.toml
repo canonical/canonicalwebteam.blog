@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "canonicalwebteam.blog"
-version = "4.0.2"
+version = "5.0.0"
 description = "Flask extension to add a nice blog to your website"
 authors = ["Canonical webteam <webteam@canonical.com>"]
 

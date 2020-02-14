@@ -29,7 +29,7 @@ setup(
     name="canonicalwebteam.blog",  # Required
     # https://www.python.org/dev/peps/pep-0440/
     # https://packaging.python.org/en/latest/single_source_version.html
-    version="4.0.2",  # Required
+    version="5.0.0",  # Required
     # https://packaging.python.org/specifications/core-metadata/#summary
     description=(
         "Flask extension to add a nice blog to your website"
