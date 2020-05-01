@@ -60,7 +60,7 @@ description = "Feed Generator (ATOM, RSS, Podcasts)"
 name = "feedgen"
 optional = false
 python-versions = "*"
-version = "0.8.0"
+version = "0.9.0"
 
 [package.dependencies]
 lxml = "*"
@@ -91,7 +91,7 @@ description = "Unit testing for Flask"
 name = "flask-testing"
 optional = false
 python-versions = "*"
-version = "0.7.1"
+version = "0.8.0"
 
 [package.dependencies]
 Flask = "*"
@@ -314,8 +314,8 @@ category = "dev"
 description = "Automatically mock your HTTP interactions to simplify and speed up testing"
 name = "vcrpy"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-version = "2.1.1"
+python-versions = ">=3.5"
+version = "4.0.2"
 
 [package.dependencies]
 PyYAML = "*"
@@ -381,7 +381,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools"]
 
 [metadata]
-content-hash = "e2dc32bac17d193c6a982baf18103f2543667b1fa50e64db63a79c0bb9116212"
+content-hash = "1aefe161b486aa22c2cf95e07a41aca8bf4aceffe2b1ef49c58a9a4355be399c"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -410,14 +410,14 @@ colorama = [
     {file = "colorama-0.4.3.tar.gz", hash = "sha256:e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"},
 ]
 feedgen = [
-    {file = "feedgen-0.8.0.tar.gz", hash = "sha256:26557304284007a3c2d772c376a48c0a8ec8e24371c4471455ea89cf568fa114"},
+    {file = "feedgen-0.9.0.tar.gz", hash = "sha256:8e811bdbbed6570034950db23a4388453628a70e689a6e8303ccec430f5a804a"},
 ]
 flask = [
     {file = "Flask-1.1.1-py2.py3-none-any.whl", hash = "sha256:45eb5a6fd193d6cf7e0cf5d8a5b31f83d5faae0293695626f539a823e93b13f6"},
     {file = "Flask-1.1.1.tar.gz", hash = "sha256:13f9f196f330c7c2c5d7a5cf91af894110ca0215ac051b5844701f2bfd934d52"},
 ]
 flask-testing = [
-    {file = "Flask-Testing-0.7.1.tar.gz", hash = "sha256:dc076623d7d850653a018cb64f500948334c8aeb6b10a5a842bf1bcfb98122bc"},
+    {file = "Flask-Testing-0.8.0.tar.gz", hash = "sha256:d849bf53eb1ceb09dff6611888588cb60f20238058fb1ebcd917d69febc373e6"},
 ]
 idna = [
     {file = "idna-2.8-py2.py3-none-any.whl", hash = "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"},
@@ -572,8 +572,8 @@ urllib3 = [
     {file = "urllib3-1.25.8.tar.gz", hash = "sha256:87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"},
 ]
 vcrpy = [
-    {file = "vcrpy-2.1.1-py2.py3-none-any.whl", hash = "sha256:3203170a13fe26407183768fab48af10086fa22d487b3887859c89fd47e69935"},
-    {file = "vcrpy-2.1.1.tar.gz", hash = "sha256:27cc696df66d77703eab5cdfa041b2f9877bbf2b54bcd390de89a4be964ca536"},
+    {file = "vcrpy-4.0.2-py2.py3-none-any.whl", hash = "sha256:c4ddf1b92c8a431901c56a1738a2c797d965165a96348a26f4b2bbc5fa6d36d9"},
+    {file = "vcrpy-4.0.2.tar.gz", hash = "sha256:9740c5b1b63626ec55cefb415259a2c77ce00751e97b0f7f214037baaf13c7bf"},
 ]
 wcwidth = [
     {file = "wcwidth-0.1.8-py2.py3-none-any.whl", hash = "sha256:8fd29383f539be45b20bd4df0dc29c20ba48654a41e661925e612311e9f3c603"},
