@@ -1,8 +1,12 @@
+# Standard library
 import re
 import html
-
 from datetime import datetime
 from datetime import date
+
+# Packages
+from feedgen.entry import FeedEntry
+from feedgen.feed import FeedGenerator
 
 
 def strip_excerpt(raw_html):
@@ -50,20 +54,35 @@ def replace_images_with_cloudinary(content):
     return re.sub(image_match, replacement, content)
 
 
-def transform_article(
-    article, featured_image=None, author=None, optimise_images=False
-):
+def transform_article(article, group=None):
     """Transform article to include featured image, a group, human readable
-    date and a stipped version of the excerpt
+    date and a stripped version of the excerpt
 
     :param article: The raw article object
     :param featured_image: The featured image string
 
     :returns: The transformed article
     """
-    article["image"] = featured_image
 
-    article["author"] = author
+    if "_embedded" in article:
+        article["image"] = article["_embedded"].get(
+            "wp:featuredmedia", [None]
+        )[0]
+        article["author"] = article["_embedded"].get("author", [None])[0]
+
+        if "display_category" not in article:
+            categories = article["_embedded"].get("wp:term", [[]])[0]
+
+            if categories:
+                article["display_category"] = categories[-1]
+
+        if (
+            "wp:term" in article["_embedded"]
+            and article["_embedded"]["wp:term"][3]
+        ):
+            article["group"] = article["_embedded"]["wp:term"][3][0]
+        elif group:
+            article["group"] = group
 
     if "date_gmt" in article:
         article_gmt = article["date_gmt"]
@@ -87,14 +106,6 @@ def transform_article(
         # join it back up
         article["excerpt"]["raw"] = "".join(
             [raw_article_start, raw_article_end, " […]"]
-        )
-    if (
-        optimise_images
-        and "content" in article
-        and "rendered" in article["content"]
-    ):
-        article["content"]["rendered"] = replace_images_with_cloudinary(
-            article["content"]["rendered"]
         )
 
     if (
@@ -172,56 +183,6 @@ def get_month_name(month_index):
     return date(1900, month_index, 1).strftime("%B")
 
 
-def get_embedded_categories(embedded):
-    """Returns the categories in the embedded response from wp
-    The category is in the first object of the wp:term of the response:
-    embedded["wp:term"][0]
-
-
-    :param embedded: The embedded dictionnary in teh response
-    :returns: Dictionnary of categories
-    """
-    terms = embedded.get("wp:term", [{}])
-    return terms[0]
-
-
-def get_embedded_group(embedded):
-    """Returns the group in the embedded response from wp.
-    The group is in the fourth object of the wp:term list of the response:
-    embedded["wp:term"][3]
-
-
-    :param embedded: The embedded dictionnary in the response
-    :returns: Dictionnary of group
-    """
-    if "wp:term" in embedded and embedded["wp:term"][3]:
-        return embedded["wp:term"][3][0]
-    return {}
-
-
-def get_embedded_author(embedded):
-    """Returns the author in the embedded response from wp.
-    embedded["author"]
-
-
-    :param embedded: The embedded dictionnary in the response
-    :returns: Dictionnary of author
-    """
-    authors = embedded.get("author", [{}])
-    return authors[0]
-
-
-def get_embedded_featured_media(embedded):
-    """Returns the featured media in the embedded response from wp.
-    embedded["wp:featuredmedia"]
-
-
-    :param embedded: The embedded dictionnary in the response
-    :returns: List of featuredmedia
-    """
-    return embedded.get("wp:featuredmedia", [])
-
-
 def get_embedded_tags(embedded):
     """Returns the tags in the embedded response from wp.
     The group is in the fourth object of the wp:term list of the response:
@@ -233,3 +194,42 @@ def get_embedded_tags(embedded):
     """
     terms = embedded.get("wp:term", [{}, {}])
     return terms[1]
+
+
+def build_feed(blog_url, feed_url, feed_title, feed_description, articles):
+    feed = FeedGenerator()
+    feed.generator("Python Feedgen")
+    feed.title(feed_title)
+    feed.description(feed_description)
+    feed.link(href=feed_url, rel="self")
+
+    for article in articles:
+        title = article["title"]["rendered"]
+        slug = article["slug"]
+        author = article["_embedded"]["author"][0]
+        description = article["excerpt"]["rendered"]
+        content = article["content"]["rendered"]
+        published = f'{article["date_gmt"]} GMT'
+        updated = f'{article["modified_gmt"]} GMT'
+        link = f"{blog_url}/{slug}"
+
+        categories = []
+
+        if "wp:term" in article["_embedded"]:
+            for category in article["_embedded"]["wp:term"][1]:
+                categories.append(
+                    dict(term=category["slug"], label=category["name"])
+                )
+
+        entry = FeedEntry()
+        entry.title(title)
+        entry.description(description)
+        entry.content(content)
+        entry.author(name=author["name"], email=author["name"])
+        entry.link(href=link)
+        entry.category(categories)
+        entry.published(published)
+        entry.updated(updated)
+        feed.add_entry(entry, order="append")
+
+    return feed

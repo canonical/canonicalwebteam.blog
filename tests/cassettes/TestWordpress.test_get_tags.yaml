@@ -1,0 +1,102 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.22.0]
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?slug=design&_embed=true
+  response:
+    body: {string: '[{"id":1239,"count":542,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design","slug":"design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1239"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1239"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1239"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
+    headers:
+      Access-Control-Allow-Headers: ['Authorization, Content-Type']
+      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
+      Age: ['573']
+      Allow: [GET]
+      Connection: [Keep-Alive]
+      Content-Length: ['700']
+      Content-Type: [application/json; charset=UTF-8]
+      Date: ['Tue, 09 Jun 2020 13:46:06 GMT']
+      Keep-Alive: ['timeout=5, max=100']
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
+      Server: [Apache/2.4.7 (Ubuntu)]
+      Vary: ['Origin,Cookie']
+      Via: [1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)]
+      X-Cache: [HIT from juju-prod45-is-insights-blog-machine-4]
+      X-Cache-Lookup: ['HIT from juju-prod45-is-insights-blog-machine-4:8080']
+      X-Content-Type-Options: [nosniff]
+      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
+      X-Robots-Tag: [noindex]
+      X-WP-Total: ['1']
+      X-WP-TotalPages: ['1']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.22.0]
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags/1239?_embed=true
+  response:
+    body: {string: '{"id":1239,"count":542,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design","slug":"design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1239"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1239"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1239"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'}
+    headers:
+      Access-Control-Allow-Headers: ['Authorization, Content-Type']
+      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
+      Allow: [GET]
+      Connection: [Keep-Alive]
+      Content-Length: ['698']
+      Content-Type: [application/json; charset=UTF-8]
+      Date: ['Tue, 09 Jun 2020 13:55:39 GMT']
+      Keep-Alive: ['timeout=5, max=99']
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
+      Server: [Apache/2.4.7 (Ubuntu)]
+      Vary: ['Origin,Cookie']
+      Via: [1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)]
+      X-Cache: [MISS from juju-prod45-is-insights-blog-machine-4]
+      X-Cache-Lookup: ['MISS from juju-prod45-is-insights-blog-machine-4:8080']
+      X-Content-Type-Options: [nosniff]
+      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
+      X-Robots-Tag: [noindex]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.22.0]
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?search=Design&_embed=true
+  response:
+    body: {string: '[{"id":2720,"count":22,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/app-design\/","name":"app
+        design","slug":"app-design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2720"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2720"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2720"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2721,"count":5,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/app-design-guides\/","name":"app
+        design guides","slug":"app-design-guides","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2721"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2721"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2721"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1239,"count":542,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design","slug":"design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1239"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1239"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1239"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2767,"count":2,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/design-process\/","name":"design
+        process","slug":"design-process","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2767"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2767"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2767"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2768,"count":12,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/design-team\/","name":"design
+        team","slug":"design-team","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2768"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2768"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2768"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3103,"count":1,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapgravit-designer\/","name":"sc:snap:gravit-designer","slug":"scsnapgravit-designer","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3103"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3103"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3103"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3145,"count":1,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapsweethome3d-homedesign\/","name":"sc:snap:sweethome3d-homedesign","slug":"scsnapsweethome3d-homedesign","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3145"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3145"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3145"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3329,"count":16,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/web-and-design\/","name":"web
+        and design","slug":"web-and-design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3329"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3329"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3329"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
+    headers:
+      Access-Control-Allow-Headers: ['Authorization, Content-Type']
+      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
+      Allow: [GET]
+      Connection: [Keep-Alive]
+      Content-Length: ['5805']
+      Content-Type: [application/json; charset=UTF-8]
+      Date: ['Tue, 09 Jun 2020 13:55:39 GMT']
+      Keep-Alive: ['timeout=5, max=98']
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
+      Server: [Apache/2.4.7 (Ubuntu)]
+      Vary: ['Origin,Cookie']
+      Via: [1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)]
+      X-Cache: [MISS from juju-prod45-is-insights-blog-machine-4]
+      X-Cache-Lookup: ['MISS from juju-prod45-is-insights-blog-machine-4:8080']
+      X-Content-Type-Options: [nosniff]
+      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
+      X-Robots-Tag: [noindex]
+      X-WP-Total: ['8']
+      X-WP-TotalPages: ['1']
+    status: {code: 200, message: OK}
+version: 1

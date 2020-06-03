@@ -9,17 +9,17 @@ This extension provides a blueprint with 3 routes:
 - "/<slug>": the article page
 - "/feed": provides a RSS feed for the page.
 
-## How to install
+## Installation
 
 To install this extension as a requirement in your project, you can use PIP;
 
 ```bash
-pip install canonicalwebteam.blog
+pip3 install canonicalwebteam.blog
 ```
 
 See also the documentation for (pip install)[https://pip.pypa.io/en/stable/reference/pip_install/].
 
-## How to use
+## Usage
 
 ### Templates
 
@@ -27,53 +27,54 @@ The module expects HTML templates at `blog/index.html`, `blog/article.html`, `bl
 
 An example of these templates can be found at https://github.com/canonical-websites/jp.ubuntu.com/tree/master/templates/blog.
 
-### Flask
+### Usage
 
-In your app you can then:
+In your app you can then do the following:
 
-``` python3
+```python3
     import flask
-    from canonicalwebteam.blog import BlogViews
-    from canonicalwebteam.blog.flask import build_blueprint
+    import talisker.requests
+    from flask_reggie import Reggie
+    from canonicalwebteam.blog import BlogViews, build_blueprint, Wordpress
 
     app = flask.Flask(__name__)
+    Reggie().init_app(app)
+    session = talisker.requests.get_session()
 
-    # ...
-
-    blog_views = BlogViews()
-    app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
+    blog = build_blueprint(
+        BlogViews(
+            api=Wordpress(session=session),
+        )
+    )
+    app.register_blueprint(blog, url_prefix="/blog")
 ```
 
 You can customise the blog through the following optional arguments:
 
-``` python3
-    blog_views = BlogViews(
-        blog_title="Blog",
-        tag_ids=[1, 12, 112],
-        exclude_tags=[26, 34],
-        feed_description="The Ubuntu Blog Feed",
-        per_page=12, # OPTIONAL (defaults to 12)
+```python3
+    blog = build_blueprint(
+        BlogViews(
+            blog_title="Blog",
+            blog_path="blog",
+            tag_ids=[1, 12, 112],
+            exclude_tags=[26, 34],
+            per_page=12,
+            feed_description="The Ubuntu Blog Feed",
+            api=Wordpress(session=session),
+        )
     )
-    app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
 ```
 
 ## Development
 
 The blog extension leverages [poetry](https://poetry.eustace.io/) for dependency management.
 
-### Regenerate setup.py
-
-``` bash
-poetry install
-poetry run poetry-setup
-```
-
 ## Testing
 
-All tests can be run with `poetry run pytest`.
+All tests can be run with `./setup.py test`.
 
 ### Regenerating Fixtures
 
 All API calls are caught with [VCR](https://vcrpy.readthedocs.io/en/latest/) and saved as fixtures in the `fixtures` directory. If the API updates, all fixtures can easily be updated by just removing the `fixtures` directory and rerunning the tests.
 
-To do this run `rm -rf fixtures && poetry run pytest`.
+To do this run `rm -rf fixtures && ./setup.py test`.

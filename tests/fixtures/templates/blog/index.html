@@ -1,0 +1,32 @@
+<span id="current-page">{{ current_page }}</span>
+<span id="total-pages">{{ total_pages }}</span>
+
+<ul id="featured">
+{% for article in articles %}
+    <li>
+        <span class="title">{{ article.title }}</span>
+        <span class="slug">{{ article.slug }}</span>
+        <span class="author">{{ article.author.name }}</span>
+    </li>
+{% endfor %}
+</ul>
+
+<ul id="articles">
+{% for article in articles %}
+    <li>
+        <span class="title">{{ article.title }}</span>
+        <span class="slug">{{ article.slug }}</span>
+        <span class="author">{{ article.author.name }}</span>
+    </li>
+{% endfor %}
+</ul>
+
+<ul id="events">
+    {% for article in events_and_webinars %}
+        <li>
+            <span class="title">{{ article.title }}</span>
+            <span class="slug">{{ article.slug }}</span>
+            <span class="date">{{ article.date }}</span>
+        </li>
+    {% endfor %}
+</ul>
