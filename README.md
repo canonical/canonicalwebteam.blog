@@ -32,37 +32,37 @@ An example of these templates can be found at https://github.com/canonical-websi
 In your app you can then do the following:
 
 ```python3
-    import flask
-    import talisker.requests
-    from flask_reggie import Reggie
-    from canonicalwebteam.blog import BlogViews, build_blueprint, Wordpress
+import flask
+import talisker.requests
+from flask_reggie import Reggie
+from canonicalwebteam.blog import BlogViews, build_blueprint, Wordpress
 
-    app = flask.Flask(__name__)
-    Reggie().init_app(app)
-    session = talisker.requests.get_session()
+app = flask.Flask(__name__)
+Reggie().init_app(app)
+session = talisker.requests.get_session()
 
-    blog = build_blueprint(
-        BlogViews(
-            api=Wordpress(session=session),
-        )
+blog = build_blueprint(
+    BlogViews(
+        api=Wordpress(session=session),
     )
-    app.register_blueprint(blog, url_prefix="/blog")
+)
+app.register_blueprint(blog, url_prefix="/blog")
 ```
 
 You can customise the blog through the following optional arguments:
 
 ```python3
-    blog = build_blueprint(
-        BlogViews(
-            blog_title="Blog",
-            blog_path="blog",
-            tag_ids=[1, 12, 112],
-            exclude_tags=[26, 34],
-            per_page=12,
-            feed_description="The Ubuntu Blog Feed",
-            api=Wordpress(session=session),
-        )
+blog = build_blueprint(
+    BlogViews(
+        blog_title="Blog",
+        blog_path="blog",
+        tag_ids=[1, 12, 112],
+        exclude_tags=[26, 34],
+        per_page=12,
+        feed_description="The Ubuntu Blog Feed",
+        api=Wordpress(session=session),
     )
+)
 ```
 
 ## Development
