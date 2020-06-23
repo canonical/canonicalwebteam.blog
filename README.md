@@ -65,10 +65,6 @@ blog = build_blueprint(
 )
 ```
 
-## Development
-
-The blog extension leverages [poetry](https://poetry.eustace.io/) for dependency management.
-
 ## Testing
 
 All tests can be run with `./setup.py test`.
