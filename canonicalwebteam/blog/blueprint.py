@@ -1,20 +1,15 @@
+# Packages
 import flask
 
 
-def build_blueprint(blog_views, enable_upcoming=True):
+def build_blueprint(blog_views):
     blueprint = flask.Blueprint("blog", __name__)
 
     @blueprint.route("/")
     def homepage():
-        page_param = flask.request.args.get("page", default=1, type=int)
-        category_param = flask.request.args.get(
-            "category", default="", type=str
-        )
-
         context = blog_views.get_index(
-            page=page_param,
-            category=category_param,
-            enable_upcoming=enable_upcoming,
+            page=flask.request.args.get("page", type=int) or 1,
+            category_slug=flask.request.args.get("category") or "",
         )
 
         return flask.render_template("blog/index.html", **context)
@@ -154,12 +149,14 @@ def build_blueprint(blog_views, enable_upcoming=True):
 
         return flask.Response(feed, mimetype="application/rss+xml")
 
-    @blueprint.route("/upcoming")
-    def upcoming():
+    @blueprint.route("/events-and-webinars")
+    def events_and_webinars():
         page_param = flask.request.args.get("page", default=1, type=int)
-        context = blog_views.get_upcoming(page_param)
+        context = blog_views.get_events_and_webinars(page_param)
 
-        return flask.render_template("blog/upcoming.html", **context)
+        return flask.render_template(
+            "blog/events-and-webinars.html", **context
+        )
 
     @blueprint.route("/tag/<slug>")
     def tag(slug):
