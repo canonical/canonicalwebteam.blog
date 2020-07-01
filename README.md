@@ -17,7 +17,7 @@ To install this extension as a requirement in your project, you can use PIP;
 pip3 install canonicalwebteam.blog
 ```
 
-See also the documentation for (pip install)[https://pip.pypa.io/en/stable/reference/pip_install/].
+See also the documentation for [pip install](https://pip.pypa.io/en/stable/reference/pip_install/).
 
 ## Usage
 
