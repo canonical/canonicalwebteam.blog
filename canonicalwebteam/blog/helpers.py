@@ -54,12 +54,11 @@ def replace_images_with_cloudinary(content):
     return re.sub(image_match, replacement, content)
 
 
-def transform_article(article, group=None):
+def transform_article(article):
     """Transform article to include featured image, a group, human readable
     date and a stripped version of the excerpt
 
     :param article: The raw article object
-    :param featured_image: The featured image string
 
     :returns: The transformed article
     """
@@ -81,8 +80,6 @@ def transform_article(article, group=None):
             and article["_embedded"]["wp:term"][3]
         ):
             article["group"] = article["_embedded"]["wp:term"][3][0]
-        elif group:
-            article["group"] = group
 
     if "date_gmt" in article:
         article_gmt = article["date_gmt"]
