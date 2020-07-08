@@ -43,7 +43,7 @@ session = talisker.requests.get_session()
 
 blog = build_blueprint(
     BlogViews(
-        api=Wordpress(session=session),
+        api=BlogAPI(session=session),
     )
 )
 app.register_blueprint(blog, url_prefix="/blog")
@@ -60,7 +60,7 @@ blog = build_blueprint(
         exclude_tags=[26, 34],
         per_page=12,
         feed_description="The Ubuntu Blog Feed",
-        api=Wordpress(session=session),
+        api=BlogAPI(session=session),
     )
 )
 ```
