@@ -7,6 +7,9 @@
         <span class="title">{{ article.title }}</span>
         <span class="slug">{{ article.slug }}</span>
         <span class="author">{{ article.author.name }}</span>
+        {% if article.image and article.image.source_url %}
+            <img src="{{ article.image.source_url }}" />
+        {% endif %}
     </li>
 {% endfor %}
 </ul>
@@ -17,6 +20,9 @@
         <span class="title">{{ article.title }}</span>
         <span class="slug">{{ article.slug }}</span>
         <span class="author">{{ article.author.name }}</span>
+        {% if article.image and article.image.source_url %}
+            <img src="{{ article.image.source_url }}" />
+        {% endif %}
     </li>
 {% endfor %}
 </ul>
@@ -27,6 +33,9 @@
             <span class="title">{{ article.title }}</span>
             <span class="slug">{{ article.slug }}</span>
             <span class="date">{{ article.date }}</span>
+            {% if article.image and article.image.source_url %}
+                <img src="{{ article.image.source_url }}" />
+            {% endif %}
         </li>
     {% endfor %}
 </ul>
