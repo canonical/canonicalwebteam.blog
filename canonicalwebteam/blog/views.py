@@ -4,13 +4,8 @@ from datetime import datetime
 # Packages
 import flask
 from dateutil.relativedelta import relativedelta
-
-# Local
-from canonicalwebteam.blog.helpers import (
-    build_feed,
-    is_in_series,
-    transform_article,
-)
+from feedgen.entry import FeedEntry
+from feedgen.feed import FeedGenerator
 
 
 class BlogViews:
@@ -74,10 +69,8 @@ class BlogViews:
         return {
             "current_page": int(page),
             "total_pages": int(metadata["total_pages"]),
-            "articles": [transform_article(article) for article in articles],
-            "featured_articles": [
-                transform_article(article) for article in featured_articles
-            ],
+            "articles": articles,
+            "featured_articles": featured_articles,
             "events_and_webinars": events_and_webinars,
             "title": self.blog_title,
             "category": {"slug": category_slug},
@@ -90,7 +83,7 @@ class BlogViews:
 
         url_root = flask.request.url_root
 
-        feed = build_feed(
+        feed = self._build_feed(
             blog_url=f"{url_root}/{self.blog_path}",
             feed_url=f"{url_root}/{flask.request.path.strip('/')}",
             feed_title=self.blog_title,
@@ -143,7 +136,7 @@ class BlogViews:
         return {
             "current_page": int(page),
             "total_pages": int(metadata["total_pages"]),
-            "articles": [transform_article(article) for article in articles],
+            "articles": articles,
             "group": group,
             "title": self.blog_title,
             "category": {"slug": category_slug},
@@ -164,7 +157,7 @@ class BlogViews:
         title = f"{group['name']} - {self.blog_title}"
         url_root = flask.request.url_root
 
-        feed = build_feed(
+        feed = self._build_feed(
             blog_url=f"{url_root}/{self.blog_path}",
             feed_url=f"{url_root}/{flask.request.path.strip('/')}",
             feed_title=title,
@@ -186,7 +179,7 @@ class BlogViews:
         return {
             "current_page": int(page),
             "total_pages": int(metadata["total_pages"]),
-            "articles": [transform_article(article) for article in articles],
+            "articles": articles,
             "title": self.blog_title,
         }
 
@@ -203,7 +196,7 @@ class BlogViews:
         title = f"{tag['name']} - {self.blog_title}"
         url_root = flask.request.url_root.rstrip("/")
 
-        feed = build_feed(
+        feed = self._build_feed(
             blog_url=f"{url_root}/{self.blog_path}",
             feed_url=f"{url_root}/{flask.request.path.strip('/')}",
             feed_title=title,
@@ -228,7 +221,7 @@ class BlogViews:
         return {
             "current_page": int(page),
             "total_pages": int(total_pages),
-            "articles": [transform_article(article) for article in articles],
+            "articles": articles,
             "title": self.blog_title,
         }
 
@@ -248,7 +241,7 @@ class BlogViews:
         return {
             "current_page": int(page),
             "total_pages": int(metadata.get("total_pages")),
-            "articles": [transform_article(article) for article in articles],
+            "articles": articles,
             "title": self.blog_title,
             "total_posts": metadata.get("total_posts", 0),
             "author": author,
@@ -269,7 +262,7 @@ class BlogViews:
         title = f"{author['name']} - {self.blog_title}"
         url_root = flask.request.url_root
 
-        feed = build_feed(
+        feed = self._build_feed(
             blog_url=f"{url_root}/{self.blog_path}",
             feed_url=f"{url_root}/{flask.request.path.strip('/')}",
             feed_title=title,
@@ -349,7 +342,7 @@ class BlogViews:
         context = {
             "current_page": int(page),
             "total_pages": int(total_pages),
-            "articles": [transform_article(article) for article in articles],
+            "articles": articles,
             "title": self.blog_title,
             "total_posts": total_posts,
         }
@@ -373,7 +366,7 @@ class BlogViews:
         return {
             "current_page": int(page),
             "total_pages": int(total_pages),
-            "articles": [transform_article(article) for article in articles],
+            "articles": articles,
             "title": self.blog_title,
             "tag": tag,
         }
@@ -386,7 +379,6 @@ class BlogViews:
         :param article: Article to create context for
         """
 
-        transformed_article = transform_article(article)
         tags = article["_embedded"].get("wp:term", [{}, {}])[1]
 
         all_related_articles, _ = self.api.get_articles(
@@ -399,11 +391,72 @@ class BlogViews:
         related_articles = []
         for related_article in all_related_articles:
             if set(related_tag_ids) <= set(related_article["tags"]):
-                related_articles.append(transform_article(related_article))
+                related_articles.append(related_article)
 
         return {
-            "article": transformed_article,
+            "article": article,
             "related_articles": related_articles,
             "tags": tags,
-            "is_in_series": is_in_series(tags),
+            "is_in_series": self._is_in_series(tags),
         }
+
+    def _is_in_series(self, tags):
+        """Does the list of tags include a tag that starts 'sc:series'
+
+        :param tags: Tag dict
+
+        :returns: Boolean
+        """
+        for tag in tags:
+            if tag["name"].startswith("sc:series"):
+                return True
+
+        return False
+
+    def _build_feed(
+        self, blog_url, feed_url, feed_title, feed_description, articles
+    ):
+        """
+        Build the content for the feed
+        :blog_url: string blog url
+        :feed_url: string url
+        :feed_title: string title
+        :feed_description: string description
+        :param articles: Articles to create feed from
+        """
+        feed = FeedGenerator()
+        feed.generator("Python Feedgen")
+        feed.title(feed_title)
+        feed.description(feed_description)
+        feed.link(href=feed_url, rel="self")
+
+        for article in articles:
+            title = article["title"]["rendered"]
+            slug = article["slug"]
+            author = article["_embedded"]["author"][0]
+            description = article["excerpt"]["rendered"]
+            content = article["content"]["rendered"]
+            published = f'{article["date_gmt"]} GMT'
+            updated = f'{article["modified_gmt"]} GMT'
+            link = f"{blog_url}/{slug}"
+
+            categories = []
+
+            if "wp:term" in article["_embedded"]:
+                for category in article["_embedded"]["wp:term"][1]:
+                    categories.append(
+                        dict(term=category["slug"], label=category["name"])
+                    )
+
+            entry = FeedEntry()
+            entry.title(title)
+            entry.description(description)
+            entry.content(content)
+            entry.author(name=author["name"], email=author["name"])
+            entry.link(href=link)
+            entry.category(categories)
+            entry.published(published)
+            entry.updated(updated)
+            feed.add_entry(entry, order="append")
+
+        return feed

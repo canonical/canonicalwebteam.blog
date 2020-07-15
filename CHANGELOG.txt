@@ -1,3 +1,4 @@
+6.1.0: Restructure; Add API wrapper; Remove helpers
 6.0.0: Restructure; Force passing in session; Remove poetry
 5.0.0: Remove Django support
 4.0.2: Fix issue with author feeds

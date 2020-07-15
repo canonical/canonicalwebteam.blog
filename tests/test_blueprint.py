@@ -9,8 +9,8 @@ from bs4 import BeautifulSoup
 from vcr_unittest import VCRTestCase
 
 # Local
-from canonicalwebteam.blog import build_blueprint, BlogViews, Wordpress
-
+from canonicalwebteam.blog import build_blueprint, BlogViews
+from canonicalwebteam.blog.blog_api import BlogAPI
 
 this_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -28,7 +28,7 @@ class TestBlueprint(VCRTestCase):
             blog_views=BlogViews(
                 blog_title="Snapcraft Blog",
                 blog_path="/",
-                api=Wordpress(session=requests.Session()),
+                api=BlogAPI(session=requests.Session()),
             )
         )
         app.register_blueprint(blog, url_prefix="/")
@@ -45,6 +45,17 @@ class TestBlueprint(VCRTestCase):
         )
         self.assertIn(b"<time>10 February 2020</time>", response.data)
         self.assertIn(b'<a rel="author">Jeff Pihach</a>', response.data)
+
+    def test_article_with_image(self):
+        response = self.test_client.get(
+            "/dell-xps-13-developer-edition-with-ubuntu-20-04"
+            + "-lts-pre-installed-is-now-available"
+        )
+
+        self.assertNotIn(
+            b"admin.insights.ubuntu.com/wp-content/uploads", response.data
+        )
+        self.assertIn(b"ubuntu.com/wp-content/uploads", response.data)
 
     def test_article_redirect(self):
         response = self.test_client.get(
@@ -79,6 +90,13 @@ class TestBlueprint(VCRTestCase):
             self.assertTrue(len(slug) > 0)
             self.assertTrue(len(title) > 0)
 
+            image = article.find("img")
+            if image is not None:
+                self.assertNotIn(
+                    "admin.insights.ubuntu.com/wp-content/uploads",
+                    image.get("src"),
+                )
+
         for article in events:
             title = article.find("span", {"class": "title"}).text
             slug = article.find("span", {"class": "slug"}).text
@@ -86,6 +104,13 @@ class TestBlueprint(VCRTestCase):
             self.assertTrue(len(title) > 0)
             self.assertTrue(len(slug) > 0)
             self.assertTrue(len(date) > 0)
+
+            image = article.find("img")
+            if image is not None:
+                self.assertNotIn(
+                    "admin.insights.ubuntu.com/wp-content/uploads",
+                    image.get("src"),
+                )
 
     def test_latest_redirect(self):
         homepage_response = self.test_client.get("/")
