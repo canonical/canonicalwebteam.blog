@@ -1,3 +1,4 @@
+6.1.1: Restructure; Use `image_template` for images processing
 6.1.0: Restructure; Add API wrapper; Remove helpers
 6.0.0: Restructure; Force passing in session; Remove poetry
 5.0.0: Remove Django support
