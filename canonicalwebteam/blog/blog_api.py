@@ -17,12 +17,10 @@ class BlogAPI(Wordpress):
         self,
         session,
         api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
-        transform_links=True,
         enable_image_template=True,
     ):
         super().__init__(session, api_url)
 
-        self.transform_links = transform_links
         self.enable_image_template = enable_image_template
 
     def get_articles(
@@ -136,22 +134,18 @@ class BlogAPI(Wordpress):
                 article["_end_day"], end_month_name, article["_end_year"]
             )
 
-        if self.transform_links:
-            # replace url on the blog article page
-            article["content"]["rendered"] = self._replace_url(
-                article["content"]["rendered"]
-            )
-
-            # replace url from the image thumbnail
-            if (
-                article["image"] is not None
-                and "source_url" in article["image"]
-            ):
-                article["image"]["source_url"] = self._replace_url(
-                    article["image"]["source_url"]
-                )
+        # replace url on the blog article page
+        article["content"]["rendered"] = self._replace_url(
+            article["content"]["rendered"]
+        )
 
         if article["image"] is not None and "source_url" in article["image"]:
+            # replace url from the image thumbnail
+            article["image"]["source_url"] = self._replace_url(
+                article["image"]["source_url"]
+            )
+
+            # create default rendered image
             article["image"]["rendered"] = (
                 '<img src="'
                 + article["image"]["source_url"]

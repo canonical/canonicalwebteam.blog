@@ -22,9 +22,7 @@ class TestBlogAPI(VCRTestCase):
 
     def test_get_articles_with_transforming_links(self):
         self.api = BlogAPI(
-            session=requests.Session(),
-            transform_links=True,
-            enable_image_template=False,
+            session=requests.Session(), enable_image_template=False,
         )
 
         article = self.api.get_article(
@@ -40,28 +38,9 @@ class TestBlogAPI(VCRTestCase):
             "ubuntu.com/wp-content/uploads", article["content"]["rendered"]
         )
 
-    def test_get_articles_without_transforming_links(self):
-        self.api = BlogAPI(
-            session=requests.Session(),
-            transform_links=False,
-            enable_image_template=False,
-        )
-
-        article = self.api.get_article(
-            slug="/dell-xps-13-developer-edition-with-ubuntu-20-04"
-            + "-lts-pre-installed-is-now-available"
-        )
-
-        self.assertIn(
-            "admin.insights.ubuntu.com/wp-content/uploads",
-            article["content"]["rendered"],
-        )
-
     def test_it_transforms_article_image(self):
         self.api = BlogAPI(
-            session=requests.Session(),
-            transform_links=False,
-            enable_image_template=True,
+            session=requests.Session(), enable_image_template=True,
         )
 
         article = self.api.get_article(
@@ -71,16 +50,14 @@ class TestBlogAPI(VCRTestCase):
 
         self.assertIn(
             'src="https://res.cloudinary.com/canonical/image/fetch/f_auto,'
-            "q_auto,fl_sanitize,w_720/https://admin.insights.ubuntu.com"
+            "q_auto,fl_sanitize,w_720/https://ubuntu.com"
             '/wp-content/uploads/2e4c/dell-xps-2004.jpg"',
             article["content"]["rendered"],
         )
 
     def test_it_transforms_article_with_fixed_dimensions_image(self):
         self.api = BlogAPI(
-            session=requests.Session(),
-            transform_links=False,
-            enable_image_template=True,
+            session=requests.Session(), enable_image_template=True,
         )
 
         article = self.api.get_article(
@@ -98,9 +75,7 @@ class TestBlogAPI(VCRTestCase):
 
     def test_it_does_not_transform_article_image(self):
         self.api = BlogAPI(
-            session=requests.Session(),
-            transform_links=False,
-            enable_image_template=False,
+            session=requests.Session(), enable_image_template=False,
         )
 
         article = self.api.get_article(
@@ -109,7 +84,7 @@ class TestBlogAPI(VCRTestCase):
         )
 
         self.assertIn(
-            'src="https://admin.insights.ubuntu.com/'
+            'src="https://ubuntu.com/'
             'wp-content/uploads/2e4c/dell-xps-2004.jpg"',
             article["content"]["rendered"],
         )
