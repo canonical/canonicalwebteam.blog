@@ -12,11 +12,12 @@ setup(
     author="Canonical webteam",
     author_email="webteam@canonical.com",
     packages=find_packages(),
-    install_requires=["flask", "feedgen", "requests"],
-    tests_require=[
-        "flask-reggie",
+    install_requires=[
+        "flask",
+        "feedgen",
+        "requests",
         "beautifulsoup4",
-        "vcrpy",
-        "vcrpy-unittest",
+        "canonicalwebteam.image-template",
     ],
+    tests_require=["flask-reggie", "vcrpy", "vcrpy-unittest"],
 )
