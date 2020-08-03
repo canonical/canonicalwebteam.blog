@@ -35,7 +35,7 @@ In your app you can then do the following:
 import flask
 import talisker.requests
 from flask_reggie import Reggie
-from canonicalwebteam.blog import BlogViews, build_blueprint, Wordpress
+from canonicalwebteam.blog import BlogViews, build_blueprint, BlogAPI
 
 app = flask.Flask(__name__)
 Reggie().init_app(app)
