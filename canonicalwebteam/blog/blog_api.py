@@ -17,11 +17,11 @@ class BlogAPI(Wordpress):
         self,
         session,
         api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
-        enable_image_template=True,
+        use_image_template=True,
     ):
         super().__init__(session, api_url)
 
-        self.enable_image_template = enable_image_template
+        self.use_image_template = use_image_template
 
     def get_articles(
         self,
@@ -152,7 +152,7 @@ class BlogAPI(Wordpress):
                 + '" loading="lazy">'
             )
 
-        if self.enable_image_template:
+        if self.use_image_template:
             # apply image template for blog article images
             article["content"]["rendered"] = self._apply_image_template(
                 content=article["content"]["rendered"], width="720",

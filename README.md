@@ -62,7 +62,7 @@ blog = build_blueprint(
         feed_description="The Ubuntu Blog Feed",
         api=BlogAPI(
             session=session,
-            enable_image_template=True,
+            use_image_template=True,
         ),
     )
 )

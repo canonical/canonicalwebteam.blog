@@ -22,7 +22,7 @@ class TestBlogAPI(VCRTestCase):
 
     def test_get_articles_with_transforming_links(self):
         self.api = BlogAPI(
-            session=requests.Session(), enable_image_template=False,
+            session=requests.Session(), use_image_template=False,
         )
 
         article = self.api.get_article(
@@ -40,7 +40,7 @@ class TestBlogAPI(VCRTestCase):
 
     def test_it_transforms_article_image(self):
         self.api = BlogAPI(
-            session=requests.Session(), enable_image_template=True,
+            session=requests.Session(), use_image_template=True,
         )
 
         article = self.api.get_article(
@@ -57,7 +57,7 @@ class TestBlogAPI(VCRTestCase):
 
     def test_it_transforms_article_with_fixed_dimensions_image(self):
         self.api = BlogAPI(
-            session=requests.Session(), enable_image_template=True,
+            session=requests.Session(), use_image_template=True,
         )
 
         article = self.api.get_article(
@@ -75,7 +75,7 @@ class TestBlogAPI(VCRTestCase):
 
     def test_it_does_not_transform_article_image(self):
         self.api = BlogAPI(
-            session=requests.Session(), enable_image_template=False,
+            session=requests.Session(), use_image_template=False,
         )
 
         article = self.api.get_article(
