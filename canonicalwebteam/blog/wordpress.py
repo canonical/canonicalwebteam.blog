@@ -113,7 +113,8 @@ class Wordpress:
         """
         try:
             return self.get_first_item(
-                "posts", {"slug": slug, "tags": tags, "tags_exclude": tags_exclude}
+                "posts",
+                {"slug": slug, "tags": tags, "tags_exclude": tags_exclude},
             )
         except NotFoundError:
             return {}

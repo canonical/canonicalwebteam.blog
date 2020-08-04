@@ -133,13 +133,17 @@ class BlogAPI(Wordpress):
             article["end_date"] = "{} {} {}".format(
                 article["_end_day"], end_month_name, article["_end_year"]
             )
+        if "content" in article:
+            # replace url on the blog article page
+            article["content"]["rendered"] = self._replace_url(
+                article["content"]["rendered"]
+            )
 
-        # replace url on the blog article page
-        article["content"]["rendered"] = self._replace_url(
-            article["content"]["rendered"]
-        )
-
-        if article["image"] is not None and "source_url" in article["image"]:
+        if (
+            "image" in article
+            and article["image"] is not None
+            and "source_url" in article["image"]
+        ):
             # replace url from the image thumbnail
             article["image"]["source_url"] = self._replace_url(
                 article["image"]["source_url"]
@@ -153,21 +157,23 @@ class BlogAPI(Wordpress):
             )
 
         if self.use_image_template:
-            # apply image template for blog article images
-            article["content"]["rendered"] = self._apply_image_template(
-                content=article["content"]["rendered"], width="720",
-            )
-
-            # apply image template to thumbnail image
-            if (
-                article["image"] is not None
-                and "source_url" in article["image"]
-            ):
-                article["image"]["rendered"] = self._apply_image_template(
-                    content=article["image"]["rendered"],
-                    width="330",
-                    height="177",
+            if "content" in article:
+                # apply image template for blog article images
+                article["content"]["rendered"] = self._apply_image_template(
+                    content=article["content"]["rendered"], width="720",
                 )
+
+            if "image" in article:
+                # apply image template to thumbnail image
+                if (
+                    article["image"] is not None
+                    and "source_url" in article["image"]
+                ):
+                    article["image"]["rendered"] = self._apply_image_template(
+                        content=article["image"]["rendered"],
+                        width="330",
+                        height="177",
+                    )
 
         return article
 
