@@ -57,6 +57,14 @@ class TestBlueprint(VCRTestCase):
         )
         self.assertIn(b"ubuntu.com/wp-content/uploads", response.data)
 
+        image_src = (
+            "src=&#34;https://res.cloudinary.com/canonical/image/fetch/"
+            "f_auto,q_auto,fl_sanitize,w_720/"
+            "https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34;"
+        )
+
+        self.assertIn(str.encode(image_src), response.data)
+
     def test_article_redirect(self):
         response = self.test_client.get(
             "/2022/12/12/testing-your-user-contract"
@@ -72,7 +80,7 @@ class TestBlueprint(VCRTestCase):
         soup = BeautifulSoup(response.data, "html.parser")
 
         self.assertEqual(soup.find(id="current-page").text, "1")
-        self.assertEqual(soup.find(id="total-pages").text, "258")
+        self.assertEqual(soup.find(id="total-pages").text, "262")
 
         articles = soup.find(id="articles").findAll("li")
         featured = soup.find(id="featured").findAll("li")
@@ -92,8 +100,10 @@ class TestBlueprint(VCRTestCase):
 
             image = article.find("img")
             if image is not None:
-                self.assertNotIn(
-                    "admin.insights.ubuntu.com/wp-content/uploads",
+                self.assertIn(
+                    "https://res.cloudinary.com/canonical/image/fetch/"
+                    "f_auto,q_auto,fl_sanitize,w_330,h_177/"
+                    "https://ubuntu.com/wp-content/uploads",
                     image.get("src"),
                 )
 
@@ -107,8 +117,10 @@ class TestBlueprint(VCRTestCase):
 
             image = article.find("img")
             if image is not None:
-                self.assertNotIn(
-                    "admin.insights.ubuntu.com/wp-content/uploads",
+                self.assertIn(
+                    "https://res.cloudinary.com/canonical/image/fetch/"
+                    "f_auto,q_auto,fl_sanitize,w_330,h_177/"
+                    "https://ubuntu.com/wp-content/uploads",
                     image.get("src"),
                 )
 

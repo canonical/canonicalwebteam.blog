@@ -60,7 +60,10 @@ blog = build_blueprint(
         exclude_tags=[26, 34],
         per_page=12,
         feed_description="The Ubuntu Blog Feed",
-        api=BlogAPI(session=session),
+        api=BlogAPI(
+            session=session,
+            use_image_template=True,
+        ),
     )
 )
 ```

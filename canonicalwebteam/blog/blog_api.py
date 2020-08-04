@@ -4,6 +4,11 @@ import html
 from datetime import date
 from datetime import datetime
 
+# Packages
+from bs4 import BeautifulSoup
+from canonicalwebteam import image_template
+
+# Local
 from canonicalwebteam.blog import Wordpress
 
 
@@ -12,11 +17,11 @@ class BlogAPI(Wordpress):
         self,
         session,
         api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
-        transform_links=True,
+        use_image_template=True,
     ):
         super().__init__(session, api_url)
 
-        self.transform_links = transform_links
+        self.use_image_template = use_image_template
 
     def get_articles(
         self,
@@ -129,19 +134,39 @@ class BlogAPI(Wordpress):
                 article["_end_day"], end_month_name, article["_end_year"]
             )
 
-        if self.transform_links:
-            # replace url on the blog article page
-            article["content"]["rendered"] = self._replace_url(
-                article["content"]["rendered"]
+        # replace url on the blog article page
+        article["content"]["rendered"] = self._replace_url(
+            article["content"]["rendered"]
+        )
+
+        if article["image"] is not None and "source_url" in article["image"]:
+            # replace url from the image thumbnail
+            article["image"]["source_url"] = self._replace_url(
+                article["image"]["source_url"]
             )
 
-            # replace url from the image thumbnail
+            # create default rendered image
+            article["image"]["rendered"] = (
+                '<img src="'
+                + article["image"]["source_url"]
+                + '" loading="lazy">'
+            )
+
+        if self.use_image_template:
+            # apply image template for blog article images
+            article["content"]["rendered"] = self._apply_image_template(
+                content=article["content"]["rendered"], width="720",
+            )
+
+            # apply image template to thumbnail image
             if (
                 article["image"] is not None
                 and "source_url" in article["image"]
             ):
-                article["image"]["source_url"] = self._replace_url(
-                    article["image"]["source_url"]
+                article["image"]["rendered"] = self._apply_image_template(
+                    content=article["image"]["rendered"],
+                    width="330",
+                    height="177",
                 )
 
         return article
@@ -177,3 +202,33 @@ class BlogAPI(Wordpress):
         """
 
         return date(1900, month_index, 1).strftime("%B")
+
+    def _apply_image_template(self, content, width, height=None):
+        """ Apply image template to the img tags
+
+        :param content: String to replace url
+        :param width: Default width of the image
+        :param height: Default height of the image
+
+        :returns: HTML images templated
+        """
+
+        soup = BeautifulSoup(content, "html.parser")
+        for image in soup.findAll("img"):
+            img_width = image.get("width")
+            img_height = image.get("height")
+
+            new_image = BeautifulSoup(
+                image_template(
+                    url=image.get("src"),
+                    alt="",
+                    width=img_width or width,
+                    height=img_height or height,
+                    hi_def=True,
+                    loading="lazy",
+                ),
+                "html.parser",
+            )
+            image.replace_with(new_image)
+
+        return str(soup)
