@@ -170,9 +170,7 @@ class BlogAPI(Wordpress):
                     and "source_url" in article["image"]
                 ):
                     article["image"]["rendered"] = self._apply_image_template(
-                        content=article["image"]["rendered"],
-                        width="330",
-                        height="177",
+                        content=article["image"]["rendered"], width="330",
                     )
 
         return article
