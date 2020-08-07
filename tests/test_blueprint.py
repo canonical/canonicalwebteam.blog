@@ -102,7 +102,7 @@ class TestBlueprint(VCRTestCase):
             if image is not None:
                 self.assertIn(
                     "https://res.cloudinary.com/canonical/image/fetch/"
-                    "f_auto,q_auto,fl_sanitize,w_330,h_177/"
+                    "f_auto,q_auto,fl_sanitize,w_330/"
                     "https://ubuntu.com/wp-content/uploads",
                     image.get("src"),
                 )
@@ -119,7 +119,7 @@ class TestBlueprint(VCRTestCase):
             if image is not None:
                 self.assertIn(
                     "https://res.cloudinary.com/canonical/image/fetch/"
-                    "f_auto,q_auto,fl_sanitize,w_330,h_177/"
+                    "f_auto,q_auto,fl_sanitize,w_330/"
                     "https://ubuntu.com/wp-content/uploads",
                     image.get("src"),
                 )

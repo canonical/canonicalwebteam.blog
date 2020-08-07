@@ -1,3 +1,4 @@
+6.2.1: Remove fixed thumbnail height
 6.2.0: Fix 503 instead of 404 status for articles not found
 6.1.1: Restructure; Use `image_template` for images processing
 6.1.0: Restructure; Add API wrapper; Remove helpers
