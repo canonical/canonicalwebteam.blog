@@ -20,11 +20,10 @@ class TestWordpress(VCRTestCase):
         for article in articles:
             self.assertTrue("rendered" in article["content"])
 
-        with self.assertRaises(NotFoundError):
-            self.api.get_article(slug="nonexistent-slug")
-
+        no_article = self.api.get_article(slug="nonexistent-slug")
+        self.assertEqual(no_article, {})
+            
         article = self.api.get_article(slug="testing-your-user-contract")
-
         self.assertEqual(
             article["title"]["rendered"], "Testing your user contract"
         )

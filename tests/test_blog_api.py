@@ -17,8 +17,8 @@ class TestBlogAPI(VCRTestCase):
             self.assertTrue(int(metadata["total_pages"]) >= 258)
             self.assertTrue(int(metadata["total_posts"]) >= 3095)
 
-        with self.assertRaises(NotFoundError):
-            self.api.get_article(slug="nonexistent-slug")
+        no_article = self.api.get_article(slug="nonexistent-slug")
+        self.assertEqual(no_article, {})
 
     def test_get_articles_with_transforming_links(self):
         self.api = BlogAPI(

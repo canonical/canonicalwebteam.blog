@@ -111,9 +111,13 @@ class Wordpress:
         Get an article from Wordpress api
         :param slug: Article slug to fetch
         """
-        return self.get_first_item(
-            "posts", {"slug": slug, "tags": tags, "tags_exclude": tags_exclude}
-        )
+        try:
+            return self.get_first_item(
+                "posts",
+                {"slug": slug, "tags": tags, "tags_exclude": tags_exclude},
+            )
+        except NotFoundError:
+            return {}
 
     def get_tag_by_id(self, id):
         return self.request(f"tags/{id}").json()
