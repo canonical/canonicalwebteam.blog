@@ -73,6 +73,26 @@ class TestBlogAPI(VCRTestCase):
             article["content"]["rendered"],
         )
 
+    def test_it_transforms_article_with_percent_width_dimension_image(self):
+        self.api = BlogAPI(
+            session=requests.Session(), use_image_template=True,
+        )
+
+        article = self.api.get_article(
+            slug="/top-10-linux-apps-for-entertainment-and-leisure"
+        )
+
+        self.assertNotIn(
+            'src="https://res.cloudinary.com/canonical/image/fetch/'
+            'f_auto,q_auto,fl_sanitize,w_100%',
+            article["content"]["rendered"],
+        )
+        self.assertIn(
+            'src="https://res.cloudinary.com/canonical/image/fetch/'
+            'f_auto,q_auto,fl_sanitize,w_720',
+            article["content"]["rendered"],
+        )
+
     def test_it_does_not_transform_article_image(self):
         self.api = BlogAPI(
             session=requests.Session(), use_image_template=False,
