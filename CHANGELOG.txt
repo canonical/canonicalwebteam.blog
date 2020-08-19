@@ -1,3 +1,4 @@
+6.2.3: Skip images without src
 6.2.2: Fix bug with percent width
 6.2.1: Remove fixed thumbnail height
 6.2.0: Fix 503 instead of 404 status for articles not found
