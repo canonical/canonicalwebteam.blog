@@ -166,6 +166,12 @@ class TestBlueprint(VCRTestCase):
             response.headers["Content-Type"], "application/rss+xml"
         )
 
+    def test_group_feed_works_with_image_without_src(self):
+        response = self.test_client.get("/group/phone-and-tablet/feed")
+
+        self.assertTrue(response.status_code, 200)
+        self.assertIn(b'&lt;img alt=""/&gt;', response.data)
+
     def test_topic(self):
         response = self.test_client.get("/topic/design")
 
