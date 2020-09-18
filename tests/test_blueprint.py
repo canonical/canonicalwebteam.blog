@@ -65,6 +65,19 @@ class TestBlueprint(VCRTestCase):
 
         self.assertIn(str.encode(image_src), response.data)
 
+    def test_article_with_relative_path_image(self):
+        response = self.test_client.get(
+            "/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx"
+        )
+
+        self.assertTrue(response.status_code, 200)
+
+        image_src = (
+            "src=&#34;../wp-content/uploads//2010/10/iberian_lynx.jpg&#34;"
+        )
+
+        self.assertIn(str.encode(image_src), response.data)
+
     def test_article_redirect(self):
         response = self.test_client.get(
             "/2022/12/12/testing-your-user-contract"

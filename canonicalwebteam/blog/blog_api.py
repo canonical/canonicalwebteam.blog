@@ -219,7 +219,7 @@ class BlogAPI(Wordpress):
 
         soup = BeautifulSoup(content, "html.parser")
         for image in soup.findAll("img"):
-            if not image.get("src"):
+            if not image.get("src") or 'http' not in image.get("src"):
                 continue
 
             img_width = (
