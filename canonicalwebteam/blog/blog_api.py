@@ -160,7 +160,8 @@ class BlogAPI(Wordpress):
             if "content" in article:
                 # apply image template for blog article images
                 article["content"]["rendered"] = self._apply_image_template(
-                    content=article["content"]["rendered"], width=720,
+                    content=article["content"]["rendered"],
+                    width=720,
                 )
 
             if "image" in article:
@@ -170,7 +171,8 @@ class BlogAPI(Wordpress):
                     and "source_url" in article["image"]
                 ):
                     article["image"]["rendered"] = self._apply_image_template(
-                        content=article["image"]["rendered"], width=330,
+                        content=article["image"]["rendered"],
+                        width=330,
                     )
 
         return article
@@ -208,7 +210,7 @@ class BlogAPI(Wordpress):
         return date(1900, month_index, 1).strftime("%B")
 
     def _apply_image_template(self, content, width, height=None):
-        """ Apply image template to the img tags
+        """Apply image template to the img tags
 
         :param content: String to replace url
         :param width: Default width of the image
@@ -219,7 +221,7 @@ class BlogAPI(Wordpress):
 
         soup = BeautifulSoup(content, "html.parser")
         for image in soup.findAll("img"):
-            if not image.get("src") or 'http' not in image.get("src"):
+            if not image.get("src") or "http" not in image.get("src"):
                 continue
 
             img_width = (

@@ -22,7 +22,7 @@ class TestWordpress(VCRTestCase):
 
         no_article = self.api.get_article(slug="nonexistent-slug")
         self.assertEqual(no_article, {})
-            
+
         article = self.api.get_article(slug="testing-your-user-contract")
         self.assertEqual(
             article["title"]["rendered"], "Testing your user contract"
