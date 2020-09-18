@@ -29,7 +29,8 @@ jobs:
 
       - name: Install system dependencies
         run: |
-          pip3 install flake8 black
+          python3 -m pip install --upgrade pip
+          sudo pip3 install flake8 black
 
       - name: Lint Python
         run: python3 -m flake8 canonicalwebteam setup.py && python3 -m black --line-length 79 --check canonicalwebteam setup.py
