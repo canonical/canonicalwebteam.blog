@@ -123,22 +123,34 @@ class Wordpress:
         return self.request(f"tags/{id}").json()
 
     def get_tag_by_slug(self, slug):
-        return self.get_first_item("tags", {"slug": slug})
+        try:
+            return self.get_first_item("tags", {"slug": slug})
+        except NotFoundError:
+            return {}
 
     def get_tag_by_name(self, name):
-        return self.get_first_item("tags", {"search": name})
+        try:
+            return self.get_first_item("tags", {"search": name})
+        except NotFoundError:
+            return {}
 
     def get_categories(self):
         return self.request("categories", {"per_page": 100}).json()
 
     def get_group_by_slug(self, slug):
-        return self.get_first_item("group", {"slug": slug})
+        try:
+            return self.get_first_item("group", {"slug": slug})
+        except NotFoundError:
+            return {}
 
     def get_group_by_id(self, id):
         return self.request(f"group/{str(id)}").json()
 
     def get_category_by_slug(self, slug):
-        return self.get_first_item("categories", {"slug": slug})
+        try:
+            return self.get_first_item("categories", {"slug": slug})
+        except NotFoundError:
+            return {}
 
     def get_category_by_id(self, id):
         return self.request(f"categories/{str(id)}").json()
@@ -147,7 +159,10 @@ class Wordpress:
         return self.request(f"media/{str(id)}").json()
 
     def get_user_by_username(self, username):
-        return self.get_first_item("users", {"slug": username})
+        try:
+            return self.get_first_item("users", {"slug": username})
+        except NotFoundError:
+            return {}
 
     def get_user_by_id(self, id):
         return self.request((f"users/{str(id)}")).json()
