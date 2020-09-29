@@ -3,9 +3,7 @@ import os
 
 # Packages
 import flask
-import pytest
 import requests
-from canonicalwebteam.blog.wordpress import NotFoundError
 from flask_reggie import Reggie
 from bs4 import BeautifulSoup
 from vcr_unittest import VCRTestCase
@@ -157,6 +155,13 @@ class TestBlueprint(VCRTestCase):
 
     def test_category_not_exist(self):
         response = self.test_client.get("/archives?category=not-exist")
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_archive_int_year_month(self):
+        response = self.test_client.get(
+            "/archives?group=phone-and-tablet&month=11%27%5B0%5D&year=2015das"
+        )
 
         self.assertEqual(response.status_code, 200)
 

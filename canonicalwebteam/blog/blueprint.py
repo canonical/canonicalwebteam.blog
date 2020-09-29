@@ -87,8 +87,8 @@ def build_blueprint(blog_views):
     def archives():
         page_param = flask.request.args.get("page", default=1, type=int)
         group_param = flask.request.args.get("group", default="", type=str)
-        month_param = flask.request.args.get("month", default="", type=str)
-        year_param = flask.request.args.get("year", default="", type=str)
+        month_param = flask.request.args.get("month", default="", type=int)
+        year_param = flask.request.args.get("year", default="", type=int)
         category_param = flask.request.args.get(
             "category", default="", type=str
         )
