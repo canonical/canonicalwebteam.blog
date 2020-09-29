@@ -1,3 +1,4 @@
+6.2.5: Accommodate `e_sharpen` images
 6.2.4: Skip images with relative src path
 6.2.3: Skip images without src
 6.2.2: Fix bug with percent width
