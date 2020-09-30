@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="canonicalwebteam.blog",
-    version="6.2.6",
+    version="6.3.0",
     description=("Flask extension to add a nice blog to your website"),
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",

@@ -64,7 +64,7 @@ class TestBlueprint(VCRTestCase):
 
         image_src = (
             "src=&#34;https://res.cloudinary.com/canonical/image/fetch/"
-            "f_auto,q_auto,fl_sanitize,e_sharpen,w_720/"
+            "f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_720/"
             "https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34;"
         )
 
@@ -120,7 +120,7 @@ class TestBlueprint(VCRTestCase):
             if image is not None:
                 self.assertIn(
                     "https://res.cloudinary.com/canonical/image/fetch/"
-                    "f_auto,q_auto,fl_sanitize,e_sharpen,w_330/"
+                    "f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_330,h_185/"
                     "https://ubuntu.com/wp-content/uploads",
                     image.get("src"),
                 )
@@ -137,7 +137,7 @@ class TestBlueprint(VCRTestCase):
             if image is not None:
                 self.assertIn(
                     "https://res.cloudinary.com/canonical/image/fetch/"
-                    "f_auto,q_auto,fl_sanitize,e_sharpen,w_330/"
+                    "f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_330,h_185/"
                     "https://ubuntu.com/wp-content/uploads",
                     image.get("src"),
                 )
