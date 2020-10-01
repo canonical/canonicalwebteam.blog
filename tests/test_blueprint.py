@@ -46,6 +46,11 @@ class TestBlueprint(VCRTestCase):
         self.assertIn(b"<time>10 February 2020</time>", response.data)
         self.assertIn(b'<a rel="author">Jeff Pihach</a>', response.data)
 
+    def test_article_not_exist(self):
+        response = self.test_client.get("/not-exist")
+
+        self.assertEqual(response.status_code, 404)
+
     def test_article_with_image(self):
         response = self.test_client.get(
             "/dell-xps-13-developer-edition-with-ubuntu-20-04"
@@ -70,7 +75,7 @@ class TestBlueprint(VCRTestCase):
             "/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx"
         )
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
         image_src = (
             "src=&#34;../wp-content/uploads//2010/10/iberian_lynx.jpg&#34;"
@@ -148,67 +153,115 @@ class TestBlueprint(VCRTestCase):
         first_url = f"http://localhost/{first_slug}"
         self.assertEqual(latest_response.headers["Location"], first_url)
 
+    def test_category_not_exist(self):
+        response = self.test_client.get("/archives?category=not-exist")
+
+        self.assertEqual(response.status_code, 200)
+
+    def test_archive_int_year_month(self):
+        response = self.test_client.get(
+            "/archives?group=phone-and-tablet&month=11%27%5B0%5D&year=2015das"
+        )
+
+        self.assertEqual(response.status_code, 200)
+
     def test_feed(self):
         response = self.test_client.get("/feed")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_author(self):
         response = self.test_client.get("/author/nottrobin")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
+
+    def test_author_not_exist(self):
+        response = self.test_client.get("/author/not-exist")
+
+        self.assertEqual(response.status_code, 404)
 
     def test_author_feed(self):
         response = self.test_client.get("/author/nottrobin/feed")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTrue(
             response.headers["Content-Type"], "application/rss+xml"
         )
+
+    def test_author_feed_not_exist(self):
+        response = self.test_client.get("/author/not-exist/feed")
+
+        self.assertEqual(response.status_code, 404)
 
     def test_group(self):
         response = self.test_client.get("/group/design")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
+
+    def test_group_not_exist(self):
+        response = self.test_client.get("/group/not-exist")
+
+        self.assertEqual(response.status_code, 200)
 
     def test_group_feed(self):
         response = self.test_client.get("/group/design/feed")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTrue(
             response.headers["Content-Type"], "application/rss+xml"
         )
 
+    def test_group_feed_not_exist(self):
+        response = self.test_client.get("/group/not-exist/feed")
+
+        self.assertEqual(response.status_code, 404)
+
     def test_group_feed_works_with_image_without_src(self):
         response = self.test_client.get("/group/phone-and-tablet/feed")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertIn(b'&lt;img alt=""/&gt;', response.data)
 
     def test_topic(self):
         response = self.test_client.get("/topic/design")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
+
+    def test_topic_not_exists(self):
+        response = self.test_client.get("/topic/not-exists")
+
+        self.assertEqual(response.status_code, 200)
 
     def test_topic_feed(self):
         response = self.test_client.get("/topic/design/feed")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertTrue(
             response.headers["Content-Type"], "application/rss+xml"
         )
 
+    def test_topic_feed_not_exists(self):
+        response = self.test_client.get("/topic/not-exists/feed")
+
+        self.assertEqual(response.status_code, 404)
+
     def test_tag(self):
         response = self.test_client.get("/tag/design")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
+
+    def test_tag_not_exist(self):
+
+        response = self.test_client.get("/tag/not-exist")
+
+        self.assertEqual(response.status_code, 404)
 
     def test_events_and_webinars(self):
         response = self.test_client.get("/events-and-webinars")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_archives(self):
         response = self.test_client.get("/archives")
 
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)

@@ -169,9 +169,10 @@ class BlogViews:
 
     def get_topic(self, topic_slug, page=1):
         tag = self.api.get_tag_by_slug(topic_slug)
+        tag_ids = [tag["id"]] if tag else []
 
         articles, metadata = self.api.get_articles(
-            tags=self.tag_ids + [tag["id"]],
+            tags=self.tag_ids + tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
         )
@@ -313,7 +314,9 @@ class BlogViews:
             category_slugs = category.split(",")
             for slug in category_slugs:
                 category = self.api.get_category_by_slug(slug)
-                categories.append(category["id"])
+
+                if category:
+                    categories.append(category["id"])
 
         after = None
         before = None
