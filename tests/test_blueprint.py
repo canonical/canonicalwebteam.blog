@@ -64,7 +64,7 @@ class TestBlueprint(VCRTestCase):
 
         image_src = (
             "src=&#34;https://res.cloudinary.com/canonical/image/fetch/"
-            "f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_720/"
+            "f_auto,q_auto,fl_sanitize,c_fill,w_720/"
             "https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34;"
         )
 

@@ -178,6 +178,7 @@ class BlogAPI(Wordpress):
                         content=article["image"]["rendered"],
                         width=self.thumbnail_width,
                         height=self.thumbnail_height,
+                        use_e_sharpen=True,
                     )
 
         return article
@@ -214,7 +215,9 @@ class BlogAPI(Wordpress):
 
         return date(1900, month_index, 1).strftime("%B")
 
-    def _apply_image_template(self, content, width, height=None):
+    def _apply_image_template(
+        self, content, width, height=None, use_e_sharpen=False
+    ):
         """Apply image template to the img tags
 
         :param content: String to replace url
@@ -251,6 +254,7 @@ class BlogAPI(Wordpress):
                     height=img_height or height,
                     hi_def=True,
                     fill=True,
+                    e_sharpen=use_e_sharpen,
                     loading="lazy",
                 ),
                 "html.parser",
