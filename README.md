@@ -63,6 +63,8 @@ blog = build_blueprint(
         api=BlogAPI(
             session=session,
             use_image_template=True,
+            thumbnail_width=330,
+            thumbnail_height=185,
         ),
     )
 )

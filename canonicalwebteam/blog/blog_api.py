@@ -18,10 +18,14 @@ class BlogAPI(Wordpress):
         session,
         api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
         use_image_template=True,
+        thumbnail_width=330,
+        thumbnail_height=185,
     ):
         super().__init__(session, api_url)
 
         self.use_image_template = use_image_template
+        self.thumbnail_width = thumbnail_width
+        self.thumbnail_height = thumbnail_height
 
     def get_articles(
         self,
@@ -172,7 +176,8 @@ class BlogAPI(Wordpress):
                 ):
                     article["image"]["rendered"] = self._apply_image_template(
                         content=article["image"]["rendered"],
-                        width=330,
+                        width=self.thumbnail_width,
+                        height=self.thumbnail_height,
                     )
 
         return article
@@ -245,6 +250,7 @@ class BlogAPI(Wordpress):
                     width=img_width or width,
                     height=img_height or height,
                     hi_def=True,
+                    fill=True,
                     loading="lazy",
                 ),
                 "html.parser",
