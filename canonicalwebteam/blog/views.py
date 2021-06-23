@@ -387,7 +387,7 @@ class BlogViews:
         all_related_articles, _ = self.api.get_articles(
             tags=[tag["id"] for tag in tags],
             tags_exclude=excluded_tags,
-            per_page=3,
+            per_page=30,
             exclude=[article["id"]],
         )
 
@@ -395,6 +395,21 @@ class BlogViews:
         for related_article in all_related_articles:
             if set(related_tag_ids) <= set(related_article["tags"]):
                 related_articles.append(related_article)
+
+            # Iterate over the tags for the current article and counting
+            # matches against related articles
+            for tag in tags:
+                related_article["compatibility"] = related_article[
+                    "tags"
+                ].count(tag["id"])
+
+        # Sort the related_articles by the most compatibility and limiting the
+        # result to the top three articles
+        related_articles = sorted(
+            related_articles,
+            key=lambda article: article["compatibility"],
+            reverse=True,
+        )[:3]
 
         return {
             "article": article,
