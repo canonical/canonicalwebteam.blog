@@ -383,6 +383,7 @@ class BlogViews:
         """
 
         tags = article["_embedded"].get("wp:term", [{}, {}])[1]
+        current_tag_ids = set([tag["id"] for tag in tags])
 
         all_related_articles, _ = self.api.get_articles(
             tags=[tag["id"] for tag in tags],
@@ -396,12 +397,11 @@ class BlogViews:
             if set(related_tag_ids) <= set(related_article["tags"]):
                 related_articles.append(related_article)
 
-            # Iterate over the tags for the current article and counting
-            # matches against related articles
-            for tag in tags:
-                related_article["compatibility"] = related_article[
-                    "tags"
-                ].count(tag["id"])
+            # Sets the number of matching tags as a compatibility value on the
+            # related article
+            related_article["compatibility"] = len(
+                current_tag_ids.intersection(set(related_article["tags"]))
+            )
 
         # Sort the related_articles by the most compatibility and limiting the
         # result to the top three articles
