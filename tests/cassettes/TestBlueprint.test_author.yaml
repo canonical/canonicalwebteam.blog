@@ -465,7 +465,7 @@ interactions:
         italic\">It should also have been :+1:d by at least 2 team members<\/li>\n<li
         style=\"font-style: italic\">It should have been open for at least 24 hours<\/li>\n<\/ul>\n<p>Once
         it is merged, it should be brought up in the next relevant team meeting to
-        ensure the whole team is aware of the change.<\/p><\/blockquote>\n<p><a href=\"https:\/\/github.com\/canonical-webteam\/practices\/blob\/master\/CONTRIBUTING.md\">These
+        ensure the whole team is aware of the change.<\/p><\/blockquote>\n<p><a href=\"https:\/\/github.com\/canonical-webteam\/practices\/blob\/main\/CONTRIBUTING.md\">These
         rules<\/a> are to reinforce the idea of working slowly. Much more than speed,
         it is important that changes are carefully considered and agreed by everyone.<\/p>\n<ul>\n<li>New
         changes can be suggested by anyone as <a href=\"https:\/\/github.com\/canonical-webteam\/practices\/pulls\">public
