@@ -21,6 +21,10 @@ See also the documentation for [pip install](https://pip.pypa.io/en/stable/refer
 
 ## Usage
 
+### Local development
+
+For local development, it's best to test this module with one of our website projects like [ubuntu.com](https://github.com/canonical-web-and-design/ubuntu.com/). For more information, follow [this guide (internal only)](https://discourse.canonical.com/t/how-to-run-our-python-modules-for-local-development/308).
+    
 ### Templates
 
 The module expects HTML templates at `blog/index.html`, `blog/article.html`, `blog/blog-card.html`, `blog/archives.html`, `blog/upcoming.html` and `blog/author.html`.
