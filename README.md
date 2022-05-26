@@ -18,7 +18,7 @@ pip3 install canonicalwebteam.blog
 ```
 
 See also the documentation for [pip install](https://pip.pypa.io/en/stable/reference/pip_install/).
-    
+
 ## Usage
 
 ### Local development
