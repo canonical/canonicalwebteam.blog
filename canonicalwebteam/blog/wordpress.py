@@ -1,4 +1,7 @@
+import flask
+
 from urllib.parse import urlencode
+from requests.exceptions import HTTPError
 
 
 class NotFoundError(Exception):
@@ -82,22 +85,29 @@ class Wordpress:
 
         :returns: response, metadata dictionary
         """
-        response = self.request(
-            "posts",
-            {
-                "tags": tags,
-                "per_page": per_page,
-                "page": page,
-                "tags_exclude": tags_exclude,
-                "exclude": exclude,
-                "categories": categories,
-                "group": groups,
-                "sticky": sticky,
-                "before": before,
-                "after": after,
-                "author": author,
-            },
-        )
+        try:
+            response = self.request(
+                "posts",
+                {
+                    "tags": tags,
+                    "per_page": per_page,
+                    "page": page,
+                    "tags_exclude": tags_exclude,
+                    "exclude": exclude,
+                    "categories": categories,
+                    "group": groups,
+                    "sticky": sticky,
+                    "before": before,
+                    "after": after,
+                    "author": author,
+                },
+            )
+        except HTTPError as error:
+            if error.response.status_code == 400:
+                error_response = error.response.json()
+                if error_response["code"] == "rest_post_invalid_page_number":
+                    return flask.abort(404)
+
         total_pages = response.headers.get("X-WP-TotalPages")
         total_posts = response.headers.get("X-WP-Total")
 

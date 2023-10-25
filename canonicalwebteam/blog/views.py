@@ -129,8 +129,10 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
-            groups=[group.get("id", "")],
-            categories=[category.get("id", "")],
+            groups=[group.get("id")] if group.get("id", None) else [],
+            categories=[category.get("id")]
+            if category.get("id", None)
+            else [],
         )
 
         return {
