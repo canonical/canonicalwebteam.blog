@@ -89,7 +89,7 @@ class TestBlueprint(VCRTestCase):
         )
         self.assertEqual(
             response.headers["Location"],
-            "http://localhost/testing-your-user-contract",
+            "/testing-your-user-contract",
         )
 
     def test_homepage(self):
@@ -150,7 +150,7 @@ class TestBlueprint(VCRTestCase):
 
         first_article = homepage_soup.find(id="articles").findAll("li")[0]
         first_slug = first_article.find("span", {"class": "slug"}).text
-        first_url = f"http://localhost/{first_slug}"
+        first_url = f"/{first_slug}"
         self.assertEqual(latest_response.headers["Location"], first_url)
 
     def test_category_not_exist(self):
