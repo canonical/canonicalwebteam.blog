@@ -118,19 +118,20 @@ class BlogViews:
             articles[0], self.tag_ids, self.excluded_tags
         )
 
-    def get_group(self, group_slug, page=1, category_slug=""):
+    def get_group(self, group_slug, page=1, category_slug=None):
         group = self.api.get_group_by_slug(group_slug)
-
+        categories = None
         category = {}
         if category_slug:
             category = self.api.get_category_by_slug(category_slug)
+            categories = [category.get("id", "")]
 
         articles, metadata = self.api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
             groups=[group.get("id", "")],
-            categories=[category.get("id", "")],
+            categories=categories,
         )
 
         return {
