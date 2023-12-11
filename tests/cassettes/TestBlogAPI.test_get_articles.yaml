@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&_embed=
   response:
     body:
       string: '[{"id":97100,"date":"2020-07-14T04:09:36","date_gmt":"2020-07-14T04:09:36","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=97100"},"modified":"2020-07-14T04:09:38","modified_gmt":"2020-07-14T04:09:38","slug":"microk8s-ha-tech-preview-is-now-available-2","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/07\/14\/microk8s-ha-tech-preview-is-now-available-2\/","title":{"rendered":"MicroK8s\u73b0\u8fce\u6765\u6280\u672f\u9884\u89c8\u7248HA\u529f\u80fd"},"content":{"rendered":"\n<p>\u8f7b\u91cf\u7ea7\u7684Kubernetes
@@ -1182,7 +1182,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=100
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&_embed=true>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&_embed=>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)
@@ -1221,7 +1221,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=nonexistent-slug&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=nonexistent-slug&_embed=
   response:
     body:
       string: '[]'

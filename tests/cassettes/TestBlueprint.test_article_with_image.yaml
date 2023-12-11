@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.25.1
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available&_embed=
   response:
     body:
       string: '[{"id":96510,"date":"2020-06-23T12:00:27","date_gmt":"2020-06-23T12:00:27","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=96510"},"modified":"2020-10-05T13:06:26","modified_gmt":"2020-10-05T13:06:26","slug":"dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/06\/23\/dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available\/","title":{"rendered":"Dell
@@ -133,7 +133,7 @@ interactions:
       User-Agent:
       - python-requests/2.25.1
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1235%2C2186%2C1301%2C3789&per_page=30&page=1&exclude=96510&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1235%2C2186%2C1301%2C3789&per_page=30&page=1&exclude=96510&_embed=
   response:
     body:
       string: '[{"id":102784,"date":"2021-05-14T10:22:28","date_gmt":"2021-05-14T10:22:28","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=102784"},"modified":"2021-05-14T10:22:30","modified_gmt":"2021-05-14T10:22:30","slug":"ubuntu-16-04-lts-esm-support-extended-maintenance","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2021\/05\/14\/ubuntu-16-04-lts-esm-support-extended-maintenance\/","title":{"rendered":"Ubuntu
@@ -2627,7 +2627,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=99
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1235&tags%5B1%5D=2186&tags%5B2%5D=1301&tags%5B3%5D=3789&per_page=30&page=2&exclude%5B0%5D=96510&_embed=true>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1235&tags%5B1%5D=2186&tags%5B2%5D=1301&tags%5B3%5D=3789&per_page=30&page=2&exclude%5B0%5D=96510&_embed=>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)

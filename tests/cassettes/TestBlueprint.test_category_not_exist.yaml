@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=not-exist&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=not-exist&_embed=
   response:
     body:
       string: '[]'
@@ -69,7 +69,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&_embed=
   response:
     body:
       string: '[{"id":97853,"date":"2020-09-28T10:15:02","date_gmt":"2020-09-28T10:15:02","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=97853"},"modified":"2020-09-28T10:15:04","modified_gmt":"2020-09-28T10:15:04","slug":"osm-hackfest-mr9","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/09\/28\/osm-hackfest-mr9\/","title":{"rendered":"Canonical
@@ -1426,7 +1426,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=99
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&_embed=true>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&_embed=>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)

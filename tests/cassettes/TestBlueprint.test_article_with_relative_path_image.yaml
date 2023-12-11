@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.25.1
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=the-ubuntu-community-contributes-towards-saving-the-iberian-lynx&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=the-ubuntu-community-contributes-towards-saving-the-iberian-lynx&_embed=
   response:
     body:
       string: '[{"id":431,"date":"2010-10-07T17:28:29","date_gmt":"2010-10-07T16:28:29","guid":{"rendered":"http:\/\/blog.canonical.com\/?p=431"},"modified":"2019-07-12T08:34:12","modified_gmt":"2019-07-12T08:34:12","slug":"the-ubuntu-community-contributes-towards-saving-the-iberian-lynx","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/","title":{"rendered":"The
@@ -132,7 +132,7 @@ interactions:
       User-Agent:
       - python-requests/2.25.1
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1216%2C2662%2C2705&per_page=30&page=1&exclude=431&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1216%2C2662%2C2705&per_page=30&page=1&exclude=431&_embed=
   response:
     body:
       string: '[{"id":103086,"date":"2021-06-17T19:23:57","date_gmt":"2021-06-17T19:23:57","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=103086"},"modified":"2021-06-17T19:23:58","modified_gmt":"2021-06-17T19:23:58","slug":"two-factor-authentication-coming-to-ubuntu-one","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2021\/06\/17\/two-factor-authentication-coming-to-ubuntu-one\/","title":{"rendered":"Two-factor
@@ -1973,7 +1973,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=99
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1216&tags%5B1%5D=2662&tags%5B2%5D=2705&per_page=30&page=2&exclude%5B0%5D=431&_embed=true>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1216&tags%5B1%5D=2662&tags%5B2%5D=2705&per_page=30&page=2&exclude%5B0%5D=431&_embed=>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)

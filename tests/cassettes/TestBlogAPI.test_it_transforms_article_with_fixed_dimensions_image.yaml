@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=%2Fdesign-and-web-team-summary-20th-july-2020&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=%2Fdesign-and-web-team-summary-20th-july-2020&_embed=
   response:
     body:
       string: '[{"id":97160,"date":"2020-07-20T17:48:22","date_gmt":"2020-07-20T17:48:22","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=97160"},"modified":"2020-07-20T22:34:39","modified_gmt":"2020-07-20T22:34:39","slug":"design-and-web-team-summary-20th-july-2020","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/07\/20\/design-and-web-team-summary-20th-july-2020\/","title":{"rendered":"Design

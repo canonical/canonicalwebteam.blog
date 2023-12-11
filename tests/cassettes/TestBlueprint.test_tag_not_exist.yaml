@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?slug=not-exist&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?slug=not-exist&_embed=
   response:
     body:
       string: '[]'

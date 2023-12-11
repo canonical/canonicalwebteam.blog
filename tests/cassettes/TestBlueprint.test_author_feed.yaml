@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users?slug=nottrobin&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users?slug=nottrobin&_embed=
   response:
     body: {string: '[{"id":297,"name":"Robin Winslow","url":"https:\/\/login.ubuntu.com\/+id\/yEpy4tK","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/","slug":"nottrobin","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/297"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}]'}
     headers:
@@ -40,7 +40,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&author=297&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&author=297&_embed=
   response:
     body: {string: '[{"id":93596,"date":"2020-01-17T15:57:28","date_gmt":"2020-01-17T15:57:28","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=93596"},"modified":"2020-01-21T11:40:06","modified_gmt":"2020-01-21T11:40:06","slug":"design-and-web-team-summary-17-january-2020","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/01\/17\/design-and-web-team-summary-17-january-2020\/","title":{"rendered":"Design
         and Web team summary \u2013 17 January 2020"},"content":{"rendered":"\n<p>The
@@ -1572,7 +1572,7 @@ interactions:
       Content-Type: [application/json; charset=UTF-8]
       Date: ['Tue, 09 Jun 2020 13:52:23 GMT']
       Keep-Alive: ['timeout=5, max=99']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&author%5B0%5D=297&_embed=true>;
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&author%5B0%5D=297&_embed=>;
           rel="next"']
       Server: [Apache/2.4.7 (Ubuntu)]
       Transfer-Encoding: [chunked]
