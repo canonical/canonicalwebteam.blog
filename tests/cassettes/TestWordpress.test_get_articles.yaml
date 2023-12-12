@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&_embed=
   response:
     body: {string: '[{"id":96269,"date":"2020-06-09T09:26:02","date_gmt":"2020-06-09T09:26:02","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=96269"},"modified":"2020-06-09T13:47:07","modified_gmt":"2020-06-09T13:47:07","slug":"design-and-web-team-summary-9th-june-2020","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/06\/09\/design-and-web-team-summary-9th-june-2020\/","title":{"rendered":"Design
         and Web team summary \u2013 9th June 2020"},"content":{"rendered":"\n<p>The
@@ -1334,7 +1334,7 @@ interactions:
       Content-Type: [application/json; charset=UTF-8]
       Date: ['Tue, 09 Jun 2020 13:52:21 GMT']
       Keep-Alive: ['timeout=5, max=100']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&_embed=true>;
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&_embed=>;
           rel="next"']
       Server: [Apache/2.4.7 (Ubuntu)]
       Transfer-Encoding: [chunked]
@@ -1356,7 +1356,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=nonexistent-slug&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=nonexistent-slug&_embed=
   response:
     body: {string: '[]'}
     headers:
@@ -1388,7 +1388,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=testing-your-user-contract&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=testing-your-user-contract&_embed=
   response:
     body: {string: '[{"id":93920,"date":"2020-02-10T22:48:14","date_gmt":"2020-02-10T22:48:14","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=93920"},"modified":"2020-02-10T23:32:02","modified_gmt":"2020-02-10T23:32:02","slug":"testing-your-user-contract","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/","title":{"rendered":"Testing
         your user contract"},"content":{"rendered":"\n<p>Whenever you write any code
