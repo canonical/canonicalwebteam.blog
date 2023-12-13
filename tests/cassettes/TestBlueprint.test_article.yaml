@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.25.1
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=testing-your-user-contract&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=testing-your-user-contract&_embed=true
   response:
     body:
       string: '[{"id":93920,"date":"2020-02-10T22:48:14","date_gmt":"2020-02-10T22:48:14","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=93920"},"modified":"2020-02-10T23:32:02","modified_gmt":"2020-02-10T23:32:02","slug":"testing-your-user-contract","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/","title":{"rendered":"Testing
@@ -185,7 +185,7 @@ interactions:
       User-Agent:
       - python-requests/2.25.1
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1239%2C2598%2C2929&per_page=30&page=1&exclude=93920&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1239%2C2598%2C2929&per_page=30&page=1&exclude=93920&_embed=true
   response:
     body:
       string: '[{"id":103425,"date":"2021-07-08T07:21:55","date_gmt":"2021-07-08T07:21:55","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=103425"},"modified":"2021-07-08T08:48:29","modified_gmt":"2021-07-08T08:48:29","slug":"design-and-web-team-summary-2-july-2021","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2021\/07\/08\/design-and-web-team-summary-2-july-2021\/","title":{"rendered":"Design
@@ -4491,7 +4491,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=99
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1239&tags%5B1%5D=2598&tags%5B2%5D=2929&per_page=30&page=2&exclude%5B0%5D=93920&_embed=>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1239&tags%5B1%5D=2598&tags%5B2%5D=2929&per_page=30&page=2&exclude%5B0%5D=93920&_embed=true>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)

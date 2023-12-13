@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=events&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=events&_embed=true
   response:
     body: {string: '[{"id":1175,"count":130,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/events\/","name":"Events","slug":"events","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1175"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1175"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1175"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
     headers:
@@ -40,7 +40,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=webinars&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=webinars&_embed=true
   response:
     body: {string: '[{"id":1187,"count":109,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/webinars\/","name":"Webinars","slug":"webinars","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1187"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1187"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1187"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
     headers:
@@ -73,7 +73,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&categories=1175%2C1187&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&categories=1175%2C1187&_embed=true
   response:
     body: {string: '[{"id":95012,"date":"2020-04-16T15:23:52","date_gmt":"2020-04-16T15:23:52","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=95012"},"modified":"2020-04-16T15:23:54","modified_gmt":"2020-04-16T15:23:54","slug":"you-are-invited-to-the-virtual-ubuntu-masters-event","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/04\/16\/you-are-invited-to-the-virtual-ubuntu-masters-event\/","title":{"rendered":"You
         are invited to the virtual Ubuntu Masters event"},"content":{"rendered":"\n<p>The
@@ -633,7 +633,7 @@ interactions:
       Content-Type: [application/json; charset=UTF-8]
       Date: ['Tue, 09 Jun 2020 13:52:25 GMT']
       Keep-Alive: ['timeout=5, max=98']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&categories%5B0%5D=1175&categories%5B1%5D=1187&_embed=>;
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&categories%5B0%5D=1175&categories%5B1%5D=1187&_embed=true>;
           rel="next"']
       Server: [Apache/2.4.7 (Ubuntu)]
       Transfer-Encoding: [chunked]

@@ -35,7 +35,7 @@ class Wordpress:
                 else:
                     clean_params[key] = value
 
-        query = urlencode({**clean_params, "_embed": ""})
+        query = urlencode({**clean_params, "_embed": "true"})
 
         response = self.session.request(
             method, f"{self.api_url}/{endpoint}?{query}"

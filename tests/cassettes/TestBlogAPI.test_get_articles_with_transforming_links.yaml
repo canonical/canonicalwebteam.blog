@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=%2Fdell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=%2Fdell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available&_embed=true
   response:
     body:
       string: '[{"id":96510,"date":"2020-06-23T12:00:27","date_gmt":"2020-06-23T12:00:27","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=96510"},"modified":"2020-06-23T12:00:02","modified_gmt":"2020-06-23T12:00:02","slug":"dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/06\/23\/dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available\/","title":{"rendered":"Dell

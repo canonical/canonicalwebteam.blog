@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/group?slug=phone-and-tablet&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/group?slug=phone-and-tablet&_embed=true
   response:
     body:
       string: '[{"id":1707,"count":1059,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/group\/phone-and-tablet\/","name":"Phone
@@ -70,7 +70,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&group=1707&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&group=1707&_embed=true
   response:
     body:
       string: '[{"id":93663,"date":"2020-01-21T14:49:36","date_gmt":"2020-01-21T14:49:36","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=93663"},"modified":"2020-01-21T20:42:24","modified_gmt":"2020-01-21T20:42:24","slug":"anbox-cloud-disrupts-mobile-user-experience","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/01\/21\/anbox-cloud-disrupts-mobile-user-experience\/","title":{"rendered":"Anbox
@@ -709,7 +709,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=99
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&group%5B0%5D=1707&_embed=>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&group%5B0%5D=1707&_embed=true>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)
