@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories/1453?_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories/1453?_embed=true
   response:
     body: {string: '{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'}
     headers:
@@ -37,7 +37,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=articles&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=articles&_embed=true
   response:
     body: {string: '[{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
     headers:
@@ -69,7 +69,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?per_page=100&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?per_page=100&_embed=true
   response:
     body: {string: '[{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2628,"count":102,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/canonical-news\/","name":"Canonical
         News","slug":"canonical-news","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2628"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2628"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2628"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1172,"count":56,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/case-studies\/","name":"Case

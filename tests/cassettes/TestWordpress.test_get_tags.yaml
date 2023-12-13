@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?slug=design&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?slug=design&_embed=true
   response:
     body: {string: '[{"id":1239,"count":542,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design","slug":"design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1239"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1239"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1239"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
     headers:
@@ -40,7 +40,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags/1239?_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags/1239?_embed=true
   response:
     body: {string: '{"id":1239,"count":542,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design","slug":"design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1239"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1239"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1239"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'}
     headers:
@@ -70,7 +70,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?search=Design&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?search=Design&_embed=true
   response:
     body: {string: '[{"id":2720,"count":22,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/app-design\/","name":"app
         design","slug":"app-design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2720"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2720"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2720"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2721,"count":5,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/app-design-guides\/","name":"app
