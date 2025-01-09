@@ -159,7 +159,16 @@ class BlogAPI(Wordpress):
                 + article["image"]["source_url"]
                 + '" loading="lazy">'
             )
+        if "yoast_head" in article:
+            # extracting and parsing header metadata
+            yoast_head = article.get('yoast_head', '')
+            soup = BeautifulSoup(yoast_head, 'html.parser')
+            
+            meta_description_tag = soup.find('meta', attrs={'name': 'description'})
 
+            if meta_description_tag:
+                meta_description = meta_description_tag.get('content', '')
+                article["meta_description"] = meta_description
         if self.use_image_template:
             if "content" in article:
                 # apply image template for blog article images
