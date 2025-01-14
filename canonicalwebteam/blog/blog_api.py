@@ -181,17 +181,12 @@ class BlogAPI(Wordpress):
                         use_e_sharpen=True,
                     )
 
-        # extract meta description from yoast_head
-        yoast_head = article.get("yoast_head", "")
-        soup = BeautifulSoup(yoast_head, "html.parser")
-
-        meta_description_tag = soup.find("meta", attrs={"name": "description"})
-
-        if meta_description_tag:
-            meta_description = meta_description_tag.get("content", "")
-            article["meta_description"] = meta_description
-        else:
-            article["meta_description"] = article["excerpt"]["raw"] or ""
+        # extract meta description from yoast_head_json
+        yoast_head_json = article.get("yoast_head_json", {})
+        # if there is no meta description, use the excerpt
+        article["meta_description"] = yoast_head_json.get(
+            "description", article["excerpt"]["raw"]
+        )
 
         return article
 
