@@ -181,6 +181,13 @@ class BlogAPI(Wordpress):
                         use_e_sharpen=True,
                     )
 
+        # extract meta description from yoast_head_json
+        yoast_head_json = article.get("yoast_head_json", {})
+        # if there is no meta description, use the excerpt
+        article["meta_description"] = yoast_head_json.get(
+            "description", article["excerpt"]["raw"]
+        )
+
         return article
 
     def _replace_url(self, content):
