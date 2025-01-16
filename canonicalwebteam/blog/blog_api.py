@@ -63,6 +63,9 @@ class BlogAPI(Wordpress):
     def get_article(self, slug, tags=None, tags_exclude=None):
         article = super().get_article(slug, tags, tags_exclude)
 
+        if not article:
+            return {}
+
         return self._transform_article(article)
 
     def _transform_article(self, article):
