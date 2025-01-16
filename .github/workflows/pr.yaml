@@ -45,7 +45,7 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y --no-install-recommends python3-setuptools
           pip3 install flask-reggie vcrpy vcrpy-unittest
-          python3 setup.py install
+          sudo python3 setup.py install
 
       - name: Test Python
         run: python3 -m unittest discover tests
