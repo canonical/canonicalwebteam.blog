@@ -1,3 +1,4 @@
+6.4.3: Added meta_description to articles
 6.4.1: Set categories to None and not empty list when not provided
 6.4.0: Improve the related article matching
 6.3.1: Make e_sharpen only for thumbnails
