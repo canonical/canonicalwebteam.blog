@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="canonicalwebteam.blog",
@@ -19,5 +19,4 @@ setup(
         "beautifulsoup4",
         "canonicalwebteam.image-template",
     ],
-    tests_require=["flask-reggie", "vcrpy", "vcrpy-unittest"],
 )
