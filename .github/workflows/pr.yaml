@@ -36,7 +36,7 @@ jobs:
         run: python3 -m flake8 canonicalwebteam setup.py && python3 -m black --line-length 79 --check canonicalwebteam setup.py
 
   test-python:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v4
@@ -45,7 +45,6 @@ jobs:
         run: |
           sudo apt update && sudo apt install -y --no-install-recommends python3-setuptools
           pip3 install --upgrade setuptools
-          pip3 install wheel
 
       - name: Test Python
         run: python3 setup.py test
