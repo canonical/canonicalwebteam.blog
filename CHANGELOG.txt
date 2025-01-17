@@ -1,4 +1,6 @@
+6.4.4: Reverted changes made in v6.4.2
 6.4.3: Added meta_description to articles
+6.4.2: Fix for blog posts not showing up 
 6.4.1: Set categories to None and not empty list when not provided
 6.4.0: Improve the related article matching
 6.3.1: Make e_sharpen only for thumbnails
