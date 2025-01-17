@@ -11,7 +11,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=1&sticky=true&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=1&sticky=true&_embed=true
   response:
     body:
       string: '[{"id":97114,"date":"2020-07-15T12:21:54","date_gmt":"2020-07-15T12:21:54","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=97114"},"modified":"2020-07-15T12:21:55","modified_gmt":"2020-07-15T12:21:55","slug":"%ef%bb%bfcanonical-launches-enhanced-gsi-partner-programme-bringing-scalability-and-automation-to-modernise-enterprise-it-deployments","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/07\/15\/%ef%bb%bfcanonical-launches-enhanced-gsi-partner-programme-bringing-scalability-and-automation-to-modernise-enterprise-it-deployments\/","title":{"rendered":"\ufeffCanonical
@@ -399,7 +399,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=100
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=2&sticky=1&_embed=>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=2&sticky=1&_embed=true>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)
@@ -438,7 +438,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=events&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=events&_embed=true
   response:
     body:
       string: '[{"id":1175,"count":131,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/events\/","name":"Events","slug":"events","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1175"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1175"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1175"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'
@@ -498,7 +498,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=webinars&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=webinars&_embed=true
   response:
     body:
       string: '[{"id":1187,"count":110,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/webinars\/","name":"Webinars","slug":"webinars","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1187"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1187"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1187"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'
@@ -558,7 +558,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=1&categories=1175%2C1187&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=1&categories=1175%2C1187&_embed=true
   response:
     body:
       string: '[{"id":96803,"date":"2020-06-29T19:15:13","date_gmt":"2020-06-29T19:15:13","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=96803"},"modified":"2020-06-29T19:15:13","modified_gmt":"2020-06-29T19:15:13","slug":"data-centre-automation-for-hpc","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/06\/29\/data-centre-automation-for-hpc\/","title":{"rendered":"Data
@@ -713,7 +713,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=97
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=2&categories%5B0%5D=1175&categories%5B1%5D=1187&_embed=>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=3&page=2&categories%5B0%5D=1175&categories%5B1%5D=1187&_embed=true>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)
@@ -752,7 +752,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&exclude=97114%2C96997%2C96510&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&exclude=97114%2C96997%2C96510&_embed=true
   response:
     body:
       string: '[{"id":97111,"date":"2020-07-17T10:00:55","date_gmt":"2020-07-17T10:00:55","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=97111"},"modified":"2020-07-16T06:59:42","modified_gmt":"2020-07-16T06:59:42","slug":"best-practices-for-an-effective-remote-team-in-the-world-of-cloud-delivery","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/07\/17\/best-practices-for-an-effective-remote-team-in-the-world-of-cloud-delivery\/","title":{"rendered":"Best
@@ -1694,7 +1694,7 @@ interactions:
       Keep-Alive:
       - timeout=5, max=96
       Link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&exclude%5B0%5D=97114&exclude%5B1%5D=96997&exclude%5B2%5D=96510&_embed=>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=2&exclude%5B0%5D=97114&exclude%5B1%5D=96997&exclude%5B2%5D=96510&_embed=true>;
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)

@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89203?_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/media/89203?_embed=true
   response:
     body: {string: '{"id":89203,"date":"2019-05-16T11:46:48","date_gmt":"2019-05-16T11:46:48","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/barn-images-12223-unsplash-smaller.jpg"},"modified":"2019-05-16T11:46:54","modified_gmt":"2019-05-16T11:46:54","slug":"barn-images-12223-unsplash-smaller","status":"inherit","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/05\/16\/introduction-to-snapcraft\/barn-images-12223-unsplash-smaller\/","title":{"rendered":"barn-images-12223-unsplash-smaller"},"author":597,"comment_status":"open","ping_status":"closed","template":"","meta":[],"topic":[],"group":[],"description":{"rendered":"<p
         class=\"attachment\"><a href=''https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/b29e\/barn-images-12223-unsplash-smaller.jpg''><img

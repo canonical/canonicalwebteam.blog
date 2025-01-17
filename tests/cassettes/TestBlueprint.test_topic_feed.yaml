@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?slug=design&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/tags?slug=design&_embed=true
   response:
     body: {string: '[{"id":1239,"count":542,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design","slug":"design","taxonomy":"post_tag","meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1239"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1239"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1239"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
     headers:
@@ -40,7 +40,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1239&per_page=12&page=1&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1239&per_page=12&page=1&_embed=true
   response:
     body: {string: '[{"id":96269,"date":"2020-06-09T09:26:02","date_gmt":"2020-06-09T09:26:02","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=96269"},"modified":"2020-06-09T13:47:07","modified_gmt":"2020-06-09T13:47:07","slug":"design-and-web-team-summary-9th-june-2020","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/06\/09\/design-and-web-team-summary-9th-june-2020\/","title":{"rendered":"Design
         and Web team summary \u2013 9th June 2020"},"content":{"rendered":"\n<p>The
@@ -1808,7 +1808,7 @@ interactions:
       Content-Type: [application/json; charset=UTF-8]
       Date: ['Tue, 09 Jun 2020 13:52:37 GMT']
       Keep-Alive: ['timeout=5, max=99']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1239&per_page=12&page=2&_embed=>;
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1239&per_page=12&page=2&_embed=true>;
           rel="next"']
       Server: [Apache/2.4.7 (Ubuntu)]
       Transfer-Encoding: [chunked]

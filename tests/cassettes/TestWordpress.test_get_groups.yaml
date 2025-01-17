@@ -7,7 +7,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/group/3367?_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/group/3367?_embed=true
   response:
     body: {string: '{"id":3367,"count":24,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/","name":"AI","slug":"ai","taxonomy":"group","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/3367"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=3367"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=3367"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=3367"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'}
     headers:
@@ -37,7 +37,7 @@ interactions:
       Connection: [keep-alive]
       User-Agent: [python-requests/2.22.0]
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/group?slug=ai&_embed=
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/group?slug=ai&_embed=true
   response:
     body: {string: '[{"id":3367,"count":24,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/group\/ai\/","name":"AI","slug":"ai","taxonomy":"group","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/3367"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=3367"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=3367"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=3367"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
     headers:
