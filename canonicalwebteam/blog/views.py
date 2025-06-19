@@ -130,6 +130,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
+            per_page=self.per_page,
             groups=[group.get("id", "")],
             categories=categories,
         )
@@ -217,6 +218,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
+            per_page=self.per_page,
             categories=[events["id"], webinars["id"]],
         )
         total_pages = metadata["total_pages"]
