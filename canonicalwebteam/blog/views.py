@@ -176,6 +176,7 @@ class BlogViews:
             tags=self.tag_ids + tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
+            per_page=self.per_page,
         )
 
         return {
@@ -238,6 +239,7 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             page=page,
             author=author["id"],
+            per_page=self.per_page,
         )
 
         return {
@@ -363,7 +365,10 @@ class BlogViews:
             return None
 
         articles, metadata = self.api.get_articles(
-            tags=[tag["id"]], tags_exclude=self.excluded_tags, page=page
+            tags=[tag["id"]],
+            tags_exclude=self.excluded_tags,
+            page=page,
+            per_page=self.per_page,
         )
         total_pages = metadata["total_pages"]
 
