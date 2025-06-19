@@ -370,6 +370,7 @@ class BlogViews:
         return {
             "current_page": int(page),
             "total_pages": int(total_pages),
+            "total_posts": metadata.get("total_posts", 0),
             "articles": articles,
             "title": self.blog_title,
             "tag": tag,
