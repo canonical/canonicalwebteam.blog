@@ -130,6 +130,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
+            per_page=self.per_page,
             groups=[group.get("id", "")],
             categories=categories,
         )
@@ -176,6 +177,7 @@ class BlogViews:
             tags=self.tag_ids + tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
+            per_page=self.per_page,
         )
 
         return {
@@ -216,6 +218,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
+            per_page=self.per_page,
             categories=[events["id"], webinars["id"]],
         )
         total_pages = metadata["total_pages"]
@@ -238,6 +241,7 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             page=page,
             author=author["id"],
+            per_page=self.per_page,
         )
 
         return {
@@ -363,13 +367,17 @@ class BlogViews:
             return None
 
         articles, metadata = self.api.get_articles(
-            tags=[tag["id"]], tags_exclude=self.excluded_tags, page=page
+            tags=[tag["id"]],
+            tags_exclude=self.excluded_tags,
+            page=page,
+            per_page=self.per_page,
         )
         total_pages = metadata["total_pages"]
 
         return {
             "current_page": int(page),
             "total_pages": int(total_pages),
+            "total_posts": metadata.get("total_posts", 0),
             "articles": articles,
             "title": self.blog_title,
             "tag": tag,

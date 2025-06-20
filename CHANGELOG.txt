@@ -1,3 +1,4 @@
+6.4.5: Added `total_posts` in `get_tag` endpoint
 6.4.4: Reverted changes made in v6.4.2
 6.4.3: Added meta_description to articles
 6.4.2: Fix for blog posts not showing up 
