@@ -338,6 +338,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             page=page,
+            per_page=self.per_page,
             groups=groups,
             categories=categories,
             after=after,
