@@ -242,6 +242,7 @@ class BlogAPI(Wordpress):
             if not image.get("src") or "http" not in image.get("src"):
                 continue
 
+            # Try to get width from the 'width' attribute
             img_width = (
                 image.get("width")
                 if image.get("width") is not None
@@ -249,12 +250,24 @@ class BlogAPI(Wordpress):
                 else None
             )
 
+            # If not found, try to get width from the 'style' attribute
+            if img_width is None and image.has_attr("style"):
+                match = re.search(r"width\s*:\s*(\d+)px", image["style"])
+                if match:
+                    img_width = match.group(1)
+
             img_height = (
                 image.get("height")
                 if image.get("height") is not None
                 and image.get("height").isdigit()
                 else None
             )
+
+            # If not found, try to get height from the 'style' attribute
+            if img_height is None and image.has_attr("style"):
+                match = re.search(r"height\s*:\s*(\d+)px", image["style"])
+                if match:
+                    img_height = match.group(1)
 
             new_image = BeautifulSoup(
                 image_template(
