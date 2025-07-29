@@ -1,3 +1,4 @@
+6.5.0: Blog Images can now pull their width and height from css styles
 6.4.6: Added `per_page` in `get_archives` endpoint
 6.4.5: Added `total_posts` in `get_tag` endpoint and `per_page` in `get_tag`, `get_author` and `get_index` endpoints
 6.4.4: Reverted changes made in v6.4.2
