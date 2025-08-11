@@ -40,6 +40,7 @@ class BlogAPI(Wordpress):
         groups=None,
         per_page=12,
         page=1,
+        status=None,
     ):
         articles, metadata = super().get_articles(
             tags,
@@ -53,6 +54,7 @@ class BlogAPI(Wordpress):
             groups,
             per_page,
             page,
+            status,
         )
 
         return (
@@ -60,8 +62,8 @@ class BlogAPI(Wordpress):
             metadata,
         )
 
-    def get_article(self, slug, tags=None, tags_exclude=None):
-        article = super().get_article(slug, tags, tags_exclude)
+    def get_article(self, slug, tags=None, tags_exclude=None, status=None):
+        article = super().get_article(slug, tags, tags_exclude, status)
 
         if not article:
             return {}
