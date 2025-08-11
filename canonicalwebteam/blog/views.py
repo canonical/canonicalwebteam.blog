@@ -97,7 +97,9 @@ class BlogViews:
         return feed.rss_str()
 
     def get_article(self, slug):
-        article = self.api.get_article(slug, self.tag_ids, self.excluded_tags, self.status)
+        article = self.api.get_article(
+            slug, self.tag_ids, self.excluded_tags, self.status
+        )
 
         if not article:
             return {}

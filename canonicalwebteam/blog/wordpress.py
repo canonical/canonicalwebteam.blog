@@ -20,14 +20,16 @@ class Wordpress:
         self.session = session
         self.api_url = api_url
 
-        wp_user = os.getenv('WORDPRESS_USERNAME')
-        wp_password = os.getenv('WORDPRESS_APPLICATION_PASSWORD')
+        wp_user = os.getenv("WORDPRESS_USERNAME")
+        wp_password = os.getenv("WORDPRESS_APPLICATION_PASSWORD")
         if wp_user and wp_password:
             credentials = f"{wp_user}:{wp_password}"
-            encoded_credentials = base64.b64encode(credentials.encode()).decode()
-            self.session.headers.update({
-                'Authorization': f'Basic {encoded_credentials}'
-            })
+            encoded_credentials = base64.b64encode(
+                credentials.encode()
+            ).decode()
+            self.session.headers.update(
+                {"Authorization": f"Basic {encoded_credentials}"}
+            )
 
     def request(self, endpoint, params={}, method="get"):
         """
@@ -91,7 +93,8 @@ class Wordpress:
         :param before: ISO8601 compliant date string to limit by date
         :param after: ISO8601 compliant date string to limit by date
         :param author: Name of the author to fetch articles from
-        :param status: Array of post statuses to include (e.g., ['publish', 'draft'])
+        :param status: Array of post statuses to include
+            (e.g., ['publish', 'draft'])
 
         :returns: response, metadata dictionary
         """
@@ -114,7 +117,7 @@ class Wordpress:
         )
         total_pages = response.headers.get("X-WP-TotalPages")
         total_posts = response.headers.get("X-WP-Total")
-        
+
         return (
             response.json(),
             {"total_pages": total_pages, "total_posts": total_posts},
@@ -124,12 +127,18 @@ class Wordpress:
         """
         Get an article from Wordpress api
         :param slug: Article slug to fetch
-        :param status: Array of post statuses to include (e.g., ['publish', 'draft'])
+        :param status: Array of post statuses to include
+            (e.g., ['publish', 'draft'])
         """
         try:
             return self.get_first_item(
                 "posts",
-                {"slug": slug, "tags": tags, "tags_exclude": tags_exclude, "status": status},
+                {
+                    "slug": slug,
+                    "tags": tags,
+                    "tags_exclude": tags_exclude,
+                    "status": status,
+                },
             )
         except NotFoundError:
             return {}

@@ -3,7 +3,6 @@ import requests
 from vcr_unittest import VCRTestCase
 
 # Local
-from canonicalwebteam.blog import NotFoundError
 from canonicalwebteam.blog.blog_api import BlogAPI
 
 

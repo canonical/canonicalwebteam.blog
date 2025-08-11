@@ -3,7 +3,7 @@ import requests
 from vcr_unittest import VCRTestCase
 
 # Local
-from canonicalwebteam.blog import NotFoundError, Wordpress
+from canonicalwebteam.blog import Wordpress
 
 
 class TestWordpress(VCRTestCase):
