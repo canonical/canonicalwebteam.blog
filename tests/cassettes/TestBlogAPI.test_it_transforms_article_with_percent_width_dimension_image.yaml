@@ -9,198 +9,25 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.24.0
+      - python-requests/2.32.5
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=%2Ftop-10-linux-apps-for-entertainment-and-leisure&_embed=true
   response:
     body:
-      string: '[{"id":85990,"date":"2018-08-30T14:00:43","date_gmt":"2018-08-30T14:00:43","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=85990"},"modified":"2019-07-11T16:16:24","modified_gmt":"2019-07-11T16:16:24","slug":"top-10-linux-apps-for-entertainment-and-leisure","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2018\/08\/30\/top-10-linux-apps-for-entertainment-and-leisure\/","title":{"rendered":"Top
-        10 Linux applications for entertainment and leisure"},"content":{"rendered":"<p>As
-        the summer vacation season comes to a close in the northern hemisphere I reflect
-        on 10 applications my family and I used during the summer to keep ourselves
-        entertained. All of the following applications are available as <a href=\"https:\/\/docs.snapcraft.io\/core\/install\">Snaps
-        that work on all major Linux distros once snapd is installed.<\/a><\/p>\n<p>The
-        Snapcraft team share 3 new and interesting applications each week via the
-        <a href=\"https:\/\/twitter.com\/snapcraftio\">Snapcraft Twitter<\/a> account,
-        so give us a follow to stay informed.<\/p>\n<div style=\"padding-bottom: 10px;\">\n<table
-        style=\"margin-bottom: 0px; overflow: auto;\">\n<tbody>\n<tr>\n<td style=\"background:
-        transparent; border: 0; padding-left: 0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/02\/firefox256.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">1. <a class=\"external\" href=\"https:\/\/snapcraft.io\/firefox\">Firefox<\/a><\/h3>\n<p>Mozilla<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/03\/Screenshot_from_2018-03-12_13-32-44.png\"
-        width=\"100%\"><br \/>\nMozilla Firefox is a free and open-source web browser.
-        My family and I used Firefox to plan our summer holiday including booking
-        ferry crossings, planning our route to drive across France and booking our
-        accomadation. Firefox was also a great way to catch up on our favourite TV
-        shows and films via Netflix and Amazon Video during  overnight stays in hotels
-        while we were travelling. Get <a href=\"https:\/\/snapcraft.io\/firefox\">Firefox
-        from the Snap store<\/a> or install it on the command-line with:<br \/>\n<code>snap
-        install firefox<\/code><\/p>\n<\/div>\n<div style=\"padding-bottom: 10px;\">\n<table
-        style=\"margin-bottom: 0px; overflow: auto;\">\n<tbody>\n<tr>\n<td style=\"background:
-        transparent; border: 0; padding-left: 0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/12\/spotify-linux-256.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">2. <a class=\"external\" href=\"https:\/\/snapcraft.io\/spotify\">Spotify<\/a><\/h3>\n<p>Spotify<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/12\/Screenshot_from_2017-12-18_12-07-06.png\"
-        width=\"100%\"><br \/>\nSpotify is a digital music service that gives you
-        access to millions of songs. My laptop pulled double duty as a jukebox while
-        we were travelling, giving us access the music we love while we were on the
-        road. During BBQs we connected the laptop to bluetooth speakers and let the
-        kids queue up the party music for the evening. Get <a href=\"https:\/\/snapcraft.io\/spotify\">Spotify
-        from the Snap store<\/a> or install it on the command-line with:<br \/>\n<code>snap
-        install spotify<\/code><\/p>\n<\/div>\n<div style=\"padding-bottom: 10px;\">\n<table
-        style=\"margin-bottom: 0px; overflow: auto;\">\n<tbody>\n<tr>\n<td style=\"background:
-        transparent; border: 0; padding-left: 0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/05\/logo.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">3. <a class=\"external\" href=\"https:\/\/snapcraft.io\/buka\">Buka<\/a><\/h3>\n<p>O\u011fuzhan<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/05\/Screenshot2.png\"
-        width=\"100%\" firefoxfirefoxfirefoxfirefoxfirefox=\"\"><br \/>\nBuka is a
-        modern ebook manager and reader. The Buka book reader is a great way to organise
-        your ebook collection and we loaded Buka with a selection of books for my
-        daughter so she could take part in her school summer reading challenge. Get
-        <a href=\"https:\/\/snapcraft.io\/buka\">Buka from the Snap store<\/a> or
-        install it on the command-line with:<br \/>\n<code>snap install buka<\/code><\/p>\n<\/div>\n<div
-        style=\"padding-bottom: 10px;\">\n<table style=\"margin-bottom: 0px; overflow:
-        auto;\">\n<tbody>\n<tr>\n<td style=\"background: transparent; border: 0; padding-left:
-        0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/06\/mscore.svg.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">4. <a class=\"external\" href=\"https:\/\/snapcraft.io\/musescore\">MuseScore<\/a><\/h3>\n<p>MuseScore<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/08\/Captura_de_pantalla_de_2018-08-28_23-07-05.png\"
-        width=\"100%\"><br \/>\nMusescore is free music composition and notation software
-        that can be used to create, play and print beautiful sheet music. We&#8217;ve
-        been using it home to create sheet music of simplified versions of tunes my
-        daughter is learning to play on the piano and to also capture her own compositions.
-        MuseScore is capable of much more and suitable for musicians of any skill
-        level. Get <a href=\"https:\/\/snapcraft.io\/musescore\">MuseScore from the
-        Snap store<\/a> or install it on the command-line with:<br \/>\n<code>snap
-        install musescore<\/code><\/p>\n<\/div>\n<div style=\"padding-bottom: 10px;\">\n<table
-        style=\"margin-bottom: 0px; overflow: auto;\">\n<tbody>\n<tr>\n<td style=\"background:
-        transparent; border: 0; padding-left: 0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/01\/icon.svg_wMvJ4rV.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">5. <a class=\"external\" href=\"https:\/\/snapcraft.io\/darktable\">Darktable<\/a><\/h3>\n<p>Kyle
-        Fazzari<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/05\/Screenshot_from_2018-05-20_16-38-47.png\"
-        width=\"100%\"><br \/>\nDarktable is an open source photography workflow application
-        and raw developer. A virtual lighttable and darkroom for photographers, it
-        manages your digital negatives and lets you view and enhance them. Throughout
-        our summer holidays we used Darktable to get the best out of our photographs.
-        Get <a href=\"https:\/\/snapcraft.io\/darktable\">Darktable from the Snap
-        store<\/a> or install it on the command-line with:<br \/>\n<code>snap install
-        darktable<\/code><\/p>\n<\/div>\n<div style=\"padding-bottom: 10px;\">\n<table
-        style=\"margin-bottom: 0px; overflow: auto;\">\n<tbody>\n<tr>\n<td style=\"background:
-        transparent; border: 0; padding-left: 0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/02\/shotcut-logo-256x256_1.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">6. <a class=\"external\" href=\"https:\/\/snapcraft.io\/shotcut\">Shotcut<\/a><\/h3>\n<p>Meltytech,
-        LLC<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/02\/snapshot-1409.png\"
-        width=\"100%\"><br \/>\nShotcut is a free, open source, cross-platform video
-        editor. We had great fun editting together videos we captured on our phones
-        during our travels, but my daughter and I had the most fun making two short
-        films starring Lego models she&#8217;d created. Get <a href=\"https:\/\/snapcraft.io\/shotcut\">Shotcut
-        from the Snap store<\/a> or install it on the command-line with:<br \/>\n<code>snap
-        install shotcut<\/code><\/p>\n<\/div>\n<div style=\"padding-bottom: 10px;\">\n<table
-        style=\"margin-bottom: 0px; overflow: auto;\">\n<tbody>\n<tr>\n<td style=\"background:
-        transparent; border: 0; padding-left: 0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/04\/simplenote.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">7. <a class=\"external\" href=\"https:\/\/snapcraft.io\/simplenote\">Simplenote<\/a><\/h3>\n<p>Snapcrafters<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/04\/Screenshot_from_2018-04-24_11-12-13.png\"
-        width=\"100%\"><br \/>\nSimplenote is an easy way to keep notes, lists, ideas
-        and more. We used Simplenote to quickly collate our travel itenary, keep track
-        of places we wanted to visit and to create shopping lists for those all important
-        BBQs. Get <a href=\"https:\/\/snapcraft.io\/simplenote\">Simplenote from the
-        Snap store<\/a> or install it on the command-line with:<br \/>\n<code>snap
-        install simplenote<\/code><\/p>\n<\/div>\n<div style=\"padding-bottom: 10px;\">\n<table
-        style=\"margin-bottom: 0px; overflow: auto;\">\n<tbody>\n<tr>\n<td style=\"background:
-        transparent; border: 0; padding-left: 0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2016\/07\/vlc.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">8. <a class=\"external\" href=\"https:\/\/snapcraft.io\/vlc\">VLC<\/a><\/h3>\n<p>VideoLAN<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2016\/07\/vlc-2.0-poney.jpg\"
-        width=\"100%\"><br \/>\nVLC is the def-facto video player to unwind with your
-        downloaded video content. With hardware accelerated decoding to take the load
-        off your CPU and extend your battery life, VLC is the best way to watch content
-        offline. We copied some of our favourite TV series and films from the home
-        media server to my laptop which helped while away a couple of lengthy ferry
-        crossings and a one rainy afternoon. Naturally my daughter and I used VLC
-        to bore our family with the epic short films we&#8217;d created using Shotcut.<br
-        \/>\nGet <a href=\"https:\/\/snapcraft.io\/vlc\">VLC from the Snap store<\/a>
-        or install it on the command-line with:<br \/>\n<code>snap install vlc<\/code><\/p>\n<\/div>\n<div
-        style=\"padding-bottom: 10px;\">\n<table style=\"margin-bottom: 0px; overflow:
-        auto;\">\n<tbody>\n<tr>\n<td style=\"background: transparent; border: 0; padding-left:
-        0px;\" width=\"100px\"><img src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/07\/Logo_256x256_V9U8HGs.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">9. <a class=\"external\" href=\"https:\/\/snapcraft.io\/sweethome3d-homedesign\">Sweet
-        Home 3D<\/a><\/h3>\n<p>Jean-Baptiste Lallement<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/07\/sh3d_3.jpeg\"
-        width=\"100%\"><br \/>\nSweet Home 3D is a free interior design application
-        that helps you draw the plan of your house, arrange furniture on it and visualise
-        the results. Our family has been using Sweet Home 3D for years to plan furniture
-        arrangements when moving house, designing the interior of a canal boat and
-        even creating the builders plans for a considerable home extension. Get <a
-        href=\"https:\/\/snapcraft.io\/sweethome3d-homedesign\">Sweet Home 3D from
-        the Snap store<\/a> or install it on the command-line with:<br \/>\n<code>snap
-        install sweethome3d-homedesign<\/code><\/p>\n<\/div>\n<div style=\"padding-bottom:
-        10px;\">\n<table style=\"margin-bottom: 0px; overflow: auto;\">\n<tbody>\n<tr>\n<td
-        style=\"background: transparent; border: 0; padding-left: 0px;\" width=\"100px\"><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2017\/10\/wire-desktop.png\"><\/td>\n<td
-        style=\"align: left; text-align: left; background: transparent; border: 0px;\">\n<h3
-        style=\"margin-bottom: 0px;\">10. <a class=\"external\" href=\"https:\/\/snapcraft.io\/wire\">Wire<\/a><\/h3>\n<p>Snapcrafters<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<p><img
-        src=\"https:\/\/dashboard.snapcraft.io\/site_media\/appmedia\/2018\/08\/wire02.png\"
-        width=\"100%\"><br \/>\nWire is a secure messenging platform. My family use
-        Wire, and those sweet, sweet free WiFi services, to stay in touch and coordinate
-        our activities while we&#8217;re roaming abroad to avoid mobile data surcharges.
-        When I am travelling with work Wire is a great way to stay connected with
-        your family at home either by text, voice or video. I&#8217;ve also been using
-        it for team communication at work too. Get <a href=\"https:\/\/snapcraft.io\/wire\">Wire
-        from the Snap store<\/a> or install it on the command-line with:<br \/>\n<code>snap
-        install wire<\/code><\/p>\n<\/div>\n<p>The community of developers building
-        snapd, snapcraft and snaps hang out on the <a href=\"https:\/\/forum.snapcraft.io\">snapcraft
-        forums. Join us!<\/a><\/p>\n<p>Header image by <a href=\"https:\/\/unsplash.com\/photos\/zyU2gQ9mWLM\">Ethan
-        Hoover<\/a>.<\/p>\n","protected":false},"excerpt":{"rendered":"<p>As the summer
-        vacation season comes to a close in the northern hemisphere I reflect on 10
-        applications my family and I used during the summer to keep ourselves entertained.
-        All of the following applications are available as Snaps that work on all
-        major Linux distros once snapd is installed. The Snapcraft team share 3 [&hellip;]<\/p>\n","protected":false},"author":586,"featured_media":85996,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":[],"categories":[],"tags":[3113,3108,3141,3143,3144,3071,3142,3145,3110,3146,2996],"topic":[1921],"group":[1479],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"30","_start_month":"08","_start_year":"2018","_end_day":"30","_end_month":"08","_end_year":"2018","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/85990"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/586"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=85990"}],"version-history":[{"count":13,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/85990\/revisions"}],"predecessor-version":[{"id":90596,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/85990\/revisions\/90596"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/85996"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=85990"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=85990"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=85990"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=85990"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=85990"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]},"_embedded":{"author":[{"id":586,"name":"Martin
-        Wimpress","url":"https:\/\/login.ubuntu.com\/+id\/AtbxhzG","description":"Passionate
-        open source advocate, Linux enthusiast and Podcaster. Lives in England with
-        his wife and daughter. Works at Canonical making Ubuntu & Snapcraft.","link":"https:\/\/admin.insights.ubuntu.com\/author\/flexiondotorg\/","slug":"flexiondotorg","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/ce95823a37d9ffa2e65a31cc60a2c42a?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/ce95823a37d9ffa2e65a31cc60a2c42a?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/ce95823a37d9ffa2e65a31cc60a2c42a?s=96&d=mm&r=g"},"user_job_title":"Developer
-        Advocate","user_website_title":"","user_google":"https:\/\/plus.google.com\/u\/0\/+MartinWimpress","user_twitter":"m_wimpress","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/586"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}],"wp:featuredmedia":[{"id":85996,"date":"2018-08-28T13:47:35","slug":"ethan-hoover-334116-unsplash","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2018\/08\/30\/top-10-linux-apps-for-entertainment-and-leisure\/ethan-hoover-334116-unsplash\/","title":{"rendered":""},"author":586,"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":4084,"height":2728,"file":"ethan-hoover-334116-unsplash.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/abdb\/ethan-hoover-334116-unsplash.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/85996"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/586"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=85996"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=85996"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=85996"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],"wp:term":[[],[{"id":3113,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapbuka\/","name":"sc:snap:buka","slug":"scsnapbuka","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3113"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3113"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3113"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3108,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapdarktable\/","name":"sc:snap:darktable","slug":"scsnapdarktable","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3108"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3108"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3108"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3141,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapfirefox\/","name":"sc:snap:firefox","slug":"scsnapfirefox","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3141"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3141"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3141"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3143,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapmusescore\/","name":"sc:snap:musescore","slug":"scsnapmusescore","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3143"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3143"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3143"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3144,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapshotcut\/","name":"sc:snap:shotcut","slug":"scsnapshotcut","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3144"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3144"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3144"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3071,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapsimplenote\/","name":"sc:snap:simplenote","slug":"scsnapsimplenote","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3071"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3071"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3071"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3142,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapspotify\/","name":"sc:snap:spotify","slug":"scsnapspotify","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3142"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3142"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3142"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3145,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapsweethome3d-homedesign\/","name":"sc:snap:sweethome3d-homedesign","slug":"scsnapsweethome3d-homedesign","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3145"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3145"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3145"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3110,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapvlc\/","name":"sc:snap:vlc","slug":"scsnapvlc","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3110"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3110"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3110"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3146,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/scsnapwire\/","name":"sc:snap:wire","slug":"scsnapwire","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3146"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3146"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3146"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":1921,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/desktop\/","name":"Desktop","slug":"desktop","taxonomy":"topic","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/1921"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=1921"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=1921"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=1921"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":1479,"link":"https:\/\/admin.insights.ubuntu.com\/group\/desktop\/","name":"Desktop","slug":"desktop","taxonomy":"group","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/1479"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=1479"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=1479"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=1479"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]]}}]'
+      string: '<html><body><h1>403 Forbidden</h1>
+
+        Request forbidden by administrative rules.
+
+        </body></html>
+
+
+        '
     headers:
-      Access-Control-Allow-Headers:
-      - Authorization, Content-Type
-      Access-Control-Expose-Headers:
-      - X-WP-Total, X-WP-TotalPages
-      Allow:
-      - GET
-      Connection:
-      - Keep-Alive
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Thu, 13 Aug 2020 09:42:17 GMT
-      Keep-Alive:
-      - timeout=5, max=100
-      Link:
-      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
-      Server:
-      - Apache/2.4.7 (Ubuntu)
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Origin,Cookie
-      Via:
-      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
-      X-Cache:
-      - MISS from juju-prod45-is-insights-blog-machine-4
-      X-Cache-Lookup:
-      - HIT from juju-prod45-is-insights-blog-machine-4:8080
-      X-Content-Type-Options:
-      - nosniff
-      X-Powered-By:
-      - PHP/5.5.9-1ubuntu4.29
-      X-Robots-Tag:
-      - noindex
-      X-WP-Total:
-      - '1'
-      X-WP-TotalPages:
-      - '1'
+      cache-control:
+      - no-cache
+      content-type:
+      - text/html
     status:
-      code: 200
-      message: OK
+      code: 403
+      message: Forbidden
 version: 1

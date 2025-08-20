@@ -9,116 +9,25 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - python-requests/2.24.0
+      - python-requests/2.32.5
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=%2Fdell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available&_embed=true
   response:
     body:
-      string: '[{"id":96510,"date":"2020-06-23T12:00:27","date_gmt":"2020-06-23T12:00:27","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=96510"},"modified":"2020-06-23T12:00:02","modified_gmt":"2020-06-23T12:00:02","slug":"dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/06\/23\/dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available\/","title":{"rendered":"Dell
-        XPS 13 Developer Edition with Ubuntu 20.04 LTS pre-installed is now available"},"content":{"rendered":"\n<div
-        class=\"wp-block-image\"><figure class=\"aligncenter\"><img src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/2e4c\/dell-xps-2004.jpg\"
-        alt=\"\" class=\"wp-image-96526\"\/><\/figure><\/div>\n\n\n\n<p>The Dell <a
-        href=\"https:\/\/www.dell.com\/en-us\/work\/shop\/cty\/pdp\/spd\/xps-13-9300-laptop\/ctox13w10p1c2700u\">XPS
-        13 Developer Edition<\/a> is now available in North America and selected EMEA
-        countries* certified with Ubuntu 20.04 LTS pre-installed to work straight
-        out of the box. This is the first system available on the market with Ubuntu
-        20.04 LTS, released in April 2020, and continues the long-standing partnership
-        with Canonical which is designed to offer developers their ideal laptop based
-        on input received from the community.<\/p>\n\n\n\n<p>\u201cWe\u2019re delighted
-        to see the first Dell systems ship with Ubuntu 20.04 LTS. Enterprises are
-        increasingly equipping their developers and engineers with the operating system
-        of their choice ensuring high end-user productivity. Ubuntu 20.04 LTS on the
-        latest Dell XPS 13 Developer Edition offers the performance developers demand
-        with the assurance of security and long term support that IT management needs,\u201d
-        said Martin Wimpress, Director of Desktop Engineering at Canonical.&nbsp;&nbsp;<\/p>\n\n\n\n<p>\u201cDell
-        and Canonical have partnered since the 2012 launch of Project Sputnik to arm
-        developers with Ubuntu systems tailored for usability, stability and performance,\u201d
-        said Barton George, Founder of Project Sputnik and XPS Developer Edition,
-        Dell Technologies. \u201cUbuntu 20.04 LTS continues our long-standing partnership
-        with the Linux developer community to provide Ubuntu certified hardware that
-        works out-of-the-box, enabling the highest levels of productivity.\u201d<\/p>\n\n\n\n<p>Dell
-        and Canonical\u2019s engineering teams perform thousands of rigorous tests
-        to ensure that Ubuntu 20.04 LTS and all of its subsystems (Wi-Fi, Bluetooth,
-        fingerprint authentication, etc.) work flawlessly from first boot. As with
-        all LTS releases, Canonical will continue to provide security updates for
-        up to ten years and perform regression testing throughout its lifecycle.<\/p>\n\n\n\n<p><strong>Highlights
-        of Ubuntu Desktop 20.04 LTS:<\/strong><\/p>\n\n\n\n<ul><li>GNOME 3.36 adding
-        improved user workflow and performance enhancements<\/li><li>New and updated
-        applications including LibreOffice 6.4, Thunderbird 68.7.0&nbsp;<\/li><li>Over
-        6,000 snaps from the <a href=\"https:\/\/snapcraft.io\/store\">Snap Store<\/a>
-        including Visual Studio Code, Slack, Spotify, Plex and the JetBrains portfolio<\/li><li>New
-        desktop Yaru default theme with light and dark modes<\/li><li>Improved settings
-        for WiFi, wallpaper and application groups in the \u2018Activities\u2019 overview<\/li><\/ul>\n\n\n\n<p><strong>Features
-        of the Dell XPS 13 Developer Edition:<\/strong><\/p>\n\n\n\n<ul><li>Ubuntu
-        Desktop 20.04 LTS pre-loaded<\/li><li>Precision crafted from CNC machined
-        aluminum, aerospace-inspired carbon fiber or woven glass fiber in a durable,
-        compact and lightweight design<\/li><li>Larger 16:10 display, edge-to-edge
-        keyboard, with larger keycaps and a larger touchpad<\/li><li>Eyesafe\u00ae
-        display technology reduces harmful blue light and maintains vivid color<\/li><li>10th
-        generation Intel\u00ae Core&#x2122; 10nm mobile processors and up to 32 gigabytes
-        of RAM<\/li><li>Fingerprint reader<\/li><li>Wi-Fi 6 ability (Killer&#x2122;
-        AX1650 built on Intel Wi-Fi 6 Chipset)<\/li><li>Targeting up to 18 hours and
-        49 minutes of battery life on FHD+&nbsp; to keep you powered on the go<\/li><\/ul>\n\n\n\n<p>For
-        more information on what\u2019s new in Ubuntu Desktop 20.04 LTS, check out
-        the<a href=\"https:\/\/wiki.ubuntu.com\/FocalFossa\/ReleaseNotes?_ga=2.64581546.406568078.1591621091-16815332.1587385443\">
-        release notes<\/a> for detailed information or our <a href=\"https:\/\/ubuntu.com\/blog\/whats-new-in-ubuntu-desktop-20-04-lts\">blog<\/a>.<\/p>\n\n\n\n<p>The
-        Dell <a href=\"https:\/\/www.dell.com\/en-us\/work\/shop\/cty\/pdp\/spd\/xps-13-9300-laptop\/ctox13w10p1c2700u\">XPS
-        13 Developer Edition<\/a> with Ubuntu 20.04 LTS is available as of June 23
-        2020, starting at US $1,099.99.<\/p>\n\n\n\n<p style=\"font-size:12px\">*EMEA
-        Online: UK, Ireland, Germany, Austria, France, Italy, Spain, Switzerland (French
-        and German), Belgium, Netherlands, Sweden, Norway, Denmark.<\/p>\n\n\n\n<p
-        style=\"font-size:12px\">EMEA Offline: Czech Republic, Denmark, Emerging countries,
-        Finland, Greece, Luxembourg, Poland, Portugal, Russia, Slovakia, Turkey, South
-        Africa.<\/p>\n","protected":false},"excerpt":{"rendered":"<p>The Dell XPS
-        13 Developer Edition is now available in North America and selected EMEA countries*
-        certified with Ubuntu 20.04 LTS pre-installed to work straight out of the
-        box. This is the first system available on the market with Ubuntu 20.04 LTS,
-        released in April 2020, and continues the long-standing partnership with Canonical
-        which is [&hellip;]<\/p>\n","protected":false},"author":217,"featured_media":96527,"comment_status":"open","ping_status":"closed","sticky":true,"template":"","format":"standard","meta":[],"categories":[],"tags":[1235,2186,1301,3789],"topic":[2099],"group":[2100,1479],"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"23","_start_month":"06","_start_year":"2020","_end_day":"23","_end_month":"06","_end_year":"2020","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/96510"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=96510"}],"version-history":[{"count":6,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/96510\/revisions"}],"predecessor-version":[{"id":96528,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/96510\/revisions\/96528"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/96527"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=96510"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=96510"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=96510"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=96510"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=96510"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]},"_embedded":{"author":[{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}],"wp:featuredmedia":[{"id":96527,"date":"2020-06-23T11:59:56","slug":"dell-xps-2004-4","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2020\/06\/23\/dell-xps-13-developer-edition-with-ubuntu-20-04-lts-pre-installed-is-now-available\/dell-xps-2004-4\/","title":{"rendered":"dell-xps-2004"},"author":631,"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":320,"height":188,"file":"dell-xps-2004.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"1","keywords":[]},"sizes":{}},"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/3b1d\/dell-xps-2004.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/96527"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/631"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=96527"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=96527"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=96527"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],"wp:term":[[],[{"id":1235,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/dell\/","name":"Dell","slug":"dell","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1235"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1235"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1235"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2186,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/dell-xps\/","name":"Dell
-        XPS","slug":"dell-xps","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2186"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2186"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2186"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1301,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/lts\/","name":"LTS","slug":"lts","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1301"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1301"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1301"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3789,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-20-04\/","name":"Ubuntu
-        20.04","slug":"ubuntu-20-04","taxonomy":"post_tag","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/3789"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=3789"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=3789"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":2099,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/canonical-announcements\/","name":"Canonical
-        announcements","slug":"canonical-announcements","taxonomy":"topic","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/2099"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=2099"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=2099"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=2099"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":2100,"link":"https:\/\/admin.insights.ubuntu.com\/group\/canonical-announcements\/","name":"Canonical
-        announcements","slug":"canonical-announcements","taxonomy":"group","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/2100"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=2100"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=2100"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=2100"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1479,"link":"https:\/\/admin.insights.ubuntu.com\/group\/desktop\/","name":"Desktop","slug":"desktop","taxonomy":"group","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/1479"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=1479"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=1479"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=1479"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]]}}]'
+      string: '<html><body><h1>403 Forbidden</h1>
+
+        Request forbidden by administrative rules.
+
+        </body></html>
+
+
+        '
     headers:
-      Access-Control-Allow-Headers:
-      - Authorization, Content-Type
-      Access-Control-Expose-Headers:
-      - X-WP-Total, X-WP-TotalPages
-      Allow:
-      - GET
-      Connection:
-      - Keep-Alive
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 30 Sep 2020 17:18:27 GMT
-      Keep-Alive:
-      - timeout=5, max=100
-      Link:
-      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
-      Server:
-      - Apache/2.4.7 (Ubuntu)
-      Transfer-Encoding:
-      - chunked
-      Vary:
-      - Origin,Cookie
-      Via:
-      - 1.1 juju-prod45-is-insights-blog-machine-4 (squid/3.3.8)
-      X-Cache:
-      - MISS from juju-prod45-is-insights-blog-machine-4
-      X-Cache-Lookup:
-      - MISS from juju-prod45-is-insights-blog-machine-4:8080
-      X-Content-Type-Options:
-      - nosniff
-      X-Powered-By:
-      - PHP/5.5.9-1ubuntu4.29
-      X-Robots-Tag:
-      - noindex
-      X-WP-Total:
-      - '1'
-      X-WP-TotalPages:
-      - '1'
+      cache-control:
+      - no-cache
+      content-type:
+      - text/html
     status:
-      code: 200
-      message: OK
+      code: 403
+      message: Forbidden
 version: 1

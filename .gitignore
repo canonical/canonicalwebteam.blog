@@ -4,3 +4,4 @@ dist/
 .webcache
 .webcache_blog/
 .eggs/
+.venv
