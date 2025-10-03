@@ -1,4 +1,4 @@
-import os
+import environ
 import base64
 from urllib.parse import urlencode
 
@@ -20,8 +20,8 @@ class Wordpress:
         self.session = session
         self.api_url = api_url
 
-        wp_user = os.getenv("WORDPRESS_USERNAME")
-        wp_password = os.getenv("WORDPRESS_APPLICATION_PASSWORD")
+        wp_user = self.get_flask_env("WORDPRESS_USERNAME")
+        wp_password = self.get_flask_env("WORDPRESS_APPLICATION_PASSWORD")
         if wp_user and wp_password:
             credentials = f"{wp_user}:{wp_password}"
             encoded_credentials = base64.b64encode(
@@ -190,3 +190,18 @@ class Wordpress:
 
     def get_user_by_id(self, id):
         return self.request((f"users/{str(id)}")).json()
+
+    def get_flask_env(key: str, default=None, error=False) -> str | None:
+        """Return the value of KEY or FLASK_KEY, otherwise, return
+        a default.
+        If neither is found and error is True, raise a KeyError.
+
+        :param key: The environment variable key to look for.
+        :param default: The default value to return if the key is not found.
+        :param error: If True, raise a KeyError if the key is not found.
+        """
+        value = environ.get(key, environ.get(f"FLASK_{key}", default))
+        if not value and error:
+            message = f"Environment variable '{key}' not found."
+            raise KeyError(message)
+        return value
