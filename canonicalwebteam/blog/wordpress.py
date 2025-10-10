@@ -1,4 +1,3 @@
-import os
 import base64
 from urllib.parse import urlencode
 
@@ -12,6 +11,8 @@ class Wordpress:
         self,
         session,
         api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
+        wordpress_username=None,
+        wordpress_password=None,
     ):
         """
         Wordpress API object, for making calls to the wordpress API
@@ -19,14 +20,12 @@ class Wordpress:
 
         self.session = session
         self.api_url = api_url
+        self.wordpress_username = wordpress_username
+        self.wordpress_password = wordpress_password
 
-        wp_user = self.get_flask_env("WORDPRESS_USERNAME")
-        wp_password = self.get_flask_env("WORDPRESS_APPLICATION_PASSWORD")
-        if wp_user and wp_password:
-            credentials = f"{wp_user}:{wp_password}"
-            encoded_credentials = base64.b64encode(
-                credentials.encode()
-            ).decode()
+        if self.wordpress_username and self.wordpress_password:
+            creds = f"{self.wordpress_username}:{self.wordpress_password}"
+            encoded_credentials = base64.b64encode(creds.encode()).decode()
             self.session.headers.update(
                 {"Authorization": f"Basic {encoded_credentials}"}
             )
@@ -190,18 +189,3 @@ class Wordpress:
 
     def get_user_by_id(self, id):
         return self.request((f"users/{str(id)}")).json()
-
-    def get_flask_env(self, key: str, default="", error=False) -> str | None:
-        """Return the value of KEY or FLASK_KEY, otherwise, return
-        a default.
-        If neither is found and error is True, raise a KeyError.
-
-        :param key: The environment variable key to look for.
-        :param default: The default value to return if the key is not found.
-        :param error: If True, raise a KeyError if the key is not found.
-        """
-        value = os.getenv(key, os.getenv(f"FLASK_{key}", default))
-        if not value and error:
-            message = f"Environment variable '{key}' not found."
-            raise KeyError(message)
-        return value

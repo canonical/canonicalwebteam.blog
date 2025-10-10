@@ -20,8 +20,12 @@ class BlogAPI(Wordpress):
         use_image_template=True,
         thumbnail_width=330,
         thumbnail_height=185,
+        wordpress_username=None,
+        wordpress_password=None,
     ):
-        super().__init__(session, api_url)
+        super().__init__(
+            session, api_url, wordpress_username, wordpress_password
+        )
 
         self.use_image_template = use_image_template
         self.thumbnail_width = thumbnail_width
