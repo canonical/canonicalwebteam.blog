@@ -85,7 +85,7 @@ interactions:
       Access-Control-Expose-Headers:
       - X-WP-Total, X-WP-TotalPages
       Age:
-      - '290'
+      - '494'
       Allow:
       - GET
       Connection:

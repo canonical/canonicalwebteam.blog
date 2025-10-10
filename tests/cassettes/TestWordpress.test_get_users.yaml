@@ -2,32 +2,64 @@ interactions:
 - request:
     body: null
     headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.32.5
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.22.0]
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/217?_embed=true
   response:
-    body:
-      string: '<html><body><h1>403 Forbidden</h1>
-
-        Request forbidden by administrative rules.
-
-        </body></html>
-
-
-        '
+    body: {string: '{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'}
     headers:
-      cache-control:
-      - no-cache
-      content-type:
-      - text/html
-    status:
-      code: 403
-      message: Forbidden
+      Access-Control-Allow-Headers: ['Authorization, Content-Type']
+      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
+      Allow: [GET]
+      Connection: [Keep-Alive]
+      Content-Length: ['760']
+      Content-Type: [application/json; charset=UTF-8]
+      Date: ['Tue, 09 Jun 2020 13:52:20 GMT']
+      Keep-Alive: ['timeout=5, max=100']
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
+      Server: [Apache/2.4.7 (Ubuntu)]
+      Vary: ['Origin,Cookie']
+      Via: [1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)]
+      X-Cache: [MISS from juju-prod45-is-insights-blog-machine-16]
+      X-Cache-Lookup: ['MISS from juju-prod45-is-insights-blog-machine-16:8080']
+      X-Content-Type-Options: [nosniff]
+      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
+      X-Robots-Tag: [noindex]
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.22.0]
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users?slug=canonical&_embed=true
+  response:
+    body: {string: '[{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}]'}
+    headers:
+      Access-Control-Allow-Headers: ['Authorization, Content-Type']
+      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
+      Age: ['114']
+      Allow: [GET]
+      Connection: [Keep-Alive]
+      Content-Length: ['762']
+      Content-Type: [application/json; charset=UTF-8]
+      Date: ['Tue, 09 Jun 2020 13:50:26 GMT']
+      Keep-Alive: ['timeout=5, max=99']
+      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
+      Server: [Apache/2.4.7 (Ubuntu)]
+      Vary: ['Origin,Cookie']
+      Via: [1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)]
+      X-Cache: [HIT from juju-prod45-is-insights-blog-machine-16]
+      X-Cache-Lookup: ['HIT from juju-prod45-is-insights-blog-machine-16:8080']
+      X-Content-Type-Options: [nosniff]
+      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
+      X-Robots-Tag: [noindex]
+      X-WP-Total: ['1']
+      X-WP-TotalPages: ['1']
+    status: {code: 200, message: OK}
 version: 1
