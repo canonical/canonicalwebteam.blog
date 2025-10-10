@@ -1977,8 +1977,6 @@ interactions:
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)
-      Transfer-Encoding:
-      - chunked
       Vary:
       - Origin,Cookie
       Via:
@@ -2000,4 +1998,252 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=the-ubuntu-community-contributes-towards-saving-the-iberian-lynx&status=publish&_embed=true
+  response:
+    body:
+      string: '[{"id":431,"date":"2010-10-07T17:28:29","date_gmt":"2010-10-07T16:28:29","guid":{"rendered":"http:\/\/blog.canonical.com\/?p=431"},"modified":"2019-07-12T08:34:12","modified_gmt":"2019-07-12T08:34:12","slug":"the-ubuntu-community-contributes-towards-saving-the-iberian-lynx","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/","title":{"rendered":"The
+        Ubuntu community contributes towards saving the Iberian Lynx"},"content":{"rendered":"<div>\n<p>With
+        only three days until Ubuntu 10.10 (a.k.a Maverick           Meerkat) is           released
+        and available to the world, it seems quite possible           that           Ubuntu\u2019s
+        10.04 LTS (a.k.a Lucid Lynx) distribution will seem           like a           thing
+        of the past.<\/p>\n<p>If we cast our minds back, to about 6 months ago, we
+        recall           that one           of the features of the Ubuntu 10.04 LTS
+        Desktop Edition was           the           addition of the Ubuntu One Music
+        store. Music from the world\u2019s           largest           labels and
+        most popular artists can be bought directly from           the <a href=\"https:\/\/one.ubuntu.com\/music\/\">Ubuntu
+        One Music Store<\/a> and           stored in <a href=\"http:\/\/one.ubuntu.com\/\">Ubuntu
+        One<\/a> (your &#8216;personal cloud\u2019).<\/p>\n<p>Around the same time,
+        <a href=\"http:\/\/www.canonical.com\/\">Canonical<\/a> announced that they
+        would donate a percentage of sales (for           songs) from           the
+        Ubuntu One Music Store<em>, <\/em>as well as from sales of           the <a
+        href=\"http:\/\/shop.canonical.com\/product_info.php?products_id=645\">Lynx
+        plushie             toys<\/a> available on the <a href=\"http:\/\/shop.canonical.com\/\">Ubuntu             shop<\/a>
+        <em> <\/em>(to a maximum of US$1004) to the <a href=\"http:\/\/www.soslynx.org\/\">SOS             Lynx<\/a><em>
+        <\/em>charity in           Portugal, to help save the Iberian Lynx<em>. <\/em>So
+        thanks to your             support, we&#8217;ve been able to             make
+        the contribution on behalf of the Ubuntu community.<\/p>\n<a href=\"..\/wp-content\/uploads\/\/2010\/10\/iberian_lynx.jpg\"><img
+        loading=\"lazy\" decoding=\"async\" class=\"size-full wp-image-435\" title=\"iberian_lynx\"
+        src=\"..\/wp-content\/uploads\/\/2010\/10\/iberian_lynx.jpg\" alt=\"The Iberian
+        Lynx\" width=\"400\" height=\"266\"><\/a><br \/>\n<p>The Iberian Lynx is the
+        most endangered feline species in the           world,           as few as
+        220 individuals survive in the wild. The species was           once           widespread
+        across the Iberian Peninsula but has declined           drastically           over
+        recent decades, due to habitat loss, reductions in prey           and high           non-natural
+        mortality from road kills, hunting and predator           control.<\/p>\n<p>Canonical
+        got in touch with Dan Ward and Stephen Hugman from           SOS           Lynx
+        to give them the positive news. They had the following to           say:<\/p>\n<blockquote><p>\u201cWe
+        (SOS Lynx) will shortly be releasing a research study             on             predator
+        control and it\u2019s impact on the Iberian Lynx. We             have just             prepared
+        material in Portuguese for use in schools, as well             as working             with
+        conservation groups in Portugal and Spain. We are             focusing mainly             on
+        educational campaigns and research to raise awareness and             support             for
+        the Iberian Lynx conservation in Spain, Portugal and             across Europe.<\/p>\n<p>Your
+        very kind donation will contribute to funding             education work             for
+        the Iberian Lynx and other predators with school             children in             southern
+        Portugal. This work is essential to build long term             support             for
+        the Iberian lynx and the wider nature conservation in             the country.             At
+        present many people still have misunderstandings             regarding the             natural
+        world \u2013 and the Iberian Lynx is still a hunted             species. We
+        hope             education will help to change that.\u201d<\/p><\/blockquote>\n<p>So,
+        yay for Ubuntu!<\/p>\n<p>For further information about the           SOS Lynx
+        foundation, the work they           are doing, or to make a donation, please
+        visit <a href=\"http:\/\/www.soslynx.org\/\">www.soslynx.org<\/a><\/p>\n<\/div>\n","protected":false},"excerpt":{"rendered":"<p>With
+        only three days until Ubuntu 10.10 (a.k.a Maverick Meerkat) is released and
+        available to the world, it seems quite possible that Ubuntu\u2019s 10.04 LTS
+        (a.k.a Lucid Lynx) distribution will seem like a thing of the past. If we
+        cast our minds back, to about 6 months ago, we recall that one of the features
+        [&hellip;]<\/p>\n","protected":false},"author":281,"featured_media":0,"comment_status":"open","ping_status":"open","sticky":false,"template":"","format":"standard","meta":{"footnotes":""},"categories":[],"tags":[1216,2662,2705],"topic":[],"group":[],"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>The Ubuntu community contributes towards saving the Iberian Lynx
+        - Ubuntu Blog<\/title>\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1,
+        max-image-preview:large, max-video-preview:-1\" \/>\n<link rel=\"canonical\"
+        href=\"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"The Ubuntu
+        community contributes towards saving the Iberian Lynx - Ubuntu Blog\" \/>\n<meta
+        property=\"og:description\" content=\"With only three days until Ubuntu 10.10
+        (a.k.a Maverick Meerkat) is released and available to the world, it seems
+        quite possible that Ubuntu\u2019s 10.04 LTS (a.k.a Lucid Lynx) distribution
+        will seem like a thing of the past. If we cast our minds back, to about 6
+        months ago, we recall that one of the features [&hellip;]\" \/>\n<meta property=\"og:url\"
+        content=\"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"article:publisher\"
+        content=\"https:\/\/www.facebook.com\/ubuntulinux\/\" \/>\n<meta property=\"article:published_time\"
+        content=\"2010-10-07T16:28:29+00:00\" \/>\n<meta property=\"article:modified_time\"
+        content=\"2019-07-12T08:34:12+00:00\" \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\"
+        \/>\n<meta name=\"twitter:creator\" content=\"@ubuntu\" \/>\n<meta name=\"twitter:site\"
+        content=\"@ubuntu\" \/>\n<meta name=\"twitter:label1\" content=\"Written by\"
+        \/>\n\t<meta name=\"twitter:data1\" content=\"Cezzaine Zaher\" \/>\n\t<meta
+        name=\"twitter:label2\" content=\"Est. reading time\" \/>\n\t<meta name=\"twitter:data2\"
+        content=\"2 minutes\" \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/\",\"name\":\"The
+        Ubuntu community contributes towards saving the Iberian Lynx - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"datePublished\":\"2010-10-07T16:28:29+00:00\",\"dateModified\":\"2019-07-12T08:34:12+00:00\",\"author\":{\"@id\":\"http:\/\/localhost\/#\/schema\/person\/a321ad2a1c4a8e7e2f92c9e40e0bbc7a\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"The
+        Ubuntu community contributes towards saving the Iberian Lynx\"}]},{\"@type\":\"Person\",\"@id\":\"http:\/\/localhost\/#\/schema\/person\/a321ad2a1c4a8e7e2f92c9e40e0bbc7a\",\"name\":\"Cezzaine
+        Zaher\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"http:\/\/localhost\/#\/schema\/person\/image\/\",\"url\":\"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g\",\"contentUrl\":\"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g\",\"caption\":\"Cezzaine
+        Zaher\"},\"sameAs\":[\"https:\/\/login.ubuntu.com\/+id\/4EpAtXp\"],\"url\":\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/\"}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"The Ubuntu community
+        contributes towards saving the Iberian Lynx - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/","og_locale":"en_US","og_type":"article","og_title":"The
+        Ubuntu community contributes towards saving the Iberian Lynx - Ubuntu Blog","og_description":"With
+        only three days until Ubuntu 10.10 (a.k.a Maverick Meerkat) is released and
+        available to the world, it seems quite possible that Ubuntu\u2019s 10.04 LTS
+        (a.k.a Lucid Lynx) distribution will seem like a thing of the past. If we
+        cast our minds back, to about 6 months ago, we recall that one of the features
+        [&hellip;]","og_url":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/","og_site_name":"Ubuntu
+        Blog","article_publisher":"https:\/\/www.facebook.com\/ubuntulinux\/","article_published_time":"2010-10-07T16:28:29+00:00","article_modified_time":"2019-07-12T08:34:12+00:00","twitter_card":"summary_large_image","twitter_creator":"@ubuntu","twitter_site":"@ubuntu","twitter_misc":{"Written
+        by":"Cezzaine Zaher","Est. reading time":"2 minutes"},"schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/","name":"The
+        Ubuntu community contributes towards saving the Iberian Lynx - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"datePublished":"2010-10-07T16:28:29+00:00","dateModified":"2019-07-12T08:34:12+00:00","author":{"@id":"http:\/\/localhost\/#\/schema\/person\/a321ad2a1c4a8e7e2f92c9e40e0bbc7a"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"The
+        Ubuntu community contributes towards saving the Iberian Lynx"}]},{"@type":"Person","@id":"http:\/\/localhost\/#\/schema\/person\/a321ad2a1c4a8e7e2f92c9e40e0bbc7a","name":"Cezzaine
+        Zaher","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"http:\/\/localhost\/#\/schema\/person\/image\/","url":"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g","caption":"Cezzaine
+        Zaher"},"sameAs":["https:\/\/login.ubuntu.com\/+id\/4EpAtXp"],"url":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/"}]}},"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"12","_start_month":"07","_start_year":"2019","_end_day":"12","_end_month":"07","_end_year":"2019","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/431"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/281"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=431"}],"version-history":[{"count":1,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/431\/revisions"}],"predecessor-version":[{"id":90679,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/431\/revisions\/90679"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=431"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=431"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=431"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=431"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=431"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]},"_embedded":{"author":[{"id":281,"name":"Cezzaine
+        Zaher","url":"https:\/\/login.ubuntu.com\/+id\/4EpAtXp","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/","slug":"cezzaine-haigh","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g"},"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Cezzaine Zaher, Author at Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"profile\" \/>\n<meta property=\"og:title\" content=\"Cezzaine Zaher,
+        Author at Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"og:image\"
+        content=\"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=500&#038;d=mm&#038;r=g\"
+        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
+        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
+        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"ProfilePage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/\",\"name\":\"Cezzaine
+        Zaher, Author at Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Archives
+        for Cezzaine Zaher\"}]},{\"@type\":\"Person\",\"@id\":\"http:\/\/localhost\/#\/schema\/person\/a321ad2a1c4a8e7e2f92c9e40e0bbc7a\",\"name\":\"Cezzaine
+        Zaher\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"http:\/\/localhost\/#\/schema\/person\/image\/\",\"url\":\"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g\",\"contentUrl\":\"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g\",\"caption\":\"Cezzaine
+        Zaher\"},\"sameAs\":[\"https:\/\/login.ubuntu.com\/+id\/4EpAtXp\"],\"mainEntityOfPage\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/#webpage\"}}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Cezzaine Zaher, Author
+        at Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/","og_locale":"en_US","og_type":"profile","og_title":"Cezzaine
+        Zaher, Author at Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/","og_site_name":"Ubuntu
+        Blog","og_image":[{"url":"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=500&d=mm&r=g"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ProfilePage","@id":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/","name":"Cezzaine
+        Zaher, Author at Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Archives
+        for Cezzaine Zaher"}]},{"@type":"Person","@id":"http:\/\/localhost\/#\/schema\/person\/a321ad2a1c4a8e7e2f92c9e40e0bbc7a","name":"Cezzaine
+        Zaher","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"http:\/\/localhost\/#\/schema\/person\/image\/","url":"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/254e116b9290339f408303a943878742?s=96&d=mm&r=g","caption":"Cezzaine
+        Zaher"},"sameAs":["https:\/\/login.ubuntu.com\/+id\/4EpAtXp"],"mainEntityOfPage":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/cezzaine-haigh\/#webpage"}}]}},"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/281"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}],"replies":[[{"id":6038,"parent":0,"author":0,"author_name":"Enric
+        G. Torrents","author_url":"","date":"2011-04-05T22:43:13","content":{"rendered":"<p>The
+        lynx is already extinct in Portugal, SOS lynx doesn&#8217;t even have contents
+        in Spanish and it\u00b4s extremely difficult to get involved in any meaningul
+        action no matter which other organization you contact. Talking from direct
+        experience as a spaniard willing to contribute my time to the cause and help
+        make a real difference. This species is in the verge of dying out and that
+        would be a shame for all of us who lived when still something could be done,
+        there is no excuse. Hoping for others to solve it is not enough, the decline
+        from 100.000 individuals in the 1900s to less than 300 now shows how little
+        institutions and organizations have cared for this creature and its habitat.
+        Please get involved before it\u00b4s too late.<\/p>\n"},"link":"https:\/\/admin.insights.ubuntu.com\/2010\/10\/07\/the-ubuntu-community-contributes-towards-saving-the-iberian-lynx\/#comment-6038","type":"comment","author_avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/14c314e9fc3b6dd22af79e489b15b12a?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/14c314e9fc3b6dd22af79e489b15b12a?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/14c314e9fc3b6dd22af79e489b15b12a?s=96&d=mm&r=g"},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments\/6038"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments"}],"up":[{"embeddable":true,"post_type":"post","href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/431"}]}}]],"wp:term":[[],[{"id":1216,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/","name":"Canonical","slug":"canonical","taxonomy":"post_tag","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Canonical Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Canonical Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/\",\"name\":\"Canonical
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Canonical\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Canonical Archives -
+        Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/","og_locale":"en_US","og_type":"article","og_title":"Canonical
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/","name":"Canonical
+        Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/canonical\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Canonical"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1216"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1216"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1216"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2662,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/","name":"lynx","slug":"lynx","taxonomy":"post_tag","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>lynx Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\" content=\"index,
+        follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" \/>\n<link
+        rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"lynx Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/\",\"name\":\"lynx
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"lynx\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"lynx Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/","og_locale":"en_US","og_type":"article","og_title":"lynx
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/","name":"lynx
+        Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/lynx\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"lynx"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2662"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2662"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2662"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2705,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/","name":"Ubuntu
+        One","slug":"ubuntu-one","taxonomy":"post_tag","yoast_head":"<!-- This site
+        is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Ubuntu One Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Ubuntu One
+        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/\",\"name\":\"Ubuntu
+        One Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Ubuntu
+        One\"}]}]}<\/script>\n<!-- \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Ubuntu
+        One Archives - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/","og_locale":"en_US","og_type":"article","og_title":"Ubuntu
+        One Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/","name":"Ubuntu
+        One Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/ubuntu-one\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Ubuntu
+        One"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2705"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2705"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2705"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[],[]]}}]'
+    headers:
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Fri, 10 Oct 2025 10:16:42 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/0
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '1'
+      x-wp-totalpages:
+      - '1'
+    status:
+      code: 200
+      message: ''
 version: 1
