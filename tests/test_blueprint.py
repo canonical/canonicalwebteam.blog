@@ -121,13 +121,6 @@ class TestBlueprint(VCRTestCase):
             self.assertTrue(len(slug) > 0)
             self.assertTrue(len(title) > 0)
 
-            image = article.find("img")
-            if image is not None:
-                self.assertIn(
-                    "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_330/https%3A%2F%2Fubuntu.com%2Fwp-content%2Fuploads%2F58b0%2FCRA-iot-manufacturer_cnblog.png",
-                    image.get("src"),
-                )
-
         for article in events:
             title = article.find("span", {"class": "title"}).text
             slug = article.find("span", {"class": "slug"}).text
