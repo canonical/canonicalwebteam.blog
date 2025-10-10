@@ -1,4 +1,4 @@
-import environ
+import os
 import base64
 from urllib.parse import urlencode
 
@@ -191,7 +191,7 @@ class Wordpress:
     def get_user_by_id(self, id):
         return self.request((f"users/{str(id)}")).json()
 
-    def get_flask_env(key: str, default=None, error=False) -> str | None:
+    def get_flask_env(self, key: str, default="", error=False) -> str | None:
         """Return the value of KEY or FLASK_KEY, otherwise, return
         a default.
         If neither is found and error is True, raise a KeyError.
@@ -200,7 +200,7 @@ class Wordpress:
         :param default: The default value to return if the key is not found.
         :param error: If True, raise a KeyError if the key is not found.
         """
-        value = environ.get(key, environ.get(f"FLASK_{key}", default))
+        value = os.getenv(key, os.getenv(f"FLASK_{key}", default))
         if not value and error:
             message = f"Environment variable '{key}' not found."
             raise KeyError(message)
