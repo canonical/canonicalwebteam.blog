@@ -27,40 +27,7 @@ For local development, it's best to test this module with one of our website pro
 
 #### How to run tests?
 - Create a virtual environment 
-- Install following python packages
-```
-flake8==7.3.0
-Flask==3.1.2
-Flask-Reggie==0.0.2
-idna==3.10
-itsdangerous==2.2.0
-Jinja2==3.1.6
-lxml==6.0.2
-MarkupSafe==3.0.3
-mccabe==0.7.0
-multidict==6.7.0
-mypy_extensions==1.1.0
-packaging==25.0
-pathspec==0.12.1
-platformdirs==4.5.0
-propcache==0.4.1
-pycodestyle==2.14.0
-pyflakes==3.4.0
-python-dateutil==2.9.0.post0
-pytokens==0.1.10
-PyYAML==6.0.3
-requests==2.32.5
-six==1.17.0
-soupsieve==2.8
-tomli==2.3.0
-typing_extensions==4.15.0
-urllib3==2.5.0
-vcrpy==7.0.0
-vcrpy-unittest==0.1.7
-Werkzeug==3.1.3
-wrapt==1.17.3
-yarl==1.22.0
-```
+- Install required python dependencies from test-requirements.txt
 - Activate virtual environment and run `python3 -m unittest discover tests`
 
 #### How to lint :
