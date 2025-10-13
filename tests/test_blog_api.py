@@ -57,9 +57,7 @@ class TestBlogAPI(VCRTestCase):
         )
 
         self.assertIn(
-            'src="https://res.cloudinary.com/canonical/image/fetch/f_auto,'
-            "q_auto,fl_sanitize,c_fill,w_720/https%3A%2F%2Fubuntu.com"
-            '%2Fwp-content%2Fuploads%2F2e4c%2Fdell-xps-2004.jpg"',
+            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_720/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg",
             article["content"]["rendered"],
         )
 
@@ -74,7 +72,7 @@ class TestBlogAPI(VCRTestCase):
         )
 
         self.assertIn(
-            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_266/https%3A%2F%2Flh5.googleusercontent.com%2FPKCTzU1ENAow2PDqhPo-K6drMTKwQduAAqKNUbHWVnJmmQXjI8GsXgSQhsVg6Q-0vZrKRCFNUxYvG1iIDVQ3MSTzgx-UWtGlLR6lgZQWcEt0P967bjqQCePnSJXOd3FWVjo0hzTG",
+            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_266,h_286/https://lh5.googleusercontent.com/PKCTzU1ENAow2PDqhPo-K6drMTKwQduAAqKNUbHWVnJmmQXjI8GsXgSQhsVg6Q-0vZrKRCFNUxYvG1iIDVQ3MSTzgx-UWtGlLR6lgZQWcEt0P967bjqQCePnSJXOd3FWVjo0hzTG",
             article["content"]["rendered"],
         )
 
