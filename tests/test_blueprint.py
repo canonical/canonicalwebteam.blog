@@ -71,7 +71,7 @@ class TestBlueprint(VCRTestCase):
         self.assertIn(b"https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34", response.data)
 
         image_src = (
-            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902/https%3A%2F%2Fubuntu.com%2Fwp-content%2Fuploads%2F2e4c%2Fdell-xps-2004.jpg&#34;"
+            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34"
         )
 
         self.assertIn(str.encode(image_src), response.data)
