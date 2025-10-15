@@ -20,8 +20,12 @@ class BlogAPI(Wordpress):
         use_image_template=True,
         thumbnail_width=330,
         thumbnail_height=185,
+        wordpress_username=None,
+        wordpress_password=None,
     ):
-        super().__init__(session, api_url)
+        super().__init__(
+            session, api_url, wordpress_username, wordpress_password
+        )
 
         self.use_image_template = use_image_template
         self.thumbnail_width = thumbnail_width
@@ -40,6 +44,7 @@ class BlogAPI(Wordpress):
         groups=None,
         per_page=12,
         page=1,
+        status=None,
     ):
         articles, metadata = super().get_articles(
             tags,
@@ -53,6 +58,7 @@ class BlogAPI(Wordpress):
             groups,
             per_page,
             page,
+            status,
         )
 
         return (
@@ -60,8 +66,8 @@ class BlogAPI(Wordpress):
             metadata,
         )
 
-    def get_article(self, slug, tags=None, tags_exclude=None):
-        article = super().get_article(slug, tags, tags_exclude)
+    def get_article(self, slug, tags=None, tags_exclude=None, status=None):
+        article = super().get_article(slug, tags, tags_exclude, status)
 
         if not article:
             return {}

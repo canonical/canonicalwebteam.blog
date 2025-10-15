@@ -1,3 +1,4 @@
+import base64
 from urllib.parse import urlencode
 
 
@@ -10,6 +11,8 @@ class Wordpress:
         self,
         session,
         api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
+        wordpress_username=None,
+        wordpress_password=None,
     ):
         """
         Wordpress API object, for making calls to the wordpress API
@@ -17,6 +20,15 @@ class Wordpress:
 
         self.session = session
         self.api_url = api_url
+        self.wordpress_username = wordpress_username
+        self.wordpress_password = wordpress_password
+
+        if self.wordpress_username and self.wordpress_password:
+            creds = f"{self.wordpress_username}:{self.wordpress_password}"
+            encoded_credentials = base64.b64encode(creds.encode()).decode()
+            self.session.headers.update(
+                {"Authorization": f"Basic {encoded_credentials}"}
+            )
 
     def request(self, endpoint, params={}, method="get"):
         """
@@ -65,6 +77,7 @@ class Wordpress:
         groups=None,
         per_page=12,
         page=1,
+        status=None,
     ):
         """
         Get articles from Wordpress api
@@ -79,6 +92,8 @@ class Wordpress:
         :param before: ISO8601 compliant date string to limit by date
         :param after: ISO8601 compliant date string to limit by date
         :param author: Name of the author to fetch articles from
+        :param status: Array of post statuses to include
+            (e.g., ['publish', 'draft'])
 
         :returns: response, metadata dictionary
         """
@@ -96,6 +111,7 @@ class Wordpress:
                 "before": before,
                 "after": after,
                 "author": author,
+                "status": status,
             },
         )
         total_pages = response.headers.get("X-WP-TotalPages")
@@ -106,15 +122,22 @@ class Wordpress:
             {"total_pages": total_pages, "total_posts": total_posts},
         )
 
-    def get_article(self, slug, tags=None, tags_exclude=None):
+    def get_article(self, slug, tags=None, tags_exclude=None, status=None):
         """
         Get an article from Wordpress api
         :param slug: Article slug to fetch
+        :param status: Array of post statuses to include
+            (e.g., ['publish', 'draft'])
         """
         try:
             return self.get_first_item(
                 "posts",
-                {"slug": slug, "tags": tags, "tags_exclude": tags_exclude},
+                {
+                    "slug": slug,
+                    "tags": tags,
+                    "tags_exclude": tags_exclude,
+                    "status": status,
+                },
             )
         except NotFoundError:
             return {}

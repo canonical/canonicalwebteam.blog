@@ -24,6 +24,16 @@ See also the documentation for [pip install](https://pip.pypa.io/en/stable/refer
 ### Local development
 
 For local development, it's best to test this module with one of our website projects like [ubuntu.com](https://github.com/canonical-web-and-design/ubuntu.com/). For more information, follow [this guide (internal only)](https://discourse.canonical.com/t/how-to-run-our-python-modules-for-local-development/308).
+
+#### How to run tests?
+- Create a virtual environment 
+- Install required python dependencies from test-requirements.txt
+- Activate virtual environment and run `python3 -m unittest discover tests`
+
+#### How to lint :
+- To check python lint `python3 -m flake8 canonicalwebteam setup.py && python3 -m black --line-length 79 --check canonicalwebteam setup.py`
+- To run python reformatting `python3 -m flake8 canonicalwebteam setup.py && python3 -m black --line-length 79 canonicalwebteam setup.py`
+
     
 ### Templates
 

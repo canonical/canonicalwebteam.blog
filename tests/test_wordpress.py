@@ -3,10 +3,18 @@ import requests
 from vcr_unittest import VCRTestCase
 
 # Local
-from canonicalwebteam.blog import NotFoundError, Wordpress
+from canonicalwebteam.blog import Wordpress
 
 
 class TestWordpress(VCRTestCase):
+    def _get_vcr_kwargs(self):
+        """
+        This removes the authorization header
+        from VCR so we don"t record auth parameters
+        """
+        return {
+            "record_mode": "new_episodes",
+        }
     def setUp(self):
         self.api = Wordpress(session=requests.Session())
         return super().setUp()

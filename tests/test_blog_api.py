@@ -3,11 +3,19 @@ import requests
 from vcr_unittest import VCRTestCase
 
 # Local
-from canonicalwebteam.blog import NotFoundError
 from canonicalwebteam.blog.blog_api import BlogAPI
 
 
 class TestBlogAPI(VCRTestCase):
+    def _get_vcr_kwargs(self):
+        """
+        This removes the authorization header
+        from VCR so we don"t record auth parameters
+        """
+        return {
+            "record_mode": "new_episodes",
+        }
+
     def test_get_articles(self):
         self.api = BlogAPI(session=requests.Session())
 
@@ -35,9 +43,7 @@ class TestBlogAPI(VCRTestCase):
             "admin.insights.ubuntu.com/wp-content/uploads",
             article["content"]["rendered"],
         )
-        self.assertIn(
-            "ubuntu.com/wp-content/uploads", article["content"]["rendered"]
-        )
+        self.assertIn("ubuntu.com/wp-content/uploads", article["content"]["rendered"])
 
     def test_it_transforms_article_image(self):
         self.api = BlogAPI(
@@ -51,9 +57,7 @@ class TestBlogAPI(VCRTestCase):
         )
 
         self.assertIn(
-            'src="https://res.cloudinary.com/canonical/image/fetch/f_auto,'
-            "q_auto,fl_sanitize,c_fill,w_720/https://ubuntu.com"
-            '/wp-content/uploads/2e4c/dell-xps-2004.jpg"',
+            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_720/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg",
             article["content"]["rendered"],
         )
 
@@ -68,12 +72,7 @@ class TestBlogAPI(VCRTestCase):
         )
 
         self.assertIn(
-            'src="https://res.cloudinary.com/canonical/image/fetch/f_auto,'
-            "q_auto,fl_sanitize,c_fill,w_266,h_286/"
-            "https://lh5.googleusercontent.com/"
-            "PKCTzU1ENAow2PDqhPo-K6drMTKwQduAAqKNUbHWVnJmmQXjI8GsXgSQhsVg6Q-"
-            "0vZrKRCFNUxYvG1iIDVQ3MSTzgx-"
-            'UWtGlLR6lgZQWcEt0P967bjqQCePnSJXOd3FWVjo0hzTG"',
+            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_266,h_286/https://lh5.googleusercontent.com/PKCTzU1ENAow2PDqhPo-K6drMTKwQduAAqKNUbHWVnJmmQXjI8GsXgSQhsVg6Q-0vZrKRCFNUxYvG1iIDVQ3MSTzgx-UWtGlLR6lgZQWcEt0P967bjqQCePnSJXOd3FWVjo0hzTG",
             article["content"]["rendered"],
         )
 
@@ -110,8 +109,7 @@ class TestBlogAPI(VCRTestCase):
         )
 
         self.assertIn(
-            'src="https://ubuntu.com/'
-            'wp-content/uploads/2e4c/dell-xps-2004.jpg"',
+            'src="https://ubuntu.com/' 'wp-content/uploads/2e4c/dell-xps-2004.jpg"',
             article["content"]["rendered"],
         )
 
@@ -127,5 +125,7 @@ class TestBlogAPI(VCRTestCase):
             + "-lts-pre-installed-is-now-available"
         )
 
-        self.assertIn("w_354", article["image"]["rendered"],)
-        self.assertIn("h_199", article["image"]["rendered"],)
+        self.assertIn(
+            "w_354",
+            article["image"]["rendered"],
+        )

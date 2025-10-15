@@ -18,6 +18,7 @@ class BlogViews:
         blog_path="blog",
         feed_description=None,
         per_page=12,
+        status=None,
     ):
         self.api = api
         self.tag_ids = tag_ids
@@ -26,6 +27,7 @@ class BlogViews:
         self.blog_path = blog_path.strip("/")
         self.feed_description = feed_description or f"{blog_title} feed"
         self.per_page = per_page
+        self.status = status or ["publish"]
 
     def get_index(self, page=1, category_slug=""):
         categories = []
@@ -64,6 +66,7 @@ class BlogViews:
             page=page,
             per_page=self.per_page,
             categories=categories,
+            status=self.status,
         )
 
         return {
@@ -94,7 +97,9 @@ class BlogViews:
         return feed.rss_str()
 
     def get_article(self, slug):
-        article = self.api.get_article(slug, self.tag_ids, self.excluded_tags)
+        article = self.api.get_article(
+            slug, self.tag_ids, self.excluded_tags, self.status
+        )
 
         if not article:
             return {}
@@ -372,6 +377,7 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             page=page,
             per_page=self.per_page,
+            status=self.status,
         )
         total_pages = metadata["total_pages"]
 

@@ -4495,8 +4495,6 @@ interactions:
         rel="next"
       Server:
       - Apache/2.4.7 (Ubuntu)
-      Transfer-Encoding:
-      - chunked
       Vary:
       - Origin,Cookie
       Via:
@@ -4518,4 +4516,393 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=testing-your-user-contract&status=publish&_embed=true
+  response:
+    body:
+      string: '[{"id":93920,"date":"2020-02-10T22:48:14","date_gmt":"2020-02-10T22:48:14","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=93920"},"modified":"2020-02-10T23:32:02","modified_gmt":"2020-02-10T23:32:02","slug":"testing-your-user-contract","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/","title":{"rendered":"Testing
+        your user contract"},"content":{"rendered":"\n<p>Whenever you write any code
+        that is to be consumed by another, \nwhether it be a library or some UI element,
+        that consumer expects it to \nwork in a certain way every time they interact
+        with it. All good \ndevelopers would agree and that\u2019s why we also write
+        tests that either \nbreak our code up into chunks and test that each chunk
+        works as \nexpected, unit tests, or test the entire lifecycle, end to end
+        tests.<\/p>\n\n\n\n<p>Anyone who has written unit tests for long enough knows
+        that they are\n tedious to keep in sync with refactors and often end up taking
+        a \ndisproportionate amount of time compared to the time it took to write
+        \nthe functional code. I propose that that we focus less on unit tests and\n
+        replace them with what I\u2019m calling the <strong>user contract<\/strong>
+        of your code.<\/p>\n\n\n\n<h4 class=\"wp-block-heading\" id=\"what-is-a-user-contract\">What
+        is a user contract?<\/h4>\n\n\n\n<p>The consumer expects that when they perform
+        action X, they receive \noutcome Y. Typically they are not concerned about
+        how X became Y just \nthat it does so reliably. This is what I\u2019m calling
+        the <strong>user contract<\/strong>.\n If we as the authors of the code take
+        the same view from a testing \nperspective, it allows us to write simpler
+        tests and gives us the \nability to refactor how a library or UI component
+        works without having \nto update our tests, dramatically speeding up refactoring.<\/p>\n\n\n\n<p>While
+        these examples are written in JavaScript the same techniques apply to all
+        languages.<\/p>\n\n\n\n<h4 class=\"wp-block-heading\" id=\"library-example\">Library
+        example<\/h4>\n\n\n\n<p>Starting with a simple library that another developer
+        may be using\u2026<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>export async
+        function fetchUserList() {\n  const userList = await _queryDBForUserList();\n  return
+        await _formatUserList(userList);\n}\n\nfunction _queryDBForUserList() {\n  \/\/
+        Fetch content from the database.\n}\n\nfunction _formatuserList() {\n  \/\/
+        Reformat the data as returned from the database.\n}<\/code><\/pre>\n\n\n\n<p>A
+        consumer of this API would have a couple expectations:<\/p>\n\n\n\n<ul><li>That
+        function is asynchronous.<\/li><li>It returns a user list in a specific structure.<\/li><\/ul>\n\n\n\n<p>These
+        expectations then outline what your tests are:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>describe(''fetchUserList'',
+        () => {\n  it(''does not block'');\n  it(''returns in the correct format'');\n});<\/code><\/pre>\n\n\n\n<p>You
+        should note that we don\u2019t test any method that wasn\u2019t exported,
+        nor do we export methods simply for testing purposes.<\/p>\n\n\n\n<p>To aid
+        the user in understanding what this contract is you can \noutline it in the
+        docblock for the exported function. This way it can be\n used to generate
+        the documentation for your library and help outline \nwhat your test structure
+        is.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>\/**\n  Returns a formatted
+        user list.\n  @return {Object} The user list in the following format:\n  {
+        id: INT, name: STRING, favouriteColour: STRING }\n*\/\nexport async function
+        fetchUserList() {\n  const userList = await _queryDBForUserList();\n  return
+        await _formatUserList();\n}<\/code><\/pre>\n\n\n\n<p>We don\u2019t explicitly
+        test the  <code>_queryFBForUSerList<\/code> and <code>_formatUserList<\/code>\n
+        functions as they are implementation details. If you were to change the\n
+        type of database returning the user list, or the algorithm being used \nto
+        format the user list you should not have to also modify your tests as\n the
+        contract to your users has not changed. They still expect that if \nthey call
+        <code>fetchUserList<\/code> they will receive the list in the specified format.<\/p>\n\n\n\n<h4
+        class=\"wp-block-heading\" id=\"ui-example\">UI Example<\/h4>\n\n\n\n<p>Let\u2019s
+        take a look at a UI component this time using the React \njavascript library,
+        in an effort to save space I\u2019ve removed the \nfunctions that aren\u2019t
+        exported. This also helps to illustrate their \nirrelevance in our testing
+        strategy.<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>export const LogIn
+        = ({ children }) => {\n  const userIsLoggedIn = useSelector(isLoggedIn);\n  const
+        userIsConnecting = useSelector(isConnecting);\n\n  const button = _generateButton(userIsConnecting);\n\n  if
+        (!userIsLoggedIn) {\n    return (\n      &lt;>\n        &lt;div className=\"login\">\n          &lt;img
+        className=\"login__logo\" src={logo} alt=\"logo\" \/>\n          {button}\n        &lt;\/div>\n        &lt;main>{children}&lt;\/main>\n      &lt;\/>\n    );\n  }\n  return
+        children;\n};<\/code><\/pre>\n\n\n\n<p>This is a fairly simple component that
+        renders a \nlogin button with a logo. Let\u2019s go through the exercise and
+        see what our\n User Contract is:<\/p>\n\n\n\n<ul><li>If the user is not logged
+        in\n<ul><li>It renders a logo and button to log in.<\/li><li>It renders any
+        children passed to it.<\/li><li>clicking the button logs in.<\/li><\/ul>\n<\/li><li>If
+        the user is logged in\n<ul><li>It does not render a logo and button.<\/li><li>It
+        renders any children passed to it.<\/li><\/ul>\n<\/li><\/ul>\n\n\n\n<p>Our
+        tests would be:<\/p>\n\n\n\n<pre class=\"wp-block-code\"><code>describe(''LogIn'',
+        () => {\n  describe(''the user is not logged in'', () => {\n    it(''renders
+        a logo and button to log in'');\n    it(''renders any children passed to it'');\n    it(''clicking
+        the button logs in'');\n  });\n  describe(''the user is logged in'', () =>
+        {\n    it(''does not render a logo and button to log in'');\n    it(''renders
+        any children passed to it'');\n  });\n});<\/code><\/pre>\n\n\n\n<p>Testing
+        the returned value in a UI component is a \nlittle more nuanced than checking
+        a return value of a library function. \nWe don\u2019t necessarily want to
+        check every specific detail of each element\n returned unless it\u2019s part
+        of the contract. I\u2019ll expand these tests with\n assertions but eschew
+        the component setup and rendering in interest of \nspace.<\/p>\n\n\n\n<pre
+        class=\"wp-block-code\"><code>it(''renders a logo and button to log in'',
+        () => {\n  expect(wrapper.find(''.login__logo'').length).toBe(1);\n  expect(wrapper.find(''.login
+        button'').length).toBe(1);\n);\nit(''renders any children passed to it'',
+        () => {\n  expect(wrapper.find(''main .items'').length).toBe(3);\n});\nit(''logs
+        the user in'', () => {\n  wrapper.find(''.login button'').simulate(''click'',
+        {});\n  expect(useSelector(isLoggedIn)).toBe(true);\n});<\/code><\/pre>\n\n\n\n<p>It\u2019s
+        important to note here that we have tried to \nlimit the specific details
+        that aren\u2019t relevant to the contract of the \ncomponent. This allows
+        the design to change and the contract to remain \nvalid and we do not need
+        to update the tests. This is especially \nbeneficial when you have a shared
+        component library within your company.\n You can update the designs and implementation
+        details of your \ncomponents without updating the tests.<\/p>\n\n\n\n<h4 class=\"wp-block-heading\"
+        id=\"what-if-i\">What if I\u2026<\/h4>\n\n\n\n<ul><li>\u2026want to test that
+        an api call is being made with the correct signature?\n<ul><li>You should
+        consider moving this sub api call into its own library and having it tested
+        there. You&#8217;ll then be testing the <strong>user contract<\/strong> of
+        this new library, that a call to your api is making a specific call to another
+        api.<\/li><\/ul>\n<\/li><li>\u2026have to mock out an api call?\n<ul><li>You\u2019ll
+        find value in implementing a system that mocks out the layer \nwhich returns
+        the data. In this layer it\u2019ll return a pre-defined set of \ndata depending
+        on the arguments it receives. This way, if the arguments \never change and
+        become invalid, it\u2019ll no longer return the correctly \nformatted outcome
+        and your tests will fail.<\/li><\/ul>\n<\/li><li>\u2026have a complex algorithm
+        that needs testing?\n<ul><li>Consider moving this to a separate library and
+        test it separately so that the <strong>user contract<\/strong> of that library
+        is being tested.<\/li><\/ul>\n<\/li><li>\u2026want to change the contract?\n<ul><li>You
+        can release a major version bump of your code. See how to use the <a href=\"https:\/\/fromanegg.com\/post\/2014\/04\/25\/when-to-update-your-semver-version-number\/\">semver
+        versioning system<\/a>.<\/li><\/ul>\n<\/li><\/ul>\n\n\n\n<h4 class=\"wp-block-heading\"
+        id=\"conclusion\">Conclusion<\/h4>\n\n\n\n<p>When writing the code and exporting
+        methods, ask yourself if the user\n needs to have access to this method or
+        if you\u2019re only doing it for \ntesting purposes. You can always export
+        more methods, you can\u2019t always \ntake exported methods away.<\/p>\n\n\n\n<p>When
+        writing tests ask yourself how can the consumer interact with \nyour code
+        and what type of outcome is expected for those interactions \nand them make
+        sure you have those documented and assertions in your \ntests.<\/p>\n\n\n\n<p>Don&#8217;t
+        test implementation details of an exported method or UI component. Consider
+        moving those to a different <strong>user contract<\/strong> if you feel they
+        need direct testing.<\/p>\n\n\n\n<p>This post originally appeared on: <a href=\"https:\/\/fromanegg.com\/post\/2020\/01\/01\/testing-your-user-contract\/\">https:\/\/fromanegg.com\/post\/2020\/01\/01\/testing-your-user-contract\/<\/a><\/p>\n","protected":false},"excerpt":{"rendered":"<p>Whenever
+        you write any code that is to be consumed by another, whether it be a library
+        or some UI element, that consumer expects it to work in a certain way every
+        time they interact with it. All good developers would agree and that\u2019s
+        why we also write tests that either break our code up [&hellip;]<\/p>\n","protected":false},"author":455,"featured_media":93927,"comment_status":"open","ping_status":"closed","sticky":false,"template":"","format":"standard","meta":{"footnotes":""},"categories":[1453],"tags":[1239,2598,2929],"topic":[3406],"group":[3407],"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Testing your user contract - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Testing your
+        user contract - Ubuntu Blog\" \/>\n<meta property=\"og:description\" content=\"Whenever
+        you write any code that is to be consumed by another, whether it be a library
+        or some UI element, that consumer expects it to work in a certain way every
+        time they interact with it. All good developers would agree and that\u2019s
+        why we also write tests that either break our code up [&hellip;]\" \/>\n<meta
+        property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"article:publisher\"
+        content=\"https:\/\/www.facebook.com\/ubuntulinux\/\" \/>\n<meta property=\"article:published_time\"
+        content=\"2020-02-10T22:48:14+00:00\" \/>\n<meta property=\"article:modified_time\"
+        content=\"2020-02-10T23:32:02+00:00\" \/>\n<meta property=\"og:image\" content=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg\"
+        \/>\n\t<meta property=\"og:image:width\" content=\"1200\" \/>\n\t<meta property=\"og:image:height\"
+        content=\"799\" \/>\n\t<meta property=\"og:image:type\" content=\"image\/jpeg\"
+        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
+        name=\"twitter:creator\" content=\"@ubuntu\" \/>\n<meta name=\"twitter:site\"
+        content=\"@ubuntu\" \/>\n<meta name=\"twitter:label1\" content=\"Written by\"
+        \/>\n\t<meta name=\"twitter:data1\" content=\"Jeff Pihach\" \/>\n\t<meta name=\"twitter:label2\"
+        content=\"Est. reading time\" \/>\n\t<meta name=\"twitter:data2\" content=\"6
+        minutes\" \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#primaryimage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg\",\"contentUrl\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg\",\"width\":1200,\"height\":799},{\"@type\":\"WebPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/\",\"name\":\"Testing
+        your user contract - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"primaryImageOfPage\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#primaryimage\"},\"datePublished\":\"2020-02-10T22:48:14+00:00\",\"dateModified\":\"2020-02-10T23:32:02+00:00\",\"author\":{\"@id\":\"http:\/\/localhost\/#\/schema\/person\/b06ea90db9bc3308a50ded117ba887b3\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Testing
+        your user contract\"}]},{\"@type\":\"Person\",\"@id\":\"http:\/\/localhost\/#\/schema\/person\/b06ea90db9bc3308a50ded117ba887b3\",\"name\":\"Jeff
+        Pihach\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"http:\/\/localhost\/#\/schema\/person\/image\/\",\"url\":\"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g\",\"contentUrl\":\"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g\",\"caption\":\"Jeff
+        Pihach\"},\"description\":\"Jeff is a software engineer on the Juju UI Engineering
+        team.\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/\"}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Testing your user contract
+        - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/","og_locale":"en_US","og_type":"article","og_title":"Testing
+        your user contract - Ubuntu Blog","og_description":"Whenever you write any
+        code that is to be consumed by another, whether it be a library or some UI
+        element, that consumer expects it to work in a certain way every time they
+        interact with it. All good developers would agree and that\u2019s why we also
+        write tests that either break our code up [&hellip;]","og_url":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/","og_site_name":"Ubuntu
+        Blog","article_publisher":"https:\/\/www.facebook.com\/ubuntulinux\/","article_published_time":"2020-02-10T22:48:14+00:00","article_modified_time":"2020-02-10T23:32:02+00:00","og_image":[{"width":1200,"height":799,"url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg","type":"image\/jpeg"}],"twitter_card":"summary_large_image","twitter_creator":"@ubuntu","twitter_site":"@ubuntu","twitter_misc":{"Written
+        by":"Jeff Pihach","Est. reading time":"6 minutes"},"schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#primaryimage","url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg","contentUrl":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg","width":1200,"height":799},{"@type":"WebPage","@id":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/","name":"Testing
+        your user contract - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"primaryImageOfPage":{"@id":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#primaryimage"},"datePublished":"2020-02-10T22:48:14+00:00","dateModified":"2020-02-10T23:32:02+00:00","author":{"@id":"http:\/\/localhost\/#\/schema\/person\/b06ea90db9bc3308a50ded117ba887b3"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Testing
+        your user contract"}]},{"@type":"Person","@id":"http:\/\/localhost\/#\/schema\/person\/b06ea90db9bc3308a50ded117ba887b3","name":"Jeff
+        Pihach","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"http:\/\/localhost\/#\/schema\/person\/image\/","url":"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g","caption":"Jeff
+        Pihach"},"description":"Jeff is a software engineer on the Juju UI Engineering
+        team.","url":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/"}]}},"_event_location":"","_event_venue":"","_event_registration":"","_start_day":"10","_start_month":"02","_start_year":"2020","_end_day":"10","_end_month":"02","_end_year":"2020","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/93920"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/post"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/455"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=93920"}],"version-history":[{"count":3,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/93920\/revisions"}],"predecessor-version":[{"id":93923,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts\/93920\/revisions\/93923"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/93927"}],"wp:attachment":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?parent=93920"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=93920"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=93920"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=93920"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=93920"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]},"_embedded":{"author":[{"id":455,"name":"Jeff
+        Pihach","url":"","description":"Jeff is a software engineer on the Juju UI
+        Engineering team.","link":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/","slug":"hatch","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g"},"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Jeff Pihach, Author at Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"profile\" \/>\n<meta property=\"og:title\" content=\"Jeff Pihach,
+        Author at Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"og:image\"
+        content=\"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=500&#038;d=mm&#038;r=g\"
+        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
+        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
+        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"ProfilePage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/\",\"name\":\"Jeff
+        Pihach, Author at Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Archives
+        for Jeff Pihach\"}]},{\"@type\":\"Person\",\"@id\":\"http:\/\/localhost\/#\/schema\/person\/b06ea90db9bc3308a50ded117ba887b3\",\"name\":\"Jeff
+        Pihach\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"http:\/\/localhost\/#\/schema\/person\/image\/\",\"url\":\"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g\",\"contentUrl\":\"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g\",\"caption\":\"Jeff
+        Pihach\"},\"description\":\"Jeff is a software engineer on the Juju UI Engineering
+        team.\",\"mainEntityOfPage\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/#webpage\"}}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Jeff Pihach, Author
+        at Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/","og_locale":"en_US","og_type":"profile","og_title":"Jeff
+        Pihach, Author at Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/","og_site_name":"Ubuntu
+        Blog","og_image":[{"url":"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=500&d=mm&r=g"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ProfilePage","@id":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/","name":"Jeff
+        Pihach, Author at Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/author\/hatch\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Archives
+        for Jeff Pihach"}]},{"@type":"Person","@id":"http:\/\/localhost\/#\/schema\/person\/b06ea90db9bc3308a50ded117ba887b3","name":"Jeff
+        Pihach","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"http:\/\/localhost\/#\/schema\/person\/image\/","url":"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/7810b1e116b16104401824099475647e?s=96&d=mm&r=g","caption":"Jeff
+        Pihach"},"description":"Jeff is a software engineer on the Juju UI Engineering
+        team.","mainEntityOfPage":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/hatch\/#webpage"}}]}},"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/455"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}],"wp:featuredmedia":[{"id":93927,"date":"2020-02-10T23:31:33","slug":"testing","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/testing\/","title":{"rendered":"testing"},"author":297,"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>testing - Ubuntu Blog<\/title>\n<meta name=\"robots\" content=\"noindex,
+        follow\" \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"testing - Ubuntu
+        Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"article:publisher\"
+        content=\"https:\/\/www.facebook.com\/ubuntulinux\/\" \/>\n<meta property=\"og:image\"
+        content=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg\"
+        \/>\n\t<meta property=\"og:image:width\" content=\"1200\" \/>\n\t<meta property=\"og:image:height\"
+        content=\"799\" \/>\n\t<meta property=\"og:image:type\" content=\"image\/jpeg\"
+        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
+        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
+        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg\",\"name\":\"testing
+        - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"datePublished\":\"2020-02-10T23:31:33+00:00\",\"dateModified\":\"2020-02-10T23:31:33+00:00\",\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Testing
+        your user contract\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"testing\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"testing - Ubuntu Blog","robots":{"index":"noindex","follow":"follow"},"og_locale":"en_US","og_type":"article","og_title":"testing
+        - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg","og_site_name":"Ubuntu
+        Blog","article_publisher":"https:\/\/www.facebook.com\/ubuntulinux\/","og_image":[{"width":1200,"height":799,"url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg","type":"image\/jpeg"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg#webpage","url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg","name":"testing
+        - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"datePublished":"2020-02-10T23:31:33+00:00","dateModified":"2020-02-10T23:31:33+00:00","breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Testing
+        your user contract","item":"https:\/\/admin.insights.ubuntu.com\/2020\/02\/10\/testing-your-user-contract\/"},{"@type":"ListItem","position":3,"name":"testing"}]}]}},"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":1200,"height":799,"file":"testing.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/cfc2\/testing.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/93927"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/297"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=93927"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=93927"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=93927"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],"wp:term":[[{"id":1453,"link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Articles Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/category\/articles\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Articles Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/category\/articles\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/category\/articles\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/category\/articles\/\",\"name\":\"Articles
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/category\/articles\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/category\/articles\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/category\/articles\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Articles\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Articles Archives -
+        Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","og_locale":"en_US","og_type":"article","og_title":"Articles
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles
+        Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/category\/articles\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Articles"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":1239,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design","slug":"design","taxonomy":"post_tag","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Design Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Design Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/\",\"name\":\"Design
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Design\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Design Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","og_locale":"en_US","og_type":"article","og_title":"Design
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design
+        Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/design\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Design"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1239"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1239"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1239"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2598,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/development\/","name":"Development","slug":"development","taxonomy":"post_tag","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Development Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/development\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Development
+        Archives - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/development\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/development\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/development\/\",\"name\":\"Development
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/development\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/development\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/development\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Development\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Development Archives
+        - Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/development\/","og_locale":"en_US","og_type":"article","og_title":"Development
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/development\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/development\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/development\/","name":"Development
+        Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/development\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/development\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/development\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Development"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2598"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2598"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2598"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2929,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/","name":"testing","slug":"testing","taxonomy":"post_tag","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>testing Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"testing Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/\",\"name\":\"testing
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"testing\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"testing Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/","og_locale":"en_US","og_type":"article","og_title":"testing
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/","name":"testing
+        Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/testing\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/testing\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"testing"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/2929"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=2929"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=2929"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":3406,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/","name":"Design","slug":"design","taxonomy":"topic","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Design Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Design Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/\",\"name\":\"Design
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Design\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Design Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/","og_locale":"en_US","og_type":"article","og_title":"Design
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/","name":"Design
+        Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/topic\/design\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Design"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/3406"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=3406"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=3406"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=3406"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":3407,"link":"https:\/\/admin.insights.ubuntu.com\/group\/design\/","name":"Design","slug":"design","taxonomy":"group","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Design Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/group\/design\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Design Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/group\/design\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"http:\/\/localhost\/#website\",\"url\":\"http:\/\/localhost\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"http:\/\/localhost\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/design\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/group\/design\/\",\"name\":\"Design
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"http:\/\/localhost\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/design\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/group\/design\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/design\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"http:\/\/localhost\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Design\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Design Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/group\/design\/","og_locale":"en_US","og_type":"article","og_title":"Design
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/group\/design\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"http:\/\/localhost\/#website","url":"http:\/\/localhost\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"http:\/\/localhost\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/group\/design\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/group\/design\/","name":"Design
+        Archives - Ubuntu Blog","isPartOf":{"@id":"http:\/\/localhost\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/group\/design\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/group\/design\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/group\/design\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"http:\/\/localhost\/"},{"@type":"ListItem","position":2,"name":"Design"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/3407"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=3407"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=3407"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=3407"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]]}}]'
+    headers:
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Fri, 10 Oct 2025 10:16:29 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '1'
+      x-wp-totalpages:
+      - '1'
+    status:
+      code: 200
+      message: ''
 version: 1
