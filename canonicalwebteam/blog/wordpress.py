@@ -6,6 +6,12 @@ class NotFoundError(Exception):
     pass
 
 
+CATEGORY_FIELDS = ["id", "name", "slug", "parent"]
+TAG_FIELDS = ["id", "name", "slug", "count"]
+USER_FIELDS = ["id", "name", "slug", "description",
+               "avatar_urls", "meta", "user_job_title"]
+
+
 class Wordpress:
     def __init__(
         self,
@@ -29,25 +35,44 @@ class Wordpress:
             self.session.headers.update(
                 {"Authorization": f"Basic {encoded_credentials}"}
             )
+        # Encourage compressed responses for performance
+        if "Accept-Encoding" not in self.session.headers:
+            self.session.headers.update(
+                {"Accept-Encoding": "gzip, deflate, br"})
+        if "Accept" not in self.session.headers:
+            self.session.headers.update({"Accept": "application/json"})
 
-    def request(self, endpoint, params={}, method="get"):
+    def request(self, endpoint, params={}, method="get", embed=True, fields=None):
         """
         Build url to fetch articles from Wordpress api
         :param endpoint: The REST endpoint to fetch data from
         :param params: Dictionary of parameter keys and their values
+        :param embed: Whether to request embedded resources via _embed=true
+        :param fields: Optional list or comma-separated string of fields to include
 
-        :returns: URL to Wordpress api
+        :returns: Response from Wordpress api
         """
 
         clean_params = {}
         for key, value in params.items():
-            if value:
+            if value is not None and value != "":
                 if type(value) is list:
                     clean_params[key] = ",".join(str(item) for item in value)
                 else:
                     clean_params[key] = value
 
-        query = urlencode({**clean_params, "_embed": "true"})
+        # Apply field filtering if provided
+        if fields:
+            if isinstance(fields, list):
+                clean_params["_fields"] = ",".join(fields)
+            else:
+                clean_params["_fields"] = str(fields)
+
+        # Apply embedding only when requested
+        if embed:
+            clean_params["_embed"] = "true"
+
+        query = urlencode(clean_params)
 
         response = self.session.request(
             method, f"{self.api_url}/{endpoint}?{query}"
@@ -56,13 +81,37 @@ class Wordpress:
 
         return response
 
-    def get_first_item(self, endpoint, params={}):
-        response = self.request(endpoint, params)
+    def get_first_item(self, endpoint, params={}, embed=True, fields=None):
+        response = self.request(endpoint, params, embed=embed, fields=fields)
 
         if len(response.json()) == 0:
             raise NotFoundError(f"No items returned from {response.url}")
 
         return response.json()[0]
+
+    # Minimal top-level fields for posts to avoid huge payloads (e.g., Yoast JSON)
+    DEFAULT_POST_FIELDS = [
+        "id",
+        "date_gmt",
+        "modified_gmt",
+        "slug",
+        "title",
+        "excerpt",
+        "content",
+        "tags",
+        "categories",
+        # "title.rendered",
+        # "excerpt.rendered",
+        # "yoast_head_json.description",
+        # "_start_day",
+        # "_start_month",
+        # "_start_year",
+        # "_end_day",
+        # "_end_month",
+        # "_end_year",
+        "_links",
+        "_embedded",
+    ]
 
     def get_articles(
         self,
@@ -113,6 +162,8 @@ class Wordpress:
                 "author": author,
                 "status": status,
             },
+            embed=True,
+            fields=self.DEFAULT_POST_FIELDS,
         )
         total_pages = response.headers.get("X-WP-TotalPages")
         total_posts = response.headers.get("X-WP-Total")
@@ -138,54 +189,67 @@ class Wordpress:
                     "tags_exclude": tags_exclude,
                     "status": status,
                 },
+                embed=True,
+                fields=self.DEFAULT_POST_FIELDS,
             )
         except NotFoundError:
             return {}
 
     def get_tag_by_id(self, id):
-        return self.request(f"tags/{id}").json()
+        return self.request(f"tags/{id}", embed=False, fields=TAG_FIELDS).json()
 
     def get_tag_by_slug(self, slug):
         try:
-            return self.get_first_item("tags", {"slug": slug})
+            return self.get_first_item(
+                "tags", {"slug": slug}, embed=False, fields=TAG_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_tag_by_name(self, name):
         try:
-            return self.get_first_item("tags", {"search": name})
+            return self.get_first_item(
+                "tags", {"search": name}, embed=False, fields=TAG_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_categories(self):
-        return self.request("categories", {"per_page": 100}).json()
+        return self.request(
+            "categories",
+            {"per_page": 100},
+            embed=False,
+            fields=CATEGORY_FIELDS
+        ).json()
 
     def get_group_by_slug(self, slug):
         try:
-            return self.get_first_item("group", {"slug": slug})
+            return self.get_first_item("group", {"slug": slug}, embed=False, fields=CATEGORY_FIELDS)
         except NotFoundError:
             return {}
 
     def get_group_by_id(self, id):
-        return self.request(f"group/{str(id)}").json()
+        return self.request(f"group/{str(id)}", embed=False, fields=CATEGORY_FIELDS).json()
 
     def get_category_by_slug(self, slug):
         try:
-            return self.get_first_item("categories", {"slug": slug})
+            return self.get_first_item(
+                "categories", {"slug": slug}, embed=False, fields=CATEGORY_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_category_by_id(self, id):
-        return self.request(f"categories/{str(id)}").json()
+        return self.request(f"categories/{str(id)}", embed=False, fields=CATEGORY_FIELDS).json()
 
     def get_media(self, id):
-        return self.request(f"media/{str(id)}").json()
+        return self.request(f"media/{str(id)}", embed=False).json()
 
     def get_user_by_username(self, username):
         try:
-            return self.get_first_item("users", {"slug": username})
+            return self.get_first_item("users", {"slug": username}, embed=False, fields=USER_FIELDS)
         except NotFoundError:
             return {}
 
     def get_user_by_id(self, id):
-        return self.request((f"users/{str(id)}")).json()
+        return self.request((f"users/{str(id)}"), embed=False, fields=USER_FIELDS).json()
