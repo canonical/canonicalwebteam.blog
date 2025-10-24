@@ -58,7 +58,8 @@ class Wordpress:
         :param endpoint: The REST endpoint to fetch data from
         :param params: Dictionary of parameter keys and their values
         :param embed: Whether to request embedded resources via _embed=true
-        :param fields: Optional list or comma-separated string of fields to include
+        :param fields: Optional list or comma-separated
+                        string of fields to include
 
         :returns: Response from Wordpress api
         """
@@ -99,7 +100,8 @@ class Wordpress:
 
         return response.json()[0]
 
-    # Minimal top-level fields for posts to avoid huge payloads (e.g., Yoast JSON)
+    # Minimal top-level fields for posts to
+    # avoid huge payloads (e.g., Yoast JSON)
     DEFAULT_POST_FIELDS = [
         "id",
         "date_gmt",
