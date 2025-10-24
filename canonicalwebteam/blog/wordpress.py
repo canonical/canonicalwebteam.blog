@@ -8,8 +8,15 @@ class NotFoundError(Exception):
 
 CATEGORY_FIELDS = ["id", "name", "slug", "parent"]
 TAG_FIELDS = ["id", "name", "slug", "count"]
-USER_FIELDS = ["id", "name", "slug", "description",
-               "avatar_urls", "meta", "user_job_title"]
+USER_FIELDS = [
+    "id",
+    "name",
+    "slug",
+    "description",
+    "avatar_urls",
+    "meta",
+    "user_job_title",
+]
 
 
 class Wordpress:
@@ -38,11 +45,14 @@ class Wordpress:
         # Encourage compressed responses for performance
         if "Accept-Encoding" not in self.session.headers:
             self.session.headers.update(
-                {"Accept-Encoding": "gzip, deflate, br"})
+                {"Accept-Encoding": "gzip, deflate, br"}
+            )
         if "Accept" not in self.session.headers:
             self.session.headers.update({"Accept": "application/json"})
 
-    def request(self, endpoint, params={}, method="get", embed=True, fields=None):
+    def request(
+        self, endpoint, params={}, method="get", embed=True, fields=None
+    ):
         """
         Build url to fetch articles from Wordpress api
         :param endpoint: The REST endpoint to fetch data from
@@ -100,15 +110,13 @@ class Wordpress:
         "content",
         "tags",
         "categories",
-        # "title.rendered",
-        # "excerpt.rendered",
-        # "yoast_head_json.description",
-        # "_start_day",
-        # "_start_month",
-        # "_start_year",
-        # "_end_day",
-        # "_end_month",
-        # "_end_year",
+        "yoast_head_json.description",
+        "_start_day",
+        "_start_month",
+        "_start_year",
+        "_end_day",
+        "_end_month",
+        "_end_year",
         "_links",
         "_embedded",
     ]
@@ -196,7 +204,9 @@ class Wordpress:
             return {}
 
     def get_tag_by_id(self, id):
-        return self.request(f"tags/{id}", embed=False, fields=TAG_FIELDS).json()
+        return self.request(
+            f"tags/{id}", embed=False, fields=TAG_FIELDS
+        ).json()
 
     def get_tag_by_slug(self, slug):
         try:
@@ -219,37 +229,50 @@ class Wordpress:
             "categories",
             {"per_page": 100},
             embed=False,
-            fields=CATEGORY_FIELDS
+            fields=CATEGORY_FIELDS,
         ).json()
 
     def get_group_by_slug(self, slug):
         try:
-            return self.get_first_item("group", {"slug": slug}, embed=False, fields=CATEGORY_FIELDS)
+            return self.get_first_item(
+                "group", {"slug": slug}, embed=False, fields=CATEGORY_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_group_by_id(self, id):
-        return self.request(f"group/{str(id)}", embed=False, fields=CATEGORY_FIELDS).json()
+        return self.request(
+            f"group/{str(id)}", embed=False, fields=CATEGORY_FIELDS
+        ).json()
 
     def get_category_by_slug(self, slug):
         try:
             return self.get_first_item(
-                "categories", {"slug": slug}, embed=False, fields=CATEGORY_FIELDS
+                "categories",
+                {"slug": slug},
+                embed=False,
+                fields=CATEGORY_FIELDS,
             )
         except NotFoundError:
             return {}
 
     def get_category_by_id(self, id):
-        return self.request(f"categories/{str(id)}", embed=False, fields=CATEGORY_FIELDS).json()
+        return self.request(
+            f"categories/{str(id)}", embed=False, fields=CATEGORY_FIELDS
+        ).json()
 
     def get_media(self, id):
         return self.request(f"media/{str(id)}", embed=False).json()
 
     def get_user_by_username(self, username):
         try:
-            return self.get_first_item("users", {"slug": username}, embed=False, fields=USER_FIELDS)
+            return self.get_first_item(
+                "users", {"slug": username}, embed=False, fields=USER_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_user_by_id(self, id):
-        return self.request((f"users/{str(id)}"), embed=False, fields=USER_FIELDS).json()
+        return self.request(
+            (f"users/{str(id)}"), embed=False, fields=USER_FIELDS
+        ).json()
