@@ -45,6 +45,7 @@ class BlogAPI(Wordpress):
         per_page=12,
         page=1,
         status=None,
+        fields=None,
     ):
         articles, metadata = super().get_articles(
             tags,
@@ -59,6 +60,7 @@ class BlogAPI(Wordpress):
             per_page,
             page,
             status,
+            fields,
         )
 
         return (
@@ -66,8 +68,15 @@ class BlogAPI(Wordpress):
             metadata,
         )
 
-    def get_article(self, slug, tags=None, tags_exclude=None, status=None):
-        article = super().get_article(slug, tags, tags_exclude, status)
+    def get_article(
+        self,
+        slug,
+        tags=None,
+        tags_exclude=None,
+        status=None,
+        fields=None,
+    ):
+        article = super().get_article(slug, tags, tags_exclude, status, fields)
 
         if not article:
             return {}
@@ -192,6 +201,10 @@ class BlogAPI(Wordpress):
 
         # extract meta description from yoast_head_json
         yoast_head_json = article.get("yoast_head_json", {})
+        # Ensure yoast_head_json is always a dict,
+        # even if the API returns an array
+        if isinstance(yoast_head_json, list):
+            yoast_head_json = {}
         # if there is no meta description, use the excerpt
         article["meta_description"] = yoast_head_json.get(
             "description", article["excerpt"]["raw"]

@@ -81,7 +81,8 @@ class BlogViews:
 
     def get_index_feed(self, uri, path):
         articles, _ = self.api.get_articles(
-            tags=self.tag_ids, tags_exclude=self.excluded_tags
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
         )
 
         url_root = flask.request.url_root
@@ -98,7 +99,10 @@ class BlogViews:
 
     def get_article(self, slug):
         article = self.api.get_article(
-            slug, self.tag_ids, self.excluded_tags, self.status
+            slug,
+            self.tag_ids,
+            self.excluded_tags,
+            self.status,
         )
 
         if not article:
@@ -199,7 +203,8 @@ class BlogViews:
             return None
 
         articles, _ = self.api.get_articles(
-            tags=[tag["id"]], tags_exclude=self.excluded_tags
+            tags=[tag["id"]],
+            tags_exclude=self.excluded_tags,
         )
 
         title = f"{tag['name']} - {self.blog_title}"
@@ -404,7 +409,7 @@ class BlogViews:
         all_related_articles, _ = self.api.get_articles(
             tags=[tag["id"] for tag in tags],
             tags_exclude=excluded_tags,
-            per_page=30,
+            per_page=20,
             exclude=[article["id"]],
         )
 
