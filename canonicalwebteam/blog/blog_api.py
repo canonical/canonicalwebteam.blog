@@ -45,6 +45,8 @@ class BlogAPI(Wordpress):
         per_page=12,
         page=1,
         status=None,
+        list_mode=False,
+        fields=None,
     ):
         articles, metadata = super().get_articles(
             tags,
@@ -59,6 +61,8 @@ class BlogAPI(Wordpress):
             per_page,
             page,
             status,
+            list_mode,
+            fields
         )
 
         return (
@@ -82,7 +86,7 @@ class BlogAPI(Wordpress):
 
         :returns: The transformed article
         """
-
+        print("article", article)
         if "_embedded" in article:
             article["image"] = article["_embedded"].get(
                 "wp:featuredmedia", [None]

@@ -45,6 +45,7 @@ class BlogViews:
                 page=page,
                 sticky="true",
                 per_page=3,
+                list_mode=True,
             )
 
             # Maybe we can get the IDs since there is no chance
@@ -57,6 +58,7 @@ class BlogViews:
                 page=page,
                 per_page=3,
                 categories=[events["id"], webinars["id"]],
+                list_mode=True,
             )
 
         articles, metadata = self.api.get_articles(
@@ -67,6 +69,7 @@ class BlogViews:
             per_page=self.per_page,
             categories=categories,
             status=self.status,
+            list_mode=True,
         )
 
         return {
@@ -138,6 +141,7 @@ class BlogViews:
             per_page=self.per_page,
             groups=[group.get("id", "")],
             categories=categories,
+            list_mode=True,
         )
 
         return {
@@ -183,6 +187,7 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             page=page,
             per_page=self.per_page,
+            list_mode=True,
         )
 
         return {
@@ -225,6 +230,7 @@ class BlogViews:
             page=page,
             per_page=self.per_page,
             categories=[events["id"], webinars["id"]],
+            list_mode=True,
         )
         total_pages = metadata["total_pages"]
 
@@ -247,6 +253,7 @@ class BlogViews:
             page=page,
             author=author["id"],
             per_page=self.per_page,
+            list_mode=True,
         )
 
         return {
@@ -291,6 +298,7 @@ class BlogViews:
             page=1,
             per_page=1,
             sticky=True,
+            list_mode=True,
         )
 
         latest_articles, _ = self.api.get_articles(
@@ -301,6 +309,7 @@ class BlogViews:
             page=1,
             per_page=limit,
             sticky=False,
+            list_mode=True,
         )
 
         return {
@@ -348,6 +357,7 @@ class BlogViews:
             categories=categories,
             after=after,
             before=before,
+            list_mode=True,
         )
 
         total_pages = metadata["total_pages"]
@@ -378,6 +388,7 @@ class BlogViews:
             page=page,
             per_page=self.per_page,
             status=self.status,
+            list_mode=True,
         )
         total_pages = metadata["total_pages"]
 
@@ -404,8 +415,9 @@ class BlogViews:
         all_related_articles, _ = self.api.get_articles(
             tags=[tag["id"] for tag in tags],
             tags_exclude=excluded_tags,
-            per_page=30,
+            per_page=10,
             exclude=[article["id"]],
+            fields="id,slug,title,excerpt,tags"
         )
 
         related_articles = []
