@@ -62,7 +62,7 @@ class BlogAPI(Wordpress):
             page,
             status,
             list_mode,
-            fields
+            fields,
         )
 
         return (

@@ -275,7 +275,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             author=author["id"],
-            list_mode=True
+            list_mode=True,
         )
 
         title = f"{author['name']} - {self.blog_title}"
@@ -419,7 +419,7 @@ class BlogViews:
             per_page=10,
             exclude=[article["id"]],
             list_mode=True,
-            fields="id,slug,title,excerpt,tags,author,featured_media,date_gmt,modified_gmt"
+            fields="id,slug,title,excerpt,tags,author,featured_media,date_gmt,modified_gmt",
         )
 
         related_articles = []

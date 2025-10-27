@@ -18,7 +18,7 @@ USER_FIELDS = [
     "meta",
     "user_job_title",
     "user_twitter",
-    "user_facebook"
+    "user_facebook",
 ]
 # Shared fields across detail and list views
 COMMON_POST_FIELDS = [
@@ -224,11 +224,7 @@ class Wordpress:
             fields=(
                 fields
                 if fields
-                else (
-                    LIST_POST_FIELDS
-                    if list_mode
-                    else DEFAULT_POST_FIELDS
-                )
+                else (LIST_POST_FIELDS if list_mode else DEFAULT_POST_FIELDS)
             ),
         )
         total_pages = response.headers.get("X-WP-TotalPages")
