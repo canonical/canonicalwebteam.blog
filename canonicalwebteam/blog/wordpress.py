@@ -8,7 +8,7 @@ class NotFoundError(Exception):
 
 
 CATEGORY_FIELDS = ["id", "name", "slug", "parent"]
-TAG_FIELDS = ["id", "name", "slug", "count"]
+TAG_FIELDS = ["id", "name", "slug"]
 USER_FIELDS = [
     "id",
     "name",
@@ -17,6 +17,41 @@ USER_FIELDS = [
     "avatar_urls",
     "meta",
     "user_job_title",
+    "user_twitter",
+    "user_facebook"
+]
+# Shared fields across detail and list views
+COMMON_POST_FIELDS = [
+    "id",
+    "slug",
+    "date_gmt",
+    "modified_gmt",
+    "categories",
+    "tags",
+    "_start_day",
+    "_start_month",
+    "_start_year",
+    "_end_day",
+    "_end_month",
+    "_end_year",
+    "author",
+    "title.rendered",
+    "excerpt.rendered",
+]
+# Minimal top-level fields for detail pages (keep embedded trimmed)
+DEFAULT_POST_FIELDS = [
+    *COMMON_POST_FIELDS,
+    "content.rendered",
+    "_links",
+    "_embedded",
+    # yoast_head_json.description,
+]
+# Very small field set for lists (IDs for joins + display basics)
+LIST_POST_FIELDS = [
+    *COMMON_POST_FIELDS,
+    "group",
+    "topic",
+    "featured_media",
 ]
 
 
@@ -86,10 +121,6 @@ class Wordpress:
 
         query = urlencode(clean_params)
 
-        print("query >>>", query)
-        print("params >>>", params)
-        print("clean_params >>>", clean_params)
-
         response = self.session.request(
             method, f"{self.api_url}/{endpoint}?{query}"
         )
@@ -104,44 +135,6 @@ class Wordpress:
             raise NotFoundError(f"No items returned from {response.url}")
 
         return response.json()[0]
-
-    # Shared fields across detail and list views
-    COMMON_POST_FIELDS = [
-        "id",
-        "slug",
-        "date_gmt",
-        "modified_gmt",
-        "categories",
-        "tags",
-        "_start_day",
-        "_start_month",
-        "_start_year",
-        "_end_day",
-        "_end_month",
-        "_end_year",
-    ]
-
-    # Minimal top-level fields for detail pages (keep embedded trimmed)
-    DEFAULT_POST_FIELDS = [
-        *COMMON_POST_FIELDS,
-        "title",
-        "excerpt",
-        "content",
-        "_links",
-        "_embedded",
-        # yoast_head_json.description,
-    ]
-
-    # Very small field set for lists (IDs for joins + display basics)
-    LIST_POST_FIELDS = [
-        *COMMON_POST_FIELDS,
-        "title.rendered",
-        "excerpt.rendered",
-        "author",
-        "group",
-        "topic",
-        "featured_media",
-    ]
 
     def _chunk(self, iterable, size):
         it = iter(iterable)
@@ -232,9 +225,9 @@ class Wordpress:
                 fields
                 if fields
                 else (
-                    self.LIST_POST_FIELDS
+                    LIST_POST_FIELDS
                     if list_mode
-                    else self.DEFAULT_POST_FIELDS
+                    else DEFAULT_POST_FIELDS
                 )
             ),
         )
@@ -273,13 +266,15 @@ class Wordpress:
                 "tags", tag_ids, ["id", "name", "slug"]
             )
 
-            # Optionally fetch groups when a single group filter is applied
             group_ids = groups or []
-            group_map = {}
-            if isinstance(group_ids, list) and len(group_ids) == 1:
-                group_map = self._bulk_fetch_map(
-                    "group", group_ids, ["id", "name", "slug"]
-                )
+            # If a group filter is not applied, fetch groups
+            if len(group_ids) == 0:
+                for gid in a.get("group", []):
+                    group_ids.append(gid)
+
+            group_map = self._bulk_fetch_map(
+                "group", group_ids, ["id", "name", "slug"]
+            )
 
             # Synthesize _embedded to match WordPress order:
             # wp:term indexes: [0]=category, [1]=post_tag, [2]=topic, [3]=group
@@ -336,7 +331,7 @@ class Wordpress:
                     "status": status,
                 },
                 embed=True,
-                fields=self.DEFAULT_POST_FIELDS,
+                fields=DEFAULT_POST_FIELDS,
             )
         except NotFoundError:
             return {}

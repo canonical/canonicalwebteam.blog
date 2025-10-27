@@ -86,7 +86,6 @@ class BlogAPI(Wordpress):
 
         :returns: The transformed article
         """
-        print("article", article)
         if "_embedded" in article:
             article["image"] = article["_embedded"].get(
                 "wp:featuredmedia", [None]
