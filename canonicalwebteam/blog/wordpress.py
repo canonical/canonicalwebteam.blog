@@ -142,6 +142,94 @@ class Wordpress:
             )
         return result
 
+    def _synthesize_embedded(self, articles, groups=None):
+        """
+        Build a trimmed _embedded structure for provided articles, fetching
+        related entities in bulk for performance and preserving WordPress
+        term ordering (category, post_tag, topic, group).
+
+        :param articles: Iterable of article dicts to mutate in place
+        :param groups: Optional group filter list (used for fallback)
+        """
+        # Deduplicate IDs across all articles
+        author_ids = {a.get("author") for a in articles if a.get("author")}
+        media_ids = {
+            a.get("featured_media")
+            for a in articles
+            if a.get("featured_media")
+        }
+        category_ids = {
+            cid for a in articles for cid in a.get("categories", [])
+        }
+        tag_ids = {tid for a in articles for tid in a.get("tags", [])}
+        group_ids = set(groups or [])
+        for a in articles:
+            group_ids.update(a.get("group", []))
+
+        # Bulk-fetch related entities
+        users_map = self._bulk_fetch_map(
+            "users",
+            author_ids,
+            ["id", "name", "slug", "avatar_urls"],
+        )
+        media_map = self._bulk_fetch_map(
+            "media",
+            media_ids,
+            ["id", "source_url", "media_details"],
+        )
+        categories_map = self._bulk_fetch_map(
+            "categories",
+            category_ids,
+            CATEGORY_FIELDS,
+        )
+        tags_map = self._bulk_fetch_map("tags", tag_ids, TAG_FIELDS)
+        group_map = self._bulk_fetch_map(
+            "group",
+            group_ids,
+            ["id", "name", "slug"],
+        )
+
+        # Synthesize _embedded to match WordPress order:
+        # wp:term: [category, post_tag, topic, group]
+        for a in articles:
+            auth_id = a.get("author")
+            fm_id = a.get("featured_media")
+            cat_terms = [
+                categories_map[cid]
+                for cid in a.get("categories", [])
+                if cid in categories_map
+            ]
+            tag_terms = [
+                tags_map[tid] for tid in a.get("tags", []) if tid in tags_map
+            ]
+            group_terms = [
+                group_map[gid]
+                for gid in a.get("group", [])
+                if gid in group_map
+            ]
+            # Fallback: if filtered by a single group but the post doesn't
+            # carry group terms, inject that group to preserve coherence.
+            if not group_terms and groups and len(groups) == 1:
+                gid = groups[0]
+                if gid in group_map:
+                    group_terms = [group_map[gid]]
+
+            # The third position in wp:term is the 'topic' taxonomy in
+            # WordPress (order: category, post_tag, topic, group). We don't
+            # synthesize topics in compact mode, so leave it empty to
+            # preserve the expected array structure.
+            topic_terms = []
+            embedded = {
+                "wp:term": [cat_terms, tag_terms, topic_terms, group_terms]
+            }
+            if auth_id in users_map:
+                embedded["author"] = [users_map[auth_id]]
+            if fm_id in media_map:
+                embedded["wp:featuredmedia"] = [media_map[fm_id]]
+            a["_embedded"] = embedded
+
+        return articles
+
     def get_articles(
         self,
         tags=None,
@@ -198,7 +286,9 @@ class Wordpress:
             fields=(
                 fields
                 if fields
-                else (LIST_POST_FIELDS if compact_mode else DEFAULT_POST_FIELDS)
+                else (
+                    LIST_POST_FIELDS if compact_mode else DEFAULT_POST_FIELDS
+                )
             ),
         )
         total_pages = response.headers.get("X-WP-TotalPages")
@@ -207,68 +297,7 @@ class Wordpress:
         articles = response.json()
 
         if compact_mode:
-            # Deduplicate IDs for bulk fetches
-            author_ids = {a.get("author") for a in articles if a.get("author")}
-            media_ids = {
-                a.get("featured_media")
-                for a in articles
-                if a.get("featured_media")
-            }
-            category_ids = {
-                cid for a in articles for cid in a.get("categories", [])
-            }
-            tag_ids = {tid for a in articles for tid in a.get("tags", [])}
-            group_ids = set(groups or [])
-            for a in articles:
-                group_ids.update(a.get("group", []))
-
-            users_map = self._bulk_fetch_map(
-                "users",
-                author_ids,
-                ["id", "name", "slug", "avatar_urls"],
-            )
-            media_map = self._bulk_fetch_map(
-                "media", media_ids, ["id", "source_url", "media_details"]
-            )
-            categories_map = self._bulk_fetch_map(
-                "categories", category_ids, CATEGORY_FIELDS
-            )
-            tags_map = self._bulk_fetch_map("tags", tag_ids, TAG_FIELDS)
-            group_map = self._bulk_fetch_map(
-                "group", group_ids, ["id", "name", "slug"]
-            )
-
-            # Synthesize _embedded to match WordPress order:
-            # wp:term: [category, post_tag, topic, group]
-            for a in articles:
-                auth_id = a.get("author")
-                fm_id = a.get("featured_media")
-                cat_terms = [
-                    categories_map[cid]
-                    for cid in a.get("categories", [])
-                    if cid in categories_map
-                ]
-                tag_terms = [
-                    tags_map[tid]
-                    for tid in a.get("tags", [])
-                    if tid in tags_map
-                ]
-                group_terms = [
-                    group_map[gid]
-                    for gid in a.get("group", [])
-                    if gid in group_map
-                ]
-                if not group_terms and groups and len(groups) == 1:
-                    gid = groups[0]
-                    if gid in group_map:
-                        group_terms = [group_map[gid]]
-
-                embedded = {"wp:term": [cat_terms, tag_terms, [], group_terms]}
-                if auth_id in users_map:
-                    embedded["author"] = [users_map[auth_id]]
-                if fm_id in media_map:
-                    embedded["wp:featuredmedia"] = [media_map[fm_id]]
-                a["_embedded"] = embedded
+            self._synthesize_embedded(articles, groups)
 
         return (
             articles,
@@ -304,48 +333,8 @@ class Wordpress:
             )
 
             if compact_mode and article:
-                # Collect IDs for synthetic embedding
-                auth_id = article.get("author")
-                fm_id = article.get("featured_media")
-                category_ids = article.get("categories", [])
-                tag_ids = article.get("tags", [])
-                group_ids = set(article.get("group", []))
-
-                users_map = self._bulk_fetch_map(
-                    "users",
-                    [auth_id] if auth_id else [],
-                    ["id", "name", "slug", "avatar_urls"],
-                )
-                media_map = self._bulk_fetch_map(
-                    "media",
-                    [fm_id] if fm_id else [],
-                    ["id", "source_url", "media_details"],
-                )
-                categories_map = self._bulk_fetch_map(
-                    "categories",
-                    category_ids,
-                    CATEGORY_FIELDS,
-                )
-                tags_map = self._bulk_fetch_map("tags", tag_ids, TAG_FIELDS)
-                group_map = self._bulk_fetch_map(
-                    "group",
-                    list(group_ids),
-                    ["id", "name", "slug"],
-                )
-
-                cat_terms = [
-                    categories_map[cid] for cid in category_ids if cid in categories_map
-                ]
-                tag_terms = [tags_map[tid] for tid in tag_ids if tid in tags_map]
-                group_terms = [group_map[gid] for gid in group_ids if gid in group_map]
-
-                embedded = {"wp:term": [cat_terms, tag_terms, [], group_terms]}
-                if auth_id in users_map:
-                    embedded["author"] = [users_map[auth_id]]
-                if fm_id in media_map:
-                    embedded["wp:featuredmedia"] = [media_map[fm_id]]
-
-                article["_embedded"] = embedded
+                # Reuse shared synthesis for a single article
+                self._synthesize_embedded([article])
 
             return article
         except NotFoundError:
