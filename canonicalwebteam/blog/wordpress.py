@@ -193,56 +193,42 @@ class Wordpress:
         articles = response.json()
 
         if list_mode:
-            # Collect IDs for bulk fetching
-            author_ids = []
-            media_ids = []
-            category_ids = []
-            tag_ids = []
-
+            # Deduplicate IDs for bulk fetches
+            author_ids = {a.get("author") for a in articles if a.get("author")}
+            media_ids = {
+                a.get("featured_media")
+                for a in articles
+                if a.get("featured_media")
+            }
+            category_ids = {
+                cid for a in articles for cid in a.get("categories", [])
+            }
+            tag_ids = {tid for a in articles for tid in a.get("tags", [])}
+            group_ids = set(groups or [])
             for a in articles:
-                if "author" in a and a["author"]:
-                    author_ids.append(a["author"])
-                if "featured_media" in a and a["featured_media"]:
-                    media_ids.append(a["featured_media"])
-                for cid in a.get("categories", []):
-                    category_ids.append(cid)
-                for tid in a.get("tags", []):
-                    tag_ids.append(tid)
+                group_ids.update(a.get("group", []))
 
             users_map = self._bulk_fetch_map(
-                "users", author_ids, ["id", "name", "slug", "avatar_urls"]
+                "users",
+                author_ids,
+                ["id", "name", "slug", "avatar_urls"],
             )
             media_map = self._bulk_fetch_map(
                 "media", media_ids, ["id", "source_url", "media_details"]
             )
             categories_map = self._bulk_fetch_map(
-                "categories", category_ids, ["id", "name", "slug", "parent"]
+                "categories", category_ids, CATEGORY_FIELDS
             )
-            tags_map = self._bulk_fetch_map(
-                "tags", tag_ids, ["id", "name", "slug"]
-            )
-
-            group_ids = groups or []
-            # If a group filter is not applied, fetch groups
-            if len(group_ids) == 0:
-                for gid in a.get("group", []):
-                    group_ids.append(gid)
-
+            tags_map = self._bulk_fetch_map("tags", tag_ids, TAG_FIELDS)
             group_map = self._bulk_fetch_map(
                 "group", group_ids, ["id", "name", "slug"]
             )
 
             # Synthesize _embedded to match WordPress order:
-            # wp:term indexes: [0]=category, [1]=post_tag, [2]=topic, [3]=group
+            # wp:term: [category, post_tag, topic, group]
             for a in articles:
-                embedded = {}
                 auth_id = a.get("author")
-                if auth_id and auth_id in users_map:
-                    embedded["author"] = [users_map[auth_id]]
                 fm_id = a.get("featured_media")
-                if fm_id and fm_id in media_map:
-                    embedded["wp:featuredmedia"] = [media_map[fm_id]]
-
                 cat_terms = [
                     categories_map[cid]
                     for cid in a.get("categories", [])
@@ -253,16 +239,21 @@ class Wordpress:
                     for tid in a.get("tags", [])
                     if tid in tags_map
                 ]
-                wp_term = [cat_terms, tag_terms, [], []]
-
-                # Attach the single filtered group to each post in group lists
-                if group_map:
-                    # get only group object since we know the id
-                    gid = group_ids[0]
+                group_terms = [
+                    group_map[gid]
+                    for gid in a.get("group", [])
+                    if gid in group_map
+                ]
+                if not group_terms and groups and len(groups) == 1:
+                    gid = groups[0]
                     if gid in group_map:
-                        wp_term[3] = [group_map[gid]]
+                        group_terms = [group_map[gid]]
 
-                embedded["wp:term"] = wp_term
+                embedded = {"wp:term": [cat_terms, tag_terms, [], group_terms]}
+                if auth_id in users_map:
+                    embedded["author"] = [users_map[auth_id]]
+                if fm_id in media_map:
+                    embedded["wp:featuredmedia"] = [media_map[fm_id]]
                 a["_embedded"] = embedded
 
         return (

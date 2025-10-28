@@ -437,7 +437,7 @@ class BlogViews:
         all_related_articles, _ = self.api.get_articles(
             tags=[tag["id"] for tag in tags],
             tags_exclude=excluded_tags,
-            per_page=10,
+            per_page=20,
             exclude=[article["id"]],
             list_mode=True,
             fields=(
