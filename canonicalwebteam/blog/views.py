@@ -7,6 +7,11 @@ from dateutil.relativedelta import relativedelta
 from feedgen.entry import FeedEntry
 from feedgen.feed import FeedGenerator
 
+# Local
+from .constants import (
+    FEED_POST_FIELDS,
+)
+
 
 class BlogViews:
     def __init__(
@@ -84,7 +89,10 @@ class BlogViews:
 
     def get_index_feed(self, uri, path):
         articles, _ = self.api.get_articles(
-            tags=self.tag_ids, tags_exclude=self.excluded_tags
+            tags=self.tag_ids,
+            tags_exclude=self.excluded_tags,
+            list_mode=True,
+            fields=FEED_POST_FIELDS,
         )
 
         url_root = flask.request.url_root
@@ -101,7 +109,12 @@ class BlogViews:
 
     def get_article(self, slug):
         article = self.api.get_article(
-            slug, self.tag_ids, self.excluded_tags, self.status
+            slug,
+            self.tag_ids,
+            self.excluded_tags,
+            self.status,
+            list_mode=True,
+            fields=FEED_POST_FIELDS,
         )
 
         if not article:
@@ -117,6 +130,8 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             page=1,
             per_page=1,
+            list_mode=True,
+            fields=FEED_POST_FIELDS,
         )
 
         if not articles:
@@ -163,6 +178,8 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             groups=[group.get("id", "")],
+            list_mode=True,
+            fields=FEED_POST_FIELDS,
         )
 
         title = f"{group['name']} - {self.blog_title}"
@@ -204,7 +221,10 @@ class BlogViews:
             return None
 
         articles, _ = self.api.get_articles(
-            tags=[tag["id"]], tags_exclude=self.excluded_tags
+            tags=[tag["id"]],
+            tags_exclude=self.excluded_tags,
+            list_mode=True,
+            fields=FEED_POST_FIELDS,
         )
 
         title = f"{tag['name']} - {self.blog_title}"
@@ -276,6 +296,7 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             author=author["id"],
             list_mode=True,
+            fields=FEED_POST_FIELDS,
         )
 
         title = f"{author['name']} - {self.blog_title}"
