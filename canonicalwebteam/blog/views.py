@@ -1,4 +1,5 @@
 # Standard library
+from dataclasses import field
 from datetime import datetime
 
 # Packages
@@ -6,6 +7,11 @@ import flask
 from dateutil.relativedelta import relativedelta
 from feedgen.entry import FeedEntry
 from feedgen.feed import FeedGenerator
+
+# Local
+from .constants import (
+    POST_DETAILS_FIELDS,
+)
 
 
 class BlogViews:
@@ -93,6 +99,7 @@ class BlogViews:
             feed_title=self.blog_title,
             feed_description=self.feed_description,
             articles=articles,
+            fields=POST_DETAILS_FIELDS,
         )
 
         return feed.rss_str()
@@ -163,6 +170,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             groups=[group.get("id", "")],
+            fields=POST_DETAILS_FIELDS,
         )
 
         title = f"{group['name']} - {self.blog_title}"
@@ -205,6 +213,7 @@ class BlogViews:
         articles, _ = self.api.get_articles(
             tags=[tag["id"]],
             tags_exclude=self.excluded_tags,
+            fields=POST_DETAILS_FIELDS,
         )
 
         title = f"{tag['name']} - {self.blog_title}"
@@ -273,6 +282,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             author=author["id"],
+            fields=POST_DETAILS_FIELDS,
         )
 
         title = f"{author['name']} - {self.blog_title}"

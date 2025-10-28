@@ -37,7 +37,9 @@ COMMON_POST_FIELDS = [
 # Minimal top-level fields for detail pages (keep embedded trimmed)
 DEFAULT_POST_FIELDS = [
     *COMMON_POST_FIELDS,
-    "_links",
+    "_links.author",
+    "_links.wp:featuredmedia",
+    "_links.wp:term",
     "_embedded",
 ]
 POST_DETAILS_FIELDS = [
