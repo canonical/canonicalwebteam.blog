@@ -1,7 +1,3 @@
-import base64
-from urllib.parse import urlencode
-from itertools import islice
-
 from .constants import (
     CATEGORY_FIELDS,
     TAG_FIELDS,
@@ -9,6 +5,13 @@ from .constants import (
     LIST_POST_FIELDS,
     DEFAULT_POST_FIELDS,
 )
+import base64
+from urllib.parse import urlencode
+from itertools import islice
+
+# Max IDs per request when using
+# the `include` parameter
+BULK_INCLUDE_CHUNK = 100
 
 
 class NotFoundError(Exception):
@@ -106,26 +109,37 @@ class Wordpress:
 
     def _bulk_fetch_map(self, endpoint, ids, fields):
         """
-        Fetch resources by IDs using include batching
-        and return {id: obj}.
+        Fetch resources by IDs using batched `include` requests and
+        return a mapping of `{id: obj}`.
+
+        - Deduplicates and normalizes IDs to ints.
+        - Batches by `BULK_INCLUDE_CHUNK` to avoid oversized queries.
+        - Skips invalid IDs gracefully.
         """
-        id_set = {int(i) for i in ids if i is not None}
-        result = {}
+        id_set = set()
+        for i in ids or []:
+            try:
+                id_set.add(int(i))
+            except (TypeError, ValueError):
+                continue
+
         if not id_set:
-            return result
-        for chunk in self._chunk(sorted(id_set), 100):
+            return {}
+
+        result = {}
+        for chunk in self._chunk(sorted(id_set), BULK_INCLUDE_CHUNK):
             resp = self.request(
                 endpoint,
                 {
                     "per_page": len(chunk),
-                    "include": ",".join(str(i) for i in chunk),
+                    "include": ",".join(map(str, chunk)),
                 },
                 embed=False,
                 fields=fields,
             )
-            for obj in resp.json():
-                # Each endpoint returns objects with an "id" field
-                result[obj.get("id")] = obj
+            result.update(
+                {obj["id"]: obj for obj in resp.json() if "id" in obj}
+            )
         return result
 
     def get_articles(
