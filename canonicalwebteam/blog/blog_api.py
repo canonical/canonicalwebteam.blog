@@ -45,9 +45,18 @@ class BlogAPI(Wordpress):
         per_page=12,
         page=1,
         status=None,
-        list_mode=False,
+        compact_mode=True,
         fields=None,
     ):
+        """Fetch and transform posts.
+
+        - When ``compact_mode=True`` (default), the base client disables
+          WordPress ``_embed`` and uses minimal fields for lists, then
+          bulk-fetches related entities (author, media, terms) and
+          synthesizes a trimmed ``_embedded`` structure for each post.
+        - Passing ``fields`` overrides the default field set for precise
+          control, e.g. using ``FEED_POST_FIELDS`` for feeds.
+        """
         articles, metadata = super().get_articles(
             tags,
             tags_exclude,
@@ -61,7 +70,7 @@ class BlogAPI(Wordpress):
             per_page,
             page,
             status,
-            list_mode,
+            compact_mode,
             fields,
         )
 
@@ -70,8 +79,26 @@ class BlogAPI(Wordpress):
             metadata,
         )
 
-    def get_article(self, slug, tags=None, tags_exclude=None, status=None):
-        article = super().get_article(slug, tags, tags_exclude, status)
+    def get_article(
+        self,
+        slug,
+        tags=None,
+        tags_exclude=None,
+        status=None,
+        compact_mode=True,
+        fields=None,
+    ):
+        """Fetch and transform a single post.
+
+        - With ``compact_mode=True`` (default), the base client disables
+          WordPress ``_embed`` and synthesizes a minimal ``_embedded`` for
+          the article, while returning essential fields (including content).
+        - Provide ``fields`` to tailor the response for feeds or special
+          views; otherwise sensible defaults are used.
+        """
+        article = super().get_article(
+            slug, tags, tags_exclude, status, compact_mode, fields
+        )
 
         if not article:
             return {}

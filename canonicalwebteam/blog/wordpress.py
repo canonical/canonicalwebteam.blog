@@ -156,7 +156,7 @@ class Wordpress:
         per_page=12,
         page=1,
         status=None,
-        list_mode=False,
+        compact_mode=True,
         fields=None,
     ):
         """
@@ -174,7 +174,7 @@ class Wordpress:
         :param author: Name of the author to fetch articles from
         :param status: Array of post statuses to include
             (e.g., ['publish', 'draft'])
-        :param list_mode: If True, use tiny _fields and synthesize _embedded
+        :param compact_mode: If True, use tiny _fields and synthesize _embedded
 
         :returns: response, metadata dictionary
         """
@@ -194,11 +194,11 @@ class Wordpress:
                 "author": author,
                 "status": status,
             },
-            embed=not list_mode,
+            embed=not compact_mode,
             fields=(
                 fields
                 if fields
-                else (LIST_POST_FIELDS if list_mode else DEFAULT_POST_FIELDS)
+                else (LIST_POST_FIELDS if compact_mode else DEFAULT_POST_FIELDS)
             ),
         )
         total_pages = response.headers.get("X-WP-TotalPages")
@@ -206,7 +206,7 @@ class Wordpress:
 
         articles = response.json()
 
-        if list_mode:
+        if compact_mode:
             # Deduplicate IDs for bulk fetches
             author_ids = {a.get("author") for a in articles if a.get("author")}
             media_ids = {
@@ -275,7 +275,15 @@ class Wordpress:
             {"total_pages": total_pages, "total_posts": total_posts},
         )
 
-    def get_article(self, slug, tags=None, tags_exclude=None, status=None):
+    def get_article(
+        self,
+        slug,
+        tags=None,
+        tags_exclude=None,
+        status=None,
+        compact_mode=True,
+        fields=None,
+    ):
         """
         Get an article from Wordpress api
         :param slug: Article slug to fetch
@@ -283,7 +291,7 @@ class Wordpress:
             (e.g., ['publish', 'draft'])
         """
         try:
-            return self.get_first_item(
+            article = self.get_first_item(
                 "posts",
                 {
                     "slug": slug,
@@ -291,9 +299,55 @@ class Wordpress:
                     "tags_exclude": tags_exclude,
                     "status": status,
                 },
-                embed=True,
-                fields=DEFAULT_POST_FIELDS,
+                embed=not compact_mode,
+                fields=(fields if fields else DEFAULT_POST_FIELDS),
             )
+
+            if compact_mode and article:
+                # Collect IDs for synthetic embedding
+                auth_id = article.get("author")
+                fm_id = article.get("featured_media")
+                category_ids = article.get("categories", [])
+                tag_ids = article.get("tags", [])
+                group_ids = set(article.get("group", []))
+
+                users_map = self._bulk_fetch_map(
+                    "users",
+                    [auth_id] if auth_id else [],
+                    ["id", "name", "slug", "avatar_urls"],
+                )
+                media_map = self._bulk_fetch_map(
+                    "media",
+                    [fm_id] if fm_id else [],
+                    ["id", "source_url", "media_details"],
+                )
+                categories_map = self._bulk_fetch_map(
+                    "categories",
+                    category_ids,
+                    CATEGORY_FIELDS,
+                )
+                tags_map = self._bulk_fetch_map("tags", tag_ids, TAG_FIELDS)
+                group_map = self._bulk_fetch_map(
+                    "group",
+                    list(group_ids),
+                    ["id", "name", "slug"],
+                )
+
+                cat_terms = [
+                    categories_map[cid] for cid in category_ids if cid in categories_map
+                ]
+                tag_terms = [tags_map[tid] for tid in tag_ids if tid in tags_map]
+                group_terms = [group_map[gid] for gid in group_ids if gid in group_map]
+
+                embedded = {"wp:term": [cat_terms, tag_terms, [], group_terms]}
+                if auth_id in users_map:
+                    embedded["author"] = [users_map[auth_id]]
+                if fm_id in media_map:
+                    embedded["wp:featuredmedia"] = [media_map[fm_id]]
+
+                article["_embedded"] = embedded
+
+            return article
         except NotFoundError:
             return {}
 

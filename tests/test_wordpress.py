@@ -20,7 +20,8 @@ class TestWordpress(VCRTestCase):
         return super().setUp()
 
     def test_get_articles(self):
-        articles, metadata = self.api.get_articles()
+        # Use non-compact mode to include full content in test
+        articles, metadata = self.api.get_articles(compact_mode=False)
         # I assume these numbers are only gonna grow
         self.assertTrue(int(metadata["total_pages"]) >= 258)
         self.assertTrue(int(metadata["total_posts"]) >= 3095)

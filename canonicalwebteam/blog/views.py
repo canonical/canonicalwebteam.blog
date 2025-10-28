@@ -50,7 +50,6 @@ class BlogViews:
                 page=page,
                 sticky="true",
                 per_page=3,
-                list_mode=True,
             )
 
             # Maybe we can get the IDs since there is no chance
@@ -63,7 +62,6 @@ class BlogViews:
                 page=page,
                 per_page=3,
                 categories=[events["id"], webinars["id"]],
-                list_mode=True,
             )
 
         articles, metadata = self.api.get_articles(
@@ -74,7 +72,6 @@ class BlogViews:
             per_page=self.per_page,
             categories=categories,
             status=self.status,
-            list_mode=True,
         )
 
         return {
@@ -91,7 +88,6 @@ class BlogViews:
         articles, _ = self.api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
-            list_mode=True,
             fields=FEED_POST_FIELDS,
         )
 
@@ -113,7 +109,6 @@ class BlogViews:
             self.tag_ids,
             self.excluded_tags,
             self.status,
-            list_mode=True,
             fields=FEED_POST_FIELDS,
         )
 
@@ -130,7 +125,6 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             page=1,
             per_page=1,
-            list_mode=True,
             fields=FEED_POST_FIELDS,
         )
 
@@ -156,7 +150,6 @@ class BlogViews:
             per_page=self.per_page,
             groups=[group.get("id", "")],
             categories=categories,
-            list_mode=True,
         )
 
         return {
@@ -178,7 +171,6 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             groups=[group.get("id", "")],
-            list_mode=True,
             fields=FEED_POST_FIELDS,
         )
 
@@ -204,7 +196,6 @@ class BlogViews:
             tags_exclude=self.excluded_tags,
             page=page,
             per_page=self.per_page,
-            list_mode=True,
         )
 
         return {
@@ -223,7 +214,6 @@ class BlogViews:
         articles, _ = self.api.get_articles(
             tags=[tag["id"]],
             tags_exclude=self.excluded_tags,
-            list_mode=True,
             fields=FEED_POST_FIELDS,
         )
 
@@ -250,7 +240,6 @@ class BlogViews:
             page=page,
             per_page=self.per_page,
             categories=[events["id"], webinars["id"]],
-            list_mode=True,
         )
         total_pages = metadata["total_pages"]
 
@@ -273,7 +262,6 @@ class BlogViews:
             page=page,
             author=author["id"],
             per_page=self.per_page,
-            list_mode=True,
         )
 
         return {
@@ -295,7 +283,6 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             author=author["id"],
-            list_mode=True,
             fields=FEED_POST_FIELDS,
         )
 
@@ -320,7 +307,6 @@ class BlogViews:
             page=1,
             per_page=1,
             sticky=True,
-            list_mode=True,
         )
 
         latest_articles, _ = self.api.get_articles(
@@ -331,7 +317,6 @@ class BlogViews:
             page=1,
             per_page=limit,
             sticky=False,
-            list_mode=True,
         )
 
         return {
@@ -379,7 +364,6 @@ class BlogViews:
             categories=categories,
             after=after,
             before=before,
-            list_mode=True,
         )
 
         total_pages = metadata["total_pages"]
@@ -410,7 +394,6 @@ class BlogViews:
             page=page,
             per_page=self.per_page,
             status=self.status,
-            list_mode=True,
         )
         total_pages = metadata["total_pages"]
 
@@ -439,7 +422,6 @@ class BlogViews:
             tags_exclude=excluded_tags,
             per_page=20,
             exclude=[article["id"]],
-            list_mode=True,
             fields=(
                 "id,slug,title,excerpt,tags,author,featured_media,"
                 "date_gmt,modified_gmt"
