@@ -43,7 +43,9 @@ class TestBlogAPI(VCRTestCase):
             "admin.insights.ubuntu.com/wp-content/uploads",
             article["content"]["rendered"],
         )
-        self.assertIn("ubuntu.com/wp-content/uploads", article["content"]["rendered"])
+        self.assertIn(
+            "ubuntu.com/wp-content/uploads", article["content"]["rendered"]
+        )
 
     def test_it_transforms_article_image(self):
         self.api = BlogAPI(
@@ -57,7 +59,7 @@ class TestBlogAPI(VCRTestCase):
         )
 
         self.assertIn(
-            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_720/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg",
+            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg",
             article["content"]["rendered"],
         )
 
@@ -109,7 +111,8 @@ class TestBlogAPI(VCRTestCase):
         )
 
         self.assertIn(
-            'src="https://ubuntu.com/' 'wp-content/uploads/2e4c/dell-xps-2004.jpg"',
+            'src="https://ubuntu.com/'
+            'wp-content/uploads/2e4c/dell-xps-2004.jpg"',
             article["content"]["rendered"],
         )
 
