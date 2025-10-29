@@ -2,76 +2,131 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.22.0]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.22.0
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories/1453?_embed=true
   response:
-    body: {string: '{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'}
+    body:
+      string: '{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}'
     headers:
-      Access-Control-Allow-Headers: ['Authorization, Content-Type']
-      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
-      Allow: [GET]
-      Connection: [Keep-Alive]
-      Content-Length: ['745']
-      Content-Type: [application/json; charset=UTF-8]
-      Date: ['Tue, 09 Jun 2020 13:52:19 GMT']
-      Keep-Alive: ['timeout=5, max=100']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
-      Server: [Apache/2.4.7 (Ubuntu)]
-      Vary: ['Origin,Cookie']
-      Via: [1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)]
-      X-Cache: [MISS from juju-prod45-is-insights-blog-machine-16]
-      X-Cache-Lookup: ['MISS from juju-prod45-is-insights-blog-machine-16:8080']
-      X-Content-Type-Options: [nosniff]
-      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
-      X-Robots-Tag: [noindex]
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '745'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 09 Jun 2020 13:52:19 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Origin,Cookie
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-16
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-16:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.22.0]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.22.0
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=articles&_embed=true
   response:
-    body: {string: '[{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
+    body:
+      string: '[{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'
     headers:
-      Access-Control-Allow-Headers: ['Authorization, Content-Type']
-      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
-      Allow: [GET]
-      Connection: [Keep-Alive]
-      Content-Length: ['747']
-      Content-Type: [application/json; charset=UTF-8]
-      Date: ['Tue, 09 Jun 2020 13:52:19 GMT']
-      Keep-Alive: ['timeout=5, max=99']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
-      Server: [Apache/2.4.7 (Ubuntu)]
-      Vary: ['Origin,Cookie']
-      Via: [1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)]
-      X-Cache: [MISS from juju-prod45-is-insights-blog-machine-16]
-      X-Cache-Lookup: ['HIT from juju-prod45-is-insights-blog-machine-16:8080']
-      X-Content-Type-Options: [nosniff]
-      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
-      X-Robots-Tag: [noindex]
-      X-WP-Total: ['1']
-      X-WP-TotalPages: ['1']
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '747'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 09 Jun 2020 13:52:19 GMT
+      Keep-Alive:
+      - timeout=5, max=99
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Origin,Cookie
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-16
+      X-Cache-Lookup:
+      - HIT from juju-prod45-is-insights-blog-machine-16:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+      X-WP-Total:
+      - '1'
+      X-WP-TotalPages:
+      - '1'
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.22.0]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.22.0
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?per_page=100&_embed=true
   response:
-    body: {string: '[{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2628,"count":102,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/canonical-news\/","name":"Canonical
+    body:
+      string: '[{"id":1453,"count":1497,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/articles\/","name":"Articles","slug":"articles","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1453"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1453"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1453"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2628,"count":102,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/canonical-news\/","name":"Canonical
         News","slug":"canonical-news","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2628"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2628"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2628"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1172,"count":56,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/case-studies\/","name":"Case
         studies","slug":"case-studies","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1172"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1172"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1172"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3682,"count":1,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/cloud\/ceph\/","name":"Ceph","slug":"ceph","taxonomy":"category","parent":2639,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3682"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"up":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2639"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=3682"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=3682"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]},"_embedded":{"up":[{"id":2639,"link":"https:\/\/admin.insights.ubuntu.com\/category\/cloud\/","name":"Cloud","slug":"cloud","taxonomy":"category","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2639"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2639"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2639"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]}},{"id":3555,"count":0,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/juju\/charms\/","name":"Charms","slug":"charms","taxonomy":"category","parent":3554,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3555"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"up":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3554"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=3555"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=3555"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]},"_embedded":{"up":[{"id":3554,"link":"https:\/\/admin.insights.ubuntu.com\/category\/juju\/","name":"Juju","slug":"juju","taxonomy":"category","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3554"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=3554"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=3554"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]}},{"id":1173,"count":0,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/checklists\/","name":"Checklists","slug":"checklists","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1173"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1173"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1173"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2639,"count":79,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/cloud\/","name":"Cloud","slug":"cloud","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2639"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2639"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2639"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2706,"count":344,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/design\/","name":"Design","slug":"design","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2706"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2706"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2706"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2635,"count":88,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/desktop\/","name":"Desktop","slug":"desktop","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2635"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2635"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2635"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2707,"count":51,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/development\/","name":"Development","slug":"development","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2707"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2707"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2707"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3531,"count":1,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/devops\/","name":"DevOps","slug":"devops","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3531"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=3531"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=3531"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1554,"count":7,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/downloads\/","name":"Downloads","slug":"downloads","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1554"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1554"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1554"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3454,"count":2,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/cloud\/edge-cloud\/","name":"Edge
         Cloud","slug":"edge-cloud","taxonomy":"category","parent":2639,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3454"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"up":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2639"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=3454"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=3454"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]},"_embedded":{"up":[{"id":2639,"link":"https:\/\/admin.insights.ubuntu.com\/category\/cloud\/","name":"Cloud","slug":"cloud","taxonomy":"category","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2639"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2639"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2639"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]}},{"id":2642,"count":15,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/engineering\/","name":"Engineering","slug":"engineering","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2642"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2642"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2642"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1175,"count":130,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/events\/","name":"Events","slug":"events","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1175"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1175"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1175"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2708,"count":101,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/featured\/","name":"Featured","slug":"featured","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2708"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2708"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2708"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3554,"count":1,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/juju\/","name":"Juju","slug":"juju","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3554"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=3554"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=3554"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3415,"count":14,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/kubeflow\/","name":"Kubeflow","slug":"kubeflow","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3415"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=3415"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=3415"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":3416,"count":2,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/machine-learning\/kubeflow-machine-learning\/","name":"Kubeflow","slug":"kubeflow-machine-learning","taxonomy":"category","parent":3414,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3416"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"up":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/3414"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=3416"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=3416"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]},"_embedded":{"up":[{"id":3414,"link":"https:\/\/admin.insights.ubuntu.com\/category\/machine-learning\/","name":"Machine
@@ -82,26 +137,218 @@ interactions:
         Advantage","slug":"ubuntu-advantage","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2641"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2641"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2641"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2647,"count":4,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/ubuntu-one\/","name":"Ubuntu
         One","slug":"ubuntu-one","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2647"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2647"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2647"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2640,"count":1,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/uncategorised\/","name":"Uncategorised","slug":"uncategorised","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2640"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2640"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2640"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":2711,"count":48,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/user-experience\/","name":"User
         Experience","slug":"user-experience","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/2711"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=2711"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=2711"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1509,"count":45,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/videos\/","name":"Videos","slug":"videos","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1509"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1509"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1509"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1187,"count":109,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/webinars\/","name":"Webinars","slug":"webinars","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1187"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1187"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1187"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}},{"id":1485,"count":36,"description":"","link":"https:\/\/admin.insights.ubuntu.com\/category\/white-papers\/","name":"White
-        papers","slug":"white-papers","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1485"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1485"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1485"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'}
+        papers","slug":"white-papers","taxonomy":"category","parent":0,"meta":[],"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories\/1485"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/category"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?categories=1485"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?categories=1485"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]'
     headers:
-      Access-Control-Allow-Headers: ['Authorization, Content-Type']
-      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
-      Allow: [GET]
-      Connection: [Keep-Alive]
-      Content-Type: [application/json; charset=UTF-8]
-      Date: ['Tue, 09 Jun 2020 13:52:19 GMT']
-      Keep-Alive: ['timeout=5, max=98']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
-      Server: [Apache/2.4.7 (Ubuntu)]
-      Transfer-Encoding: [chunked]
-      Vary: ['Origin,Cookie']
-      Via: [1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)]
-      X-Cache: [MISS from juju-prod45-is-insights-blog-machine-16]
-      X-Cache-Lookup: ['MISS from juju-prod45-is-insights-blog-machine-16:8080']
-      X-Content-Type-Options: [nosniff]
-      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
-      X-Robots-Tag: [noindex]
-      X-WP-Total: ['45']
-      X-WP-TotalPages: ['1']
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 09 Jun 2020 13:52:19 GMT
+      Keep-Alive:
+      - timeout=5, max=98
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin,Cookie
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-16
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-16:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+      X-WP-Total:
+      - '45'
+      X-WP-TotalPages:
+      - '1'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories/1453?_fields=id%2Cname%2Cslug%2Cparent
+  response:
+    body:
+      string: '{"id":1453,"name":"Articles","slug":"articles","parent":0}'
+    headers:
+      accept-ranges:
+      - bytes
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-length:
+      - '58'
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 29 Oct 2025 13:04:10 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?slug=articles&_fields=id%2Cname%2Cslug%2Cparent
+  response:
+    body:
+      string: '[{"id":1453,"name":"Articles","slug":"articles","parent":0}]'
+    headers:
+      accept-ranges:
+      - bytes
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-length:
+      - '60'
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 29 Oct 2025 13:04:11 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '1'
+      x-wp-totalpages:
+      - '1'
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/categories?per_page=100&_fields=id%2Cname%2Cslug%2Cparent
+  response:
+    body:
+      string: '[{"id":4678,"name":"5G core","slug":"5g-core","parent":4677},{"id":4708,"name":"5G
+        RAN","slug":"5g-ran","parent":4677},{"id":4766,"name":"Anbox Cloud","slug":"anbox-cloud","parent":2639},{"id":3920,"name":"Apps","slug":"apps","parent":0},{"id":1453,"name":"Articles","slug":"articles","parent":0},{"id":4319,"name":"Automotive","slug":"automotive","parent":0},{"id":2628,"name":"Canonical
+        News","slug":"canonical-news","parent":0},{"id":1172,"name":"Case studies","slug":"case-studies","parent":0},{"id":3682,"name":"Ceph","slug":"ceph","parent":2639},{"id":3555,"name":"Charms","slug":"charms","parent":3554},{"id":1173,"name":"Checklists","slug":"checklists","parent":0},{"id":4476,"name":"CIS
+        Benchmarks","slug":"cis-benchmarks","parent":4473},{"id":2639,"name":"Cloud","slug":"cloud","parent":0},{"id":4373,"name":"Community","slug":"community","parent":0},{"id":4331,"name":"Confidential
+        computing","slug":"confidential-computing","parent":4030},{"id":4785,"name":"Containers","slug":"containers","parent":0},{"id":4196,"name":"Data
+        Platform","slug":"data-platform","parent":0},{"id":4736,"name":"Data Science","slug":"data-science","parent":0},{"id":4088,"name":"Data
+        Systems","slug":"data-systems","parent":0},{"id":2706,"name":"Design","slug":"design","parent":0},{"id":2635,"name":"Desktop","slug":"desktop","parent":0},{"id":2707,"name":"Development","slug":"development","parent":0},{"id":3531,"name":"DevOps","slug":"devops","parent":0},{"id":4475,"name":"DISA
+        STIG","slug":"disa-stig","parent":4473},{"id":4729,"name":"Documentation","slug":"documentation","parent":0},{"id":1554,"name":"Downloads","slug":"downloads","parent":0},{"id":3454,"name":"Edge
+        Cloud","slug":"edge-cloud","parent":2639},{"id":2642,"name":"Engineering","slug":"engineering","parent":0},{"id":1175,"name":"Events","slug":"events","parent":0},{"id":2708,"name":"Featured","slug":"featured","parent":0},{"id":4110,"name":"Financial
+        Services","slug":"financial-services","parent":0},{"id":4474,"name":"FIPS","slug":"fips","parent":4473},{"id":4473,"name":"Hardening","slug":"hardening","parent":0},{"id":4573,"name":"HPC","slug":"hpc","parent":0},{"id":4768,"name":"Infotainment","slug":"infotainment","parent":4319},{"id":3554,"name":"Juju","slug":"juju","parent":0},{"id":3415,"name":"Kubeflow","slug":"kubeflow","parent":0},{"id":3416,"name":"Kubeflow","slug":"kubeflow-machine-learning","parent":3414},{"id":3453,"name":"Kubernetes","slug":"kubernetes","parent":2639},{"id":4113,"name":"Livepatch","slug":"livepatch","parent":4030},{"id":4261,"name":"LXD","slug":"lxd","parent":0},{"id":3544,"name":"MAAS","slug":"maas","parent":0},{"id":3414,"name":"Machine
+        Learning","slug":"machine-learning","parent":0},{"id":4399,"name":"Media &amp;
+        Entertainment","slug":"media-entertainment","parent":0},{"id":4160,"name":"Networking","slug":"networking","parent":2639},{"id":4231,"name":"Networking","slug":"networking-3","parent":0},{"id":1189,"name":"News","slug":"news","parent":0},{"id":2709,"name":"Notes","slug":"notes","parent":0},{"id":4124,"name":"Observability","slug":"observability","parent":0},{"id":2632,"name":"open
+        source","slug":"open-source","parent":0},{"id":3553,"name":"OpenStack","slug":"openstack","parent":2639},{"id":4142,"name":"Opinion","slug":"opinion","parent":0},{"id":3660,"name":"OSM","slug":"osm","parent":3528},{"id":2630,"name":"Partners","slug":"partners","parent":0},{"id":2681,"name":"Phone","slug":"phone","parent":0},{"id":4677,"name":"private
+        mobile network","slug":"private-mobile-network","parent":3528},{"id":1183,"name":"Product
+        business card","slug":"product-business-card","parent":0},{"id":4524,"name":"Public
+        Cloud","slug":"public-cloud","parent":2639},{"id":2710,"name":"Research","slug":"research","parent":0},{"id":4030,"name":"Security","slug":"security","parent":0},{"id":2636,"name":"Server","slug":"server","parent":0},{"id":2658,"name":"Services","slug":"services","parent":0},{"id":3540,"name":"Storage","slug":"storage","parent":0},{"id":2697,"name":"Tablet","slug":"tablet","parent":0},{"id":3528,"name":"Telecommunications","slug":"telecommunications","parent":0},{"id":2497,"name":"Tutorials","slug":"tutorials","parent":0},{"id":2680,"name":"TV","slug":"tv","parent":0},{"id":4567,"name":"Ubuntu","slug":"ubuntu","parent":0},{"id":2641,"name":"Ubuntu
+        Advantage","slug":"ubuntu-advantage","parent":0},{"id":2647,"name":"Ubuntu
+        One","slug":"ubuntu-one","parent":0},{"id":4563,"name":"Ubuntu Pro","slug":"ubuntu-pro","parent":0},{"id":2640,"name":"Uncategorised","slug":"uncategorised","parent":0},{"id":2711,"name":"User
+        Experience","slug":"user-experience","parent":0},{"id":1509,"name":"Videos","slug":"videos","parent":0},{"id":1187,"name":"Webinars","slug":"webinars","parent":0},{"id":1485,"name":"White
+        papers","slug":"white-papers","parent":0}]'
+    headers:
+      accept-ranges:
+      - bytes
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-length:
+      - '4791'
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 29 Oct 2025 13:04:12 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '76'
+      x-wp-totalpages:
+      - '1'
+    status:
+      code: 200
+      message: ''
 version: 1

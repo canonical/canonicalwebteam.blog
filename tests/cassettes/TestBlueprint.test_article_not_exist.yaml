@@ -109,4 +109,56 @@ interactions:
     status:
       code: 200
       message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=not-exist&status=publish&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded%2Ccontent.rendered%2Cyoast_head_json.description&_embed=true
+  response:
+    body:
+      string: '[]'
+    headers:
+      accept-ranges:
+      - bytes
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-length:
+      - '2'
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 29 Oct 2025 13:02:27 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '0'
+      x-wp-totalpages:
+      - '0'
+    status:
+      code: 200
+      message: ''
 version: 1

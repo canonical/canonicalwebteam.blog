@@ -88,6 +88,7 @@ class BlogViews:
         articles, _ = self.api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
+            fields=POST_DETAILS_FIELDS,
         )
 
         url_root = flask.request.url_root
@@ -98,7 +99,6 @@ class BlogViews:
             feed_title=self.blog_title,
             feed_description=self.feed_description,
             articles=articles,
-            fields=POST_DETAILS_FIELDS,
         )
 
         return feed.rss_str()

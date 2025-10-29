@@ -15,6 +15,7 @@ class TestWordpress(VCRTestCase):
         return {
             "record_mode": "new_episodes",
         }
+
     def setUp(self):
         self.api = Wordpress(session=requests.Session())
         return super().setUp()
@@ -26,7 +27,7 @@ class TestWordpress(VCRTestCase):
         self.assertTrue(int(metadata["total_posts"]) >= 3095)
 
         for article in articles:
-            self.assertTrue("rendered" in article["content"])
+            self.assertNotIn("content", article)
 
         no_article = self.api.get_article(slug="nonexistent-slug")
         self.assertEqual(no_article, {})
@@ -54,12 +55,12 @@ class TestWordpress(VCRTestCase):
         tag = self.api.get_tag_by_slug(slug="design")
         self.assertEqual(tag["name"], "Design")
         self.assertEqual(tag["id"], 1239)
-        self.assertTrue(tag["count"] >= 542)
+        self.assertNotIn("count", tag)
 
         tag = self.api.get_tag_by_id(id=1239)
         self.assertEqual(tag["name"], "Design")
         self.assertEqual(tag["slug"], "design")
-        self.assertTrue(tag["count"] >= 542)
+        self.assertNotIn("count", tag)
 
         tag = self.api.get_tag_by_name(name="Design")
         # Note: This highlights a flaw in this method,
@@ -77,9 +78,9 @@ class TestWordpress(VCRTestCase):
         self.assertEqual(category["id"], 1453)
 
         categories = self.api.get_categories()
-        self.assertEqual(len(categories), 45)
+        self.assertEqual(len(categories), 76)
         for category in categories:
-            self.assertIn("count", category)
+            self.assertNotIn("count", category)
             self.assertIn("name", category)
 
     def test_get_groups(self):
