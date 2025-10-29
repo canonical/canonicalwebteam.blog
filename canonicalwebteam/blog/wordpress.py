@@ -74,7 +74,7 @@ class Wordpress:
                 clean_params["_fields"] = str(fields)
 
         # Apply embedding only when requested
-        if embed:
+        if embed is True:
             clean_params["_embed"] = "true"
 
         query = urlencode(clean_params)

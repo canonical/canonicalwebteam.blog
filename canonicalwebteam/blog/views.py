@@ -1,5 +1,4 @@
 # Standard library
-from dataclasses import field
 from datetime import datetime
 
 # Packages

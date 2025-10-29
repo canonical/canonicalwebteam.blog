@@ -47,15 +47,3 @@ POST_DETAILS_FIELDS = [
     "content.rendered",
     "yoast_head_json.description",
 ]
-
-# Very small field set for lists (IDs for joins + display basics)
-LIST_POST_FIELDS = [
-    *COMMON_POST_FIELDS,
-    "topic",
-    "featured_media",
-]
-
-FEED_POST_FIELDS = [
-    *LIST_POST_FIELDS,
-    "content.rendered",
-]
