@@ -2,64 +2,215 @@ interactions:
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.22.0]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.22.0
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/217?_embed=true
   response:
-    body: {string: '{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'}
+    body:
+      string: '{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}'
     headers:
-      Access-Control-Allow-Headers: ['Authorization, Content-Type']
-      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
-      Allow: [GET]
-      Connection: [Keep-Alive]
-      Content-Length: ['760']
-      Content-Type: [application/json; charset=UTF-8]
-      Date: ['Tue, 09 Jun 2020 13:52:20 GMT']
-      Keep-Alive: ['timeout=5, max=100']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
-      Server: [Apache/2.4.7 (Ubuntu)]
-      Vary: ['Origin,Cookie']
-      Via: [1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)]
-      X-Cache: [MISS from juju-prod45-is-insights-blog-machine-16]
-      X-Cache-Lookup: ['MISS from juju-prod45-is-insights-blog-machine-16:8080']
-      X-Content-Type-Options: [nosniff]
-      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
-      X-Robots-Tag: [noindex]
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '760'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 09 Jun 2020 13:52:20 GMT
+      Keep-Alive:
+      - timeout=5, max=100
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Origin,Cookie
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      X-Cache:
+      - MISS from juju-prod45-is-insights-blog-machine-16
+      X-Cache-Lookup:
+      - MISS from juju-prod45-is-insights-blog-machine-16:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
-      Accept: ['*/*']
-      Accept-Encoding: ['gzip, deflate']
-      Connection: [keep-alive]
-      User-Agent: [python-requests/2.22.0]
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.22.0
     method: GET
     uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users?slug=canonical&_embed=true
   response:
-    body: {string: '[{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}]'}
+    body:
+      string: '[{"id":217,"name":"Canonical","url":"","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/canonical\/","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/217"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}]'
     headers:
-      Access-Control-Allow-Headers: ['Authorization, Content-Type']
-      Access-Control-Expose-Headers: ['X-WP-Total, X-WP-TotalPages']
-      Age: ['114']
-      Allow: [GET]
-      Connection: [Keep-Alive]
-      Content-Length: ['762']
-      Content-Type: [application/json; charset=UTF-8]
-      Date: ['Tue, 09 Jun 2020 13:50:26 GMT']
-      Keep-Alive: ['timeout=5, max=99']
-      Link: ['<https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"']
-      Server: [Apache/2.4.7 (Ubuntu)]
-      Vary: ['Origin,Cookie']
-      Via: [1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)]
-      X-Cache: [HIT from juju-prod45-is-insights-blog-machine-16]
-      X-Cache-Lookup: ['HIT from juju-prod45-is-insights-blog-machine-16:8080']
-      X-Content-Type-Options: [nosniff]
-      X-Powered-By: [PHP/5.5.9-1ubuntu4.29]
-      X-Robots-Tag: [noindex]
-      X-WP-Total: ['1']
-      X-WP-TotalPages: ['1']
-    status: {code: 200, message: OK}
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type
+      Access-Control-Expose-Headers:
+      - X-WP-Total, X-WP-TotalPages
+      Age:
+      - '114'
+      Allow:
+      - GET
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '762'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 09 Jun 2020 13:50:26 GMT
+      Keep-Alive:
+      - timeout=5, max=99
+      Link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      Server:
+      - Apache/2.4.7 (Ubuntu)
+      Vary:
+      - Origin,Cookie
+      Via:
+      - 1.1 juju-prod45-is-insights-blog-machine-16 (squid/3.3.8)
+      X-Cache:
+      - HIT from juju-prod45-is-insights-blog-machine-16
+      X-Cache-Lookup:
+      - HIT from juju-prod45-is-insights-blog-machine-16:8080
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - PHP/5.5.9-1ubuntu4.29
+      X-Robots-Tag:
+      - noindex
+      X-WP-Total:
+      - '1'
+      X-WP-TotalPages:
+      - '1'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users/217?_fields=id%2Cname%2Cslug%2Cdescription%2Cavatar_urls%2Cmeta%2Cuser_job_title%2Cuser_twitter%2Cuser_facebook
+  response:
+    body:
+      string: '{"id":217,"name":"Canonical","description":"","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_twitter":"","user_facebook":""}'
+    headers:
+      accept-ranges:
+      - bytes
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-length:
+      - '427'
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 29 Oct 2025 13:04:17 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+    status:
+      code: 200
+      message: ''
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/users?slug=canonical&_fields=id%2Cname%2Cslug%2Cdescription%2Cavatar_urls%2Cmeta%2Cuser_job_title%2Cuser_twitter%2Cuser_facebook
+  response:
+    body:
+      string: '[{"id":217,"name":"Canonical","description":"","slug":"canonical","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/9d1f43af7ce4c818a532e9bb30f509e2?s=96&d=mm&r=g"},"meta":[],"user_job_title":"","user_twitter":"","user_facebook":""}]'
+    headers:
+      accept-ranges:
+      - bytes
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-length:
+      - '429'
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 29 Oct 2025 13:04:17 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '1'
+      x-wp-totalpages:
+      - '1'
+    status:
+      code: 200
+      message: ''
 version: 1

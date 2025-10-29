@@ -24,6 +24,7 @@ class TestBlueprint(VCRTestCase):
         return {
             "record_mode": "new_episodes",
         }
+
     def setUp(self):
         super().setUp()
 
@@ -68,11 +69,12 @@ class TestBlueprint(VCRTestCase):
         self.assertNotIn(
             b"admin.insights.ubuntu.com/wp-content/uploads", response.data
         )
-        self.assertIn(b"https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34", response.data)
-
-        image_src = (
-            "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34"
+        self.assertIn(
+            b"https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34",
+            response.data,
         )
+
+        image_src = "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34"
 
         self.assertIn(str.encode(image_src), response.data)
 

@@ -69,7 +69,7 @@ interactions:
       User-Agent:
       - python-requests/2.24.0
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&categories=&group=&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?per_page=12&page=1&group=&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
   response:
     body:
       string: '[{"id":97853,"date":"2020-09-28T10:15:02","date_gmt":"2020-09-28T10:15:02","guid":{"rendered":"https:\/\/admin.insights.ubuntu.com\/?p=97853"},"modified":"2020-09-28T10:15:04","modified_gmt":"2020-09-28T10:15:04","slug":"osm-hackfest-mr9","status":"publish","type":"post","link":"https:\/\/admin.insights.ubuntu.com\/2020\/09\/28\/osm-hackfest-mr9\/","title":{"rendered":"Canonical
@@ -1453,4 +1453,56 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/group?slug=not-exist&_fields=id%2Cname%2Cslug%2Cparent
+  response:
+    body:
+      string: '[]'
+    headers:
+      accept-ranges:
+      - bytes
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-length:
+      - '2'
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 29 Oct 2025 13:03:28 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      vary:
+      - Origin
+      x-cache-status:
+      - HIT from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '0'
+      x-wp-totalpages:
+      - '0'
+    status:
+      code: 200
+      message: ''
 version: 1

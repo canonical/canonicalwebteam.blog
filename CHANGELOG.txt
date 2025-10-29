@@ -1,3 +1,4 @@
+6.7.0: Replace `_embed` on resource types (tags, group, topic) and add `_fields` filter for smaller responses for lists.
 6.6.0: Allow passing of 'status' when fetching blogs & added ability to add credentials 
 6.5.0: Blog Images can now pull their width and height from css styles
 6.4.6: Added `per_page` in `get_archives` endpoint

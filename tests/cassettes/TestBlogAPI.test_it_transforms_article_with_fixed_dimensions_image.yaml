@@ -222,4 +222,352 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?slug=%2Fdesign-and-web-team-summary-20th-july-2020&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded%2Ccontent.rendered%2Cyoast_head_json.description&_embed=true
+  response:
+    body:
+      string: '[{"id":97160,"date_gmt":"2020-07-20T17:48:22","modified_gmt":"2020-07-31T12:09:12","slug":"design-and-web-team-summary-20th-july-2020","title":{"rendered":"Design
+        and Web team summary \u2013 20th July 2020"},"content":{"rendered":"\n<p>The
+        web team here at Canonical run two week iterations. Here are some of the highlights
+        of our completed work from this iteration.<\/p>\n\n\n\n<h2 class=\"wp-block-heading\">Meet
+        the team<\/h2>\n\n\n\n<figure class=\"wp-block-image is-resized\"><img loading=\"lazy\"
+        decoding=\"async\" src=\"https:\/\/lh5.googleusercontent.com\/PKCTzU1ENAow2PDqhPo-K6drMTKwQduAAqKNUbHWVnJmmQXjI8GsXgSQhsVg6Q-0vZrKRCFNUxYvG1iIDVQ3MSTzgx-UWtGlLR6lgZQWcEt0P967bjqQCePnSJXOd3FWVjo0hzTG\"
+        alt=\"\" width=\"266\" height=\"286\"\/><figcaption>Daniel Mutis<\/figcaption><\/figure>\n\n\n\n<p>I
+        am from a small island of Colombia in the Caribbean although I grew up in
+        Barcelona, where I went to University to study Industrial Design Engineering.
+        After my studies I lived briefly in Germany with the intention of learning
+        the language, but 7 months after I got into a master\u2019s program at <a
+        href=\"https:\/\/www.arts.ac.uk\/colleges\/central-saint-martins#\">Central
+        Saint Martins<\/a> and moved to London. I have now been in London for 4 years<\/p>\n\n\n\n<p>Besides
+        design I am really into politics and sociology, and spend a lot of my spare
+        time listening to podcasts. My favourite podcasts are <a href=\"https:\/\/www.wnycstudios.org\/podcasts\/radiolab\">Radiolab<\/a>
+        and <a href=\"https:\/\/www.talkingpoliticspodcast.com\/\">Talking Politics<\/a>,
+        and I get my morning news from <a href=\"https:\/\/www.vox.com\/today-explained\">Today,
+        Explained<\/a> from Vox and <a href=\"https:\/\/www.theguardian.com\/news\/series\/todayinfocus\">Today
+        in Focus<\/a> from The Guardian.&nbsp;<\/p>\n\n\n\n<h2 class=\"wp-block-heading\">Web
+        squad<\/h2>\n\n\n\n<p>Our Web Squad develops and maintains most of <a href=\"https:\/\/github.com\/search?q=topic%3Awebsite+org%3Acanonical-web-and-design&amp;type=Repositories\">Canonical\u2019s
+        promotional sites<\/a> like <a href=\"https:\/\/ubuntu.com\/\">ubuntu.com<\/a>,
+        <a href=\"https:\/\/canonical.com\/\">canonical.com<\/a> and more.<\/p>\n\n\n\n<h3
+        class=\"wp-block-heading\">Canonical partner programmes<\/h3>\n\n\n\n<p>This
+        iteration we unveiled a new on canonical.com detailing <a href=\"https:\/\/canonical.com\/partners\">our
+        partners programmes<\/a>, and <a href=\"https:\/\/github.com\/canonical-web-and-design\/partners.ubuntu.com\/pull\/249\">redirected
+        the old partners homepage<\/a> to <a href=\"https:\/\/canonical.com\/partners\">canonical.com\/partners<\/a>.<br><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img decoding=\"async\" src=\"https:\/\/lh6.googleusercontent.com\/II9JdrNi_SHUCI5egAbDbjB9whQl_T1Sq0qw82ykcekL2n9tn_xlRQTRZBt1Y_xSPN2U0A1w7qc4jHRiAx4QmvpxeDkK-wXHyW4R5PDOz_LjojbOJPodaWpudTDnJWP-0n_cKums\"
+        alt=\"\"\/><\/figure>\n\n\n\n<p>We also took the opportunity to move the rest
+        of partners.ubuntu.com (which is now just an API) to our <a href=\"https:\/\/ubuntu.com\/kubernetes\/features\">charmed
+        Kubernetes<\/a> infrastructure and decommission the old infrastructure. We
+        now have only 1 site remaining on the old infrastructure &#8211; assets.ubuntu.com
+        &#8211; which we hope to also move to in the&nbsp; coming months.<\/p>\n\n\n\n<h3
+        class=\"wp-block-heading\">Newsletter signup form on cn.ubuntu.com<\/h3>\n\n\n\n<p>We
+        <a href=\"https:\/\/github.com\/canonical-web-and-design\/cn.ubuntu.com\/pull\/418\">added<\/a>
+        a newsletter signup form to <a href=\"https:\/\/cn.ubuntu.com\/blog\">the
+        cn.ubuntu.com\/blog section<\/a>, to mirror the equivalent pages <a href=\"https:\/\/ubuntu.com\/blog\">on
+        ubuntu.com\/blog<\/a>.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img decoding=\"async\"
+        src=\"https:\/\/lh6.googleusercontent.com\/RDU6ZJcRkImy7HO7vgcD99ODY9wlw4wwm5TKgNEzt7ImeY57kje89EOuVXnvv1utKFCyknxSm4updV_GwLqkm6rwJyYgXGUO2xlranrqFyYnZC8gufSOWr72ywkZWiCIEt4eBLZJ\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h2 class=\"wp-block-heading\">Brand<\/h2>\n\n\n\n<p>The
+        Brand team develops our design strategy and creates the look and feel for
+        the company across many touch-points, from web, documents, exhibitions, logos
+        and video.<\/p>\n\n\n\n<h3 class=\"wp-block-heading\">Brandstore demo<\/h3>\n\n\n\n<p>We
+        drew up our initial ideas into finished illustrations, completing all 10 in
+        this iteration. We will animate them in the next iteration when the video
+        goes into actual production.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        decoding=\"async\" src=\"https:\/\/lh5.googleusercontent.com\/iFiMfJt0rqlxm2n71e1kdspild3MQMiACI4pC1PxIUd5_ea59jBVz17FXhMj8EolCasud-jUEXKJd6vwHLycAOdtFR2ORAFrEe6kYJk-JFpGY3GTDPQuyN610c6z3CbpbT-sU5Xc\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3 class=\"wp-block-heading\">Automotive illustrations
+        and page updates<\/h3>\n\n\n\n<p>We created some new illustrations and updated
+        a few others, whilst helping the Web Team with the design of the automotive
+        page.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img decoding=\"async\"
+        src=\"https:\/\/lh5.googleusercontent.com\/aitpKyeBqpCL8LXQCy8fTcYqi2ybRyTvNAtkEhVcBzsxb3poZ05Zz-oMPjSRkqc1kfU7d8eF8d5rUOLp9YR25rGNp9DquAOGV3ujncZWfLC9lkh2qS9R2sTrDXTMsef8sPZGR_xA\"
+        alt=\"\"\/><\/figure>\n\n\n\n<figure class=\"wp-block-image\"><img decoding=\"async\"
+        src=\"https:\/\/lh5.googleusercontent.com\/tyD8NFLbOjITgxuZs37GP2cjtVEeJnFxWuVkSPib0rpZcq7DT0OsnuMzhHklW1dpzadNFjDw6413cuYvRMXDZiIepIKSIjA4e12-T05zUnbklN7Ful3vWgMI9ThWDKcuH06sv6Sw\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3 class=\"wp-block-heading\">Marketing videos<\/h3>\n\n\n\n<p>We
+        completed 2 videos for the Marketing Team in this iteration. We worked in
+        collaboration with the PM\u2019s to create the 2 animated videos for a Microsoft
+        event we are attending. The videos included VO\u2019s and some bespoke illustrations
+        that we animated to create some real engagement.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        decoding=\"async\" src=\"https:\/\/lh6.googleusercontent.com\/h7mSLm1Pl7E01ZaWkhYT3k64Hf_WB1laUbbmvVzS6ZFQLozRHgxUIfg5xWgGAzar0aPD2tQDC8dhreVEsfZ5Y3McnA_Z8rXMmTNlGX0TDiywgvwyi8_-Gzk9kl5cbYppcL_xjprd\"
+        alt=\"\"\/><\/figure>\n\n\n\n<figure class=\"wp-block-image\"><img decoding=\"async\"
+        src=\"https:\/\/lh4.googleusercontent.com\/jAhaD-nTBQxxPn4plBt96TVB3Q7LTYdUWhxjx2PwWFONvpwvlHQs4a5KwCVJdk3UmgPBW9dScdkkrLwbqdaMhx0VjAWAtIG5D1LaXdXHiAK0jP8c9dWD5hwO-3tgxaRPzTg-aQnY\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h2 class=\"wp-block-heading\">Vanilla<\/h2>\n\n\n\n<p>The
+        Vanilla squad designs and maintains the design system and <a href=\"https:\/\/vanillaframework.io\">Vanilla
+        framework library<\/a>. They ensure a consistent style throughout web assets.<\/p>\n\n\n\n<h3
+        class=\"wp-block-heading\" id=\"application-layout-panels\">Application layout
+        &#8211; panels<\/h3>\n\n\n\n<p>This iteration we focused on panels within
+        the new Vanilla Application Layout. We looked at behaviour, internal structure,
+        adjusting to the needs of the content, positioning with respect to the elements
+        that invoke the panel UI, attachment to one or more edges of the window and
+        how this behaviour changes with increasing \/ decreasing screen size.&nbsp;<\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img decoding=\"async\" src=\"https:\/\/lh3.googleusercontent.com\/UsrY95n7tC7MiaUAlPqJs4-QMDeA4lvc92V8UwIjzBjuLz_tUVR0UY8SHeQOLRNMJ8vuGEC158QqN8mTURNVgNmz0r8dtQ0C7wZAbacmS0e5fcjogVx6SUpp-M-MVkf6r08cFiIQ\"
+        alt=\"\"\/><\/figure>\n\n\n\n<figure class=\"wp-block-image\"><img decoding=\"async\"
+        src=\"https:\/\/lh5.googleusercontent.com\/n8Gh8921YFe4QB-4afoYkHh7zeSa1Qi-jtYqybtwC9xuTdAphixJj-fqJYnTmxNUOX9WKmoXxvVxUWBV9Ico_zsgzYmCNXLHqfLBvDKatEEkc-BJAfsQ7kMUlpjwDp8l4U_zJrHe\"
+        alt=\"\"\/><\/figure>\n\n\n\n<figure class=\"wp-block-image\"><img decoding=\"async\"
+        src=\"https:\/\/lh6.googleusercontent.com\/avj91OFSb7pF50Rr7Qke2x5nmYu8dE6W5CTxs3hf1ykv_pZ8pe7jLVaK2g3Ofb3JorO-0Z8dIdswrwz8tYK2za3L98k9AGx8YV8w1YI-Lfv9IYhjDzPaDGFv2L6-fZJsNliFUQ23\"
+        alt=\"\"\/><\/figure>\n\n\n\n<figure class=\"wp-block-image\"><img decoding=\"async\"
+        src=\"https:\/\/lh3.googleusercontent.com\/Xv86iXVLnySHtiIifJf-2FcSVlmj4m6aUnbk7spsl8uxQtxkuqxbwc7mLYVYcFchUYSf1ZGqxGSzRG513g2LK_7bt2NKQ9oEjVWdTN8DcxkvOpXz-in2QIUjO8FLr7u51Fe4Vdvz\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3 class=\"wp-block-heading\">Application layout
+        prototype<\/h3>\n\n\n\n<p>As we are working on design of application layouts
+        and panels we started building a prototype implementation of the layout and
+        its responsive behaviours. This allowed us to explore different ways of implementing
+        desired positioning with CSS (fixed positioning, CSS Grid, etc) and verify
+        the design assumptions. We also prototyped some more advanced interactions
+        like resizing or aligning the panels to make sure our layout will be able
+        to support them.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img decoding=\"async\"
+        src=\"https:\/\/lh5.googleusercontent.com\/auN9rHK4Ezf1FLUylyurJR-OefRPoOXz3OVGSa68d59pmBqXQ8IIL1cc6BvbgUej52icuIMMUTEQjaym3VU_dRWimrAIn59gtI71llwrX5zYntAZl-BrtYZOCI-zdpf3TRZsq6jT\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h2 class=\"wp-block-heading\">MAAS<\/h2>\n\n\n\n<p>The
+        MAAS squad develops the UI for the <a href=\"https:\/\/launchpad.net\/maas\">MAAS
+        project<\/a>.<\/p>\n\n\n\n<h3 class=\"wp-block-heading\">In-app new release
+        notification<\/h3>\n\n\n\n<p>With the limitation of snap and the automatic
+        upgrade, we want to expand our announcement channels to MAAS UI (in-app) so
+        our users are aware of the bug fixes, security fixes, and new features in
+        the most recent release. The up-coming version of MAAS UI will provide this
+        announcement in app and admin users may opt out of this notification. Changes
+        in notification settings will apply for all users in the team.&nbsp;<br><\/p>\n\n\n\n<p>Sneak
+        peek on our UX\/UI designs:<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        decoding=\"async\" src=\"https:\/\/lh6.googleusercontent.com\/qmTHneITN0trdO-iHZxDBPB0tnvDw0h3gFTWZpqgEZQ88HDUo78wVUfmkvc9KB1QgpDVk3qMwA03WP3dg16pqWg-B1ZGlMOzsBUBHdXHcFdZtEIPqA0lCjTgx2j2Q3eyVNfPJqZe\"
+        alt=\"\"\/><\/figure>\n\n\n\n<p>The upcoming version will be the most simple
+        implementation of our new release announcement in the UI. We are looking forward
+        to growing our notification settings into something more robust! Feel free
+        to leave us some feedback for what would be useful to notify.<\/p>\n\n\n\n<h3
+        class=\"wp-block-heading\">CLI project<\/h3>\n\n\n\n<p>We\u2019ve been thinking
+        about how we might create a better experience for <a href=\"https:\/\/maas.io\/docs\/maas-cli\">the
+        maas CLI tool<\/a>. We\u2019ve noticed many usability issues in our CLI and
+        we are looking forward to making maas more user friendly.<br><\/p>\n\n\n\n<p>If
+        you would like to participate in an interview\/user testing session about
+        the maas CLI tool with us please fill out <a href=\"https:\/\/docs.google.com\/forms\/d\/e\/1FAIpQLSfA3VCm9BzcSQEuoS3Q1KBFR4acVCC-fBD9X0D3y7FHxn0jZg\/viewform\">this
+        form<\/a>.<\/p>\n\n\n\n<h2 class=\"wp-block-heading\">JAAS<\/h2>\n\n\n\n<p>The
+        JAAS squad develops the UI for the <a href=\"https:\/\/jaas.ai\">JAAS store<\/a>
+        and <a href=\"https:\/\/jaas.ai\/models\">Juju dashboard<\/a> projects.<\/p>\n\n\n\n<h3
+        class=\"wp-block-heading\">Roadmap sprint<\/h3>\n\n\n\n<p>During the roadmap
+        sprint the team had several useful cross-team sessions with Juju core and
+        JAAS teams. We discussed and planned the work to enhance the Dashboard, its
+        functionality and user experience.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        decoding=\"async\" src=\"https:\/\/lh5.googleusercontent.com\/SQw5VkHNXEoxh6SYnVeCnNKcggcKMZ3Nt68gtiKTaJHMxbgA7uuLJgr9sLFlGed-QlABLKGR9wQCFesHOCq1Vq54BwefPLFnqLcHqeQd-YKI3YMUc-VFcQGFo5Cnx-mEao67EaKz\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3 class=\"wp-block-heading\">Building the search
+        and filter pattern<\/h3>\n\n\n\n<p>The team is building the \u2018Search and
+        Filter\u2019 pattern on the Dashboard, in order to provide to the users the
+        possibility of complex search queries. You can<a href=\"https:\/\/discourse.juju.is\/t\/dashboard-combo-search-and-filter-pattern\/3185\">
+        read more about this on Discourse<\/a>.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        decoding=\"async\" src=\"https:\/\/lh5.googleusercontent.com\/5Jtb7_nJ7VUl_1oxn9GPUdeXJi-icR8rLHEbLZERb0CvQBAcDwOxVf7L9WLUzjT9wN14H9z9_CWA2y9L2f5ljVaN5k35d_xLktEzQCE7p5ZVimRfYfphzv-UK7nsgQlU8u-dBcF2\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h3 class=\"wp-block-heading\">Cross-model relations
+        investigation<\/h3>\n\n\n\n<p>The team started working on the definition of
+        the Cross-model relation functionality for the Dashboard. We interviewed Juju
+        users to understand the ideal user-flow and amount of information to surface
+        in the interface. Once this analysis phase is complete the team is going to
+        start exploring the UI and overall experience.<br><\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        decoding=\"async\" src=\"https:\/\/lh4.googleusercontent.com\/CCgkphakoW08JHErGfdFwrYoZG9Ei6Bgbki7JaJXLb4l_WZKmiXM0nwC_jrFn1vGcOQxYMsEoHdOwifWzXef-cvN_NYSybOPNd2rp--698pwd_lB2brx1KPYWQRqSOTOWkUzUTZF\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h2 class=\"wp-block-heading\">Snapcraft and
+        Charmhub<\/h2>\n\n\n\n<p>The Snapcraft team works closely with the Store team
+        to develop and maintain the <a href=\"https:\/\/snapcraft.io\">Snap Store
+        site<\/a> and the upcoming Charmhub site.<br><\/p>\n\n\n\n<h3 class=\"wp-block-heading\">Charmhub<\/h3>\n\n\n\n<h4
+        class=\"wp-block-heading\">Documentation &amp; tutorials<\/h4>\n\n\n\n<p>We
+        implemented the default documentation and tutorials templates we use on other
+        websites. The data is pulled from discourse to help communities easily create
+        and contribute.&nbsp; Read more about <a href=\"https:\/\/ubuntu.com\/blog\/tutorials-for-everyone-from-everyone\">documentation
+        and tutorials<\/a>.<\/p>\n\n\n\n<h4 class=\"wp-block-heading\">Login<\/h4>\n\n\n\n<p>We
+        have finished the implementation for the authentication system. Publishers
+        will be able to login through <a href=\"https:\/\/github.com\/canonical\/candid\">Candid<\/a>,
+        where they will have the possibility to log in with their Ubuntu One accounts.<\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img decoding=\"async\" src=\"https:\/\/lh4.googleusercontent.com\/AZDTDIyd98WBMXtwRjbfQPLKkbEAxiDnoV_v5BMSKsDuF6MoMuysmn3ulSesBzxa82ygYYuCYQ0HqB-jV5md6od7FEVxtuodqOO7UR_T5pjprqtImGNabpRyFZ4gM8YFYpXRvDds\"
+        alt=\"\"\/><\/figure>\n\n\n\n<h4 class=\"wp-block-heading\">Developer experience<\/h4>\n\n\n\n<p>We
+        started looking into how the new Charm Hub website support better developers
+        throughout their journey of publishing and maintaining their charms. We initiated
+        this process by doing a benchmarking of what other solutions of similar pages
+        are on websites like Python, Go, ROS and Swift. Further to that, we will be
+        doing some user interviews in the next iteration to look into the different
+        kinds of developers needs and their user journeys.&nbsp;<\/p>\n\n\n\n<h2 class=\"wp-block-heading\">Team
+        improvements<\/h2>\n\n\n\n<h3 class=\"wp-block-heading\">Acronyms lookup<\/h3>\n\n\n\n<p>When
+        Canonical moved to <a href=\"https:\/\/mattermost.com\/\">Mattermost<\/a>
+        for internal communications towards the end of June, we migrated our IRC bot
+        to Mattermost.<br><\/p>\n\n\n\n<p>At the same time, we implemented a new <a
+        href=\"https:\/\/docs.mattermost.com\/developer\/slash-commands.html\">slash
+        command<\/a> that translates acronyms. The source of those acronyms is a spreadsheet.
+        This allows every person that has access to it to add their own.<br><\/p>\n\n\n\n<p>Anyone
+        in the company can use it by typing `\/acronym` in Mattermost.<br><\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img decoding=\"async\" src=\"https:\/\/lh6.googleusercontent.com\/BhIkYTWGnXxEh3njj1jQCb-qHsTgb7CSxKbjgIOLcO8FPaXbGjllGmsZXdRPit3B5pGS7bG8sMiC0UVwnvoz7gJL6GmawGpk2rxUhMayq6RV7_MivX_7T7lcqA6jRFMo2MjUK444\"
+        alt=\"\"\/><\/figure>\n\n\n\n<p>More about this feature in an upcoming article!<br><\/p>\n\n\n\n<h3
+        class=\"wp-block-heading\">Kubernetes-based PR demos<\/h3>\n\n\n\n<p>For a
+        while, we have had a system to automatically spin up demos for each of our
+        pull-requests to easily QA changes to our projects.<\/p>\n\n\n\n<figure class=\"wp-block-image\"><img
+        loading=\"lazy\" decoding=\"async\" width=\"948\" height=\"141\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/497d\/image.png\"
+        alt=\"\" class=\"wp-image-97161\"\/><figcaption><br><\/figcaption><\/figure>\n\n\n\n<p>This
+        system was based on a pre-k8s <a href=\"https:\/\/rancher.com\/\">Rancher<\/a>
+        setup in a <a href=\"https:\/\/www.digitalocean.com\/\">DigitalOcean<\/a>
+        box. It wasn&#8217;t terribly reliable and was difficult to debug (this was
+        all because of our implementation and was through no fault of the aforementioned
+        services themselves).<\/p>\n\n\n\n<p>We have now moved these demos to a brand
+        new <a href=\"https:\/\/ubuntu.com\/kubernetes\/features\">Charmed Kubernetes<\/a>
+        cluster, making use of the same <a href=\"https:\/\/github.com\/canonical-web-and-design\/ubuntu.com\/blob\/master\/deploy\/site.yaml\">configurations<\/a>
+        and <a href=\"https:\/\/github.com\/canonical-web-and-design\/deployment-configs\">tools<\/a>  we
+        use for our staging and production deployments. Demos are transparently triggered
+        using Jenkins jobs, just as our production builds are.<\/p>\n\n\n\n<figure
+        class=\"wp-block-image\"><img loading=\"lazy\" decoding=\"async\" width=\"1223\"
+        height=\"332\" src=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/2de0\/image-1.png\"
+        alt=\"\" class=\"wp-image-97162\"\/><\/figure>\n\n\n\n<p>As well as now providing
+        a good production-like test environment, this has made the demo experience
+        much more reliable and easier to debug.<\/p>\n"},"excerpt":{"rendered":"<p>The
+        web team here at Canonical run two week iterations. Here are some of the highlights
+        of our completed work from this iteration. Meet the team I am from a small
+        island of Colombia in the Caribbean although I grew up in Barcelona, where
+        I went to University to study Industrial Design Engineering. After my [&hellip;]<\/p>\n"},"author":297,"categories":[],"tags":[1239],"group":[3407],"yoast_head_json":{"description":"Web
+        and design updates: Canonical partners programmes; automotive illustrations;
+        marketing videos; Vanilla application layout; MAAS release notifications"},"_start_day":"20","_start_month":"07","_start_year":"2020","_end_day":"20","_end_month":"07","_end_year":"2020","_links":{"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/297"}],"wp:featuredmedia":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/91306"}],"wp:term":[{"taxonomy":"category","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/categories?post=97160"},{"taxonomy":"post_tag","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags?post=97160"},{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=97160"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=97160"}]},"_embedded":{"author":[{"id":297,"name":"Robin
+        Winslow","url":"https:\/\/login.ubuntu.com\/+id\/yEpy4tK","description":"","link":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/","slug":"nottrobin","avatar_urls":{"24":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=24&d=mm&r=g","48":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=48&d=mm&r=g","96":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=96&d=mm&r=g"},"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Robin Winslow, Author at Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"profile\" \/>\n<meta property=\"og:title\" content=\"Robin Winslow,
+        Author at Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"og:image\"
+        content=\"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=500&#038;d=mm&#038;r=g\"
+        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
+        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
+        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"ProfilePage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/\",\"name\":\"Robin
+        Winslow, Author at Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Archives
+        for Robin Winslow\"}]},{\"@type\":\"Person\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/ce7a140b90dbf85e968b966a9707a9ad\",\"name\":\"Robin
+        Winslow\",\"image\":{\"@type\":\"ImageObject\",\"inLanguage\":\"en-US\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/image\/\",\"url\":\"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=96&d=mm&r=g\",\"contentUrl\":\"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=96&d=mm&r=g\",\"caption\":\"Robin
+        Winslow\"},\"sameAs\":[\"https:\/\/login.ubuntu.com\/+id\/yEpy4tK\"],\"mainEntityOfPage\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/#webpage\"}}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Robin Winslow, Author
+        at Ubuntu Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/","og_locale":"en_US","og_type":"profile","og_title":"Robin
+        Winslow, Author at Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/","og_site_name":"Ubuntu
+        Blog","og_image":[{"url":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=500&d=mm&r=g"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ProfilePage","@id":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/","name":"Robin
+        Winslow, Author at Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Archives
+        for Robin Winslow"}]},{"@type":"Person","@id":"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/ce7a140b90dbf85e968b966a9707a9ad","name":"Robin
+        Winslow","image":{"@type":"ImageObject","inLanguage":"en-US","@id":"https:\/\/admin.insights.ubuntu.com\/#\/schema\/person\/image\/","url":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=96&d=mm&r=g","contentUrl":"https:\/\/secure.gravatar.com\/avatar\/72933f8d340100f493cfac7ca699cc62?s=96&d=mm&r=g","caption":"Robin
+        Winslow"},"sameAs":["https:\/\/login.ubuntu.com\/+id\/yEpy4tK"],"mainEntityOfPage":{"@id":"https:\/\/admin.insights.ubuntu.com\/author\/nottrobin\/#webpage"}}]}},"user_job_title":"","user_website_title":"","user_google":"","user_twitter":"","user_facebook":"","user_photo":"","user_location":"","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/297"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users"}]}}],"wp:featuredmedia":[{"id":91306,"date":"2019-08-19T13:17:03","slug":"design-and-web-team-blog-2","type":"attachment","link":"https:\/\/admin.insights.ubuntu.com\/2019\/08\/19\/design-and-web-team-summary-16-august-2019\/design-and-web-team-blog-2\/","title":{"rendered":"Design-and-Web-Team-Blog"},"author":297,"yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Design-and-Web-Team-Blog - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"noindex, follow\" \/>\n<meta property=\"og:locale\" content=\"en_US\"
+        \/>\n<meta property=\"og:type\" content=\"article\" \/>\n<meta property=\"og:title\"
+        content=\"Design-and-Web-Team-Blog - Ubuntu Blog\" \/>\n<meta property=\"og:url\"
+        content=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta property=\"article:publisher\"
+        content=\"https:\/\/www.facebook.com\/ubuntulinux\/\" \/>\n<meta property=\"og:image\"
+        content=\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg\"
+        \/>\n\t<meta property=\"og:image:width\" content=\"875\" \/>\n\t<meta property=\"og:image:height\"
+        content=\"490\" \/>\n\t<meta property=\"og:image:type\" content=\"image\/jpeg\"
+        \/>\n<meta name=\"twitter:card\" content=\"summary_large_image\" \/>\n<meta
+        name=\"twitter:site\" content=\"@ubuntu\" \/>\n<script type=\"application\/ld+json\"
+        class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg\",\"name\":\"Design-and-Web-Team-Blog
+        - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"datePublished\":\"2019-08-19T13:17:03+00:00\",\"dateModified\":\"2019-08-19T13:17:03+00:00\",\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Design
+        and Web team summary &#8211; 16 August 2019\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/2019\/08\/19\/design-and-web-team-summary-16-august-2019\/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Design-and-Web-Team-Blog\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Design-and-Web-Team-Blog
+        - Ubuntu Blog","robots":{"index":"noindex","follow":"follow"},"og_locale":"en_US","og_type":"article","og_title":"Design-and-Web-Team-Blog
+        - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg","og_site_name":"Ubuntu
+        Blog","article_publisher":"https:\/\/www.facebook.com\/ubuntulinux\/","og_image":[{"width":875,"height":490,"url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg","type":"image\/jpeg"}],"twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg#webpage","url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg","name":"Design-and-Web-Team-Blog
+        - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"datePublished":"2019-08-19T13:17:03+00:00","dateModified":"2019-08-19T13:17:03+00:00","breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Design
+        and Web team summary &#8211; 16 August 2019","item":"https:\/\/admin.insights.ubuntu.com\/2019\/08\/19\/design-and-web-team-summary-16-august-2019\/"},{"@type":"ListItem","position":3,"name":"Design-and-Web-Team-Blog"}]}]}},"caption":{"rendered":""},"alt_text":"","media_type":"image","mime_type":"image\/jpeg","media_details":{"width":875,"height":490,"file":"Design-and-Web-Team-Blog.jpg","image_meta":{"aperture":"0","credit":"","camera":"","caption":"","created_timestamp":"0","copyright":"","focal_length":"0","iso":"0","shutter_speed":"0","title":"","orientation":"0","keywords":[]},"sizes":{}},"source_url":"https:\/\/admin.insights.ubuntu.com\/wp-content\/uploads\/f680\/Design-and-Web-Team-Blog.jpg","_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media\/91306"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/types\/attachment"}],"author":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/users\/297"}],"replies":[{"embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/comments?post=91306"}],"wp:term":[{"taxonomy":"topic","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic?post=91306"},{"taxonomy":"group","embeddable":true,"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group?post=91306"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],"wp:term":[[],[{"id":1239,"link":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design","slug":"design","taxonomy":"post_tag","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Design Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Design Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/\",\"name\":\"Design
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Design\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Design Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","og_locale":"en_US","og_type":"article","og_title":"Design
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/","name":"Design
+        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/tag\/design\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/tag\/design\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Design"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags\/1239"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/tags"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/post_tag"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?tags=1239"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?tags=1239"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":3406,"link":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/","name":"Design","slug":"design","taxonomy":"topic","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Design Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Design Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/\",\"name\":\"Design
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Design\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Design Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/","og_locale":"en_US","og_type":"article","og_title":"Design
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/","name":"Design
+        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/topic\/design\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/topic\/design\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Design"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic\/3406"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/topic"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/topic"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?topic=3406"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?topic=3406"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?topic=3406"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}],[{"id":3407,"link":"https:\/\/admin.insights.ubuntu.com\/group\/design\/","name":"Design","slug":"design","taxonomy":"group","yoast_head":"<!--
+        This site is optimized with the Yoast SEO plugin v18.9 - https:\/\/yoast.com\/wordpress\/plugins\/seo\/
+        -->\n<title>Design Archives - Ubuntu Blog<\/title>\n<meta name=\"robots\"
+        content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\"
+        \/>\n<link rel=\"canonical\" href=\"https:\/\/admin.insights.ubuntu.com\/group\/design\/\"
+        \/>\n<meta property=\"og:locale\" content=\"en_US\" \/>\n<meta property=\"og:type\"
+        content=\"article\" \/>\n<meta property=\"og:title\" content=\"Design Archives
+        - Ubuntu Blog\" \/>\n<meta property=\"og:url\" content=\"https:\/\/admin.insights.ubuntu.com\/group\/design\/\"
+        \/>\n<meta property=\"og:site_name\" content=\"Ubuntu Blog\" \/>\n<meta name=\"twitter:card\"
+        content=\"summary_large_image\" \/>\n<meta name=\"twitter:site\" content=\"@ubuntu\"
+        \/>\n<script type=\"application\/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https:\/\/schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/\",\"name\":\"Ubuntu
+        Blog\",\"description\":\"\",\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":{\"@type\":\"EntryPoint\",\"urlTemplate\":\"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}\"},\"query-input\":\"required
+        name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"CollectionPage\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/design\/#webpage\",\"url\":\"https:\/\/admin.insights.ubuntu.com\/group\/design\/\",\"name\":\"Design
+        Archives - Ubuntu Blog\",\"isPartOf\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/#website\"},\"breadcrumb\":{\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/design\/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https:\/\/admin.insights.ubuntu.com\/group\/design\/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https:\/\/admin.insights.ubuntu.com\/group\/design\/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https:\/\/admin.insights.ubuntu.com\/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Design\"}]}]}<\/script>\n<!--
+        \/ Yoast SEO plugin. -->","yoast_head_json":{"title":"Design Archives - Ubuntu
+        Blog","robots":{"index":"index","follow":"follow","max-snippet":"max-snippet:-1","max-image-preview":"max-image-preview:large","max-video-preview":"max-video-preview:-1"},"canonical":"https:\/\/admin.insights.ubuntu.com\/group\/design\/","og_locale":"en_US","og_type":"article","og_title":"Design
+        Archives - Ubuntu Blog","og_url":"https:\/\/admin.insights.ubuntu.com\/group\/design\/","og_site_name":"Ubuntu
+        Blog","twitter_card":"summary_large_image","twitter_site":"@ubuntu","schema":{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/admin.insights.ubuntu.com\/#website","url":"https:\/\/admin.insights.ubuntu.com\/","name":"Ubuntu
+        Blog","description":"","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/admin.insights.ubuntu.com\/?s={search_term_string}"},"query-input":"required
+        name=search_term_string"}],"inLanguage":"en-US"},{"@type":"CollectionPage","@id":"https:\/\/admin.insights.ubuntu.com\/group\/design\/#webpage","url":"https:\/\/admin.insights.ubuntu.com\/group\/design\/","name":"Design
+        Archives - Ubuntu Blog","isPartOf":{"@id":"https:\/\/admin.insights.ubuntu.com\/#website"},"breadcrumb":{"@id":"https:\/\/admin.insights.ubuntu.com\/group\/design\/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https:\/\/admin.insights.ubuntu.com\/group\/design\/"]}]},{"@type":"BreadcrumbList","@id":"https:\/\/admin.insights.ubuntu.com\/group\/design\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/admin.insights.ubuntu.com\/"},{"@type":"ListItem","position":2,"name":"Design"}]}]}},"_links":{"self":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group\/3407"}],"collection":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/group"}],"about":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/taxonomies\/group"}],"wp:post_type":[{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/posts?group=3407"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/media?group=3407"},{"href":"https:\/\/admin.insights.ubuntu.com\/wp-json\/wp\/v2\/event?group=3407"}],"curies":[{"name":"wp","href":"https:\/\/api.w.org\/{rel}","templated":true}]}}]]}}]'
+    headers:
+      access-control-allow-headers:
+      - Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type
+      access-control-expose-headers:
+      - X-WP-Total, X-WP-TotalPages, Link
+      allow:
+      - GET
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Wed, 29 Oct 2025 13:02:00 GMT
+      link:
+      - <https://admin.insights.ubuntu.com/wp-json/>; rel="https://api.w.org/"
+      server:
+      - nginx/1.14.0 (Ubuntu)
+      strict-transport-security:
+      - max-age=15724800; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Origin
+      x-cache-status:
+      - MISS from content-cache-il3/1
+      x-content-type-options:
+      - nosniff
+      x-robots-tag:
+      - noindex
+      x-wp-total:
+      - '1'
+      x-wp-totalpages:
+      - '1'
+    status:
+      code: 200
+      message: ''
 version: 1

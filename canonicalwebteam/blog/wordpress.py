@@ -1,3 +1,10 @@
+from .constants import (
+    CATEGORY_FIELDS,
+    TAG_FIELDS,
+    USER_FIELDS,
+    DEFAULT_POST_FIELDS,
+    POST_DETAILS_FIELDS,
+)
 import base64
 from urllib.parse import urlencode
 
@@ -29,14 +36,26 @@ class Wordpress:
             self.session.headers.update(
                 {"Authorization": f"Basic {encoded_credentials}"}
             )
+        # Encourage compressed responses for performance
+        if "Accept-Encoding" not in self.session.headers:
+            self.session.headers.update(
+                {"Accept-Encoding": "gzip, deflate, br"}
+            )
+        if "Accept" not in self.session.headers:
+            self.session.headers.update({"Accept": "application/json"})
 
-    def request(self, endpoint, params={}, method="get"):
+    def request(
+        self, endpoint, params={}, method="get", embed=True, fields=None
+    ):
         """
         Build url to fetch articles from Wordpress api
         :param endpoint: The REST endpoint to fetch data from
         :param params: Dictionary of parameter keys and their values
+        :param embed: Whether to request embedded resources via _embed=true
+        :param fields: Optional list or comma-separated
+                        string of fields to include
 
-        :returns: URL to Wordpress api
+        :returns: Response from Wordpress api
         """
 
         clean_params = {}
@@ -47,7 +66,18 @@ class Wordpress:
                 else:
                     clean_params[key] = value
 
-        query = urlencode({**clean_params, "_embed": "true"})
+        # Apply field filtering if provided
+        if fields:
+            if isinstance(fields, list):
+                clean_params["_fields"] = ",".join(fields)
+            else:
+                clean_params["_fields"] = str(fields)
+
+        # Apply embedding only when requested
+        if embed is True:
+            clean_params["_embed"] = "true"
+
+        query = urlencode(clean_params)
 
         response = self.session.request(
             method, f"{self.api_url}/{endpoint}?{query}"
@@ -56,8 +86,8 @@ class Wordpress:
 
         return response
 
-    def get_first_item(self, endpoint, params={}):
-        response = self.request(endpoint, params)
+    def get_first_item(self, endpoint, params={}, embed=True, fields=None):
+        response = self.request(endpoint, params, embed=embed, fields=fields)
 
         if len(response.json()) == 0:
             raise NotFoundError(f"No items returned from {response.url}")
@@ -78,6 +108,7 @@ class Wordpress:
         per_page=12,
         page=1,
         status=None,
+        fields=None,
     ):
         """
         Get articles from Wordpress api
@@ -113,16 +144,26 @@ class Wordpress:
                 "author": author,
                 "status": status,
             },
+            fields=(fields if fields else DEFAULT_POST_FIELDS),
         )
         total_pages = response.headers.get("X-WP-TotalPages")
         total_posts = response.headers.get("X-WP-Total")
 
+        articles = response.json()
+
         return (
-            response.json(),
+            articles,
             {"total_pages": total_pages, "total_posts": total_posts},
         )
 
-    def get_article(self, slug, tags=None, tags_exclude=None, status=None):
+    def get_article(
+        self,
+        slug,
+        tags=None,
+        tags_exclude=None,
+        status=None,
+        fields=None,
+    ):
         """
         Get an article from Wordpress api
         :param slug: Article slug to fetch
@@ -130,7 +171,7 @@ class Wordpress:
             (e.g., ['publish', 'draft'])
         """
         try:
-            return self.get_first_item(
+            article = self.get_first_item(
                 "posts",
                 {
                     "slug": slug,
@@ -138,54 +179,83 @@ class Wordpress:
                     "tags_exclude": tags_exclude,
                     "status": status,
                 },
+                fields=(fields if fields else POST_DETAILS_FIELDS),
             )
+
+            return article
         except NotFoundError:
             return {}
 
     def get_tag_by_id(self, id):
-        return self.request(f"tags/{id}").json()
+        return self.request(
+            f"tags/{id}", embed=False, fields=TAG_FIELDS
+        ).json()
 
     def get_tag_by_slug(self, slug):
         try:
-            return self.get_first_item("tags", {"slug": slug})
+            return self.get_first_item(
+                "tags", {"slug": slug}, embed=False, fields=TAG_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_tag_by_name(self, name):
         try:
-            return self.get_first_item("tags", {"search": name})
+            return self.get_first_item(
+                "tags", {"search": name}, embed=False, fields=TAG_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_categories(self):
-        return self.request("categories", {"per_page": 100}).json()
+        return self.request(
+            "categories",
+            {"per_page": 100},
+            embed=False,
+            fields=CATEGORY_FIELDS,
+        ).json()
 
     def get_group_by_slug(self, slug):
         try:
-            return self.get_first_item("group", {"slug": slug})
+            return self.get_first_item(
+                "group", {"slug": slug}, embed=False, fields=CATEGORY_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_group_by_id(self, id):
-        return self.request(f"group/{str(id)}").json()
+        return self.request(
+            f"group/{str(id)}", embed=False, fields=CATEGORY_FIELDS
+        ).json()
 
     def get_category_by_slug(self, slug):
         try:
-            return self.get_first_item("categories", {"slug": slug})
+            return self.get_first_item(
+                "categories",
+                {"slug": slug},
+                embed=False,
+                fields=CATEGORY_FIELDS,
+            )
         except NotFoundError:
             return {}
 
     def get_category_by_id(self, id):
-        return self.request(f"categories/{str(id)}").json()
+        return self.request(
+            f"categories/{str(id)}", embed=False, fields=CATEGORY_FIELDS
+        ).json()
 
     def get_media(self, id):
-        return self.request(f"media/{str(id)}").json()
+        return self.request(f"media/{str(id)}", embed=False).json()
 
     def get_user_by_username(self, username):
         try:
-            return self.get_first_item("users", {"slug": username})
+            return self.get_first_item(
+                "users", {"slug": username}, embed=False, fields=USER_FIELDS
+            )
         except NotFoundError:
             return {}
 
     def get_user_by_id(self, id):
-        return self.request((f"users/{str(id)}")).json()
+        return self.request(
+            (f"users/{str(id)}"), embed=False, fields=USER_FIELDS
+        ).json()
