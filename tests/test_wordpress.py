@@ -96,12 +96,18 @@ class TestWordpress(VCRTestCase):
     def test_get_articles_invalid_page_number(self):
         mock_response = Mock()
         mock_response.status_code = 400
-        mock_response.json.return_value = {"code": "rest_post_invalid_page_number"}
+        mock_response.json.return_value = {
+            "code": "rest_post_invalid_page_number"
+        }
         mock_response.headers = {}
         mock_response.raise_for_status.side_effect = requests.HTTPError()
-        mock_response.url = "https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?page=999999"
+        mock_response.url = (
+            "https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?page=999999"
+        )
 
-        with patch.object(self.api.session, "request", return_value=mock_response):
+        with patch.object(
+            self.api.session, "request", return_value=mock_response
+        ):
             articles, metadata = self.api.get_articles(page=999999)
 
         self.assertEqual(articles, [])
