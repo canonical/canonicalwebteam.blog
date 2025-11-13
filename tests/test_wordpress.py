@@ -1,6 +1,7 @@
 # Packages
 import requests
 from vcr_unittest import VCRTestCase
+from unittest.mock import Mock, patch
 
 # Local
 from canonicalwebteam.blog import Wordpress
@@ -91,3 +92,18 @@ class TestWordpress(VCRTestCase):
         group = self.api.get_group_by_slug(slug="ai")
         self.assertEqual(group["name"], "AI")
         self.assertEqual(group["id"], 3367)
+
+    def test_get_articles_invalid_page_number(self):
+        mock_response = Mock()
+        mock_response.status_code = 400
+        mock_response.json.return_value = {"code": "rest_post_invalid_page_number"}
+        mock_response.headers = {}
+        mock_response.raise_for_status.side_effect = requests.HTTPError()
+        mock_response.url = "https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?page=999999"
+
+        with patch.object(self.api.session, "request", return_value=mock_response):
+            articles, metadata = self.api.get_articles(page=999999)
+
+        self.assertEqual(articles, [])
+        self.assertEqual(metadata["total_pages"], "0")
+        self.assertEqual(metadata["total_posts"], "0")

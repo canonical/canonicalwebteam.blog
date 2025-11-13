@@ -45,7 +45,13 @@ class Wordpress:
             self.session.headers.update({"Accept": "application/json"})
 
     def request(
-        self, endpoint, params={}, method="get", embed=True, fields=None
+        self,
+        endpoint,
+        params={},
+        method="get",
+        embed=True,
+        fields=None,
+        raise_for_status=True,
     ):
         """
         Build url to fetch articles from Wordpress api
@@ -82,7 +88,8 @@ class Wordpress:
         response = self.session.request(
             method, f"{self.api_url}/{endpoint}?{query}"
         )
-        response.raise_for_status()
+        if raise_for_status:
+            response.raise_for_status()
 
         return response
 
@@ -145,7 +152,19 @@ class Wordpress:
                 "status": status,
             },
             fields=(fields if fields else DEFAULT_POST_FIELDS),
+            raise_for_status=False,
         )
+
+        # Gracefully handle invalid page number (WordPress REST API 400)
+        if response.status_code == 400:
+            try:
+                payload = response.json()
+            except ValueError:
+                payload = {}
+            if payload.get("code") == "rest_post_invalid_page_number":
+                return ([], {"total_pages": "0", "total_posts": "0"})
+            # Different 400 error; propagate
+            response.raise_for_status()
         total_pages = response.headers.get("X-WP-TotalPages")
         total_posts = response.headers.get("X-WP-Total")
 
