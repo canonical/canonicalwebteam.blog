@@ -202,7 +202,7 @@ def build_blueprint(blog_views):
                     else:
                         error_data = {}
 
-                    # page number is higher than available pagination
+                    # Page number is higher than available pagination
                     if (
                         isinstance(error_data, dict)
                         and error_data.get("code")

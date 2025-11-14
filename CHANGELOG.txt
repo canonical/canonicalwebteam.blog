@@ -1,4 +1,4 @@
-6.7.1: Harden blueprint WordPress API error handling (map 400 pagination→404, 404→NotFound, timeouts→504, connection errors→503).
+6.8.0: Harden blueprint WordPress API error handling (map 400 pagination→404, 404→NotFound, timeouts→504, connection errors→503).
 6.7.0: Replace `_embed` on resource types (tags, group, topic) and add `_fields` filter for smaller responses for lists.
 6.6.0: Allow passing of 'status' when fetching blogs & added ability to add credentials 
 6.5.0: Blog Images can now pull their width and height from css styles
