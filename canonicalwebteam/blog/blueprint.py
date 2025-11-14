@@ -1,6 +1,7 @@
 # Packages
 import flask
 import requests
+from werkzeug.exceptions import NotFound
 
 
 def build_blueprint(blog_views):
@@ -169,16 +170,29 @@ def build_blueprint(blog_views):
 
         return flask.render_template("blog/tag.html", **context)
 
-    @blueprint.errorhandler(requests.exceptions.HTTPError)
+    @blueprint.app_errorhandler(requests.exceptions.HTTPError)
     def handle_http_error(error):
+        """
+        Handle HTTP errors from WordPress API requests.
+        Converts 400 client errors to 404 to provide a consistent
+        user experience when resources are not found or unavailable.
+        """
         response = getattr(error, "response", None)
-        if response is not None and response.status_code == 400:
-            try:
-                payload = response.json()
-            except Exception:
-                payload = {}
-            if payload.get("code") == "rest_post_invalid_page_number":
-                flask.abort(404)
+        if response is not None:
+            status = response.status_code
+            if status == 400:
+                try:
+                    error_data = response.json()
+                    # page number is higher than available pagination
+                    if (
+                        error_data.get("code")
+                        == "rest_post_invalid_page_number"
+                    ):
+                        return flask.current_app.handle_http_exception(
+                            NotFound()
+                        )
+                except (ValueError, KeyError):
+                    pass
         raise error
 
     return blueprint
