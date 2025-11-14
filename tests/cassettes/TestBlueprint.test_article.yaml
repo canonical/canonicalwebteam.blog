@@ -5259,7 +5259,7 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1239%2C2598%2C2929&per_page=20&page=1&exclude=93920&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
+    uri: https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags=1239%2C2598%2C2929&per_page=10&page=1&exclude=93920&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true
   response:
     body:
       string: '[{"id":126204,"date_gmt":"2025-09-09T09:16:57","modified_gmt":"2025-09-09T09:17:17","slug":"how-we-ran-an-effective-sprint-to-refresh-our-design-website-part-2","title":{"rendered":"How
@@ -9337,7 +9337,7 @@ interactions:
       date:
       - Wed, 29 Oct 2025 13:02:25 GMT
       link:
-      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1239&tags%5B1%5D=2598&tags%5B2%5D=2929&per_page=20&page=2&exclude%5B0%5D=93920&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true>;
+      - <https://admin.insights.ubuntu.com/wp-json/wp/v2/posts?tags%5B0%5D=1239&tags%5B1%5D=2598&tags%5B2%5D=2929&per_page=10&page=2&exclude%5B0%5D=93920&_fields=id%2Cslug%2Cdate_gmt%2Cmodified_gmt%2Ccategories%2Ctags%2C_start_day%2C_start_month%2C_start_year%2C_end_day%2C_end_month%2C_end_year%2Cauthor%2Ctitle.rendered%2Cexcerpt.rendered%2Cgroup%2C_links.author%2C_links.wp%3Afeaturedmedia%2C_links.wp%3Aterm%2C_embedded&_embed=true>;
         rel="next"
       server:
       - nginx/1.14.0 (Ubuntu)
