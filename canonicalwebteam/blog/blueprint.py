@@ -1,7 +1,11 @@
 # Packages
 import flask
 import requests
-from werkzeug.exceptions import NotFound
+from werkzeug.exceptions import (
+    NotFound,
+    ServiceUnavailable,
+    GatewayTimeout,
+)
 
 
 def build_blueprint(blog_views):
@@ -170,29 +174,82 @@ def build_blueprint(blog_views):
 
         return flask.render_template("blog/tag.html", **context)
 
+    # Error handling
     @blueprint.app_errorhandler(requests.exceptions.HTTPError)
     def handle_http_error(error):
         """
         Handle HTTP errors from WordPress API requests.
-        Converts 400 client errors to 404 to provide a consistent
-        user experience when resources are not found or unavailable.
+
+        - Maps specific WP API client errors to 404 to preserve UX
+        - Logs parsing and format issues but preserves original behavior
+        - Falls back to re-raising the error for non-mapped cases
         """
         response = getattr(error, "response", None)
+
+        # If the HTTPError includes a Response, inspect it for known cases
         if response is not None:
-            status = response.status_code
+            status = getattr(response, "status_code", None)
+
+            # Convert known pagination error to 404
             if status == 400:
                 try:
-                    error_data = response.json()
+                    # Only attempt parsing when Content-Type indicates JSON
+                    content_type = (response.headers or {}).get(
+                        "Content-Type", ""
+                    )
+                    if "json" in content_type:
+                        error_data = response.json()
+                    else:
+                        error_data = {}
+
                     # page number is higher than available pagination
                     if (
-                        error_data.get("code")
+                        isinstance(error_data, dict)
+                        and error_data.get("code")
                         == "rest_post_invalid_page_number"
                     ):
+                        flask.current_app.logger.warning(
+                            "Mapping WP API 400 invalid_page_number to 404"
+                        )
                         return flask.current_app.handle_http_exception(
                             NotFound()
                         )
-                except (ValueError, KeyError):
-                    pass
+                except (
+                    ValueError,
+                    KeyError,
+                    TypeError,
+                    AttributeError,
+                ) as parse_err:
+                    # Log, but fall through to default behavior (re-raise)
+                    flask.current_app.logger.debug(
+                        f"Failed to parse WP API error JSON: {parse_err}"
+                    )
+
+            # If WP API returns 404, propagate as NotFound for consistency
+            if status == 404:
+                flask.current_app.logger.info("Mapping WP API 404 to NotFound")
+                return flask.current_app.handle_http_exception(NotFound())
+
+        # No actionable mapping – preserve original behavior
+        flask.current_app.logger.error(
+            "Unmapped HTTPError from WP API; re-raising", exc_info=error
+        )
         raise error
+
+    @blueprint.app_errorhandler(requests.exceptions.Timeout)
+    def handle_timeout(error):
+        """Map network timeouts to Gateway Timeout (504)."""
+        flask.current_app.logger.error(
+            "WordPress API request timed out", exc_info=error
+        )
+        return flask.current_app.handle_http_exception(GatewayTimeout())
+
+    @blueprint.app_errorhandler(requests.exceptions.ConnectionError)
+    def handle_connection_error(error):
+        """Map connection errors to Service Unavailable (503)."""
+        flask.current_app.logger.error(
+            "WordPress API connection error", exc_info=error
+        )
+        return flask.current_app.handle_http_exception(ServiceUnavailable())
 
     return blueprint
