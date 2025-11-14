@@ -1,5 +1,6 @@
 # Packages
 import flask
+import requests
 
 
 def build_blueprint(blog_views):
@@ -167,5 +168,17 @@ def build_blueprint(blog_views):
             flask.abort(404)
 
         return flask.render_template("blog/tag.html", **context)
+
+    @blueprint.errorhandler(requests.exceptions.HTTPError)
+    def handle_http_error(error):
+        response = getattr(error, "response", None)
+        if response is not None and response.status_code == 400:
+            try:
+                payload = response.json()
+            except Exception:
+                payload = {}
+            if payload.get("code") == "rest_post_invalid_page_number":
+                flask.abort(404)
+        raise error
 
     return blueprint
