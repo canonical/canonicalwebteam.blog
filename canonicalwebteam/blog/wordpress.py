@@ -6,7 +6,8 @@ from .constants import (
     POST_DETAILS_FIELDS,
 )
 import base64
-from urllib.parse import urlencode
+import re
+from urllib.parse import urlencode, unquote
 
 
 class NotFoundError(Exception):
@@ -170,11 +171,14 @@ class Wordpress:
         :param status: Array of post statuses to include
             (e.g., ['publish', 'draft'])
         """
+        sanitized_slug = self._sanitize_slug_decode(slug)
+        if not sanitized_slug:
+            return {}
         try:
             article = self.get_first_item(
                 "posts",
                 {
-                    "slug": slug,
+                    "slug": sanitized_slug,
                     "tags": tags,
                     "tags_exclude": tags_exclude,
                     "status": status,
@@ -192,9 +196,15 @@ class Wordpress:
         ).json()
 
     def get_tag_by_slug(self, slug):
+        sanitized_slug = self._sanitize_slug_decode(slug)
+        if not sanitized_slug:
+            return {}
         try:
             return self.get_first_item(
-                "tags", {"slug": slug}, embed=False, fields=TAG_FIELDS
+                "tags",
+                {"slug": sanitized_slug},
+                embed=False,
+                fields=TAG_FIELDS,
             )
         except NotFoundError:
             return {}
@@ -216,9 +226,15 @@ class Wordpress:
         ).json()
 
     def get_group_by_slug(self, slug):
+        sanitized_slug = self._sanitize_slug_decode(slug)
+        if not sanitized_slug:
+            return {}
         try:
             return self.get_first_item(
-                "group", {"slug": slug}, embed=False, fields=CATEGORY_FIELDS
+                "group",
+                {"slug": sanitized_slug},
+                embed=False,
+                fields=CATEGORY_FIELDS,
             )
         except NotFoundError:
             return {}
@@ -229,10 +245,13 @@ class Wordpress:
         ).json()
 
     def get_category_by_slug(self, slug):
+        sanitized_slug = self._sanitize_slug_decode(slug)
+        if not sanitized_slug:
+            return {}
         try:
             return self.get_first_item(
                 "categories",
-                {"slug": slug},
+                {"slug": sanitized_slug},
                 embed=False,
                 fields=CATEGORY_FIELDS,
             )
@@ -248,9 +267,15 @@ class Wordpress:
         return self.request(f"media/{str(id)}", embed=False).json()
 
     def get_user_by_username(self, username):
+        sanitized_slug = self._sanitize_slug_decode(username)
+        if not sanitized_slug:
+            return {}
         try:
             return self.get_first_item(
-                "users", {"slug": username}, embed=False, fields=USER_FIELDS
+                "users",
+                {"slug": sanitized_slug},
+                embed=False,
+                fields=USER_FIELDS,
             )
         except NotFoundError:
             return {}
@@ -259,3 +284,35 @@ class Wordpress:
         return self.request(
             (f"users/{str(id)}"), embed=False, fields=USER_FIELDS
         ).json()
+
+    def _sanitize_slug_decode(self, slug):
+        """
+        Sanitize a slug for use with WordPress API queries,
+        decoding up to 3 times.
+
+        - Trims surrounding whitespace
+        - Converts to lowercase
+        - Decodes URL-encoded characters up to 3 times
+        - Validates against a strict allowlist of characters `[a-z0-9-_]`
+
+        Returns a cleaned slug string, or an empty string if invalid.
+        """
+        if not isinstance(slug, str):
+            return ""
+
+        # Decode up to 3 times
+        for _ in range(3):
+            decoded = unquote(slug)
+            if decoded == slug:
+                break
+            slug = decoded
+
+        slug = slug.lower()
+
+        # Only keep letters, numbers, hyphens, and underscores
+        cleaned_slug = re.sub(r"[^a-z0-9-_]", "", slug)
+
+        # Cleanup any repeated hyphens or leading/trailing hyphens
+        cleaned_slug = re.sub(r"-+", "-", cleaned_slug).strip("-")
+
+        return cleaned_slug
