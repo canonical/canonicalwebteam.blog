@@ -3,6 +3,7 @@ import re
 import html
 from datetime import date
 from datetime import datetime
+from urllib.parse import urlparse
 
 # Packages
 from bs4 import BeautifulSoup
@@ -258,7 +259,13 @@ class BlogAPI(Wordpress):
 
         soup = BeautifulSoup(content, "html.parser")
         for image in soup.findAll("img"):
-            if not image.get("src") or "http" not in image.get("src"):
+            image_url = image.get("src")
+
+            if not image_url or "http" not in image_url:
+                continue
+
+            parsed = urlparse(image_url)
+            if parsed.scheme not in ["http", "https"] or not parsed.netloc:
                 continue
 
             # Try to get width from the 'width' attribute
@@ -290,7 +297,7 @@ class BlogAPI(Wordpress):
 
             new_image = BeautifulSoup(
                 image_template(
-                    url=image.get("src"),
+                    url=image_url,
                     alt="",
                     width=img_width or width,
                     height=img_height or height,
