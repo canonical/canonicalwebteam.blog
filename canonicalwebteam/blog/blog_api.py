@@ -261,7 +261,7 @@ class BlogAPI(Wordpress):
         for image in soup.findAll("img"):
             image_url = image.get("src")
 
-            if not image_url or "http" not in image_url:
+            if not image_url:
                 continue
 
             parsed = urlparse(image_url)
