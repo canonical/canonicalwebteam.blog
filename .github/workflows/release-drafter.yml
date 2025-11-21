@@ -21,7 +21,7 @@ jobs:
           echo "version=$(grep '^[[:blank:]]*version' setup.py | cut -d'"' -f 2)" >> "$GITHUB_OUTPUT"
       - name: Get version number from setup.py 2
         id: py-version
-        run: printf "version=%s\n" "$(grep '^[[:blank:]]*version' setup.py | cut -d'\"' -f 2)" >> "$GITHUB_OUTPUT"
+        run: printf "version=%s\n" "$(grep '^[[:blank:]]*version' setup.py | cut -d'"' -f 2)" >> "$GITHUB_OUTPUT"
       - uses: release-drafter/release-drafter@v6
         with:
           tag: "${{ steps.version.outputs.version }}"
