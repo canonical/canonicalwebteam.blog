@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - setup.py
 
 jobs:
   create-release:
