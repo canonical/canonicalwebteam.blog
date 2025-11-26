@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Get version number from setup.py 2
-        id: py-version
+      - name: Get version number from setup.py
+        id: version
         run: printf "version=%s\n" "$(grep '^[[:blank:]]*version' setup.py | cut -d'"' -f 2)" >> "$GITHUB_OUTPUT"
       - uses: release-drafter/release-drafter@v6
         with:
