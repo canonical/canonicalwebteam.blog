@@ -308,10 +308,7 @@ class Wordpress:
                 break
             slug = decoded
 
-        ascii_lower = str.maketrans(
-            ascii_uppercase,
-            ascii_lowercase
-        )
+        ascii_lower = str.maketrans(ascii_uppercase, ascii_lowercase)
 
         slug = slug.translate(ascii_lower)
 
