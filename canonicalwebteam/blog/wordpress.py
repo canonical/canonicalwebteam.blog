@@ -7,7 +7,8 @@ from .constants import (
 )
 import base64
 import re
-from urllib.parse import urlencode, unquote
+from urllib.parse import urlencode, unquote, quote
+from string import ascii_uppercase, ascii_lowercase
 
 
 class NotFoundError(Exception):
@@ -307,12 +308,15 @@ class Wordpress:
                 break
             slug = decoded
 
-        slug = slug.lower()
+        ascii_lower = str.maketrans(ascii_uppercase, ascii_lowercase)
+
+        slug = slug.translate(ascii_lower)
 
         # Only keep letters, numbers, hyphens, and underscores
-        cleaned_slug = re.sub(r"[^a-z0-9-_]", "", slug)
+        # Allow the symbols, like copyright, trademark, and registered
+        cleaned_slug = re.sub(r"[^a-z0-9-_\u2460-\u24ff]", "", slug)
 
         # Cleanup any repeated hyphens or leading/trailing hyphens
         cleaned_slug = re.sub(r"-+", "-", cleaned_slug).strip("-")
 
-        return cleaned_slug
+        return quote(cleaned_slug)
