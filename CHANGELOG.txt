@@ -1,3 +1,4 @@
+6.8.4: Add request timeout (30s), retry logic for transient 5xx errors, and ChunkedEncodingError handler (502).
 6.8.3: Fix wordpress API returning 404 for article slugs containing special characters
 6.8.2: Adds a URL validity check in _apply_image_template before calling image_template(...). Skips any img with an invalid URL (non-HTTP(S) or missing host) to prevent errors from bad links.
 6.8.1: Sanitize slug input.

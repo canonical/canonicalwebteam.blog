@@ -10,6 +10,9 @@ import re
 from urllib.parse import urlencode, unquote, quote
 from string import ascii_uppercase, ascii_lowercase
 
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
 
 class NotFoundError(Exception):
     pass
@@ -22,6 +25,7 @@ class Wordpress:
         api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
         wordpress_username=None,
         wordpress_password=None,
+        timeout=30,
     ):
         """
         Wordpress API object, for making calls to the wordpress API
@@ -31,6 +35,7 @@ class Wordpress:
         self.api_url = api_url
         self.wordpress_username = wordpress_username
         self.wordpress_password = wordpress_password
+        self.timeout = timeout
 
         if self.wordpress_username and self.wordpress_password:
             creds = f"{self.wordpress_username}:{self.wordpress_password}"
@@ -45,6 +50,16 @@ class Wordpress:
             )
         if "Accept" not in self.session.headers:
             self.session.headers.update({"Accept": "application/json"})
+
+        # Configure retry logic for transient failures
+        retry_strategy = Retry(
+            total=3,
+            backoff_factor=1,
+            status_forcelist=[502, 503, 504],
+        )
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        self.session.mount("https://", adapter)
+        self.session.mount("http://", adapter)
 
     def request(
         self, endpoint, params={}, method="get", embed=True, fields=None
@@ -82,7 +97,7 @@ class Wordpress:
         query = urlencode(clean_params)
 
         response = self.session.request(
-            method, f"{self.api_url}/{endpoint}?{query}"
+            method, f"{self.api_url}/{endpoint}?{query}", timeout=self.timeout
         )
         response.raise_for_status()
 
