@@ -1,17 +1,18 @@
-from .constants import (
-    CATEGORY_FIELDS,
-    TAG_FIELDS,
-    USER_FIELDS,
-    DEFAULT_POST_FIELDS,
-    POST_DETAILS_FIELDS,
-)
 import base64
 import re
-from urllib.parse import urlencode, unquote, quote
-from string import ascii_uppercase, ascii_lowercase
+from string import ascii_lowercase, ascii_uppercase
+from urllib.parse import quote, unquote, urlencode
 
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+
+from .constants import (
+    CATEGORY_FIELDS,
+    DEFAULT_POST_FIELDS,
+    POST_DETAILS_FIELDS,
+    TAG_FIELDS,
+    USER_FIELDS,
+)
 
 
 class NotFoundError(Exception):
@@ -45,9 +46,7 @@ class Wordpress:
             )
         # Encourage compressed responses for performance
         if "Accept-Encoding" not in self.session.headers:
-            self.session.headers.update(
-                {"Accept-Encoding": "gzip, deflate, br"}
-            )
+            self.session.headers.update({"Accept-Encoding": "gzip, deflate, br"})
         if "Accept" not in self.session.headers:
             self.session.headers.update({"Accept": "application/json"})
 
@@ -59,11 +58,8 @@ class Wordpress:
         )
         adapter = HTTPAdapter(max_retries=retry_strategy)
         self.session.mount("https://", adapter)
-        self.session.mount("http://", adapter)
 
-    def request(
-        self, endpoint, params={}, method="get", embed=True, fields=None
-    ):
+    def request(self, endpoint, params={}, method="get", embed=True, fields=None):
         """
         Build url to fetch articles from Wordpress api
         :param endpoint: The REST endpoint to fetch data from
@@ -207,9 +203,7 @@ class Wordpress:
             return {}
 
     def get_tag_by_id(self, id):
-        return self.request(
-            f"tags/{id}", embed=False, fields=TAG_FIELDS
-        ).json()
+        return self.request(f"tags/{id}", embed=False, fields=TAG_FIELDS).json()
 
     def get_tag_by_slug(self, slug):
         sanitized_slug = self._sanitize_slug_decode(slug)
