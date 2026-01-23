@@ -46,7 +46,9 @@ class Wordpress:
             )
         # Encourage compressed responses for performance
         if "Accept-Encoding" not in self.session.headers:
-            self.session.headers.update({"Accept-Encoding": "gzip, deflate, br"})
+            self.session.headers.update(
+                {"Accept-Encoding": "gzip, deflate, br"}
+            )
         if "Accept" not in self.session.headers:
             self.session.headers.update({"Accept": "application/json"})
 
@@ -59,7 +61,9 @@ class Wordpress:
         adapter = HTTPAdapter(max_retries=retry_strategy)
         self.session.mount("https://", adapter)
 
-    def request(self, endpoint, params={}, method="get", embed=True, fields=None):
+    def request(
+        self, endpoint, params={}, method="get", embed=True, fields=None
+    ):
         """
         Build url to fetch articles from Wordpress api
         :param endpoint: The REST endpoint to fetch data from
@@ -203,7 +207,9 @@ class Wordpress:
             return {}
 
     def get_tag_by_id(self, id):
-        return self.request(f"tags/{id}", embed=False, fields=TAG_FIELDS).json()
+        return self.request(
+            f"tags/{id}", embed=False, fields=TAG_FIELDS
+        ).json()
 
     def get_tag_by_slug(self, slug):
         sanitized_slug = self._sanitize_slug_decode(slug)
