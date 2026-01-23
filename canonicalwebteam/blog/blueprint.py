@@ -2,6 +2,7 @@
 import flask
 import requests
 from werkzeug.exceptions import (
+    BadGateway,
     NotFound,
     ServiceUnavailable,
     GatewayTimeout,
@@ -251,5 +252,13 @@ def build_blueprint(blog_views):
             "WordPress API connection error", exc_info=error
         )
         return flask.current_app.handle_http_exception(ServiceUnavailable())
+
+    @blueprint.app_errorhandler(requests.exceptions.ChunkedEncodingError)
+    def handle_chunked_encoding_error(error):
+        """Map chunked encoding errors to Bad Gateway (502)."""
+        flask.current_app.logger.error(
+            "WordPress API chunked encoding error", exc_info=error
+        )
+        return flask.current_app.handle_http_exception(BadGateway())
 
     return blueprint
