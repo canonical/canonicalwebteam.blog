@@ -17,7 +17,7 @@ class BlogAPI(Wordpress):
     def __init__(
         self,
         session,
-        api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
+        api_url="https://staging-admin.insights.ubuntu.com/wp-json/wp/v2",
         use_image_template=True,
         thumbnail_width=330,
         thumbnail_height=185,
@@ -221,7 +221,7 @@ class BlogAPI(Wordpress):
         :returns: A string with converted urls
         """
 
-        url = "admin.insights.ubuntu.com/wp-content/uploads"
+        url = "staging-admin.insights.ubuntu.com/wp-content/uploads"
         new_url = "ubuntu.com/wp-content/uploads"
 
         return content.replace(url, new_url)

@@ -413,8 +413,7 @@ class BlogViews:
         if not self.tag_mapping:
             return tag_ids
         return [
-            self.tag_mapping.get(str(tag_id), tag_id)
-            for tag_id in tag_ids
+            self.tag_mapping.get(str(tag_id), tag_id) for tag_id in tag_ids
         ]
 
     def _get_article_context(
