@@ -13,15 +13,14 @@ from .constants import (
     POST_DETAILS_FIELDS,
 )
 
-
 # Jinja snippet used to render a WordPress pull-quote through the
 # vf_quote_wrapper pattern. Only the quote text is used; the empty call block
 # leaves the heading, citation, CTA and image slots blank.
 QUOTE_WRAPPER_TEMPLATE = (
     '{% from "_macros/vf_quote-wrapper.jinja" import vf_quote_wrapper %}'
-    '{% call(slot) vf_quote_wrapper('
+    "{% call(slot) vf_quote_wrapper("
     'quote_size="medium", quote_text=quote_text, is_shallow=True'
-    ') %}{% endcall %}'
+    ") %}{% endcall %}"
 )
 
 
