@@ -85,3 +85,21 @@ class TestBlogViewsCategoryThreading(TestCase):
         views.get_tag("design")
 
         self.assertEqual(api.get_articles.call_args.kwargs["categories"], [5])
+
+    def test_get_group_merges_site_and_route_category_ids(self):
+        views, api = self._make_views([5])
+
+        views.get_group("my-group", category_slug="security")
+
+        categories_sent = api.get_articles.call_args.kwargs["categories"]
+        self.assertIn(5, categories_sent)
+        self.assertIn(99, categories_sent)
+
+    def test_get_archives_merges_site_and_route_category_ids(self):
+        views, api = self._make_views([5])
+
+        views.get_archives(category="security")
+
+        categories_sent = api.get_articles.call_args.kwargs["categories"]
+        self.assertIn(5, categories_sent)
+        self.assertIn(99, categories_sent)
