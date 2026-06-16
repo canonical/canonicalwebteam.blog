@@ -185,6 +185,10 @@ class Wordpress:
         """
         Get an article from Wordpress api
         :param slug: Article slug to fetch
+        :param tags: Array of tag ids to fetch the article for
+        :param tags_exclude: Array of tag ids to exclude
+        :param categories: Array of category ids the article
+            must belong to
         :param status: Array of post statuses to include
             (e.g., ['publish', 'draft'])
         """
