@@ -79,7 +79,7 @@ class BlogAPI(Wordpress):
         fields=None,
     ):
         article = super().get_article(
-            slug,
+            slug=slug,
             tags=tags,
             tags_exclude=tags_exclude,
             categories=categories,
