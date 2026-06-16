@@ -82,6 +82,7 @@ class BlogViews:
         api,
         tag_ids=[],
         excluded_tags=[],
+        category_ids=[],
         blog_title="Blog",
         blog_path="blog",
         feed_description=None,
@@ -91,6 +92,7 @@ class BlogViews:
         self.api = api
         self.tag_ids = tag_ids
         self.excluded_tags = excluded_tags
+        self.category_ids = category_ids
         self.blog_title = blog_title
         self.blog_path = blog_path.strip("/")
         self.feed_description = feed_description or f"{blog_title} feed"
@@ -110,6 +112,7 @@ class BlogViews:
             featured_articles, _ = self.api.get_articles(
                 tags=self.tag_ids,
                 tags_exclude=self.excluded_tags,
+                categories=self.category_ids,
                 page=page,
                 sticky="true",
                 per_page=3,
@@ -133,7 +136,7 @@ class BlogViews:
             exclude=[article["id"] for article in featured_articles],
             page=page,
             per_page=self.per_page,
-            categories=categories,
+            categories=self.category_ids + categories,
             status=self.status,
         )
 
@@ -151,6 +154,7 @@ class BlogViews:
         articles, _ = self.api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             fields=POST_DETAILS_FIELDS,
         )
 
@@ -171,7 +175,8 @@ class BlogViews:
             slug,
             self.tag_ids,
             self.excluded_tags,
-            self.status,
+            categories=self.category_ids,
+            status=self.status,
         )
 
         if not article:
@@ -185,6 +190,7 @@ class BlogViews:
         articles, _ = self.api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             page=1,
             per_page=1,
         )
@@ -198,11 +204,11 @@ class BlogViews:
 
     def get_group(self, group_slug, page=1, category_slug=None):
         group = self.api.get_group_by_slug(group_slug)
-        categories = None
+        categories = list(self.category_ids)
         category = {}
         if category_slug:
             category = self.api.get_category_by_slug(category_slug)
-            categories = [category.get("id", "")]
+            categories.append(category.get("id", ""))
 
         articles, metadata = self.api.get_articles(
             tags=self.tag_ids,
@@ -232,6 +238,7 @@ class BlogViews:
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
             groups=[group.get("id", "")],
+            categories=self.category_ids,
             fields=POST_DETAILS_FIELDS,
         )
 
@@ -255,6 +262,7 @@ class BlogViews:
         articles, metadata = self.api.get_articles(
             tags=self.tag_ids + tag_ids,
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             page=page,
             per_page=self.per_page,
         )
@@ -275,6 +283,7 @@ class BlogViews:
         articles, _ = self.api.get_articles(
             tags=[tag["id"]],
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             fields=POST_DETAILS_FIELDS,
         )
 
@@ -320,6 +329,7 @@ class BlogViews:
         articles, metadata = self.api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             page=page,
             author=author["id"],
             per_page=self.per_page,
@@ -343,6 +353,7 @@ class BlogViews:
         articles, _ = self.api.get_articles(
             tags=self.tag_ids,
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             author=author["id"],
             fields=POST_DETAILS_FIELDS,
         )
@@ -364,6 +375,7 @@ class BlogViews:
         latest_pinned_articles, _ = self.api.get_articles(
             tags=tag_ids or self.tag_ids,
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             groups=group_ids,
             page=1,
             per_page=1,
@@ -373,6 +385,7 @@ class BlogViews:
         latest_articles, _ = self.api.get_articles(
             tags=tag_ids or self.tag_ids,
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             groups=group_ids,
             exclude=[article["id"] for article in latest_pinned_articles],
             page=1,
@@ -387,7 +400,7 @@ class BlogViews:
 
     def get_archives(self, page=1, group="", month="", year="", category=""):
         groups = []
-        categories = []
+        categories = list(self.category_ids)
 
         if group:
             group = self.api.get_group_by_slug(group)
@@ -452,6 +465,7 @@ class BlogViews:
         articles, metadata = self.api.get_articles(
             tags=[tag["id"]],
             tags_exclude=self.excluded_tags,
+            categories=self.category_ids,
             page=page,
             per_page=self.per_page,
             status=self.status,
@@ -481,6 +495,7 @@ class BlogViews:
         all_related_articles, _ = self.api.get_articles(
             tags=[tag["id"] for tag in tags],
             tags_exclude=excluded_tags,
+            categories=self.category_ids,
             per_page=10,
             exclude=[article["id"]],
         )
