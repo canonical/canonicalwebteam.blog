@@ -1,0 +1,30 @@
+# Standard library
+from unittest import TestCase
+from unittest.mock import MagicMock
+
+# Packages
+import requests
+
+# Local
+from canonicalwebteam.blog import Wordpress
+
+
+class TestWordpressGetArticleCategories(TestCase):
+    def setUp(self):
+        self.api = Wordpress(session=requests.Session())
+
+    def test_get_article_forwards_categories_param(self):
+        self.api.get_first_item = MagicMock(return_value={"slug": "x"})
+
+        self.api.get_article(slug="x", categories=[5])
+
+        params = self.api.get_first_item.call_args.args[1]
+        self.assertEqual(params["categories"], [5])
+
+    def test_get_article_categories_default_none(self):
+        self.api.get_first_item = MagicMock(return_value={"slug": "x"})
+
+        self.api.get_article(slug="x")
+
+        params = self.api.get_first_item.call_args.args[1]
+        self.assertIsNone(params["categories"])

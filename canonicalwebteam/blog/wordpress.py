@@ -178,6 +178,7 @@ class Wordpress:
         slug,
         tags=None,
         tags_exclude=None,
+        categories=None,
         status=None,
         fields=None,
     ):
@@ -197,6 +198,7 @@ class Wordpress:
                     "slug": sanitized_slug,
                     "tags": tags,
                     "tags_exclude": tags_exclude,
+                    "categories": categories,
                     "status": status,
                 },
                 fields=(fields if fields else POST_DETAILS_FIELDS),
