@@ -1,6 +1,6 @@
 # Standard library
 from unittest import TestCase
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 # Packages
 import requests
@@ -28,3 +28,17 @@ class TestWordpressGetArticleCategories(TestCase):
 
         params = self.api.get_first_item.call_args.args[1]
         self.assertIsNone(params["categories"])
+
+
+class TestBlogAPIGetArticleCategories(TestCase):
+    def test_get_article_forwards_categories_to_super(self):
+        from canonicalwebteam.blog.blog_api import BlogAPI
+
+        api = BlogAPI(session=requests.Session())
+
+        with patch.object(
+            Wordpress, "get_article", return_value={}
+        ) as mock_super:
+            api.get_article(slug="x", categories=[7])
+
+        self.assertEqual(mock_super.call_args.kwargs["categories"], [7])

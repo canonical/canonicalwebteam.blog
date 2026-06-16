@@ -74,10 +74,18 @@ class BlogAPI(Wordpress):
         slug,
         tags=None,
         tags_exclude=None,
+        categories=None,
         status=None,
         fields=None,
     ):
-        article = super().get_article(slug, tags, tags_exclude, status, fields)
+        article = super().get_article(
+            slug,
+            tags=tags,
+            tags_exclude=tags_exclude,
+            categories=categories,
+            status=status,
+            fields=fields,
+        )
 
         if not article:
             return {}
