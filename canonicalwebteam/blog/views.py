@@ -87,10 +87,12 @@ class BlogViews:
         feed_description=None,
         per_page=12,
         status=None,
+        tag_mapping=None,
     ):
         self.api = api
-        self.tag_ids = tag_ids
-        self.excluded_tags = excluded_tags
+        self.tag_mapping = tag_mapping
+        self.tag_ids = self._remap_tags(tag_ids)
+        self.excluded_tags = self._remap_tags(excluded_tags)
         self.blog_title = blog_title
         self.blog_path = blog_path.strip("/")
         self.feed_description = feed_description or f"{blog_title} feed"
@@ -361,6 +363,9 @@ class BlogViews:
         return feed.rss_str()
 
     def get_latest_news(self, limit=3, tag_ids=None, group_ids=None):
+        if tag_ids:
+            tag_ids = self._remap_tags(tag_ids)
+
         latest_pinned_articles, _ = self.api.get_articles(
             tags=tag_ids or self.tag_ids,
             tags_exclude=self.excluded_tags,
@@ -466,6 +471,13 @@ class BlogViews:
             "title": self.blog_title,
             "tag": tag,
         }
+
+    def _remap_tags(self, tag_ids):
+        if not self.tag_mapping:
+            return tag_ids
+        return [
+            self.tag_mapping.get(str(tag_id), tag_id) for tag_id in tag_ids
+        ]
 
     def _get_article_context(
         self, article, related_tag_ids=[], excluded_tags=[]

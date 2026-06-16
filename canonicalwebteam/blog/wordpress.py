@@ -23,7 +23,7 @@ class Wordpress:
     def __init__(
         self,
         session,
-        api_url="https://admin.insights.ubuntu.com/wp-json/wp/v2",
+        api_url="https://staging-admin.insights.ubuntu.com/wp-json/wp/v2",
         wordpress_username=None,
         wordpress_password=None,
         timeout=30,
