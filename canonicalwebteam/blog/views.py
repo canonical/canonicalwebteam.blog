@@ -498,12 +498,12 @@ class BlogViews:
             )
 
         # Sort the related_articles by the most compatibility and limiting the
-        # result to the top three articles
+        # result to the top four articles
         related_articles = sorted(
             related_articles,
             key=lambda article: article["compatibility"],
             reverse=True,
-        )[:3]
+        )[:4]
 
         # Render any pull-quotes in the article body via vf_quote_wrapper.
         content = article.get("content", {})
