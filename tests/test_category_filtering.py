@@ -7,6 +7,7 @@ import requests
 
 # Local
 from canonicalwebteam.blog import Wordpress
+from canonicalwebteam.blog.blog_api import BlogAPI
 
 
 class TestWordpressGetArticleCategories(TestCase):
@@ -32,8 +33,6 @@ class TestWordpressGetArticleCategories(TestCase):
 
 class TestBlogAPIGetArticleCategories(TestCase):
     def test_get_article_forwards_categories_to_super(self):
-        from canonicalwebteam.blog.blog_api import BlogAPI
-
         api = BlogAPI(session=requests.Session())
 
         with patch.object(
