@@ -178,12 +178,17 @@ class Wordpress:
         slug,
         tags=None,
         tags_exclude=None,
+        categories=None,
         status=None,
         fields=None,
     ):
         """
         Get an article from Wordpress api
         :param slug: Article slug to fetch
+        :param tags: Array of tag ids to fetch the article for
+        :param tags_exclude: Array of tag ids to exclude
+        :param categories: Array of category ids the article
+            must belong to
         :param status: Array of post statuses to include
             (e.g., ['publish', 'draft'])
         """
@@ -197,6 +202,7 @@ class Wordpress:
                     "slug": sanitized_slug,
                     "tags": tags,
                     "tags_exclude": tags_exclude,
+                    "categories": categories,
                     "status": status,
                 },
                 fields=(fields if fields else POST_DETAILS_FIELDS),
