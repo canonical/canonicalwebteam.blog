@@ -1,3 +1,4 @@
+# trigger check-version-and-changelog for testing purposes
 CATEGORY_FIELDS = ["id", "name", "slug", "parent"]
 
 TAG_FIELDS = ["id", "name", "slug"]
