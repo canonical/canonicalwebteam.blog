@@ -64,7 +64,7 @@ jobs:
           reporter: github-pr-review
           fail-on-error: true
 
-  check-version-and-changelog:
+  check-version-bump:
     runs-on: ubuntu-latest
 
     steps:
