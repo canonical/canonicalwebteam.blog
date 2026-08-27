@@ -44,7 +44,7 @@ class TestBlogAPIGetArticleCategories(TestCase):
 
 
 class TestBlogViewsCategoryThreading(TestCase):
-    def _make_views(self, category_ids):
+    def _make_views(self, category_ids, featured_category_ids=None):
         from canonicalwebteam.blog import BlogViews
 
         api = MagicMock()
@@ -54,7 +54,14 @@ class TestBlogViewsCategoryThreading(TestCase):
         )
         api.get_article.return_value = {}
         api.get_category_by_slug.return_value = {"id": 99}
-        return BlogViews(api=api, category_ids=category_ids), api
+        return (
+            BlogViews(
+                api=api,
+                category_ids=category_ids,
+                featured_category_ids=featured_category_ids or [],
+            ),
+            api,
+        )
 
     def test_get_index_threads_category_ids(self):
         # page=2 skips the featured/events branch, leaving one main call
@@ -103,3 +110,65 @@ class TestBlogViewsCategoryThreading(TestCase):
         categories_sent = api.get_articles.call_args.kwargs["categories"]
         self.assertIn(5, categories_sent)
         self.assertIn(99, categories_sent)
+
+
+class TestBlogViewsFeaturedCategoryIds(TestCase):
+    """Pinned announcements are featured-only on a site whose category they
+    do not carry: they may appear in the top-of-page featured panel, but
+    must never enter the main article list, so being displaced out of the
+    panel removes them from the page rather than demoting them into it.
+    """
+
+    def _make_views(self, category_ids, featured_category_ids=None):
+        from canonicalwebteam.blog import BlogViews
+
+        api = MagicMock()
+        api.get_articles.return_value = (
+            [],
+            {"total_pages": "1", "total_posts": "0"},
+        )
+        api.get_category_by_slug.return_value = {"id": 99}
+        return (
+            BlogViews(
+                api=api,
+                category_ids=category_ids,
+                featured_category_ids=featured_category_ids or [],
+            ),
+            api,
+        )
+
+    def _featured_call(self, api):
+        for call in api.get_articles.call_args_list:
+            if call.kwargs.get("sticky") == "true":
+                return call
+        self.fail("no featured (sticky) get_articles call was made")
+
+    def _main_list_call(self, api):
+        for call in api.get_articles.call_args_list:
+            if "exclude" in call.kwargs:
+                return call
+        self.fail("no main-list get_articles call was made")
+
+    def test_featured_query_includes_featured_category_ids(self):
+        views, api = self._make_views([4877], featured_category_ids=[4881])
+
+        views.get_index(page=1)
+
+        categories_sent = self._featured_call(api).kwargs["categories"]
+        self.assertEqual(categories_sent, [4877, 4881])
+
+    def test_main_list_query_excludes_featured_category_ids(self):
+        views, api = self._make_views([4877], featured_category_ids=[4881])
+
+        views.get_index(page=1)
+
+        categories_sent = self._main_list_call(api).kwargs["categories"]
+        self.assertEqual(categories_sent, [4877])
+
+    def test_featured_category_ids_default_leaves_featured_query_scoped(self):
+        views, api = self._make_views([4877])
+
+        views.get_index(page=1)
+
+        categories_sent = self._featured_call(api).kwargs["categories"]
+        self.assertEqual(categories_sent, [4877])
