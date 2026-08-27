@@ -1,3 +1,4 @@
+7.2.0: Allow featuring pinned posts from a category the site does not otherwise carry. `BlogViews` accepts an optional `featured_category_ids` list, OR'd into the featured articles query only, so such a post never enters the main article list. Defaults to empty, so existing consumers are unaffected.
 7.1.0: Add site-scoped category filtering. `BlogViews` accepts an optional `category_ids` list, threaded into every article query (incl. single-article and related-article fetches) as the WordPress `categories` filter. Defaults to no filter, so existing keyword-based consumers are unaffected.
 7.0.0: Render pull-quote blockquotes via the vf_quote_wrapper pattern and show up to four related articles. Requires the host app to provide the `_macros/vf_quote-wrapper.jinja` template.
 6.8.4: Add request timeout (30s), retry logic for transient 5xx errors, and ChunkedEncodingError handler (502).
