@@ -107,4 +107,18 @@ jobs:
             exit 1
           fi
 
+          HIGHEST_VERSION=$(printf '%s\n%s\n' "$OLD_VERSION" "$NEW_VERSION" | sort -V | tail -n1)
+
+          if [ "$HIGHEST_VERSION" != "$NEW_VERSION" ]; then
+            echo "::error::New version ($NEW_VERSION) is not higher than the previous version ($OLD_VERSION)."
+            exit 1
+          fi
+
           echo "Version bumped from $OLD_VERSION to $NEW_VERSION."
+
+          if ! grep -q "$NEW_VERSION" CHANGELOG.txt; then
+            echo "::error::CHANGELOG.txt does not mention the new version ($NEW_VERSION)."
+            exit 1
+          fi
+
+          echo "CHANGELOG.txt mentions the new version ($NEW_VERSION)."
