@@ -177,11 +177,14 @@ class BlogViews:
         return feed.rss_str()
 
     def get_article(self, slug):
+        # Featured-only categories are honoured here too: a post reachable
+        # from the featured panel must be readable, or the link 404s.
+        # Related articles below stay scoped to category_ids.
         article = self.api.get_article(
             slug,
             self.tag_ids,
             self.excluded_tags,
-            categories=self.category_ids,
+            categories=self.category_ids + self.featured_category_ids,
             status=self.status,
         )
 

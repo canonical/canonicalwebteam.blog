@@ -172,3 +172,46 @@ class TestBlogViewsFeaturedCategoryIds(TestCase):
 
         categories_sent = self._featured_call(api).kwargs["categories"]
         self.assertEqual(categories_sent, [4877])
+
+
+class TestBlogViewsFeaturedArticleDetail(TestCase):
+    """A post reachable from the featured panel must also be readable.
+
+    Widening only the featured query makes a pinned announcement linkable
+    from a site whose category it does not carry, while `get_article` still
+    gates on `category_ids` alone - so the link 404s.
+    """
+
+    def _make_views(self, category_ids, featured_category_ids=None):
+        from canonicalwebteam.blog import BlogViews
+
+        api = MagicMock()
+        api.get_articles.return_value = (
+            [],
+            {"total_pages": "1", "total_posts": "0"},
+        )
+        api.get_article.return_value = {}
+        return (
+            BlogViews(
+                api=api,
+                category_ids=category_ids,
+                featured_category_ids=featured_category_ids or [],
+            ),
+            api,
+        )
+
+    def test_get_article_accepts_featured_category_ids(self):
+        views, api = self._make_views([4877], featured_category_ids=[4881])
+
+        views.get_article("an-announcement")
+
+        categories_sent = api.get_article.call_args.kwargs["categories"]
+        self.assertEqual(categories_sent, [4877, 4881])
+
+    def test_get_article_default_stays_scoped_to_category_ids(self):
+        views, api = self._make_views([4877])
+
+        views.get_article("a-post")
+
+        categories_sent = api.get_article.call_args.kwargs["categories"]
+        self.assertEqual(categories_sent, [4877])
