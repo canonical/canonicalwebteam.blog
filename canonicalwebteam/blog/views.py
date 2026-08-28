@@ -83,6 +83,7 @@ class BlogViews:
         tag_ids=[],
         excluded_tags=[],
         category_ids=[],
+        featured_category_ids=[],
         blog_title="Blog",
         blog_path="blog",
         feed_description=None,
@@ -93,6 +94,7 @@ class BlogViews:
         self.tag_ids = tag_ids
         self.excluded_tags = excluded_tags
         self.category_ids = category_ids
+        self.featured_category_ids = featured_category_ids
         self.blog_title = blog_title
         self.blog_path = blog_path.strip("/")
         self.feed_description = feed_description or f"{blog_title} feed"
@@ -109,10 +111,14 @@ class BlogViews:
         events_and_webinars = []
         featured_articles = []
         if page == 1:
+            # Featured-only categories (e.g. announcements) are OR'd in
+            # here but deliberately kept out of the main list query below,
+            # so a pinned post from one of them leaves the page when it is
+            # displaced from the panel instead of descending into the list.
             featured_articles, _ = self.api.get_articles(
                 tags=self.tag_ids,
                 tags_exclude=self.excluded_tags,
-                categories=self.category_ids,
+                categories=self.category_ids + self.featured_category_ids,
                 page=page,
                 sticky="true",
                 per_page=3,

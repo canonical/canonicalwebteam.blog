@@ -72,6 +72,8 @@ blog = build_blueprint(
         blog_path="blog",
         tag_ids=[1, 12, 112],
         excluded_tags=[26, 34],
+        category_ids=[4877],
+        featured_category_ids=[4881],
         per_page=12,
         feed_description="The Ubuntu Blog Feed",
         api=BlogAPI(
@@ -83,6 +85,17 @@ blog = build_blueprint(
     )
 )
 ```
+
+`category_ids` scopes the whole blog to one or more categories: it is ANDed into
+every query, including article detail and related articles, so a post outside it
+returns 404.
+
+`featured_category_ids` is ORed into the **featured articles query only**. Use it
+to surface pinned posts from a category the site does not otherwise carry — for
+example `ubuntu.com/blog` featuring pinned announcements. Because the main article
+list keeps the narrower `category_ids` scope, such a post leaves the page once a
+newer pinned post displaces it from the featured panel, rather than descending
+into the list.
 
 ## Testing
 
