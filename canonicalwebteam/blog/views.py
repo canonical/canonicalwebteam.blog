@@ -377,7 +377,27 @@ class BlogViews:
 
         return feed.rss_str()
 
-    def get_latest_news(self, limit=3, tag_ids=None, group_ids=None):
+    def get_latest_news(
+        self, limit=3, tag_ids=None, group_ids=None, all_articles=False
+    ):
+        # When all_articles is set, return the latest articles in a single
+        # list regardless of sticky status, so featured (sticky) posts are
+        # included instead of being split into a separate pinned slot.
+        if all_articles:
+            latest_articles, _ = self.api.get_articles(
+                tags=tag_ids or self.tag_ids,
+                tags_exclude=self.excluded_tags,
+                categories=self.category_ids,
+                groups=group_ids,
+                page=1,
+                per_page=limit,
+            )
+
+            return {
+                "latest_articles": latest_articles,
+                "latest_pinned_articles": [],
+            }
+
         latest_pinned_articles, _ = self.api.get_articles(
             tags=tag_ids or self.tag_ids,
             tags_exclude=self.excluded_tags,

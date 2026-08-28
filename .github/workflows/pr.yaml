@@ -49,7 +49,7 @@ jobs:
 
       - name: Test Python
         run: python3 -m unittest discover tests
-        
+
   check-inclusive-naming:
     runs-on: ubuntu-latest
 
@@ -63,3 +63,62 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           fail-on-error: true
+
+  check-version-bump:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check version and changelog are updated
+        run: |
+          set -euo pipefail
+
+          VERSION_PATTERN='(?<=version=")[^"]+'
+
+          git fetch origin "${{ github.base_ref }}"
+          BASE_SHA=$(git merge-base "origin/${{ github.base_ref }}" HEAD)
+          CHANGED_FILES=$(git diff --name-only "$BASE_SHA" HEAD)
+
+          echo "Changed files:"
+          echo "$CHANGED_FILES"
+
+          if ! echo "$CHANGED_FILES" | grep -q '^canonicalwebteam/'; then
+            echo "No changes under canonicalwebteam/, skipping version/changelog check."
+            exit 0
+          fi
+
+          MISSING=""
+          echo "$CHANGED_FILES" | grep -qx 'setup.py' || MISSING="$MISSING setup.py"
+          echo "$CHANGED_FILES" | grep -qx 'CHANGELOG.txt' || MISSING="$MISSING CHANGELOG.txt"
+
+          if [ -n "$MISSING" ]; then
+            echo "::error::canonicalwebteam/ was changed but the following files were not updated:$MISSING. Please bump the version in setup.py and add a CHANGELOG.txt entry."
+            exit 1
+          fi
+
+          OLD_VERSION=$(git show "$BASE_SHA:setup.py" | grep -oP "$VERSION_PATTERN" || true)
+          NEW_VERSION=$(grep -oP "$VERSION_PATTERN" setup.py || true)
+
+          if [ "$OLD_VERSION" = "$NEW_VERSION" ]; then
+            echo "::error::setup.py was modified but the version string was not changed ($OLD_VERSION). Please bump the version."
+            exit 1
+          fi
+
+          HIGHEST_VERSION=$(printf '%s\n%s\n' "$OLD_VERSION" "$NEW_VERSION" | sort -V | tail -n1)
+
+          if [ "$HIGHEST_VERSION" != "$NEW_VERSION" ]; then
+            echo "::error::New version ($NEW_VERSION) is not higher than the previous version ($OLD_VERSION)."
+            exit 1
+          fi
+
+          echo "Version bumped from $OLD_VERSION to $NEW_VERSION."
+
+          if ! grep -q "$NEW_VERSION" CHANGELOG.txt; then
+            echo "::error::CHANGELOG.txt does not mention the new version ($NEW_VERSION)."
+            exit 1
+          fi
+
+          echo "CHANGELOG.txt mentions the new version ($NEW_VERSION)."

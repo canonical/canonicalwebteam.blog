@@ -63,6 +63,8 @@ def build_blueprint(blog_views):
             tag_ids=flask.request.args.getlist("tag-id"),
             group_ids=flask.request.args.getlist("group-id"),
             limit=flask.request.args.get("limit", "3"),
+            all_articles=flask.request.args.get("all-articles", "").lower()
+            == "true",
         )
 
         return flask.jsonify(context)
