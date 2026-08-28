@@ -90,12 +90,14 @@ blog = build_blueprint(
 every query, including article detail and related articles, so a post outside it
 returns 404.
 
-`featured_category_ids` is ORed into the **featured articles query only**. Use it
+`featured_category_ids` is ORed into the featured articles query and the
+single-article lookup. Use it
 to surface pinned posts from a category the site does not otherwise carry — for
 example `ubuntu.com/blog` featuring pinned announcements. Because the main article
 list keeps the narrower `category_ids` scope, such a post leaves the page once a
 newer pinned post displaces it from the featured panel, rather than descending
-into the list.
+into the list. The single-article lookup honours it so the featured link does not
+404; related articles stay scoped to `category_ids`.
 
 ## Testing
 
