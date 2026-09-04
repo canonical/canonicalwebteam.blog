@@ -303,6 +303,10 @@ class BlogAPI(Wordpress):
                 if match:
                     img_height = match.group(1)
 
+            # Cloudinary truncates animated images to 100 frames when
+            # transforming them on the fly, so serve WebP as-is
+            bypass_cloudinary = image_url.lower().endswith(".webp")
+
             new_image = BeautifulSoup(
                 image_template(
                     url=image_url,
@@ -313,6 +317,7 @@ class BlogAPI(Wordpress):
                     fill=True,
                     e_sharpen=use_e_sharpen,
                     loading="lazy",
+                    bypass_cloudinary=bypass_cloudinary,
                 ),
                 "html.parser",
             )
