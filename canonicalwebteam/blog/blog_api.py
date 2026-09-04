@@ -285,7 +285,8 @@ class BlogAPI(Wordpress):
         :param content: String to replace url
         :param width: Default width of the image
         :param height: Default height of the image
-        :param bypass_cloudinary: Serve images as-is, skipping Cloudinary
+        :param bypass_cloudinary: Serve animated-capable images (WebP,
+            GIF, AVIF) as-is, skipping Cloudinary
 
         :returns: HTML images templated
         """
@@ -338,7 +339,12 @@ class BlogAPI(Wordpress):
                     fill=True,
                     e_sharpen=use_e_sharpen,
                     loading="lazy",
-                    bypass_cloudinary=bypass_cloudinary,
+                    bypass_cloudinary=(
+                        bypass_cloudinary
+                        and image_url.lower().endswith(
+                            (".webp", ".gif", ".avif")
+                        )
+                    ),
                 ),
                 "html.parser",
             )
