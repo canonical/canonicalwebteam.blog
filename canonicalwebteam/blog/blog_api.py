@@ -12,6 +12,8 @@ from canonicalwebteam import image_template
 # Local
 from canonicalwebteam.blog import Wordpress
 
+BYPASS_CLOUDINARY_CLASS = "wp-bypass-cloudinary"
+
 
 class BlogAPI(Wordpress):
     def __init__(
@@ -254,7 +256,11 @@ class BlogAPI(Wordpress):
         return date(1900, month_index, 1).strftime("%B")
 
     def _apply_image_template(
-        self, content, width, height=None, use_e_sharpen=False
+        self,
+        content,
+        width,
+        height=None,
+        use_e_sharpen=False,
     ):
         """Apply image template to the img tags
 
@@ -303,6 +309,17 @@ class BlogAPI(Wordpress):
                 if match:
                     img_height = match.group(1)
 
+            # The "Additional CSS Class(es)" field on the WordPress Image
+            # block is applied to the block's wrapping element (e.g. a
+            # <figure>), not to the <img> tag itself, so check both.
+            image_classes = image.get("class") or []
+            parent_classes = (
+                image.parent.get("class") or [] if image.parent else []
+            )
+            bypass_cloudinary = BYPASS_CLOUDINARY_CLASS in (
+                image_classes + parent_classes
+            )
+
             new_image = BeautifulSoup(
                 image_template(
                     url=image_url,
@@ -313,6 +330,7 @@ class BlogAPI(Wordpress):
                     fill=True,
                     e_sharpen=use_e_sharpen,
                     loading="lazy",
+                    bypass_cloudinary=bypass_cloudinary,
                 ),
                 "html.parser",
             )
