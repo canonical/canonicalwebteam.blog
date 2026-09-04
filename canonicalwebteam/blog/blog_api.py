@@ -101,6 +101,8 @@ class BlogAPI(Wordpress):
         :returns: The transformed article
         """
 
+        bypass_cloudinary = False
+
         if "_embedded" in article:
             article["image"] = article["_embedded"].get(
                 "wp:featuredmedia", [None]
@@ -118,6 +120,21 @@ class BlogAPI(Wordpress):
                 and article["_embedded"]["wp:term"][3]
             ):
                 article["group"] = article["_embedded"]["wp:term"][3][0]
+
+            wp_term = article["_embedded"].get("wp:term")
+            if wp_term and len(wp_term) > 1:
+                tags = wp_term[1]
+                bypass_cloudinary = any(
+                    tag["name"].strip().lower() == "bypass cloudinary"
+                    for tag in tags
+                )
+                # Internal control tag, not real content: don't
+                # expose it as one of the article's tags
+                wp_term[1] = [
+                    tag
+                    for tag in tags
+                    if tag["name"].strip().lower() != "bypass cloudinary"
+                ]
 
         if "date_gmt" in article:
             article_gmt = article["date_gmt"]
@@ -193,6 +210,7 @@ class BlogAPI(Wordpress):
                 article["content"]["rendered"] = self._apply_image_template(
                     content=article["content"]["rendered"],
                     width=720,
+                    bypass_cloudinary=bypass_cloudinary,
                 )
 
             if "image" in article:
@@ -206,6 +224,7 @@ class BlogAPI(Wordpress):
                         width=self.thumbnail_width,
                         height=self.thumbnail_height,
                         use_e_sharpen=True,
+                        bypass_cloudinary=bypass_cloudinary,
                     )
 
         # extract meta description from yoast_head_json
@@ -254,13 +273,19 @@ class BlogAPI(Wordpress):
         return date(1900, month_index, 1).strftime("%B")
 
     def _apply_image_template(
-        self, content, width, height=None, use_e_sharpen=False
+        self,
+        content,
+        width,
+        height=None,
+        use_e_sharpen=False,
+        bypass_cloudinary=False,
     ):
         """Apply image template to the img tags
 
         :param content: String to replace url
         :param width: Default width of the image
         :param height: Default height of the image
+        :param bypass_cloudinary: Serve images as-is, skipping Cloudinary
 
         :returns: HTML images templated
         """
@@ -302,10 +327,6 @@ class BlogAPI(Wordpress):
                 match = re.search(r"height\s*:\s*(\d+)px", image["style"])
                 if match:
                     img_height = match.group(1)
-
-            # Cloudinary truncates animated images to 100 frames when
-            # transforming them on the fly, so serve WebP as-is
-            bypass_cloudinary = image_url.lower().endswith(".webp")
 
             new_image = BeautifulSoup(
                 image_template(
