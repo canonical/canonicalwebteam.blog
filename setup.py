@@ -17,6 +17,6 @@ setup(
         "feedgen",
         "requests",
         "beautifulsoup4",
-        "canonicalwebteam.image-template>=1.10.0",
+        "canonicalwebteam.image-template==1.10.0",
     ],
 )
