@@ -41,11 +41,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Install system dependencies
         run: |
-          sudo apt update && sudo apt install -y --no-install-recommends python3-setuptools
-          pip3 install flask-reggie vcrpy vcrpy-unittest
-          sudo python3 setup.py install
+          python -m pip install --upgrade pip setuptools
+          pip install flask-reggie vcrpy vcrpy-unittest
+          python -m pip install .
 
       - name: Test Python
         run: python3 -m unittest discover tests
