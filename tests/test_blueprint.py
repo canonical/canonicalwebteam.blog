@@ -70,11 +70,11 @@ class TestBlueprint(VCRTestCase):
             b"admin.insights.ubuntu.com/wp-content/uploads", response.data
         )
         self.assertIn(
-            b"https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34",
+            b"https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902/https%3A%2F%2Fubuntu.com%2Fwp-content%2Fuploads%2F2e4c%2Fdell-xps-2004.jpg&#34",
             response.data,
         )
 
-        image_src = "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902,h_529/https://ubuntu.com/wp-content/uploads/2e4c/dell-xps-2004.jpg&#34"
+        image_src = "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_902/https%3A%2F%2Fubuntu.com%2Fwp-content%2Fuploads%2F2e4c%2Fdell-xps-2004.jpg&#34"
 
         self.assertIn(str.encode(image_src), response.data)
 
@@ -135,10 +135,11 @@ class TestBlueprint(VCRTestCase):
             if image is not None:
                 self.assertIn(
                     "https://res.cloudinary.com/canonical/image/fetch/"
-                    "f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_330,h_185/"
-                    "https://ubuntu.com/wp-content/uploads",
+                    "f_auto,q_auto,fl_sanitize,e_sharpen,c_fill,w_330/"
+                    "https%3A%2F%2Fubuntu.com%2Fwp-content%2Fuploads",
                     image.get("src"),
                 )
+                self.assertEqual(image.get("height"), "185")
 
     def test_category_not_exist(self):
         response = self.test_client.get("/archives?category=not-exist")
