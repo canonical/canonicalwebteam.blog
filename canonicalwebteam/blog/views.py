@@ -585,6 +585,7 @@ class BlogViews:
         :param articles: Articles to create feed from
         """
         feed = FeedGenerator()
+        feed.load_extension("dc")
         feed.generator("Python Feedgen")
         feed.title(feed_title)
         feed.description(feed_description)
@@ -609,10 +610,13 @@ class BlogViews:
                     )
 
             entry = FeedEntry()
+            entry.load_extension("dc")
             entry.title(title)
             entry.description(description)
             entry.content(content)
-            entry.author(name=author["name"], email=author["name"])
+            # WordPress doesn't expose author emails, and RSS <author>
+            # requires one, so the name is only exposed via dc:creator.
+            entry.dc.dc_creator(author["name"])
             entry.link(href=link)
             entry.category(categories)
             entry.published(published)
