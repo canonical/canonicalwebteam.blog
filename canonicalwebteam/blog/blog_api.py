@@ -115,11 +115,11 @@ class BlogAPI(Wordpress):
                 if categories:
                     article["display_category"] = categories[-1]
 
-            if (
-                "wp:term" in article["_embedded"]
-                and article["_embedded"]["wp:term"][3]
-            ):
-                article["group"] = article["_embedded"]["wp:term"][3][0]
+            try:
+                if article["_embedded"]["wp:term"][3]:
+                    article["group"] = article["_embedded"]["wp:term"][3][0]
+            except Exception:
+                article["group"] = None
 
         if "date_gmt" in article:
             article_gmt = article["date_gmt"]
