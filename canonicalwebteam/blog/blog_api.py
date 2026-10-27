@@ -119,7 +119,7 @@ class BlogAPI(Wordpress):
                 if article["_embedded"]["wp:term"][3]:
                     article["group"] = article["_embedded"]["wp:term"][3][0]
             except Exception:
-                pass
+                article["group"] = None
 
         if "date_gmt" in article:
             article_gmt = article["date_gmt"]
