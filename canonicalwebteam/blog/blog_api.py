@@ -115,11 +115,9 @@ class BlogAPI(Wordpress):
                 if categories:
                     article["display_category"] = categories[-1]
 
-            if (
-                "wp:term" in article["_embedded"]
-                and article["_embedded"]["wp:term"][3]
-            ):
-                article["group"] = article["_embedded"]["wp:term"][3][0]
+            wp_terms = article["_embedded"].get("wp:term", [])
+            if len(wp_terms) > 3 and wp_terms[3]:
+                article["group"] = wp_terms[3][0]
 
         if "date_gmt" in article:
             article_gmt = article["date_gmt"]
