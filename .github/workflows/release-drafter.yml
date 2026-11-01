@@ -13,11 +13,11 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Get version number from setup.py
         id: version
         run: printf "version=%s\n" "$(grep '^[[:blank:]]*version' setup.py | cut -d'"' -f 2)" >> "$GITHUB_OUTPUT"
-      - uses: release-drafter/release-drafter@v6
+      - uses: release-drafter/release-drafter@v7
         with:
           tag: "${{ steps.version.outputs.version }}"
           version: "${{ steps.version.outputs.version }}"
